@@ -1,0 +1,29 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Holds the hashed team code. Nothing can read or write it from a browser;
+    // you set it once by hand in the Firestore console.
+    match /config/team {
+      allow read, write: if false;
+    }
+
+    // Shared plays. Anyone with the site URL can read. Uploading requires a
+    // codeHash matching the one stored above, so only people who know the team
+    // code can write. Nothing can be deleted from the browser.
+    match /plays/{playId} {
+      allow read: if true;
+
+      allow create, update: if
+        request.resource.data.codeHash is string
+        && request.resource.data.codeHash ==
+             get(/databases/$(database)/documents/config/team).data.codeHash
+        && request.resource.data.name is string
+        && request.resource.data.name.size() < 120
+        && request.resource.data.data is string
+        && request.resource.data.data.size() < 200000;
+
+      allow delete: if false;
+    }
+  }
+}

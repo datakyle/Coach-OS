@@ -248,3 +248,16 @@ main { padding-bottom: calc(28px + env(safe-area-inset-bottom, 0px)); }
   .itm input { background: none; border: 0; padding: 2px 0; }
   .itm .ctl { display: none; }
 }
+
+/* ===================== team / cloud ===================== */
+#teamBody .setup { font-size: 13.5px; color: var(--muted); }
+#teamBody .setup ol { margin: 8px 0 0; padding-left: 20px; }
+#teamBody .setup li { margin-bottom: 5px; }
+#teamBody .setup code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12.5px; background: var(--sunk); padding: 1px 4px; border-radius: 2px; }
+#teamBody .codefield { display: flex; gap: 6px; align-items: flex-end; margin-bottom: 10px; }
+#teamBody .codefield .field { flex: 1 1 auto; }
+.teamrow { display: flex; align-items: center; gap: 6px; padding: 6px 0; border-bottom: 1px solid var(--hair); }
+.teamrow:last-child { border-bottom: 0; }
+.teamrow .tn { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 14.5px; }
+.teamrow .tby { font-size: 12.5px; color: var(--muted); flex: none; }
+.libitem .up { flex: none; }

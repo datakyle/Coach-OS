@@ -41,8 +41,15 @@ Formations: 1-2-2, Overload R/L, 4 Out, 5 Out, Horns, Box. Defense: 2-3, 3-2,
 
 ## Play Library
 
-Everything you have saved, plus Backup. **Copy all** puts the library on your
-clipboard as text; **Paste in** restores it on another device.
+Everything you have saved, plus Backup and the shared Team library.
+
+**Backup** is offline insurance: **Copy all** puts the library on your clipboard
+as text, **Paste in** restores it on another device.
+
+**Team** is the shared library on Firestore. Upload pushes one of your plays up,
+Pull brings a shared one down. Uploading requires the team code; reading does
+not. It stays switched off until you fill in `js/firebase-config.js`, and the
+site works fine without it. Setup is in [SETUP.md](SETUP.md).
 
 ## Where things are stored
 
@@ -65,8 +72,11 @@ js/store.js       localStorage plus the repo merge
 js/clipboard.js   play designer
 js/practice.js    practice plan
 js/app.js         tabs and boot
+js/cloud.js       shared library over the Firestore REST API
+js/firebase-config.js
 data/plans.json   shared practice plans
 data/plays.json   shared plays
+firestore.rules   security rules to paste into the Firebase console
 ```
 
 Open `index.html` directly or serve the folder with any static server.

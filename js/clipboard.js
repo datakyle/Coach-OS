@@ -515,7 +515,9 @@ function renderLib() {
     var dl = document.createElement("button"); dl.className = "btn sm danger"; dl.innerHTML = "&times;";
     dl.setAttribute("aria-label", "Delete " + p.name);
     dl.onclick = function () { lib.splice(i, 1); writeLib(); renderLib(); };
-    row.appendChild(nm); row.appendChild(ld); row.appendChild(dl);
+    row.appendChild(nm);
+    if (window.CC && window.CC.decorateLibRow) window.CC.decorateLibRow(row, p);
+    row.appendChild(ld); row.appendChild(dl);
     box.appendChild(row);
   });
 }
