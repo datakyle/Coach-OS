@@ -1,0 +1,50 @@
+[
+  {
+    "id": "2026-09-27",
+    "date": "2026-09-27",
+    "start": "16:00",
+    "focus": "Man to man install: ball, deny, help",
+    "items": [
+      { "mins": 5,  "title": "Circle Up", "note": "Thursday's champion asks his question. Two non-negotiables: talk every possession, never get beat standing still." },
+      { "mins": 10, "title": "Game Warmup", "note": "Dynamic warmup into partner passing and full speed layups. Silent pass is a redo." },
+      { "mins": 15, "title": "Syracuse", "note": "Set 1 and Set 2. Team vs team for points, partner rule in effect." },
+      { "mins": 12, "title": "Man defense teach", "note": "Board then floor. On the ball, one pass away, two passes away. Nobody moves silent." },
+      { "mins": 12, "title": "Closeout and recover", "note": "1v1 closeouts, then 2v2 help and recover. Wide open kick out costs the defense a down and back." },
+      { "mins": 14, "title": "Split stations", "note": "Returners on 2v2 screen defense, new guys on stance and slide into closeout shooting." },
+      { "mins": 17, "title": "Game 4v3, man only", "note": "Spacing rule: two offensive players inside 10 feet and the possession is dead." },
+      { "mins": 5,  "title": "Pressure free throws", "note": "Say the shooter's name. Round two, make both and earn the Victory Lap." }
+    ]
+  },
+  {
+    "id": "2026-10-11",
+    "date": "2026-10-11",
+    "start": "16:00",
+    "focus": "Zone offense install vs the 2-3",
+    "items": [
+      { "mins": 5,  "title": "Circle Up", "note": "Ball does not stop in anybody's hands. We do not shoot until the zone has moved." },
+      { "mins": 10, "title": "Game Warmup", "note": "Partner passing into full speed layups, 10 straight makes each side." },
+      { "mins": 15, "title": "Syracuse", "note": "Set 1 and Set 2, team vs team." },
+      { "mins": 10, "title": "Where the holes are", "note": "Board then walk it. Free throw line, short corners, across the top. Make them name all three back." },
+      { "mins": 14, "title": "Split stations: shooting", "note": "Zone spots only. Free throw line, both short corners, both wings." },
+      { "mins": 16, "title": "Install", "note": "Dummy reps first, then live against coaches playing an honest 2-3." },
+      { "mins": 10, "title": "Live vs the 2-3", "note": "Defense in the zone every possession. Shoot before the zone moves and it is a turnover." },
+      { "mins": 10, "title": "Pressure free throws", "note": "Three rounds, last one is five in a row as a team or start over." }
+    ]
+  },
+  {
+    "id": "2026-10-13",
+    "date": "2026-10-13",
+    "start": "16:00",
+    "focus": "Overloading a side, plus Iowa and Walker off the 1-2-2",
+    "items": [
+      { "mins": 5,  "title": "Circle Up", "note": "Today is spacing. Four on one side, one away. Corner first." },
+      { "mins": 10, "title": "Game Warmup", "note": "Dynamic warmup into partner passing and full speed layups." },
+      { "mins": 15, "title": "Syracuse", "note": "Set 3 and Set 4, team vs team for points." },
+      { "mins": 10, "title": "Overload walkthrough", "note": "Nobody moves. Ball goes wing, corner, short corner, high post, skip. Watch the zone slide." },
+      { "mins": 14, "title": "Split stations: shooting", "note": "Overload spots only: wing, corner, short corner, high post." },
+      { "mins": 16, "title": "Install Iowa", "note": "1-2-2, middle ball screen, 1 and 3 relocate, drive the paint, two on one on the weak side." },
+      { "mins": 12, "title": "Install Walker", "note": "Same look. 1 cuts to the corner, 5 screens then pops, two on one behind the screen." },
+      { "mins": 8,  "title": "Live vs the 2-3", "note": "Coaches in the zone. I call Iowa or Walker from the sideline." }
+    ]
+  }
+]
