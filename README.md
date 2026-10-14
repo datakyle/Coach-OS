@@ -1,4 +1,4 @@
-# coaches-corner
+# Coach OS
 
 Personal high school basketball coaching program.
 

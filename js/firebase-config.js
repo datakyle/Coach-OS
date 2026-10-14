@@ -12,6 +12,6 @@
 window.FIREBASE = {
   projectId: "YOUR_PROJECT_ID",
   apiKey: "YOUR_WEB_API_KEY",
-  teamEmail: "team@coaches-corner.app",
-  coachEmail: "coach@coaches-corner.app"
+  teamEmail: "team@coach-os.app",
+  coachEmail: "coach@coach-os.app"
 };

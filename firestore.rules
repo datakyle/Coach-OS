@@ -7,11 +7,11 @@ service cloud.firestore {
     // public API key, so "is signed in" alone would let strangers read.
     function isCoach() {
       return request.auth != null
-        && request.auth.token.email == 'coach@coaches-corner.app';
+        && request.auth.token.email == 'coach@coach-os.app';
     }
     function isTeam() {
       return isCoach()
-        || (request.auth != null && request.auth.token.email == 'team@coaches-corner.app');
+        || (request.auth != null && request.auth.token.email == 'team@coach-os.app');
     }
 
     // Shared plays. Team code can read. Coach code can read, upload, delete.

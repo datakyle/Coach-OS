@@ -15,7 +15,7 @@ Without a code, the site shows no team plays at all.
 ## 1. Make a Firebase project
 
 1. Go to <https://console.firebase.google.com> and click **Create a project**.
-   Name it anything, e.g. `coaches-corner`. Turn Google Analytics **off**. The
+   Name it anything, e.g. `coach-os`. Turn Google Analytics **off**. The
    free Spark plan is plenty.
 2. Left sidebar: **Build → Firestore Database → Create database**. Pick
    **Production mode** and the closest region.
@@ -37,8 +37,8 @@ Authentication → **Users** tab → **Add user**, twice:
 
 | Email | Password |
 |---|---|
-| `team@coaches-corner.app` | your **team code** |
-| `coach@coaches-corner.app` | your **coach code** |
+| `team@coach-os.app` | your **team code** |
+| `coach@coach-os.app` | your **coach code** |
 
 The emails are labels that never receive mail. Type them exactly as shown,
 because `js/firebase-config.js` and `firestore.rules` look for them.
@@ -50,12 +50,12 @@ something nobody would guess for coaches. People only ever type the code.
 ## 4. Register a web app and get the config
 
 1. Project Overview (the house icon) → **Add app** → the **`</>`** web icon.
-2. Nickname it `coaches-corner`. Do **not** tick Firebase Hosting. **Register app**.
+2. Nickname it `coach-os`. Do **not** tick Firebase Hosting. **Register app**.
 3. You get a `firebaseConfig` block. You only need two lines from it:
 
 ```js
 apiKey: "AIzaSy...",
-projectId: "coaches-corner-12345",
+projectId: "coach-os-12345",
 ```
 
 Put them into `js/firebase-config.js`, replacing `YOUR_WEB_API_KEY` and
