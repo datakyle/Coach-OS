@@ -39,41 +39,70 @@ window.CC = (function () {
 
 
   /* ---------- team library ---------- */
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+
   function renderTeam() {
     var box = document.getElementById("teamBody");
     box.textContent = "";
 
     if (!window.Cloud.ready()) {
-      var d = document.createElement("div");
-      d.className = "setup";
+      var d = el("div", "setup");
       d.innerHTML = "Not set up yet. Everything else works without it." +
-        "<ol><li>Make a free Firebase project and a Firestore database.</li>" +
+        "<ol><li>Make a free Firebase project with Firestore and Email/Password sign-in.</li>" +
         "<li>Put its <code>projectId</code> and <code>apiKey</code> into <code>js/firebase-config.js</code>.</li>" +
-        "<li>Pick a team code, store its hash, publish <code>firestore.rules</code>.</li></ol>" +
+        "<li>Create the team and coach accounts, publish <code>firestore.rules</code>.</li></ol>" +
         "<p class=\"note\">Full steps are in SETUP.md in the repo.</p>";
       box.appendChild(d);
       return;
     }
 
-    var wrap = document.createElement("div");
-    wrap.className = "codefield";
-    var f = document.createElement("div"); f.className = "field";
-    var lab = document.createElement("label"); lab.setAttribute("for", "teamCode"); lab.textContent = "Team code";
-    var inp = document.createElement("input");
-    inp.type = "text"; inp.id = "teamCode"; inp.value = window.Cloud.getCode();
-    inp.placeholder = "needed to upload"; inp.spellcheck = false;
-    inp.onchange = function () { window.Cloud.setCode(inp.value.trim()); toast("Code saved on this device."); };
-    f.appendChild(lab); f.appendChild(inp);
-    var ref = document.createElement("button");
-    ref.className = "btn sm"; ref.textContent = "Refresh";
-    ref.onclick = loadTeam;
-    wrap.appendChild(f); wrap.appendChild(ref);
-    box.appendChild(wrap);
+    if (!window.Cloud.role()) { renderSignIn(box); return; }
 
-    var listBox = document.createElement("div");
-    listBox.id = "teamList";
+    var who = el("div", "codefield");
+    var label = window.Cloud.isCoach() ? "Signed in with the coach code" : "Signed in with the team code";
+    who.appendChild(el("span", "who grow", label));
+    var ref = el("button", "btn sm", "Refresh"); ref.onclick = loadTeam;
+    var out = el("button", "btn sm", "Sign out");
+    out.onclick = function () {
+      window.Cloud.signOut(); teamPlays = [];
+      renderTeam(); refreshLib(); toast("Signed out on this device.");
+    };
+    who.appendChild(ref); who.appendChild(out);
+    box.appendChild(who);
+
+    var listBox = el("div"); listBox.id = "teamList";
     box.appendChild(listBox);
     renderTeamList();
+  }
+
+  function renderSignIn(box) {
+    var form = el("form", "codefield");
+    var f = el("div", "field");
+    var lab = el("label", null, "Team code"); lab.setAttribute("for", "teamCode");
+    var inp = el("input");
+    inp.type = "password"; inp.id = "teamCode"; inp.autocomplete = "current-password";
+    inp.placeholder = "from your coach"; inp.spellcheck = false;
+    f.appendChild(lab); f.appendChild(inp);
+    var go = el("button", "btn primary sm", "Sign in"); go.type = "submit";
+    form.appendChild(f); form.appendChild(go);
+    form.onsubmit = function (ev) {
+      ev.preventDefault();
+      go.disabled = true;
+      window.Cloud.signIn(inp.value).then(function (r) {
+        toast(r === "coach" ? "Signed in. You can upload plays." : "Signed in. Here are the team plays.");
+        renderTeam(); refreshLib(); loadTeam();
+      }, function (err) {
+        go.disabled = false;
+        toast(err.message);
+      });
+    };
+    box.appendChild(form);
+    box.appendChild(el("p", "note", "Players use the team code to see the playbook. Coaches use the coach code to upload."));
   }
 
   function renderTeamList() {
@@ -81,16 +110,24 @@ window.CC = (function () {
     if (!box) return;
     box.textContent = "";
     if (!teamPlays.length) {
-      var e = document.createElement("p"); e.className = "empty";
-      e.textContent = "Nothing shared yet. Upload one of yours from the list on the left.";
-      box.appendChild(e); return;
+      box.appendChild(el("p", "empty", window.Cloud.isCoach()
+        ? "Nothing shared yet. Upload one of yours from the list on the left."
+        : "Nothing shared yet."));
+      return;
     }
     teamPlays.forEach(function (t) {
-      var row = document.createElement("div"); row.className = "teamrow";
-      var n = document.createElement("span"); n.className = "tn"; n.textContent = t.name;
-      var by = document.createElement("span"); by.className = "tby"; by.textContent = t.by || "";
-      var pull = document.createElement("button");
-      pull.className = "btn sm"; pull.textContent = "Pull";
+      var row = el("div", "teamrow");
+      row.appendChild(el("span", "tn", t.name));
+
+      var view = el("button", "btn sm", "View");
+      view.onclick = function () {
+        window.Clipboard.open(t.play);
+        show("clip");
+        toast("Showing " + t.play.name + ". Hit Play to run it.");
+      };
+      row.appendChild(view);
+
+      var pull = el("button", "btn sm", "Pull");
       pull.onclick = function () {
         var lib = window.Clipboard.getLib().slice(), at = -1;
         for (var i = 0; i < lib.length; i++) if (lib[i].name === t.play.name) at = i;
@@ -99,29 +136,45 @@ window.CC = (function () {
         window.Clipboard.setLib(lib);
         toast("Pulled " + t.play.name + " into your library.");
       };
-      row.appendChild(n); row.appendChild(by); row.appendChild(pull);
+      row.appendChild(pull);
+
+      if (window.Cloud.isCoach()) {
+        var del = el("button", "btn sm danger");
+        del.innerHTML = "&times;";
+        del.setAttribute("aria-label", "Remove " + t.name + " from the team library");
+        del.onclick = function () {
+          if (!confirm("Remove " + t.name + " from the team library? Players will stop seeing it.")) return;
+          window.Cloud.remove(t.id).then(function () { toast("Removed " + t.name + "."); loadTeam(); },
+            function (err) { toast(err.message); });
+        };
+        row.appendChild(del);
+      }
       box.appendChild(row);
     });
   }
 
   function loadTeam() {
-    if (!window.Cloud.ready()) return;
+    if (!window.Cloud.ready() || !window.Cloud.role()) return;
     window.Cloud.list().then(function (rows) {
       teamPlays = rows;
       renderTeamList();
-      toast(rows.length ? rows.length + " shared plays." : "Nothing shared yet.");
+    }, function (err) {
+      toast(err.message);
+      if (!window.Cloud.role()) { renderTeam(); refreshLib(); }
     });
   }
 
+  /* Upload buttons depend on who is signed in, so redraw the library rows. */
+  function refreshLib() { window.Clipboard.setLib(window.Clipboard.getLib()); }
+
   function decorateLibRow(row, play) {
-    if (!window.Cloud.ready()) return;
-    var up = document.createElement("button");
-    up.className = "btn sm up"; up.textContent = "Upload";
+    if (!window.Cloud.ready() || !window.Cloud.isCoach()) return;
+    var up = el("button", "btn sm up", "Upload");
     up.onclick = function () {
       up.disabled = true;
-      window.Cloud.upload(play, "").then(function () {
+      window.Cloud.upload(play).then(function () {
         up.disabled = false;
-        toast("Shared " + play.name + ".");
+        toast("Shared " + play.name + " with the team.");
         loadTeam();
       }, function (err) {
         up.disabled = false;
@@ -151,7 +204,7 @@ window.CC = (function () {
       window.Practice.init(merged);
     });
     renderTeam();
-    if (window.Cloud.ready()) loadTeam();
+    loadTeam();
 
     window.Store.fetchJSON("data/plays.json").then(function (remote) {
       if (!remote || !remote.length) return;

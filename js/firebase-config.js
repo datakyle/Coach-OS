@@ -1,10 +1,17 @@
-/* Firebase project config. This is NOT a secret: Google publishes these in every
-   web app. What stops strangers writing to your library is the team code, which
-   lives in your coaches' heads and in Firestore rules, never in this file.
+/* Firebase project config. projectId and apiKey are NOT secrets: Google ships
+   them in the page source of every Firebase web app. What keeps your plays
+   private is the two codes, which live in Firebase Auth as passwords, and
+   firestore.rules.
+
+   teamEmail and coachEmail are the two accounts you create in the Firebase
+   console (Authentication -> Users). Nobody ever types them; people type only
+   the code. If you change them here, change them in firestore.rules too.
 
    To fill this in, see SETUP.md. Until projectId is real, the Team panel in the
    Play Library tab just shows the setup steps and everything else works as usual. */
 window.FIREBASE = {
   projectId: "YOUR_PROJECT_ID",
-  apiKey: "YOUR_WEB_API_KEY"
+  apiKey: "YOUR_WEB_API_KEY",
+  teamEmail: "team@coaches-corner.app",
+  coachEmail: "coach@coaches-corner.app"
 };
