@@ -1,3 +1,5 @@
+<p align="center"><img src="icons/logo.svg" alt="Coach OS logo" width="132" height="132"></p>
+
 # Coach OS
 
 Personal high school basketball coaching program.
@@ -75,6 +77,7 @@ js/practice.js    practice plan
 js/app.js         tabs and boot
 js/cloud.js       team sign-in and shared plays over the Firebase REST APIs
 js/firebase-config.js
+icons/            app icons, made with logo-maker-os
 data/plans.json   shared practice plans
 data/plays.json   shared plays
 firestore.rules   security rules to paste into the Firebase console

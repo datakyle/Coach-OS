@@ -158,6 +158,8 @@ details[open] > summary { margin-bottom: 9px; }
   padding: calc(10px + env(safe-area-inset-top, 0px)) 16px 0;
 }
 .appbar .brand { font-family: var(--display); font-size: 26px; font-weight: 600; }
+.appbar .brand { display: inline-flex; align-items: center; gap: 8px; }
+.appbar .brand .mark { display: block; width: 26px; height: 26px; flex: none; }
 .tabs { display: flex; gap: 2px; margin-left: auto; }
 .tab {
   font-family: var(--display); font-size: 17px; letter-spacing: .05em; text-transform: uppercase;
