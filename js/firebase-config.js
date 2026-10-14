@@ -10,8 +10,8 @@
    To fill this in, see SETUP.md. Until projectId is real, the Team panel in the
    Play Library tab just shows the setup steps and everything else works as usual. */
 window.FIREBASE = {
-  projectId: "YOUR_PROJECT_ID",
-  apiKey: "YOUR_WEB_API_KEY",
+  projectId: "coach-os-2d196",
+  apiKey: "AIzaSyDLECyHLVHZt45mH7HPc0cOfGC9bfhhdLY",
   teamEmail: "team@coach-os.app",
   coachEmail: "coach@coach-os.app"
 };
