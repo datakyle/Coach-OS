@@ -2,7 +2,7 @@
 
 Personal high school basketball coaching program.
 
-**Live:** https://datakyle.github.io/coaches-corner/
+**Live:** https://datakyle.github.io/Coach-OS/
 
 Three tabs, no backend, no build step, no dependencies.
 
