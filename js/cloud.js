@@ -128,60 +128,74 @@ window.Cloud = (function () {
     });
   }
 
-  /* ---------- plays ---------- */
+  /* ---------- shared documents ----------
+     Plays and published practices are stored the same way: one document each,
+     with the record itself kept as a JSON string. */
   function slug(s) {
-    return (s || "play").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 60) || "play";
+    return (s || "item").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 60) || "item";
   }
 
   function decode(doc) {
-    var f = doc.fields || {}, play = null;
-    try { play = JSON.parse(f.data.stringValue); } catch (e) {}
+    var f = doc.fields || {}, data = null;
+    try { data = JSON.parse(f.data.stringValue); } catch (e) {}
     return {
       id: doc.name.split("/").pop(),
       name: f.name ? f.name.stringValue : "",
       updated: f.updated ? +f.updated.integerValue : 0,
-      play: play
+      data: data
     };
   }
 
-  function list() {
-    return call("GET", "/plays?pageSize=300").then(function (r) {
-      if (r.status === 403) throw new Error("This code cannot see team plays. Check firestore.rules.");
-      if (!r.ok) throw new Error("Could not load team plays (" + r.status + ").");
+  function list(coll) {
+    return call("GET", "/" + coll + "?pageSize=300").then(function (r) {
+      if (r.status === 403) throw new Error("This code cannot see the team library. Check firestore.rules.");
+      if (!r.ok) throw new Error("Could not load the team library (" + r.status + ").");
       return r.json();
     }).then(function (j) {
-      var out = (j.documents || []).map(decode).filter(function (d) { return d.play; });
+      var out = (j.documents || []).map(decode).filter(function (d) { return d.data; });
       out.sort(function (a, b) { return b.updated - a.updated; });
       return out;
     });
   }
 
-  function upload(play) {
-    if (!isCoach()) return Promise.reject(new Error("Only the coach code can upload."));
+  function put(coll, id, name, data) {
+    if (!isCoach()) return Promise.reject(new Error("Only the coach code can share with the team."));
     var body = { fields: {
-      name:    { stringValue: play.name || "Untitled" },
-      data:    { stringValue: JSON.stringify(play) },
+      name:    { stringValue: name || "Untitled" },
+      data:    { stringValue: JSON.stringify(data) },
       updated: { integerValue: String(Date.now()) }
     } };
-    return call("PATCH", "/plays/" + encodeURIComponent(slug(play.name)), body).then(function (r) {
+    return call("PATCH", "/" + coll + "/" + encodeURIComponent(id), body).then(function (r) {
       if (r.ok) return true;
-      if (r.status === 403) throw new Error("Upload was refused. Only the coach code can upload.");
-      throw new Error("Upload failed (" + r.status + ").");
+      if (r.status === 403) throw new Error("Refused. Only the coach code can share with the team.");
+      throw new Error("Sharing failed (" + r.status + ").");
     });
   }
 
-  function remove(id) {
-    if (!isCoach()) return Promise.reject(new Error("Only the coach code can delete."));
-    return call("DELETE", "/plays/" + encodeURIComponent(id)).then(function (r) {
+  function remove(coll, id) {
+    if (!isCoach()) return Promise.reject(new Error("Only the coach code can remove things."));
+    return call("DELETE", "/" + coll + "/" + encodeURIComponent(id)).then(function (r) {
       if (r.ok) return true;
-      throw new Error("Delete failed (" + r.status + ").");
+      throw new Error("Remove failed (" + r.status + ").");
     });
   }
+
+  var plays = {
+    list: function () { return list("plays"); },
+    upload: function (play) { return put("plays", slug(play.name), play.name, play); },
+    remove: function (id) { return remove("plays", id); }
+  };
+  /* Published practices are keyed by date, so republishing a day replaces it. */
+  var practices = {
+    list: function () { return list("practices"); },
+    publish: function (plan) { return put("practices", plan.date, plan.focus || plan.date, plan); },
+    remove: function (id) { return remove("practices", id); }
+  };
 
   return {
     ready: ready,
     role: role, isCoach: isCoach,
     signIn: signIn, signOut: signOut,
-    list: list, upload: upload, remove: remove
+    plays: plays, practices: practices
   };
 })();

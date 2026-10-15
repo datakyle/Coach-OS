@@ -1,16 +1,16 @@
 # Turning on the team playbook
 
-Takes about 15 minutes, once. Until it is done the site works normally and the
-Team panel just shows these steps.
+Takes about 15 minutes, once. Until it is done the site works normally, just
+without the team features.
 
 When it is done there are two codes:
 
 | Code | Who gets it | What it does |
 |---|---|---|
-| **Team code** | Players | See the shared plays, open them on the Clipboard and run them |
-| **Coach code** | You and your staff | All of that, plus upload and remove plays |
+| **Team code** | Players | Watch the team's plays and open published practices |
+| **Coach code** | You and your staff | All of that, plus share plays and publish practices |
 
-Without a code, the site shows no team plays at all.
+Without a code, the site shows no team plays or practices at all.
 
 ## 1. Make a Firebase project
 
@@ -74,16 +74,21 @@ Authentication → **Settings** → **Authorized domains** → **Add domain** �
 Firestore Database → **Rules** tab → replace everything with the contents of
 `firestore.rules` in this repo → **Publish**.
 
+If you ever update the app and `firestore.rules` changed, paste it in again.
+(The Coach OS redesign added published practices, which need the newer rules.)
+
 ## 7. Use it
 
-Open the live site → **Play Library** tab → **Team** panel → type a code →
-**Sign in**. Each device stays signed in until someone taps **Sign out** or you
-change the code.
+Open the live site and tap **Team sign in** at the bottom of the sidebar. Type
+a code. Each device stays signed in until someone taps it again to sign out, or
+you change the code.
 
-- **Coaches** see an **Upload** button on each of their own plays, and an
-  **×** on shared plays to remove them.
-- **Players** see the shared list. **View** opens a play on the Clipboard,
-  where **Play** runs it. **Pull** saves a copy on their device.
+- **Play Library** shows **Team plays** above **My plays**. Pick one to watch it
+  run. Coaches get **Share with team** on their own plays and **Remove from
+  team** on shared ones. Anyone can **Save to my plays** or **Edit**.
+- **Practice Plan → Publish** shows the day as a one-page sheet. Coaches tap
+  **Publish to team**; everyone signed in sees it under **Published practices**
+  and can download the PDF.
 
 ## Changing a code
 

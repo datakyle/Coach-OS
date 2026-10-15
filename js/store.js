@@ -32,12 +32,41 @@ window.Store = (function () {
       .catch(function () { return null; });
   }
 
+  /* ---------- the play library: one list, keyed by name ---------- */
+  var plays = null, listeners = [];
+  function changed() {
+    var ok = set(K.plays, plays);
+    listeners.forEach(function (fn) { fn(); });
+    return ok;
+  }
+  var Plays = {
+    init: function (seed) { plays = get(K.plays, null); if (!plays) { plays = seed || []; set(K.plays, plays); } },
+    list: function () { return plays || []; },
+    find: function (name) {
+      for (var i = 0; i < plays.length; i++) if (plays[i].name === name) return plays[i];
+      return null;
+    },
+    /* Save by name: same name replaces, a new name is added. */
+    put: function (play) {
+      var copy = JSON.parse(JSON.stringify(play)), at = -1;
+      for (var i = 0; i < plays.length; i++) if (plays[i].name === copy.name) at = i;
+      if (at >= 0) plays[at] = copy; else plays.push(copy);
+      return changed();
+    },
+    remove: function (name) {
+      plays = plays.filter(function (p) { return p.name !== name; });
+      return changed();
+    },
+    replaceAll: function (arr) { plays = arr; return changed(); },
+    mergeIn: function (remote) { plays = merge(plays, remote, "name"); return changed(); },
+    subscribe: function (fn) { listeners.push(fn); }
+  };
+
   return {
-    loadPlays: function () { return get(K.plays, null); },
-    savePlays: function (a) { return set(K.plays, a); },
     loadPlans: function () { return get(K.plans, null); },
     savePlans: function (a) { return set(K.plans, a); },
     merge: merge,
-    fetchJSON: fetchJSON
+    fetchJSON: fetchJSON,
+    plays: Plays
   };
 })();

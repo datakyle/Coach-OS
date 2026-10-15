@@ -14,18 +14,26 @@ service cloud.firestore {
         || (request.auth != null && request.auth.token.email == 'team@coach-os.app');
     }
 
-    // Shared plays. Team code can read. Coach code can read, upload, delete.
-    match /plays/{playId} {
-      allow read: if isTeam();
-
-      allow create, update: if isCoach()
-        && request.resource.data.keys().hasOnly(['name', 'data', 'updated'])
+    // One shared record: a name, the record as a JSON string, a timestamp.
+    function validRecord() {
+      return request.resource.data.keys().hasOnly(['name', 'data', 'updated'])
         && request.resource.data.name is string
         && request.resource.data.name.size() < 120
         && request.resource.data.data is string
         && request.resource.data.data.size() < 200000
         && request.resource.data.updated is int;
+    }
 
+    // Shared plays and published practices. Team code can read.
+    // Coach code can read, share, and remove.
+    match /plays/{playId} {
+      allow read: if isTeam();
+      allow create, update: if isCoach() && validRecord();
+      allow delete: if isCoach();
+    }
+    match /practices/{day} {
+      allow read: if isTeam();
+      allow create, update: if isCoach() && validRecord();
       allow delete: if isCoach();
     }
 
