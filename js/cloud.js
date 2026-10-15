@@ -1,16 +1,13 @@
-/* Shared play library on Firestore, behind a team code. Talks to the plain REST
-   APIs so there is no SDK to download.
+/* Shared play library on Firestore, behind one password. Talks to the plain
+   REST APIs so there is no SDK to download.
 
-   Signing in is Firebase Auth with email + password, where the "password" is the
-   code people type and the email is fixed in firebase-config.js. There are two
-   accounts:
-
-     team   the code you give players. Can see shared plays and nothing else.
-     coach  the code for you and your staff. Can also upload and delete.
+   Signing in is Firebase Auth with email + password. There is one account; its
+   email is fixed in firebase-config.js and people only ever type the password.
+   Anyone with the password can see, share and remove team plays and practices.
 
    Nothing in this file decides who can see what. firestore.rules does, by
-   checking which of those two accounts signed in. A stranger with the site URL
-   and no code gets nothing back. */
+   checking that exact account signed in. A stranger with the site URL and no
+   password gets nothing back. */
 window.Cloud = (function () {
   "use strict";
 
@@ -20,7 +17,7 @@ window.Cloud = (function () {
   var refreshing = null;
 
   function ready() {
-    return !!(cfg.projectId && cfg.apiKey && cfg.teamEmail && cfg.coachEmail &&
+    return !!(cfg.projectId && cfg.apiKey && cfg.coachEmail &&
       cfg.projectId.indexOf("YOUR_") !== 0 && cfg.apiKey.indexOf("YOUR_") !== 0);
   }
   function base() {
@@ -29,8 +26,13 @@ window.Cloud = (function () {
   }
 
   /* ---------- session ---------- */
+  /* Sessions from the old view-only team account are dropped, so those devices
+     ask once for the one password. */
   function loadSession() {
-    try { return JSON.parse(localStorage.getItem(SKEY)) || null; } catch (e) { return null; }
+    try {
+      var s = JSON.parse(localStorage.getItem(SKEY));
+      return s && s.role === "coach" ? s : null;
+    } catch (e) { return null; }
   }
   function saveSession() {
     try {
@@ -45,13 +47,13 @@ window.Cloud = (function () {
     var m = (j && j.error && j.error.message) || "";
     var e;
     if (/INVALID_LOGIN_CREDENTIALS|INVALID_PASSWORD|EMAIL_NOT_FOUND/.test(m)) {
-      e = new Error("That code was not recognized."); e.badCode = true;
+      e = new Error("That password is not right."); e.badCode = true;
     } else if (/TOO_MANY_ATTEMPTS/.test(m)) {
       e = new Error("Too many tries. Wait a few minutes and try again.");
     } else if (/USER_DISABLED/.test(m)) {
       e = new Error("That code has been switched off.");
     } else if (/TOKEN_EXPIRED|INVALID_REFRESH_TOKEN|USER_NOT_FOUND/.test(m)) {
-      e = new Error("The team code changed. Enter the new one."); e.signedOut = true;
+      e = new Error("The password changed. Enter the new one."); e.signedOut = true;
     } else {
       e = new Error("Sign in failed" + (m ? " (" + m + ")." : "."));
     }
@@ -72,7 +74,7 @@ window.Cloud = (function () {
   }
 
   function trySignIn(asRole, code) {
-    var email = asRole === "coach" ? cfg.coachEmail : cfg.teamEmail;
+    var email = cfg.coachEmail;
     return post("https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=" + cfg.apiKey,
       { email: email, password: code, returnSecureToken: true })
       .then(function (j) {
@@ -83,15 +85,11 @@ window.Cloud = (function () {
       });
   }
 
-  /* Players are the common case, so the team account is tried first. */
   function signIn(code) {
     if (!ready()) return Promise.reject(new Error("Cloud is not set up yet."));
     code = (code || "").trim();
-    if (code.length < 6) return Promise.reject(new Error("Codes are at least 6 characters."));
-    return trySignIn("team", code).catch(function (err) {
-      if (!err.badCode) throw err;
-      return trySignIn("coach", code);
-    });
+    if (code.length < 6) return Promise.reject(new Error("The password is at least 6 characters."));
+    return trySignIn("coach", code);
   }
 
   function signOut() { session = null; saveSession(); }
@@ -100,7 +98,7 @@ window.Cloud = (function () {
      when it runs out. Changing a code in the Firebase console kills every
      refresh token for that account, which is how you sign everyone out. */
   function token() {
-    if (!session) return Promise.reject(new Error("Enter the team code first."));
+    if (!session) return Promise.reject(new Error("Sign in first."));
     if (session.token && Date.now() < session.exp) return Promise.resolve(session.token);
     if (refreshing) return refreshing;
     refreshing = post("https://securetoken.googleapis.com/v1/token?key=" + cfg.apiKey,
@@ -159,7 +157,7 @@ window.Cloud = (function () {
   }
 
   function put(coll, id, name, data) {
-    if (!isCoach()) return Promise.reject(new Error("Only the coach code can share with the team."));
+    if (!isCoach()) return Promise.reject(new Error("Sign in first."));
     var body = { fields: {
       name:    { stringValue: name || "Untitled" },
       data:    { stringValue: JSON.stringify(data) },
@@ -167,13 +165,13 @@ window.Cloud = (function () {
     } };
     return call("PATCH", "/" + coll + "/" + encodeURIComponent(id), body).then(function (r) {
       if (r.ok) return true;
-      if (r.status === 403) throw new Error("Refused. Only the coach code can share with the team.");
+      if (r.status === 403) throw new Error("Refused. Sign out and sign in again.");
       throw new Error("Sharing failed (" + r.status + ").");
     });
   }
 
   function remove(coll, id) {
-    if (!isCoach()) return Promise.reject(new Error("Only the coach code can remove things."));
+    if (!isCoach()) return Promise.reject(new Error("Sign in first."));
     return call("DELETE", "/" + coll + "/" + encodeURIComponent(id)).then(function (r) {
       if (r.ok) return true;
       throw new Error("Remove failed (" + r.status + ").");

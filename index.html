@@ -42,7 +42,7 @@
 
   <button class="nav team" id="teamNav">
     <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><circle cx="9" cy="8" r="3.4"/><path d="M2.8 20a6.2 6.2 0 0 1 12.4 0z"/><circle cx="16.6" cy="8.8" r="2.7"/><path d="M16.4 13.4a5.3 5.3 0 0 1 5.3 5.9h-4.6"/></svg></span>
-    <span class="lbl" id="teamLbl">Team sign in</span><span class="lbl short">Team</span>
+    <span class="lbl" id="teamLbl">Sign in</span><span class="lbl short">Sign in</span>
   </button>
 </nav>
 
@@ -254,11 +254,13 @@
 
 <dialog id="signin">
   <form method="dialog" id="signinForm">
-    <h2>Team sign in</h2>
-    <p class="note">Players use the team code to see plays and practices. Coaches use the coach code to share them.</p>
+    <h2>Sign in</h2>
+    <p class="note">One password unlocks team plays and practices on this device. It stays signed in until you sign out.</p>
+    <!-- Hidden username so password managers save and fill the password. -->
+    <input type="text" id="signinUser" name="username" autocomplete="username" value="coach@coach-os.app" hidden readonly>
     <div class="field">
-      <label for="teamCode">Code</label>
-      <input type="password" id="teamCode" autocomplete="current-password" spellcheck="false">
+      <label for="teamCode">Password</label>
+      <input type="password" id="teamCode" name="password" autocomplete="current-password" spellcheck="false">
     </div>
     <div class="row" style="margin-top:14px">
       <button class="btn" value="cancel" id="signinCancel" formnovalidate>Cancel</button>

@@ -2,7 +2,7 @@
    the minutes on each item. Past practices stay in the history list.
 
    Two modes. Edit is the working agenda. Publish turns the same practice into
-   a one-page sheet: download it as a PDF, or (coach code) publish it so the
+   a one-page sheet: download it as a PDF, or publish it so the
    staff and players can open it from their own devices. */
 window.Practice = (function () {
   "use strict";
@@ -302,7 +302,7 @@ window.Practice = (function () {
 
     if (!cloud.ready()) return;
     if (!cloud.role()) {
-      var n = el("p", "empty", "Sign in with your team code to see practices your staff published. ");
+      var n = el("p", "empty", "Sign in to see published practices. ");
       var a = el("button", "linkbtn", "Sign in");
       a.onclick = function () { window.CC.signIn(); };
       n.appendChild(a);
@@ -346,7 +346,7 @@ window.Practice = (function () {
   function publish() {
     var cloud = window.Cloud;
     if (!cloud.isCoach()) {
-      window.CC.toast(cloud.role() ? "Only the coach code can publish." : "Sign in with the coach code to publish.");
+      window.CC.toast("Sign in to publish.");
       if (!cloud.role()) window.CC.signIn();
       return;
     }

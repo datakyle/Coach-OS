@@ -2,16 +2,13 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // The two Firebase Auth accounts from js/firebase-config.js. Checking the
-    // exact email matters: anyone can create *some* Firebase account with your
-    // public API key, so "is signed in" alone would let strangers read.
+    // The one Firebase Auth account from js/firebase-config.js; its password
+    // unlocks Coach OS. Checking the exact email matters: anyone can create
+    // *some* Firebase account with your public API key, so "is signed in"
+    // alone would let strangers in.
     function isCoach() {
       return request.auth != null
         && request.auth.token.email == 'coach@coach-os.app';
-    }
-    function isTeam() {
-      return isCoach()
-        || (request.auth != null && request.auth.token.email == 'team@coach-os.app');
     }
 
     // One shared record: a name, the record as a JSON string, a timestamp.
@@ -24,15 +21,14 @@ service cloud.firestore {
         && request.resource.data.updated is int;
     }
 
-    // Shared plays and published practices. Team code can read.
-    // Coach code can read, share, and remove.
+    // Shared plays and published practices. Signed in: read, share, remove.
     match /plays/{playId} {
-      allow read: if isTeam();
+      allow read: if isCoach();
       allow create, update: if isCoach() && validRecord();
       allow delete: if isCoach();
     }
     match /practices/{day} {
-      allow read: if isTeam();
+      allow read: if isCoach();
       allow create, update: if isCoach() && validRecord();
       allow delete: if isCoach();
     }

@@ -3,14 +3,9 @@
 Takes about 15 minutes, once. Until it is done the site works normally, just
 without the team features.
 
-When it is done there are two codes:
-
-| Code | Who gets it | What it does |
-|---|---|---|
-| **Team code** | Players | Watch the team's plays and open published practices |
-| **Coach code** | You and your staff | All of that, plus share plays and publish practices |
-
-Without a code, the site shows no team plays or practices at all.
+When it is done there is one password. Anyone who signs in with it can see,
+share and remove team plays and published practices. Without it, the site
+shows no team plays or practices at all.
 
 ## 1. Make a Firebase project
 
@@ -31,21 +26,18 @@ Still in Authentication: **Settings** tab → **User actions** → untick
 This stops anyone else making accounts in your project. The rules in step 6 keep
 them out anyway, but this way they cannot even try.
 
-## 3. Create the two accounts
+## 3. Create the account
 
-Authentication → **Users** tab → **Add user**, twice:
+Authentication → **Users** tab → **Add user**:
 
 | Email | Password |
 |---|---|
-| `team@coach-os.app` | your **team code** |
-| `coach@coach-os.app` | your **coach code** |
+| `coach@coach-os.app` | your **Coach OS password** |
 
-The emails are labels that never receive mail. Type them exactly as shown,
-because `js/firebase-config.js` and `firestore.rules` look for them.
+The email is a label that never receives mail. Type it exactly as shown,
+because `js/firebase-config.js` and `firestore.rules` look for it.
 
-Codes must be at least 6 characters and the two must be different. Pick
-things that are easy to say out loud at practice: `huskies-ball-26` for players,
-something nobody would guess for coaches. People only ever type the code.
+The password must be at least 6 characters. People only ever type the password.
 
 ## 4. Register a web app and get the config
 
@@ -62,7 +54,7 @@ Put them into `js/firebase-config.js`, replacing `YOUR_WEB_API_KEY` and
 `YOUR_PROJECT_ID`, and commit. (Or send them to Claude and it will do it.)
 
 That API key is not a secret. Google ships it in the page source of every
-Firebase web app. The codes and the rules are what protect you.
+Firebase web app. The password and the rules are what protect you.
 
 ## 5. Allow the live site to sign in
 
@@ -75,40 +67,41 @@ Firestore Database → **Rules** tab → replace everything with the contents of
 `firestore.rules` in this repo → **Publish**.
 
 If you ever update the app and `firestore.rules` changed, paste it in again.
-(The Coach OS redesign added published practices, which need the newer rules.)
 
 ## 7. Use it
 
-Open the live site and tap **Team sign in** at the bottom of the sidebar. Type
-a code. Each device stays signed in until someone taps it again to sign out, or
-you change the code.
+Open the live site and tap **Sign in** at the bottom of the sidebar. Type the
+password. When your phone or browser offers to save it, say yes: next time on
+that device, and on your other devices signed in to the same Apple or Google
+account, it fills itself in. Each device stays signed in until you tap
+**Signed in · sign out**, or you change the password.
 
 - **Play Library** shows **Team plays** above **My plays**. Pick one to watch it
-  run. Coaches get **Share with team** on their own plays and **Remove from
-  team** on shared ones. Anyone can **Save to my plays** or **Edit**.
-- **Practice Plan → Publish** shows the day as a one-page sheet. Coaches tap
-  **Publish to team**; everyone signed in sees it under **Published practices**
-  and can download the PDF.
+  run. **Share with team** puts one of your plays in the team library;
+  **Remove from team** takes a shared one out.
+- **Practice Plan → Publish** shows the day as a one-page sheet. **Publish to
+  team** puts it under **Published practices** on every signed-in device, and
+  anyone can download the PDF.
 
-## Changing a code
+## Forgot the password, or changing it
 
-If a code leaks, or at the start of a new season: Authentication → **Users** →
-the account's **⋮** menu → **Delete account**, then **Add user** again with the
-same email and the new code. (The console's "Reset password" sends an email,
-which these accounts cannot receive, so do not use it.)
+Authentication → **Users** → the `coach@coach-os.app` row's **⋮** menu →
+**Delete account**, then **Add user** again with the same email and a new
+password. Nothing shared is lost: plays and practices live in Firestore, not in
+the account. (The console's "Reset password" sends an email, which this account
+cannot receive, so do not use it.)
 
-Every device signed in with the old code is signed out within the hour and
+Every device signed in with the old password is signed out within the hour and
 asked for the new one.
 
 ## What this does and does not protect
 
-Shared plays can only be read by someone signed in with one of your two codes,
-and only the coach code can change them. Firebase also slows down anyone who
-keeps guessing codes.
+Shared plays and practices can only be read or changed by someone signed in
+with the password. Firebase also slows down anyone who keeps guessing.
 
-The team code is shared by the whole roster, so treat it like a locker combo,
-not a bank password: once a player knows it, so can anyone they tell. Change it
-when that matters.
+Everyone with the password can change everything, so give it only to people
+you trust to edit the playbook. If you later want a view-only password for
+players, that can be added back.
 
-Plays in `data/plays.json` in this repo are **not** behind the code. That file
+Plays in `data/plays.json` in this repo are **not** behind the password. That file
 is public on GitHub. Put team plays in the Team library, not there.
