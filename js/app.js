@@ -50,13 +50,12 @@ window.CC = (function () {
     var cloud = window.Cloud, b = $("teamNav"), lbl = $("teamLbl");
     b.hidden = !cloud.ready();
     b.classList.toggle("signed", !!cloud.role());
-    lbl.textContent = cloud.isCoach() ? "Coach · sign out" : cloud.role() ? "Team · sign out" : "Team sign in";
-    b.title = cloud.isCoach() ? "Signed in with the coach code" : cloud.role() ? "Signed in with the team code" : "Sign in with your team code";
+    lbl.textContent = cloud.role() ? "Signed in · sign out" : "Sign in";
+    b.title = cloud.role() ? "Signed in on this device" : "Sign in with the Coach OS password";
   }
 
   function signIn() {
     var d = $("signin");
-    $("teamCode").value = "";
     if (d.showModal) d.showModal(); else d.setAttribute("open", "");
     setTimeout(function () { $("teamCode").focus(); }, 30);
   }
@@ -84,7 +83,7 @@ window.CC = (function () {
       go.disabled = true;
       window.Cloud.signIn($("teamCode").value).then(function (role) {
         closeSignIn();
-        toast(role === "coach" ? "Signed in. You can share plays and publish practices." : "Signed in. Team plays and practices are open.");
+        toast("Signed in. Team plays and practices are open.");
         teamChanged();
       }, function (err) { toast(err.message); })
         .then(function () { go.disabled = false; });

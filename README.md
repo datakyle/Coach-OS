@@ -25,7 +25,7 @@ on what you are doing. Every practice you save goes into History.
 
 - **Download PDF** saves it as a single letter page. Long practices shrink to
   fit, so it is always one page.
-- **Publish to team** (coach code) puts it online for your staff and players.
+- **Publish to team** (signed in) puts it online for your staff and players.
   They find it under **Published practices** and can download the same PDF.
   Republishing a date replaces it.
 

@@ -41,7 +41,7 @@ function renderList() {
   if (!cloud.ready()) { $("teamSection").hidden = true; return; }
   $("teamSection").hidden = false;
   if (!cloud.role()) {
-    var p = make("p", "empty", "Sign in with your team code to see the team's plays. ");
+    var p = make("p", "empty", "Sign in to see the team's plays. ");
     var a = make("button", "linkbtn", "Sign in");
     a.onclick = function () { window.CC.signIn(); };
     p.appendChild(a);
