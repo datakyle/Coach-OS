@@ -1,26 +1,37 @@
-# coaches-corner
+<p align="center"><img src="icons/logo.svg" alt="Coach OS logo" width="132" height="132"></p>
+
+# Coach OS
 
 Personal high school basketball coaching program.
 
-**Live:** https://datakyle.github.io/coaches-corner/
+**Live:** https://datakyle.github.io/Coach-OS/
 
-Three tabs, no backend, no build step, no dependencies.
+Three pages in a sidebar: Practice Plan, Play Creator, Play Library. No build
+step and no server of its own.
 
 ## Practice Plan
 
-An agenda for the day. Set the start time and the minutes on each item and the
-clock column fills itself in. Each row is a drill plus one sentence on what you
-are doing. Every practice you save goes into History, so the season is a list you
-can scroll.
+Two modes, switched at the top right.
+
+**Edit** is the agenda for the day. Set the start time and the minutes on each
+item and the clock column fills itself in. Each row is a drill plus one sentence
+on what you are doing. Every practice you save goes into History.
 
 - **Blocks** drops a standard item (Circle Up, Syracuse, split stations, free
   throws) straight into today.
 - **Copy last practice** clones the most recent one onto today's date.
-- **Print** gives you a clean sheet with the controls stripped out.
 
-## Clipboard
+**Publish** turns the same practice into a clean one-page sheet.
 
-A play designer. Pick a tool, tap the floor.
+- **Download PDF** saves it as a single letter page. Long practices shrink to
+  fit, so it is always one page.
+- **Publish to team** (coach code) puts it online for your staff and players.
+  They find it under **Published practices** and can download the same PDF.
+  Republishing a date replaces it.
+
+## Play Creator
+
+Build a play, one step at a time. Pick a tool, tap the floor.
 
 | Tool | What it does | How it draws |
 |---|---|---|
@@ -33,30 +44,33 @@ A play designer. Pick a tool, tap the floor.
 | Ball | Give a player the ball | — |
 | Def | Move a defender | dashed grey line |
 
-Build the play one step at a time, then **Play** to run it. **Show every step at
-once** turns the whole thing into a single static diagram for the whiteboard.
+**Play** runs it. **Show every step at once** turns it into one static diagram
+for the whiteboard. **Save** puts it in the Play Library.
 
 Formations: 1-2-2, Overload R/L, 4 Out, 5 Out, Horns, Box. Defense: 2-3, 3-2,
 1-3-1, Man.
 
 ## Play Library
 
-Everything you have saved, plus Backup and the shared Team library.
+Every play in one list. Pick one and it opens in a viewer (full screen on a
+phone) where **Play**, **Step** and **Reset** run it. **Edit** opens it in Play
+Creator.
 
-**Backup** is offline insurance: **Copy all** puts the library on your clipboard
-as text, **Paste in** restores it on another device.
+- **Team plays** come from Firebase once you sign in with a code. Coaches can
+  share their own plays and remove shared ones.
+- **My plays** live in this browser.
+- **Backup** copies My plays out as text, or pastes them back in on another
+  device.
 
-**Team** is the shared library on Firestore. Upload pushes one of your plays up,
-Pull brings a shared one down. Uploading requires the team code; reading does
-not. It stays switched off until you fill in `js/firebase-config.js`, and the
-site works fine without it. Setup is in [SETUP.md](SETUP.md).
+Team sign-in sits at the bottom of the sidebar. It stays hidden until
+`js/firebase-config.js` has a real project in it. Setup is in [SETUP.md](SETUP.md).
 
 ## Where things are stored
 
 In the browser, via `localStorage`. No account and no server, which is what keeps
 this free to host and instant to load. Two consequences worth knowing: the iPad
 and a laptop keep separate libraries, and clearing site data wipes them. Use
-Backup now and then.
+Backup now and then, or share plays with the team.
 
 `data/plans.json` and `data/plays.json` are the shared copies in this repo.
 Anything in them that your browser has not seen is merged in on load, and local
@@ -66,17 +80,21 @@ shows up on the iPad without a database.
 ## Layout
 
 ```
-index.html        shell and tabs
-css/app.css       everything visual
-js/store.js       localStorage plus the repo merge
-js/clipboard.js   play designer
-js/practice.js    practice plan
-js/app.js         tabs and boot
-js/cloud.js       shared library over the Firestore REST API
+index.html          sidebar and the three pages
+css/app.css         everything visual
+js/store.js         localStorage, the play library, and the repo merge
+js/court.js         formations, replay, and drawing a court (used twice)
+js/creator.js       Play Creator
+js/library.js       Play Library and its viewer
+js/practice.js      Practice Plan: edit, publish, PDF
+js/app.js           sidebar, team sign-in, boot
+js/cloud.js         team sign-in and shared records over the Firebase REST APIs
 js/firebase-config.js
-data/plans.json   shared practice plans
-data/plays.json   shared plays
-firestore.rules   security rules to paste into the Firebase console
+js/vendor/          jsPDF, loaded only when someone downloads a PDF
+icons/              app icons, made with logo-maker-os
+data/plans.json     shared practice plans
+data/plays.json     shared plays
+firestore.rules     security rules to paste into the Firebase console
 ```
 
 Open `index.html` directly or serve the folder with any static server.

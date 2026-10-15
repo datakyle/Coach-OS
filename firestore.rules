@@ -2,28 +2,41 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // Holds the hashed team code. Nothing can read or write it from a browser;
-    // you set it once by hand in the Firestore console.
-    match /config/team {
-      allow read, write: if false;
+    // The two Firebase Auth accounts from js/firebase-config.js. Checking the
+    // exact email matters: anyone can create *some* Firebase account with your
+    // public API key, so "is signed in" alone would let strangers read.
+    function isCoach() {
+      return request.auth != null
+        && request.auth.token.email == 'coach@coach-os.app';
+    }
+    function isTeam() {
+      return isCoach()
+        || (request.auth != null && request.auth.token.email == 'team@coach-os.app');
     }
 
-    // Shared plays. Anyone with the site URL can read. Uploading requires a
-    // codeHash matching the one stored above, so only people who know the team
-    // code can write. Nothing can be deleted from the browser.
-    match /plays/{playId} {
-      allow read: if true;
-
-      allow create, update: if
-        request.resource.data.codeHash is string
-        && request.resource.data.codeHash ==
-             get(/databases/$(database)/documents/config/team).data.codeHash
+    // One shared record: a name, the record as a JSON string, a timestamp.
+    function validRecord() {
+      return request.resource.data.keys().hasOnly(['name', 'data', 'updated'])
         && request.resource.data.name is string
         && request.resource.data.name.size() < 120
         && request.resource.data.data is string
-        && request.resource.data.data.size() < 200000;
-
-      allow delete: if false;
+        && request.resource.data.data.size() < 200000
+        && request.resource.data.updated is int;
     }
+
+    // Shared plays and published practices. Team code can read.
+    // Coach code can read, share, and remove.
+    match /plays/{playId} {
+      allow read: if isTeam();
+      allow create, update: if isCoach() && validRecord();
+      allow delete: if isCoach();
+    }
+    match /practices/{day} {
+      allow read: if isTeam();
+      allow create, update: if isCoach() && validRecord();
+      allow delete: if isCoach();
+    }
+
+    // Everything else is closed.
   }
 }

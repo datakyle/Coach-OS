@@ -1,11 +1,19 @@
-/* Practice Plan tab: one agenda per date, times computed from the start time
-   and the minutes on each item. Past practices stay in the history list. */
+/* Practice Plan: one agenda per date, times computed from the start time and
+   the minutes on each item. Past practices stay in the history list.
+
+   Two modes. Edit is the working agenda. Publish turns the same practice into
+   a one-page sheet: download it as a PDF, or (coach code) publish it so the
+   staff and players can open it from their own devices. */
 window.Practice = (function () {
   "use strict";
 
   var plans = [];      // newest first
   var cur = null;      // the plan on screen
   var dirty = false;
+  var mode = "edit";
+  var teamPlans = [];  // published practices from Firebase, newest first
+  var teamError = "";
+  var shown = null;    // in Publish mode: null = this practice, else a published id
 
   var BLOCKS = [
     { mins: 5,  title: "Circle Up",        note: "Question of the day, set the focus, split teams." },
@@ -35,6 +43,11 @@ window.Practice = (function () {
   function fmtClockFull(mins) {
     return fmtClock(mins) + " " + (Math.floor(mins / 60) % 24 < 12 ? "AM" : "PM");
   }
+  function fmtDateLong(iso) {
+    var p = (iso || "").split("-");
+    if (p.length !== 3) return iso || "";
+    return new Date(+p[0], +p[1] - 1, +p[2]).toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric", year: "numeric" });
+  }
   function fmtDate(iso) {
     var p = (iso || "").split("-");
     if (p.length !== 3) return iso || "";
@@ -53,7 +66,7 @@ window.Practice = (function () {
   /* ---------- plan list ---------- */
   function sortPlans() { plans.sort(function (a, b) { return a.date < b.date ? 1 : a.date > b.date ? -1 : 0; }); }
 
-  function savePlan() {
+  function savePlan(quiet) {
     cur.date = document.getElementById("planDate").value || todayISO();
     cur.id = cur.date;
     cur.start = document.getElementById("planStart").value || "16:00";
@@ -64,7 +77,7 @@ window.Practice = (function () {
     else plans.push(JSON.parse(JSON.stringify(cur)));
     sortPlans();
     if (!window.Store.savePlans(plans)) window.CC.toast("Could not save to this browser.");
-    else window.CC.toast("Saved " + fmtDate(cur.date));
+    else if (!quiet) window.CC.toast("Saved " + fmtDate(cur.date));
     dirty = false;
     renderHistory();
   }
@@ -178,6 +191,281 @@ window.Practice = (function () {
     });
   }
 
+  /* ---------- publish mode ---------- */
+  function setMode(m) {
+    mode = m === "publish" ? "publish" : "edit";
+    try { localStorage.setItem("cc.planmode", mode); } catch (e) {}
+    document.getElementById("planEdit").hidden = mode !== "edit";
+    document.getElementById("planPublish").hidden = mode !== "publish";
+    [].slice.call(document.querySelectorAll("#page-plan .seg button")).forEach(function (b) {
+      var on = b.getAttribute("data-mode") === mode;
+      b.classList.toggle("on", on);
+      b.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+    if (mode === "publish") { shown = null; renderPublish(); }
+  }
+
+  function findTeam(id) {
+    for (var i = 0; i < teamPlans.length; i++) if (teamPlans[i].id === id) return teamPlans[i];
+    return null;
+  }
+  function shownPlan() {
+    var t = shown && findTeam(shown);
+    return t ? t.data : cur;
+  }
+  function sameAs(a, b) {
+    var pick = function (p) { return JSON.stringify([p.date, p.start, p.focus || "", p.items]); };
+    return pick(a) === pick(b);
+  }
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+
+  /* The one-page sheet, as it appears on screen. The PDF follows the same layout. */
+  function renderSheet(p) {
+    var sh = document.getElementById("sheet");
+    sh.textContent = "";
+    var head = el("header", "sh-head");
+    var logo = el("img"); logo.src = "icons/icon.svg"; logo.alt = ""; logo.width = 22; logo.height = 22;
+    head.appendChild(logo);
+    head.appendChild(el("span", "sh-brand", "Coach OS"));
+    head.appendChild(el("span", "sh-kind", "Practice plan"));
+    sh.appendChild(head);
+
+    sh.appendChild(el("h2", "sh-date", fmtDateLong(p.date)));
+    if (p.focus) {
+      var f = el("p", "sh-focus");
+      f.appendChild(el("span", "k", "Working on "));
+      f.appendChild(document.createTextNode(p.focus));
+      sh.appendChild(f);
+    }
+    var start = parseHM(p.start), total = totalMins(p);
+    sh.appendChild(el("p", "sh-window", p.items.length
+      ? fmtClockFull(start) + " to " + fmtClockFull(start + total) + "  ·  " + total + " minutes  ·  " + p.items.length + " items"
+      : "Nothing scheduled yet. Switch to Edit and add items."));
+
+    if (!p.items.length) return;
+    var tb = el("table", "sh-table");
+    var hr = el("tr");
+    ["Time", "Min", "Drill"].forEach(function (h) { hr.appendChild(el("th", null, h)); });
+    var thead = el("thead"); thead.appendChild(hr); tb.appendChild(thead);
+    var body = el("tbody"), t = start;
+    p.items.forEach(function (it) {
+      var r = el("tr");
+      r.appendChild(el("td", "t", fmtClock(t)));
+      r.appendChild(el("td", "m", String(+it.mins || 0)));
+      var d = el("td", "d");
+      d.appendChild(el("div", "dt", it.title || "Untitled"));
+      if (it.note) d.appendChild(el("div", "dn", it.note));
+      r.appendChild(d);
+      body.appendChild(r);
+      t += (+it.mins || 0);
+    });
+    tb.appendChild(body);
+    sh.appendChild(tb);
+  }
+
+  function renderPublish() {
+    if (mode !== "publish") return;
+    var cloud = window.Cloud;
+    if (shown && !findTeam(shown)) shown = null;
+    var p = shownPlan();
+    renderSheet(p);
+
+    /* status line and the Publish button */
+    var st = document.getElementById("pubStatus"), pub = document.getElementById("btnPublish");
+    var live = findTeam(cur.date);
+    if (shown) {
+      st.textContent = "Published practice";
+      st.className = "status live";
+      pub.hidden = true;
+    } else {
+      pub.hidden = !cloud.ready();
+      pub.textContent = live ? "Update published copy" : "Publish to team";
+      if (!cloud.ready()) { st.textContent = "Draft"; st.className = "status"; }
+      else if (!live) { st.textContent = "Draft · not published"; st.className = "status"; }
+      else if (sameAs(live.data, cur)) { st.textContent = "Published"; st.className = "status live"; pub.hidden = true; }
+      else { st.textContent = "Changed since you published"; st.className = "status warn"; }
+    }
+
+    /* the list on the right */
+    var box = document.getElementById("pubList");
+    box.textContent = "";
+    var mine = el("button", "hrow" + (!shown ? " on" : ""));
+    mine.appendChild(el("span", "hd", fmtDate(cur.date)));
+    mine.appendChild(el("span", "hf", "This practice"));
+    mine.onclick = function () { shown = null; renderPublish(); };
+    box.appendChild(mine);
+
+    if (!cloud.ready()) return;
+    if (!cloud.role()) {
+      var n = el("p", "empty", "Sign in with your team code to see practices your staff published. ");
+      var a = el("button", "linkbtn", "Sign in");
+      a.onclick = function () { window.CC.signIn(); };
+      n.appendChild(a);
+      box.appendChild(n);
+      return;
+    }
+    if (teamError) { box.appendChild(el("p", "empty", teamError)); return; }
+    if (!teamPlans.length) { box.appendChild(el("p", "empty", "Nothing published yet.")); return; }
+    teamPlans.forEach(function (t) {
+      var b = el("button", "hrow" + (shown === t.id ? " on" : ""));
+      b.appendChild(el("span", "hd", fmtDate(t.data.date)));
+      b.appendChild(el("span", "hf", t.data.focus || (t.data.items.length + " items")));
+      b.onclick = function () { shown = t.id; renderPublish(); };
+      box.appendChild(b);
+    });
+
+    if (shown) {
+      var t = findTeam(shown), acts = el("div", "row pubacts");
+      var copy = el("button", "btn sm", "Copy into Edit");
+      copy.onclick = function () {
+        if (dirty && !confirm("Replace the practice you are editing with this one?")) return;
+        openPlan(t.data); renderHistory(); setMode("edit");
+        window.CC.toast("Loaded " + fmtDate(t.data.date) + ". Save it to keep a copy here.");
+        dirty = true;
+      };
+      acts.appendChild(copy);
+      if (cloud.isCoach()) {
+        var rm = el("button", "btn sm danger", "Unpublish");
+        rm.onclick = function () {
+          if (!confirm("Unpublish " + fmtDate(t.data.date) + "? Your staff and players will stop seeing it.")) return;
+          cloud.practices.remove(t.id).then(function () {
+            window.CC.toast("Unpublished."); shown = null; loadTeam();
+          }, function (err) { window.CC.toast(err.message); });
+        };
+        acts.appendChild(rm);
+      }
+      box.appendChild(acts);
+    }
+  }
+
+  function publish() {
+    var cloud = window.Cloud;
+    if (!cloud.isCoach()) {
+      window.CC.toast(cloud.role() ? "Only the coach code can publish." : "Sign in with the coach code to publish.");
+      if (!cloud.role()) window.CC.signIn();
+      return;
+    }
+    if (!cur.items.length) { window.CC.toast("Add something to the practice first."); return; }
+    savePlan(true);
+    var b = document.getElementById("btnPublish");
+    b.disabled = true;
+    cloud.practices.publish(JSON.parse(JSON.stringify(cur))).then(function () {
+      window.CC.toast("Published " + fmtDate(cur.date) + " to the team.");
+      loadTeam();
+    }, function (err) { window.CC.toast(err.message); })
+      .then(function () { b.disabled = false; });
+  }
+
+  function loadTeam() {
+    var cloud = window.Cloud;
+    if (!cloud.ready() || !cloud.role()) { teamPlans = []; teamError = ""; renderPublish(); return; }
+    cloud.practices.list().then(function (rows) {
+      teamPlans = rows.sort(function (a, b) { return a.data.date < b.data.date ? 1 : a.data.date > b.data.date ? -1 : 0; });
+      teamError = ""; renderPublish();
+    }, function (err) { teamPlans = []; teamError = err.message; renderPublish(); });
+  }
+
+  /* ---------- PDF ----------
+     jsPDF is vendored in js/vendor and only loaded the first time someone
+     downloads, so the app itself stays light. */
+  var pdfLib = null;
+  function loadPdf() {
+    if (pdfLib) return pdfLib;
+    pdfLib = new Promise(function (ok, fail) {
+      var s = document.createElement("script");
+      s.src = "js/vendor/jspdf.umd.min.js";
+      s.onload = function () { window.jspdf ? ok(window.jspdf.jsPDF) : fail(new Error("no jsPDF")); };
+      s.onerror = function () { pdfLib = null; fail(new Error("Could not load the PDF maker. Check your connection.")); };
+      document.head.appendChild(s);
+    });
+    return pdfLib;
+  }
+  function loadLogo() {
+    return fetch("icons/icon-180.png").then(function (r) { return r.blob(); }).then(function (b) {
+      return new Promise(function (ok) { var fr = new FileReader(); fr.onload = function () { ok(fr.result); }; fr.readAsDataURL(b); });
+    }).catch(function () { return null; });
+  }
+
+  /* One letter page. Lay the sheet out, and if it runs long, shrink everything
+     a little and try again until it fits. */
+  function buildPdf(JsPDF, p, logo) {
+    var doc = new JsPDF({ unit: "pt", format: "letter" });
+    var W = 612, H = 792, M = 50, inner = W - 2 * M;
+    var colM = M + 66, colD = M + 108, wD = W - M - colD;
+    var ink = [21, 24, 29], muted = [91, 99, 112], orange = [201, 82, 26], hair = [217, 221, 227];
+    var start = parseHM(p.start), total = totalMins(p);
+
+    function lay(s, draw) {
+      var y = M, fs;
+      var txt = function (str, x, yy, opt) { if (draw) doc.text(str, x, yy, opt); };
+      var font = function (style, size, color) { doc.setFont("helvetica", style); doc.setFontSize(size); doc.setTextColor(color[0], color[1], color[2]); };
+
+      if (draw && logo) doc.addImage(logo, "PNG", M, y, 22, 22);
+      font("bold", 11, orange); txt("COACH OS", M + (logo ? 30 : 0), y + 15);
+      font("normal", 10, muted); txt("Practice plan", W - M, y + 15, { align: "right" });
+      y += 44;
+
+      fs = 24 * s; font("bold", fs, ink); txt(fmtDateLong(p.date), M, y + fs * 0.78); y += fs * 1.2;
+      if (p.focus) {
+        fs = 13.5 * s; font("normal", fs, ink);
+        var fl = doc.splitTextToSize("Working on: " + p.focus, inner);
+        txt(fl, M, y + fs * 0.8, { lineHeightFactor: 1.25 }); y += fl.length * fs * 1.25 + 2 * s;
+      }
+      fs = 11 * s; font("normal", fs, muted);
+      txt(fmtClockFull(start) + " to " + fmtClockFull(start + total) + "   ·   " + total + " minutes   ·   " + p.items.length + " items", M, y + fs * 0.8);
+      y += fs * 1.5 + 6 * s;
+
+      if (draw) { doc.setDrawColor(ink[0], ink[1], ink[2]); doc.setLineWidth(1.4); doc.line(M, y, W - M, y); }
+      y += 16 * s;
+
+      fs = 8.5 * s; font("bold", fs, muted);
+      txt("TIME", M, y); txt("MIN", colM, y); txt("DRILL", colD, y);
+      y += 10 * s;
+
+      var t = start;
+      p.items.forEach(function (it) {
+        var tf = 12.5 * s, nf = 10.5 * s, pad = 9 * s;
+        font("bold", tf, ink);
+        var tl = doc.splitTextToSize(it.title || "Untitled", wD);
+        font("normal", nf, muted);
+        var nl = it.note ? doc.splitTextToSize(it.note, wD) : [];
+        var h = pad + tl.length * tf * 1.2 + (nl.length ? 2 * s + nl.length * nf * 1.3 : 0) + pad;
+        if (draw) {
+          var base = y + pad + tf * 0.8;
+          font("bold", tf, ink); doc.text(fmtClock(t), M, base);
+          font("normal", tf, muted); doc.text(String(+it.mins || 0), colM, base);
+          font("bold", tf, ink); doc.text(tl, colD, base, { lineHeightFactor: 1.2 });
+          if (nl.length) { font("normal", nf, muted); doc.text(nl, colD, base - tf * 0.8 + tl.length * tf * 1.2 + 2 * s + nf * 0.8, { lineHeightFactor: 1.3 }); }
+          doc.setDrawColor(hair[0], hair[1], hair[2]); doc.setLineWidth(0.8); doc.line(M, y + h, W - M, y + h);
+        }
+        y += h;
+        t += (+it.mins || 0);
+      });
+      return y;
+    }
+
+    var s = 1;
+    while (s > 0.5 && lay(s, false) > H - M) s -= 0.04;
+    lay(s, true);
+    return doc;
+  }
+
+  function downloadPdf() {
+    var p = shownPlan();
+    if (!p.items.length) { window.CC.toast("Nothing to put on the sheet yet."); return; }
+    var b = document.getElementById("btnPdf");
+    b.disabled = true;
+    Promise.all([loadPdf(), loadLogo()]).then(function (r) {
+      buildPdf(r[0], p, r[1]).save("Practice " + p.date + ".pdf");
+    }).catch(function (err) { window.CC.toast(err.message || "Could not make the PDF."); })
+      .then(function () { b.disabled = false; });
+  }
+
   /* ---------- wiring ---------- */
   function wire() {
     document.getElementById("planDate").onchange = function () { cur.date = this.value; cur.id = this.value; dirty = true; render(); };
@@ -187,7 +475,7 @@ window.Practice = (function () {
     document.getElementById("btnAddItem").onclick = function () {
       cur.items.push({ mins: 10, title: "", note: "" }); dirty = true; render();
     };
-    document.getElementById("btnSavePlan").onclick = savePlan;
+    document.getElementById("btnSavePlan").onclick = function () { savePlan(); };
     document.getElementById("btnNewPlan").onclick = function () {
       openPlan(blank(todayISO())); renderHistory();
     };
@@ -199,7 +487,12 @@ window.Practice = (function () {
       openPlan(copy); renderHistory();
       window.CC.toast("Copied " + fmtDate(last.date) + " into today.");
     };
-    document.getElementById("btnPrint").onclick = function () { window.print(); };
+
+    [].slice.call(document.querySelectorAll("#page-plan .seg button")).forEach(function (b) {
+      b.onclick = function () { setMode(b.getAttribute("data-mode")); };
+    });
+    document.getElementById("btnPdf").onclick = downloadPdf;
+    document.getElementById("btnPublish").onclick = publish;
   }
 
   function init(seedPlans) {
@@ -209,7 +502,10 @@ window.Practice = (function () {
     for (var i = 0; i < plans.length; i++) if (plans[i].date === today) found = plans[i];
     cur = found ? JSON.parse(JSON.stringify(found)) : (plans[0] ? JSON.parse(JSON.stringify(plans[0])) : blank(today));
     wire(); renderBlocks(); renderHistory(); render();
+    var saved = "edit";
+    try { saved = localStorage.getItem("cc.planmode") || "edit"; } catch (e) {}
+    setMode(saved);
   }
 
-  return { init: init, getPlans: function () { return plans; } };
+  return { init: init, loadTeam: loadTeam, refresh: renderPublish, getPlans: function () { return plans; } };
 })();

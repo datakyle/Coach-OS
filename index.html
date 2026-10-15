@@ -5,29 +5,61 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
 <meta name="theme-color" content="#F1F3F5">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Coaches Corner">
-<title>Coaches Corner</title>
+<meta name="apple-mobile-web-app-title" content="Coach OS">
+<title>Coach OS</title>
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="icon" href="icons/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="manifest" href="manifest.webmanifest">
 <link rel="stylesheet" href="css/app.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
 </head>
 <body>
+<div class="shell">
 
-<header class="appbar">
-  <span class="brand">Coaches Corner</span>
-  <nav class="tabs" role="tablist" aria-label="Sections">
-    <button class="tab on" role="tab" id="tb-plan" aria-controls="tab-plan" aria-selected="true" data-tab="plan">Practice Plan</button>
-    <button class="tab" role="tab" id="tb-clip" aria-controls="tab-clip" aria-selected="false" data-tab="clip">Clipboard</button>
-    <button class="tab" role="tab" id="tb-lib" aria-controls="tab-lib" aria-selected="false" data-tab="lib">Play Library</button>
-  </nav>
-</header>
+<!-- ============ SIDEBAR ============
+     Glyphs are from logo-maker-os (whistle, draw, film, team). -->
+<nav class="sidenav" aria-label="Coach OS">
+  <a class="brand" href="#plan">
+    <img class="mark" src="icons/icon.svg" alt="" width="34" height="34">
+    <span class="word">Coach OS</span>
+  </a>
+
+  <div class="navlist">
+    <button class="nav" data-page="plan">
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="14.5" r="6.2" fill="currentColor"/><path d="M9 8.3h11.2a.8.8 0 0 1 .8.8v3.4a.8.8 0 0 1-.8.8H14.2" fill="currentColor"/><circle cx="9" cy="14.5" r="2.1" fill="var(--hole)"/><circle cx="4.6" cy="5.4" r="2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
+      <span class="lbl">Practice Plan</span><span class="lbl short">Plan</span>
+    </button>
+    <button class="nav" data-page="create">
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="6.2" cy="17.4" r="3.3" stroke-width="2.2"/><path d="M14.6 3.4l4.8 4.8M19.4 3.4l-4.8 4.8" stroke-width="2.4"/><path d="M10.4 17.4h4.6a2 2 0 0 0 2-2V11.6M14.2 13.6l2.8-3 2.8 3" stroke-width="2.2"/></svg></span>
+      <span class="lbl">Play Creator</span><span class="lbl short">Create</span>
+    </button>
+    <button class="nav" data-page="library">
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7.5" y="3" width="13.5" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="3" y="7.5" width="14.5" height="13" rx="2.2" fill="currentColor"/><path d="M8.6 10.9v6.2l5-3.1z" fill="var(--hole)"/></svg></span>
+      <span class="lbl">Play Library</span><span class="lbl short">Plays</span>
+    </button>
+  </div>
+
+  <button class="nav team" id="teamNav">
+    <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><circle cx="9" cy="8" r="3.4"/><path d="M2.8 20a6.2 6.2 0 0 1 12.4 0z"/><circle cx="16.6" cy="8.8" r="2.7"/><path d="M16.4 13.4a5.3 5.3 0 0 1 5.3 5.9h-4.6"/></svg></span>
+    <span class="lbl" id="teamLbl">Team sign in</span><span class="lbl short">Team</span>
+  </button>
+</nav>
 
 <main>
 
 <!-- ============ PRACTICE PLAN ============ -->
-<section class="page" id="tab-plan" role="tabpanel" aria-labelledby="tb-plan">
-  <div class="agendawrap">
+<section class="page" id="page-plan" hidden>
+  <header class="pagehead">
+    <h1>Practice Plan</h1>
+    <div class="seg" role="group" aria-label="Mode">
+      <button data-mode="edit">Edit</button>
+      <button data-mode="publish">Publish</button>
+    </div>
+  </header>
 
-    <div class="agenda" id="agenda">
+  <div class="agendawrap" id="planEdit">
+    <div class="agenda">
       <div class="agendahead">
         <div class="ahrow">
           <div class="field grow">
@@ -55,7 +87,6 @@
       <div class="row" style="margin-top:6px">
         <button class="btn sm" id="btnNewPlan">New practice</button>
         <button class="btn sm" id="btnCopyPlan">Copy last practice</button>
-        <button class="btn sm" id="btnPrint">Print</button>
       </div>
     </div>
 
@@ -70,44 +101,37 @@
         <div class="row" id="blocks"></div>
       </div>
     </aside>
+  </div>
 
+  <div class="pubwrap" id="planPublish" hidden>
+    <div class="sheetcol">
+      <div class="pubbar">
+        <span class="status" id="pubStatus"></span>
+        <button class="btn primary" id="btnPdf">Download PDF</button>
+        <button class="btn" id="btnPublish">Publish to team</button>
+      </div>
+      <article class="sheet" id="sheet" aria-label="Practice sheet"></article>
+    </div>
+    <aside class="panel">
+      <h3>Published practices</h3>
+      <div id="pubList"></div>
+    </aside>
   </div>
 </section>
 
-<!-- ============ CLIPBOARD ============ -->
-<section class="page" id="tab-clip" role="tabpanel" aria-labelledby="tb-clip" hidden>
+<!-- ============ PLAY CREATOR ============ -->
+<section class="page" id="page-create" hidden>
+  <header class="pagehead">
+    <h1>Play Creator</h1>
+    <input id="playname" type="text" value="" aria-label="Play name" placeholder="Play name" spellcheck="false">
+    <button class="btn primary" id="btnSave">Save</button>
+    <button class="btn" id="btnNew">New</button>
+  </header>
+
   <div class="app">
-
-    <div class="top">
-      <input id="playname" type="text" value="" aria-label="Play name" spellcheck="false">
-      <button class="btn primary" id="btnSave">Save</button>
-      <button class="btn" id="btnNew">New</button>
-    </div>
-
-    <div class="courtcard">
-      <svg class="court" id="court" viewBox="0 0 560 440" role="img" aria-label="Half basketball court for designing plays">
-        <defs>
-          <marker id="ah-move" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="4.6" markerHeight="4.6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--move)"/></marker>
-          <marker id="ah-ball" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="4.6" markerHeight="4.6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--ball)"/></marker>
-          <marker id="ah-def" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="4.4" markerHeight="4.4" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--def)"/></marker>
-        </defs>
-        <rect class="court-bg" x="30" y="40" width="500" height="360" rx="2"/>
-        <rect class="court-line" x="30" y="40" width="500" height="360"/>
-        <rect class="court-line" x="220" y="40" width="120" height="190"/>
-        <circle class="court-line" cx="280" cy="230" r="60"/>
-        <path class="court-line" d="M 89.7 40 A 197.5 197.5 0 1 0 470.3 40"/>
-        <line class="court-line" x1="250" y1="80" x2="310" y2="80"/>
-        <circle class="hoop" cx="280" cy="93" r="9"/>
-        <circle class="rimflash" id="rimflash" cx="280" cy="93" r="26"/>
-        <g id="layerGhost"></g>
-        <g id="layerPath"></g>
-        <g id="layerTok"></g>
-        <circle class="ball" id="ballTok" cx="-99" cy="-99" r="8.5"/>
-      </svg>
-    </div>
+    <div class="courtcard" id="createCourt"></div>
 
     <div class="side">
-
       <div class="panel">
         <h3>Tool</h3>
         <div class="tools" id="tools">
@@ -137,7 +161,7 @@
           <button class="btn" id="btnStepFwd">Step</button>
           <button class="btn" id="btnReset">Reset</button>
         </div>
-        <div class="row" style="margin-top:6px">
+        <div class="row" style="margin-top:6px" id="createSpeed">
           <button class="btn sm" data-speed="1600">Slow</button>
           <button class="btn sm on" data-speed="1100">Normal</button>
           <button class="btn sm" data-speed="700">Fast</button>
@@ -164,43 +188,93 @@
         </div>
         <p class="note">Formations reset the starting spots and clear the steps.</p>
       </div>
-
     </div>
   </div>
 </section>
 
 <!-- ============ PLAY LIBRARY ============ -->
-<section class="page" id="tab-lib" role="tabpanel" aria-labelledby="tb-lib" hidden>
-  <div class="libwrap">
-    <div class="panel">
-      <h3>Your plays</h3>
-      <div id="lib"></div>
-    </div>
-    <div class="panel" id="teamPanel">
-      <h3>Team</h3>
-      <div id="teamBody"></div>
-    </div>
+<section class="page" id="page-library" hidden>
+  <header class="pagehead">
+    <h1>Play Library</h1>
+    <button class="btn" id="btnLibNew">+ New play</button>
+  </header>
 
-    <div class="panel">
-      <h3>Backup</h3>
-      <p class="note" style="margin-top:0">Plays are stored in this browser. Copy them out now and then, or to move them to another device.</p>
-      <div class="row">
-        <button class="btn sm" id="btnExport">Copy all</button>
-        <button class="btn sm" id="btnImport">Paste in</button>
+  <div class="libwrap">
+    <aside class="liblist">
+      <div class="panel" id="teamSection">
+        <h3>Team plays</h3>
+        <div id="libTeam"></div>
       </div>
-      <textarea id="io" spellcheck="false" placeholder="Copy all puts your whole library here. To restore it on another device, paste it here and hit Paste in."></textarea>
+      <div class="panel">
+        <h3>My plays</h3>
+        <div id="libMine"></div>
+      </div>
+      <details class="panel">
+        <summary>Backup</summary>
+        <p class="note" style="margin-top:0">My plays live in this browser. Copy them out now and then, or to move them to another device.</p>
+        <div class="row">
+          <button class="btn sm" id="btnExport">Copy all</button>
+          <button class="btn sm" id="btnImport">Paste in</button>
+        </div>
+        <textarea id="io" spellcheck="false" placeholder="Copy all puts your plays here. To restore them on another device, paste here and hit Paste in."></textarea>
+      </details>
+    </aside>
+
+    <div class="viewer" id="viewer">
+      <div class="viewempty" id="viewEmpty">
+        <p>Pick a play to watch it run.</p>
+      </div>
+      <div class="viewbody" id="viewBody" hidden>
+        <div class="viewhead">
+          <button class="btn sm back" id="viewBack" aria-label="Back to plays">&larr; Plays</button>
+          <h2 id="viewName"></h2>
+          <span class="src" id="viewSrc"></span>
+        </div>
+        <div class="courtcard" id="viewCourt"></div>
+        <div class="viewctl">
+          <button class="btn primary" id="vPlay">Play</button>
+          <button class="btn" id="vStep">Step</button>
+          <button class="btn" id="vReset">Reset</button>
+          <span class="vstep" id="vStepLbl"></span>
+          <div class="seg sm" id="vSpeed" role="group" aria-label="Speed">
+            <button data-speed="1600">Slow</button>
+            <button data-speed="1100" class="on">Normal</button>
+            <button data-speed="700">Fast</button>
+          </div>
+          <label class="check"><input type="checkbox" id="vAll"> All steps</label>
+        </div>
+        <div class="viewact" id="viewAct"></div>
+      </div>
     </div>
   </div>
 </section>
 
 </main>
+</div>
 
-<div class="toast" id="toast"></div>
+<dialog id="signin">
+  <form method="dialog" id="signinForm">
+    <h2>Team sign in</h2>
+    <p class="note">Players use the team code to see plays and practices. Coaches use the coach code to share them.</p>
+    <div class="field">
+      <label for="teamCode">Code</label>
+      <input type="password" id="teamCode" autocomplete="current-password" spellcheck="false">
+    </div>
+    <div class="row" style="margin-top:14px">
+      <button class="btn" value="cancel" id="signinCancel" formnovalidate>Cancel</button>
+      <button class="btn primary grow" id="signinGo">Sign in</button>
+    </div>
+  </form>
+</dialog>
+
+<div class="toast" id="toast" role="status"></div>
 
 <script src="js/firebase-config.js"></script>
 <script src="js/store.js"></script>
 <script src="js/cloud.js"></script>
-<script src="js/clipboard.js"></script>
+<script src="js/court.js"></script>
+<script src="js/creator.js"></script>
+<script src="js/library.js"></script>
 <script src="js/practice.js"></script>
 <script src="js/app.js"></script>
 </body>
