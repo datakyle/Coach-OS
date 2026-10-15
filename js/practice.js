@@ -202,7 +202,7 @@ window.Practice = (function () {
       b.classList.toggle("on", on);
       b.setAttribute("aria-pressed", on ? "true" : "false");
     });
-    if (mode === "publish") { shown = null; renderPublish(); }
+    if (mode === "publish") { shown = null; renderPublish(); preparePdf().catch(function () {}); }
   }
 
   function findTeam(id) {
@@ -455,15 +455,59 @@ window.Practice = (function () {
     return doc;
   }
 
+  /* The PDF is built and handed over inside the tap itself. iPhone and iPad
+     Safari drop a download that starts after anything asynchronous, so the
+     PDF maker and logo are fetched as soon as Publish mode opens. */
+  var pdfReady = null;   /* { lib, logo } once loaded */
+  function preparePdf() {
+    if (pdfReady) return Promise.resolve(pdfReady);
+    return Promise.all([loadPdf(), loadLogo()]).then(function (r) {
+      pdfReady = { lib: r[0], logo: r[1] };
+      return pdfReady;
+    });
+  }
+
+  /* Phones and tablets get the share sheet (Save to Files, Print, AirDrop);
+     computers get a normal download. */
+  function deliverPdf(doc, name) {
+    var blob = doc.output("blob");
+    var file = null;
+    try { file = new File([blob], name, { type: "application/pdf" }); } catch (e) {}
+    var touch = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
+    if (touch && file && navigator.canShare && navigator.canShare({ files: [file] })) {
+      return navigator.share({ files: [file], title: name }).catch(function (err) {
+        if (err && err.name === "AbortError") return;   /* closed the share sheet */
+        openPdf(blob);
+      });
+    }
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url; a.download = name;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function () { URL.revokeObjectURL(url); }, 60000);
+  }
+  /* Last resort: show the PDF itself; the browser's own share button saves it. */
+  function openPdf(blob) {
+    var url = URL.createObjectURL(blob);
+    if (!window.open(url, "_blank")) location.href = url;
+  }
+
   function downloadPdf() {
     var p = shownPlan();
     if (!p.items.length) { window.CC.toast("Nothing to put on the sheet yet."); return; }
+    var name = "Practice " + p.date + ".pdf";
+    if (pdfReady) {
+      try { deliverPdf(buildPdf(pdfReady.lib, p, pdfReady.logo), name); }
+      catch (err) { window.CC.toast("Could not make the PDF."); }
+      return;
+    }
+    /* Not loaded yet (slow connection): load it, then ask for one more tap. */
     var b = document.getElementById("btnPdf");
-    b.disabled = true;
-    Promise.all([loadPdf(), loadLogo()]).then(function (r) {
-      buildPdf(r[0], p, r[1]).save("Practice " + p.date + ".pdf");
-    }).catch(function (err) { window.CC.toast(err.message || "Could not make the PDF."); })
-      .then(function () { b.disabled = false; });
+    b.disabled = true; b.textContent = "Getting PDF ready\u2026";
+    preparePdf().then(function () {
+      window.CC.toast("PDF is ready. Tap Download PDF again.");
+    }, function (err) { window.CC.toast(err.message || "Could not load the PDF maker."); })
+      .then(function () { b.disabled = false; b.textContent = "Download PDF"; });
   }
 
   /* ---------- wiring ---------- */

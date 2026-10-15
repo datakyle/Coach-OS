@@ -72,7 +72,7 @@ function select(s) {
   $("viewEmpty").hidden = !!sel;
   $("viewBody").hidden = !sel;
   document.querySelector(".libwrap").classList.toggle("viewing", !!sel);
-  if (!sel) { view.show(null); renderList(); return; }
+  if (!sel) { setFull(false); view.show(null); renderList(); return; }
 
   $("viewName").textContent = play.name;
   $("viewSrc").textContent = sel.src === "team" ? "Team play" : "My play";
@@ -143,7 +143,33 @@ $("vAll").onchange = function () { view.showAll = this.checked; view.draw(); };
     all.forEach(function (o) { o.classList.toggle("on", o === b); });
   };
 });
-$("viewBack").onclick = function () { view.stop(); select(null); };
+$("viewBack").onclick = function () { view.stop(); setFull(false); select(null); };
+
+/* ---------------- full screen ----------------
+   Real full screen where the browser allows it. iPhone Safari only allows
+   that for video, so there the viewer just covers the whole page. Either way
+   the .fs class does the layout. */
+function fsElement() { return document.fullscreenElement || document.webkitFullscreenElement || null; }
+function setFull(on) {
+  var v = $("viewer");
+  if (on === v.classList.contains("fs")) return;
+  v.classList.toggle("fs", on);
+  document.documentElement.classList.toggle("noscroll", on);
+  $("vFull").setAttribute("aria-pressed", on ? "true" : "false");
+  $("vFullLbl").textContent = on ? "Exit" : "Full screen";
+  if (on) {
+    var req = v.requestFullscreen || v.webkitRequestFullscreen;
+    if (req) { try { var r = req.call(v); if (r && r.catch) r.catch(function () {}); } catch (e) {} }
+  } else if (fsElement()) {
+    var exit = document.exitFullscreen || document.webkitExitFullscreen;
+    try { var x = exit.call(document); if (x && x.catch) x.catch(function () {}); } catch (e) {}
+  }
+}
+$("vFull").onclick = function () { setFull(!$("viewer").classList.contains("fs")); };
+function fsChanged() { if (!fsElement()) setFull(false); }
+document.addEventListener("fullscreenchange", fsChanged);
+document.addEventListener("webkitfullscreenchange", fsChanged);
+document.addEventListener("keydown", function (e) { if (e.key === "Escape") setFull(false); });
 $("btnLibNew").onclick = function () {
   window.Creator.open(Court.blankPlay("New play"));
   window.CC.go("create");
@@ -189,5 +215,5 @@ function refresh() {
 
 Store.plays.subscribe(refresh);
 
-return { init: function () { renderList(); }, loadTeam: loadTeam, refresh: refresh, stop: function () { view.stop(); } };
+return { init: function () { renderList(); }, loadTeam: loadTeam, refresh: refresh, stop: function () { view.stop(); setFull(false); } };
 })();

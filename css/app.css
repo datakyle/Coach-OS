@@ -333,6 +333,27 @@ main {
 .viewctl .check { margin-top: 0; }
 .viewact { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--hair); }
 
+.viewhead .full { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; align-self: center; }
+.viewhead .full svg { width: 17px; height: 17px; }
+.viewhead .full .shut { display: none; }
+.viewer.fs .viewhead .full .open { display: none; }
+.viewer.fs .viewhead .full .shut { display: inline; }
+
+/* Full screen: the court takes every pixel the header and controls leave. */
+html.noscroll, html.noscroll body { overflow: hidden; }
+.viewer.fs {
+  position: fixed; inset: 0; z-index: 40; display: block;
+  border: 0; border-radius: 0; background: var(--surface);
+  padding: calc(10px + env(safe-area-inset-top, 0px)) calc(14px + env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) calc(14px + env(safe-area-inset-left, 0px));
+}
+.viewer.fs .viewbody { display: flex; flex-direction: column; height: 100%; }
+.viewer.fs .viewhead { flex: none; margin-bottom: 6px; flex-direction: row; align-items: baseline; }
+.viewer.fs .viewhead .back, .viewer.fs .viewact { display: none; }
+.viewer.fs .courtcard { flex: 1 1 auto; min-height: 0; padding: 0; }
+.viewer.fs svg.court { width: 100%; height: 100%; }
+.viewer.fs .viewctl { flex: none; margin-top: 8px; justify-content: center; }
+.viewer.fs .viewctl .seg { margin-left: 0; }
+
 /* Below 900px the viewer opens as its own full screen window. */
 @media (max-width: 899px) {
   .viewer { display: none; }
