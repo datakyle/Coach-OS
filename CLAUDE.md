@@ -17,6 +17,9 @@ English. Hosted on GitHub Pages from `main`.
 - Writing style for anything players or coaches read: short, direct sentences.
   No em dashes.
 - Must work on an iPad and a phone (the sidebar becomes an icon rail under 760px).
+- Every `css/` and `js/` tag in `index.html` carries `?v=YYYYMMDD`. Bump it on
+  every change to those files. GitHub Pages lets phones cache files, and a device
+  holding old JS with new HTML shows buttons that do nothing.
 
 ## Pages
 
