@@ -12,6 +12,7 @@
   --move: #14697C;
   --def: #7D8692;
   --wood: #F6EEDF;
+  --mustang: #EA090A;   /* Midland Mustangs red, from the team logo. Same in dark mode. */
   --display: "Barlow Condensed", "Arial Narrow", sans-serif;
   --body: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
 }
@@ -283,8 +284,15 @@ main {
 }
 .sh-head { display: flex; align-items: center; gap: 8px; }
 .sh-head img { display: block; }
+/* Midland Mustangs sheet: team logo, and the red takes over the highlights. */
+.sheet.th-mustang .sh-head img { width: auto; height: 44px; }
+.sheet.th-mustang .sh-brand { color: var(--mustang); font-size: 17px; }
+.sheet.th-mustang .sh-window { border-bottom-color: var(--mustang); }
+.sheet.th-mustang .sh-table .t { color: var(--mustang); }
+.pubwrap.th-mustang .pubbar .btn.primary { background: var(--mustang); border-color: var(--mustang); }
+.pubbar .seg { margin-right: 4px; }
 .sh-brand { font-family: var(--display); font-size: 15px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #C9521A; }
-.sh-kind { margin-left: auto; font-size: 13px; color: #5B6370; }
+.sh-kind { margin-left: auto; font-size: 13px; color: #5B6370; white-space: nowrap; }
 .sh-date { font-family: var(--display); font-size: 34px; font-weight: 600; line-height: 1.1; margin: 22px 0 6px; }
 .sh-focus { font-size: 17px; margin: 0 0 4px; }
 .sh-focus .k { color: #5B6370; }
@@ -536,6 +544,8 @@ dialog#signin .note { margin: 0 0 14px; }
   .itm.head { display: none; }
   .sheet { padding: 22px 18px 26px; }
   .sh-date { font-size: 28px; }
+  .sheet.th-mustang .sh-brand { font-size: 15px; }
+  .sheet.th-mustang .sh-head img { height: 36px; }
   .sh-table .t { width: 58px; font-size: 18px; }
   .sh-table .m { width: 34px; }
 }
