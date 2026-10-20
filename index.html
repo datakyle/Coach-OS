@@ -13,7 +13,7 @@
 <link rel="manifest" href="manifest.webmanifest">
 <!-- ?v= makes phones fetch fresh files after an update. Bump it (today's
      date) on every change to css/ or js/, or devices can mix old and new files. -->
-<link rel="stylesheet" href="css/app.css?v=20261020">
+<link rel="stylesheet" href="css/app.css?v=20261020-2">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
 </head>
 <body>
@@ -99,6 +99,7 @@
     <aside class="history">
       <div class="panel">
         <h3>History</h3>
+        <p class="syncline" id="planSync"></p>
         <div id="histList"></div>
       </div>
       <div class="panel">
@@ -212,12 +213,9 @@
 
   <div class="libwrap">
     <aside class="liblist">
-      <div class="panel" id="teamSection">
-        <h3>Team plays</h3>
-        <div id="libTeam"></div>
-      </div>
       <div class="panel">
-        <h3>My plays</h3>
+        <h3 id="libTitle">My plays</h3>
+        <p class="syncline" id="libSync"></p>
         <div id="libMine"></div>
       </div>
       <details class="panel">
@@ -309,15 +307,16 @@
 
 <div class="toast" id="toast" role="status"></div>
 
-<script src="js/firebase-config.js?v=20261020"></script>
-<script src="js/store.js?v=20261020"></script>
-<script src="js/cloud.js?v=20261020"></script>
-<script src="js/court.js?v=20261020"></script>
-<script src="js/creator.js?v=20261020"></script>
-<script src="js/library.js?v=20261020"></script>
-<script src="js/practice.js?v=20261020"></script>
-<script src="js/course-data.js?v=20261020"></script>
-<script src="js/course.js?v=20261020"></script>
-<script src="js/app.js?v=20261020"></script>
+<script src="js/firebase-config.js?v=20261020-2"></script>
+<script src="js/store.js?v=20261020-2"></script>
+<script src="js/cloud.js?v=20261020-2"></script>
+<script src="js/sync.js?v=20261020-2"></script>
+<script src="js/court.js?v=20261020-2"></script>
+<script src="js/creator.js?v=20261020-2"></script>
+<script src="js/library.js?v=20261020-2"></script>
+<script src="js/practice.js?v=20261020-2"></script>
+<script src="js/course-data.js?v=20261020-2"></script>
+<script src="js/course.js?v=20261020-2"></script>
+<script src="js/app.js?v=20261020-2"></script>
 </body>
 </html>

@@ -64,8 +64,9 @@ window.CC = (function () {
 
   function teamChanged() {
     renderTeamNav();
-    window.Library.loadTeam();
+    window.Library.refresh();
     window.Practice.loadTeam();
+    Sync.soon();
   }
 
   function wireTeam() {
@@ -84,7 +85,7 @@ window.CC = (function () {
       go.disabled = true;
       window.Cloud.signIn($("teamCode").value).then(function (role) {
         closeSignIn();
-        toast("Signed in. Team plays and practices are open.");
+        toast("Signed in. Your plays and practices now sync across devices.");
         teamChanged();
       }, function (err) { toast(err.message); })
         .then(function () { go.disabled = false; });
@@ -97,6 +98,18 @@ window.CC = (function () {
     window.Creator.init();
     window.Library.init();
     window.Practice.init(Store.loadPlans() || []);
+
+    /* Practice history follows the account too. */
+    var planSync = Sync.engine({
+      coll: "plans",
+      key: function (p) { return p.id || p.date; },
+      name: function (p) { return p.focus || p.date; },
+      read: function () { return Store.loadPlans() || []; },
+      write: function (arr) { Store.savePlans(arr); window.Practice.setPlans(arr); }
+    });
+    Store.onPlansSaved(function () { if (!planSync.writing) Sync.soon(); });
+    window.Practice.attachSync(planSync);
+    Sync.onChange(window.Practice.renderSync);
     window.Course.init();
     wireNav();
     wireTeam();

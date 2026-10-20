@@ -86,6 +86,7 @@ window.Practice = (function () {
     cur.id = cur.date;
     cur.start = document.getElementById("planStart").value || "16:00";
     cur.focus = document.getElementById("planFocus").value.trim();
+    cur.updated = Date.now();
     var at = -1;
     for (var i = 0; i < plans.length; i++) if (plans[i].id === cur.id) at = i;
     if (at >= 0) plans[at] = JSON.parse(JSON.stringify(cur));
@@ -96,6 +97,24 @@ window.Practice = (function () {
     dirty = false;
     renderHistory();
   }
+
+  /* Sync brought a new list. Keep what is on screen if it has unsaved edits. */
+  function setPlans(arr) {
+    plans = (arr || []).slice();
+    sortPlans();
+    if (!dirty && cur) {
+      for (var i = 0; i < plans.length; i++) {
+        if (plans[i].id === cur.id && JSON.stringify(plans[i]) !== JSON.stringify(cur)) { cur = JSON.parse(JSON.stringify(plans[i])); render(); }
+      }
+    }
+    renderHistory();
+    renderPublish();
+  }
+  function renderSync() {
+    var p = document.getElementById("planSync");
+    if (p) p.textContent = window.Sync ? window.Sync.describe(planSync) : "";
+  }
+  var planSync = null;
 
   function openPlan(p) { cur = JSON.parse(JSON.stringify(p)); dirty = false; render(); }
 
@@ -589,5 +608,5 @@ window.Practice = (function () {
     setMode(saved);
   }
 
-  return { init: init, loadTeam: loadTeam, refresh: renderPublish, getPlans: function () { return plans; } };
+  return { init: init, setPlans: setPlans, renderSync: renderSync, attachSync: function (e) { planSync = e; renderSync(); }, loadTeam: loadTeam, refresh: renderPublish, getPlans: function () { return plans; } };
 })();

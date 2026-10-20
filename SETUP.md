@@ -76,9 +76,9 @@ that device, and on your other devices signed in to the same Apple or Google
 account, it fills itself in. Each device stays signed in until you tap
 **Signed in · sign out**, or you change the password.
 
-- **Play Library** shows **Team plays** above **My plays**. Pick one to watch it
-  run. **Share with team** puts one of your plays in the team library;
-  **Remove from team** takes a shared one out.
+- **Plays and practice history sync.** Everything you save shows up on every
+  device signed in with the password. "Synced to your account at ..." under
+  the Play Library and History lists says it worked.
 - **Practice Plan → Publish** shows the day as a one-page sheet. **Publish to
   team** puts it under **Published practices** on every signed-in device, and
   anyone can download the PDF.

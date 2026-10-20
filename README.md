@@ -59,11 +59,10 @@ Every play in one list. Pick one and it opens in a viewer (full screen on a
 phone) where **Play**, **Step** and **Reset** run it. **Edit** opens it in Play
 Creator.
 
-- **Team plays** come from Firebase once you sign in with a code. Coaches can
-  share their own plays and remove shared ones.
-- **My plays** live in this browser.
-- **Backup** copies My plays out as text, or pastes them back in on another
-  device.
+- Signed in, every play syncs to your account, so each device shows the same
+  list. Deleting a play deletes it everywhere.
+- Signed out, plays stay on this device and sync the next time you sign in.
+- **Backup** copies your plays out as text, or pastes them back in.
 
 ## Player Course
 
@@ -90,10 +89,18 @@ Team sign-in sits at the bottom of the sidebar. It stays hidden until
 
 ## Where things are stored
 
-In the browser, via `localStorage`. No account and no server, which is what keeps
-this free to host and instant to load. Two consequences worth knowing: the iPad
-and a laptop keep separate libraries, and clearing site data wipes them. Use
-Backup now and then, or share plays with the team.
+Every device keeps its own copy in the browser (`localStorage`), so the app
+opens instantly and works offline. Signed in, `js/sync.js` keeps that copy in
+step with your Firebase account:
+
+- **Plays** and **practice history** sync on sign in, after every save, when
+  you come back to the app, and every two minutes while it is open.
+- If the same play changed on two devices, the one saved last wins.
+- A delete on one device removes it from the account and every other device,
+  including deletes made while offline.
+- The Play Library and History panel each show when they last synced.
+
+Player Course progress and display settings stay on each device.
 
 `data/plans.json` and `data/plays.json` are the shared copies in this repo.
 Anything in them that your browser has not seen is merged in on load, and local

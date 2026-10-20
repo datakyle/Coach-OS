@@ -156,17 +156,17 @@ window.Cloud = (function () {
     });
   }
 
-  function put(coll, id, name, data) {
+  function put(coll, id, name, data, updated) {
     if (!isCoach()) return Promise.reject(new Error("Sign in first."));
     var body = { fields: {
       name:    { stringValue: name || "Untitled" },
       data:    { stringValue: JSON.stringify(data) },
-      updated: { integerValue: String(Date.now()) }
+      updated: { integerValue: String(updated || Date.now()) }
     } };
     return call("PATCH", "/" + coll + "/" + encodeURIComponent(id), body).then(function (r) {
       if (r.ok) return true;
       if (r.status === 403) throw new Error("Refused. Sign out and sign in again.");
-      throw new Error("Sharing failed (" + r.status + ").");
+      throw new Error("Saving to the account failed (" + r.status + ").");
     });
   }
 
@@ -194,6 +194,8 @@ window.Cloud = (function () {
     ready: ready,
     role: role, isCoach: isCoach,
     signIn: signIn, signOut: signOut,
-    plays: plays, practices: practices
+    plays: plays, practices: practices,
+    /* raw collection access, used by js/sync.js */
+    list: list, put: put, remove: remove, slug: slug
   };
 })();

@@ -1,14 +1,12 @@
 /* Play Library: every play in one list. Pick one and it runs in the viewer.
-   Edit sends it to Play Creator. Team plays come from Firebase once someone
-   signs in with a code; My plays live in this browser. */
+   Edit sends it to Play Creator. Plays live in this browser, and once signed
+   in they sync to the account so every device has the same list (js/sync.js). */
 window.Library = (function () {
 "use strict";
 
 var $ = function (id) { return document.getElementById(id); };
 var view = Court.mount($("viewCourt"), "Selected play");
-var teamPlays = [];
-var teamError = "";
-var sel = null;          /* { src: "mine" | "team", name, id } */
+var sel = null;          /* { name } */
 
 function toast(m) { window.CC.toast(m); }
 function make(tag, cls, text) {
@@ -20,50 +18,42 @@ function make(tag, cls, text) {
 function steps(play) { var n = play.steps.length; return n + (n === 1 ? " step" : " steps"); }
 
 /* ---------------- list ---------------- */
-function row(play, src, id) {
-  var on = sel && sel.src === src && sel.name === play.name;
+function row(play) {
+  var on = sel && sel.name === play.name;
   var b = make("button", "playrow" + (on ? " on" : ""));
   b.appendChild(make("span", "pn", play.name));
   b.appendChild(make("span", "ps", steps(play)));
-  b.onclick = function () { select({ src: src, name: play.name, id: id }); };
+  b.onclick = function () { select({ name: play.name }); };
   return b;
 }
 
 function renderList() {
-  var mine = $("libMine"), team = $("libTeam");
-  mine.textContent = ""; team.textContent = "";
-
+  var mine = $("libMine");
+  mine.textContent = "";
   var lib = Store.plays.list();
   if (!lib.length) mine.appendChild(make("p", "empty", "Nothing saved yet. Build one in Play Creator."));
-  lib.forEach(function (p) { mine.appendChild(row(p, "mine")); });
+  lib.forEach(function (p) { mine.appendChild(row(p)); });
+  renderSync();
+}
 
-  var cloud = window.Cloud;
-  if (!cloud.ready()) { $("teamSection").hidden = true; return; }
-  $("teamSection").hidden = false;
-  if (!cloud.role()) {
-    var p = make("p", "empty", "Sign in to see the team's plays. ");
+function renderSync() {
+  var cloud = window.Cloud, line = $("libSync");
+  $("libTitle").textContent = Sync.signedIn() ? "Plays" : "My plays";
+  line.textContent = "";
+  if (!cloud.ready()) return;
+  if (!Sync.signedIn()) {
+    line.appendChild(document.createTextNode("Saved on this device only. "));
     var a = make("button", "linkbtn", "Sign in");
     a.onclick = function () { window.CC.signIn(); };
-    p.appendChild(a);
-    team.appendChild(p);
+    line.appendChild(a);
+    line.appendChild(document.createTextNode(" to sync plays across your devices."));
     return;
   }
-  if (teamError) { team.appendChild(make("p", "empty", teamError)); return; }
-  if (!teamPlays.length) {
-    team.appendChild(make("p", "empty", cloud.isCoach()
-      ? "Nothing shared yet. Pick one of your plays and hit Share with team."
-      : "Nothing shared yet."));
-  }
-  teamPlays.forEach(function (t) { team.appendChild(row(t.data, "team", t.id)); });
+  line.textContent = Sync.describe(playSync);
 }
 
 /* ---------------- viewer ---------------- */
-function current() {
-  if (!sel) return null;
-  if (sel.src === "mine") return Store.plays.find(sel.name);
-  for (var i = 0; i < teamPlays.length; i++) if (teamPlays[i].id === sel.id) return teamPlays[i].data;
-  return null;
-}
+function current() { return sel ? Store.plays.find(sel.name) : null; }
 
 function select(s) {
   sel = s;
@@ -75,7 +65,7 @@ function select(s) {
   if (!sel) { setFull(false); view.show(null); renderList(); return; }
 
   $("viewName").textContent = play.name;
-  $("viewSrc").textContent = sel.src === "team" ? "Team play" : "My play";
+  $("viewSrc").textContent = Sync.signedIn() ? "Synced" : "This device";
   view.showAll = $("vAll").checked;
   view.show(JSON.parse(JSON.stringify(play)));
   renderActions(play);
@@ -90,7 +80,7 @@ function renderCtl() {
 view.onChange = renderCtl;
 
 function renderActions(play) {
-  var box = $("viewAct"), coach = window.Cloud.isCoach();
+  var box = $("viewAct");
   box.textContent = "";
   var btn = function (label, cls, fn) { var b = make("button", "btn " + (cls || ""), label); b.onclick = fn; box.appendChild(b); return b; };
 
@@ -100,34 +90,13 @@ function renderActions(play) {
     window.CC.go("create");
   });
 
-  if (sel.src === "mine") {
-    if (coach) btn("Share with team", "", function () {
-      this.disabled = true;
-      var b = this;
-      window.Cloud.plays.upload(play).then(function () {
-        toast("Shared " + play.name + " with the team."); loadTeam();
-      }, function (err) { toast(err.message); }).then(function () { b.disabled = false; });
-    });
-    btn("Delete", "danger", function () {
-      if (!confirm("Delete " + play.name + " from this device?")) return;
-      Store.plays.remove(play.name);
-      select(null);
-      toast("Deleted " + play.name + ".");
-    });
-  } else {
-    btn("Save to my plays", "", function () {
-      var had = !!Store.plays.find(play.name);
-      if (had && !confirm("You already have a play called " + play.name + ". Replace it with the team's version?")) return;
-      Store.plays.put(play);
-      toast("Saved " + play.name + " to My plays.");
-    });
-    if (coach) btn("Remove from team", "danger", function () {
-      if (!confirm("Remove " + play.name + " from the team library? Players will stop seeing it.")) return;
-      window.Cloud.plays.remove(sel.id).then(function () {
-        toast("Removed " + play.name + " from the team."); select(null); loadTeam();
-      }, function (err) { toast(err.message); });
-    });
-  }
+  btn("Delete", "danger", function () {
+    var where = Sync.signedIn() ? "all your devices" : "this device";
+    if (!confirm("Delete " + play.name + " from " + where + "?")) return;
+    Store.plays.remove(play.name);
+    select(null);
+    toast("Deleted " + play.name + ".");
+  });
 }
 
 $("vPlay").onclick = function () {
@@ -194,16 +163,17 @@ $("btnImport").onclick = function () {
   } catch (e) { toast("That text is not a play library."); }
 };
 
-/* ---------------- team ---------------- */
-function loadTeam() {
-  var cloud = window.Cloud;
-  if (!cloud.ready() || !cloud.role()) { teamPlays = []; teamError = ""; refresh(); return; }
-  cloud.plays.list().then(function (rows) {
-    teamPlays = rows; teamError = ""; refresh();
-  }, function (err) {
-    teamPlays = []; teamError = err.message; refresh();
-  });
-}
+/* ---------------- sync ---------------- */
+var playSync = Sync.engine({
+  coll: "plays",
+  key: function (p) { return window.Cloud.slug(p.name); },
+  name: function (p) { return p.name; },
+  read: function () { return Store.plays.list(); },
+  write: function (arr) { Store.plays.load(arr); }
+});
+Store.plays.subscribe(function () { if (!playSync.writing) Sync.soon(); });
+Store.plays.onRemove(function (name) { playSync.noteDelete(window.Cloud.slug(name)); });
+Sync.onChange(renderSync);
 
 /* Redraw after anything changes. The selected play stays selected if it still
    exists; its action buttons follow who is signed in. */
@@ -215,5 +185,5 @@ function refresh() {
 
 Store.plays.subscribe(refresh);
 
-return { init: function () { renderList(); }, loadTeam: loadTeam, refresh: refresh, stop: function () { view.stop(); setFull(false); } };
+return { init: function () { renderList(); }, refresh: refresh, stop: function () { view.stop(); setFull(false); } };
 })();

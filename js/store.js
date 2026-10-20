@@ -33,7 +33,7 @@ window.Store = (function () {
   }
 
   /* ---------- the play library: one list, keyed by name ---------- */
-  var plays = null, listeners = [];
+  var plays = null, listeners = [], removed = [], planListeners = [];
   function changed() {
     var ok = set(K.plays, plays);
     listeners.forEach(function (fn) { fn(); });
@@ -46,17 +46,23 @@ window.Store = (function () {
       for (var i = 0; i < plays.length; i++) if (plays[i].name === name) return plays[i];
       return null;
     },
-    /* Save by name: same name replaces, a new name is added. */
+    /* Save by name: same name replaces, a new name is added. `updated` lets
+       sync tell which device saved last. */
     put: function (play) {
       var copy = JSON.parse(JSON.stringify(play)), at = -1;
+      copy.updated = Date.now();
       for (var i = 0; i < plays.length; i++) if (plays[i].name === copy.name) at = i;
       if (at >= 0) plays[at] = copy; else plays.push(copy);
       return changed();
     },
     remove: function (name) {
       plays = plays.filter(function (p) { return p.name !== name; });
+      removed.forEach(function (fn) { fn(name); });
       return changed();
     },
+    /* Sync writes the merged list through here. */
+    load: function (arr) { plays = arr; return changed(); },
+    onRemove: function (fn) { removed.push(fn); },
     replaceAll: function (arr) { plays = arr; return changed(); },
     mergeIn: function (remote) { plays = merge(plays, remote, "name"); return changed(); },
     subscribe: function (fn) { listeners.push(fn); }
@@ -64,7 +70,8 @@ window.Store = (function () {
 
   return {
     loadPlans: function () { return get(K.plans, null); },
-    savePlans: function (a) { return set(K.plans, a); },
+    savePlans: function (a) { var ok = set(K.plans, a); planListeners.forEach(function (fn) { fn(); }); return ok; },
+    onPlansSaved: function (fn) { planListeners.push(fn); },
     merge: merge,
     fetchJSON: fetchJSON,
     plays: Plays
