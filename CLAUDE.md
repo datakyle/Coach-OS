@@ -39,6 +39,15 @@ Navigation and boot are in `js/app.js` (`PAGES` list). A new page needs a nav
 button and a `<section class="page" id="page-NAME">` in `index.html`, an entry in
 `PAGES`, and a `stop()` call in `go()` if it animates.
 
+## Practice Planner
+
+`planner/` holds what Claude needs to draft practice plans: `README.md` (the
+process), `format.md` (rules every plan follows), `season.md`, `install.md`,
+`team-needs.md`, `drills.md`, `log.md`. To draft a practice: read all of them
+plus the last three plans in `data/plans.json`, follow `format.md` exactly, use
+only drills from `drills.md` unless asked, and add the plan to
+`data/plans.json`. Team level only; never write player names into the repo.
+
 ## Player Course
 
 Lessons are data, not code. The format is documented at the top of
