@@ -68,15 +68,16 @@ Weekly lessons for the players, written in plain English. Send them
 https://datakyle.github.io/Coach-OS/#learn and they can work through it on
 their phones.
 
-Week 1 (Foundation) has five lessons: Know the Floor, Warm Up Every Day, Pack
-Line: Ball, Gap, Help, Box Out: Find, Hit, Get, and Sideline 17s. Each lesson
-has the big idea, interactive courts, the cue words Coach will yell, what we do
-at practice that week, and a short quiz.
+Week 1 is Pack Line Defense: Know the Floor, Pack Line: The Why, Ball, Gap,
+Help, and The Pack Line Rules. Each lesson has the big idea, interactive courts,
+the cue words Coach will yell, what we do at practice that week, and a quiz.
+Get every answer in every lesson right and the week's secret word appears.
 
 - **Floor map**: tap a spot to learn it, or switch to **Spot call** and get quizzed.
-- **Shell lab**: tap a player to pass and watch the pack line move. **Your turn**
-  passes the ball and asks you to tap where your defender belongs.
-- **Partner timer**: time Sideline 17s and keep a log of your times.
+- **Shell lab**: 5 on 5. Tap a player to pass and watch the pack line move.
+  Turn on the invisible lines (pack line, ball side and help side, ball-you-man,
+  force middle). **Your turn** passes the ball and asks you to tap where your
+  defender belongs.
 
 Progress, quiz answers and 17s times live in each player's browser. To add a
 week, add an entry to `js/course-data.js`; no other code changes needed.

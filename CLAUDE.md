@@ -37,9 +37,17 @@ Lessons are data, not code. The format is documented at the top of
 `js/course-data.js`. Visual types: `spots`, `shell`, `play`, `routine`, `timer`.
 Lesson `id`s are permanent because progress is saved by id.
 
+A lesson counts as finished only when every quiz answer is right (answer order
+shuffles on every attempt). Finishing every lesson in the week with every answer
+right reveals a secret word. The word is never stored as text: `SECRET` in
+`js/course.js` decodes from the answers the player picked. Editing any quiz
+answer changes the key, so after quiz edits run `Course.encode("WORD")` in the
+browser console and paste the result into `SECRET`. Never write the word itself
+into the repo (it's public).
+
 Season install plan the course follows (one week per entry):
 
-1. Foundation: court language, daily warm-up, pack line shell Stage 1, box-out, Sideline 17s (built)
+1. Pack Line Defense (built): Know the Floor, then Pack Line: The Why, Ball, Gap, Help, and The Pack Line Rules. The team already has its own warm-up; Coach runs drills and plays at practice.
 2. Defend and move: shell Stages 2 and 3 (help, recover, closeouts), pass-cut-fill, shot value
 3. Attack: drive and kick, attacking closeouts, running the lanes, transition D
 4. Zone offense I: 1-3-1 vs a 2-3, gap attack (Play A), high post flash, crashing
