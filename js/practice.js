@@ -26,11 +26,7 @@ window.Practice = (function () {
     theme = THEMES[t] ? t : "coachos";
     try { localStorage.setItem("cc.sheettheme", theme); } catch (e) {}
     document.getElementById("planPublish").classList.toggle("th-mustang", theme === "mustang");
-    [].slice.call(document.querySelectorAll("#sheetTheme button")).forEach(function (b) {
-      var on = b.getAttribute("data-theme") === theme;
-      b.classList.toggle("on", on);
-      b.setAttribute("aria-pressed", on ? "true" : "false");
-    });
+    document.getElementById("mustangOn").checked = theme === "mustang";
     renderPublish();
   }
 
@@ -576,9 +572,7 @@ window.Practice = (function () {
       b.onclick = function () { setMode(b.getAttribute("data-mode")); };
     });
     document.getElementById("btnPdf").onclick = downloadPdf;
-    [].slice.call(document.querySelectorAll("#sheetTheme button")).forEach(function (b) {
-      b.onclick = function () { setTheme(b.getAttribute("data-theme")); };
-    });
+    document.getElementById("mustangOn").onchange = function () { setTheme(this.checked ? "mustang" : "coachos"); };
     document.getElementById("btnPublish").onclick = publish;
   }
 
