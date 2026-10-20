@@ -27,6 +27,12 @@ service cloud.firestore {
       allow create, update: if isCoach() && validRecord();
       allow delete: if isCoach();
     }
+    // Practice history, synced across devices. One document per date.
+    match /plans/{day} {
+      allow read: if isCoach();
+      allow create, update: if isCoach() && validRecord();
+      allow delete: if isCoach();
+    }
     match /practices/{day} {
       allow read: if isCoach();
       allow create, update: if isCoach() && validRecord();

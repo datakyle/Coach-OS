@@ -17,9 +17,14 @@ English. Hosted on GitHub Pages from `main`.
 - Writing style for anything players or coaches read: short, direct sentences.
   No em dashes.
 - Must work on an iPad and a phone (the sidebar becomes an icon rail under 760px).
-- Every `css/` and `js/` tag in `index.html` carries `?v=YYYYMMDD`. Bump it on
-  every change to those files. GitHub Pages lets phones cache files, and a device
-  holding old JS with new HTML shows buttons that do nothing.
+- Every `css/` and `js/` tag in `index.html` carries `?v=YYYYMMDD` (add `-2`,
+  `-3` for a second change the same day). Bump it on every change to those
+  files. GitHub Pages lets phones cache files, and a device holding old JS with
+  new HTML shows buttons that do nothing.
+- Signed in, plays and practice history sync to Firestore through `js/sync.js`
+  (newest `updated` wins, deletes carry over). Anything new that should follow
+  the coach between devices goes through a `Sync.engine`, not straight to
+  `localStorage`.
 
 ## Pages
 
