@@ -367,6 +367,118 @@ html.noscroll, html.noscroll body { overflow: hidden; }
   .viewctl .seg { margin-left: 0; }
 }
 
+/* ===================== player course ===================== */
+.crweek { font-family: var(--display); font-size: 19px; letter-spacing: .06em; text-transform: uppercase; color: var(--ball); }
+.crwrap { display: grid; grid-template-columns: minmax(0,1fr); gap: 14px; }
+@media (min-width: 900px) { .crwrap { grid-template-columns: 280px minmax(0,1fr); align-items: start; } .crside { position: sticky; top: 14px; } }
+.crside { min-width: 0; }
+.crgoal { margin: 0 0 12px; font-size: 14px; }
+.crprog { margin: 0 0 6px; font-size: 13px; font-weight: 600; color: var(--muted); }
+.crbar { height: 7px; background: var(--sunk); border-radius: 4px; overflow: hidden; margin-bottom: 10px; }
+.crbar i { display: block; height: 100%; width: 0; background: var(--ball); transition: width .3s ease; }
+.crlist { display: flex; flex-direction: column; gap: 2px; }
+.crrow {
+  display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; cursor: pointer;
+  background: none; border: 0; border-radius: 3px; padding: 8px 8px; color: var(--ink); font: inherit;
+}
+.crrow:hover { background: var(--sunk); }
+.crrow.on { background: var(--sunk); box-shadow: inset 3px 0 0 var(--ball); }
+.crrow:focus-visible { outline: 2px solid var(--move); outline-offset: 1px; }
+.crrow .crn { font-family: var(--display); font-size: 22px; font-weight: 600; color: var(--muted); width: 18px; text-align: center; flex: none; }
+.crrow.on .crn { color: var(--ball); }
+.crrow .crt { flex: 1 1 auto; min-width: 0; font-weight: 600; font-size: 14.5px; }
+.crrow .crck { width: 16px; height: 16px; border-radius: 50%; border: 2px solid var(--hair); flex: none; }
+.crrow.done .crck { background: var(--move); border-color: var(--move); box-shadow: inset 0 0 0 3px var(--surface); }
+.crdone { margin: 10px 0 0; font-weight: 600; color: var(--move); font-size: 14px; }
+@media (max-width: 899px) {
+  .crlist { flex-direction: row; overflow-x: auto; gap: 6px; padding-bottom: 2px; }
+  .crrow { flex: none; width: auto; background: var(--sunk); padding: 7px 10px; }
+  .crgoal { display: none; }
+}
+
+.crlesson { min-width: 0; display: flex; flex-direction: column; gap: 14px; }
+.crhead h2 { font-family: var(--display); font-size: 40px; font-weight: 600; line-height: 1; margin: 2px 0 10px; text-wrap: balance; }
+.crkicker { margin: 0; font-family: var(--display); font-size: 14px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.cridea { margin: 0; font-size: 17px; max-width: 64ch; }
+
+.crvis { background: var(--surface); border: 1px solid var(--hair); border-radius: 4px; padding: 12px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.crvis .courtcard { border: 0; padding: 0; }
+.crvis-h { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; }
+.crvis-h h3 { font-family: var(--display); font-size: 22px; font-weight: 600; margin: 0; }
+.crvis-h .crvis-sub { font-size: 13px; color: var(--muted); }
+.crvis-h .seg { margin-left: auto; }
+.crvis .viewctl { margin-top: 0; }
+.crcap { margin: 0; min-height: 3em; font-size: 15.5px; }
+.crpanel { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; min-height: 4.6em; }
+.crpanel p { margin: 0; }
+.crbig { font-family: var(--display); font-size: 28px; font-weight: 600; line-height: 1.05; }
+.crscore { margin: 0; font-size: 13.5px; color: var(--muted); }
+.crok { color: var(--move); font-weight: 700; }
+.crno { color: var(--ball); font-weight: 700; }
+
+.crspot { cursor: pointer; }
+.crspot .hitc { fill: transparent; }
+.crspot .dot { fill: var(--move); stroke: var(--surface); stroke-width: 2.5; }
+.crspot.sel .dot { fill: var(--ball); }
+.crspot text { font-family: var(--display); font-size: 13px; font-weight: 600; letter-spacing: .06em; fill: var(--ink); text-anchor: middle; pointer-events: none; }
+.crmarks { pointer-events: none; }
+.crmarks .right { fill: none; stroke: var(--ball); stroke-width: 4; }
+.crmarks .tap.ok { fill: var(--move); }
+.crmarks .tap.no { fill: var(--def); }
+.crpack path { fill: none; stroke: var(--ball); stroke-width: 2.4; stroke-dasharray: 6 7; opacity: .8; }
+.crpack text { font-family: var(--display); font-size: 14px; font-weight: 600; letter-spacing: .1em; fill: var(--ball); }
+.crroles { display: grid; gap: 6px; }
+@media (min-width: 700px) { .crroles { grid-template-columns: repeat(3, 1fr); } }
+.crrole { border: 1px solid var(--hair); border-radius: 4px; padding: 8px 10px; font-size: 13.5px; display: flex; flex-direction: column; gap: 2px; }
+.crrole b { font-family: var(--display); font-size: 18px; letter-spacing: .06em; }
+.crrole.on { border-color: var(--ball); box-shadow: inset 3px 0 0 var(--ball); }
+
+.crroutine { margin: 0; padding-left: 26px; display: flex; flex-direction: column; gap: 0; }
+.crroutine li { padding: 8px 0; border-bottom: 1px solid var(--hair); }
+.crroutine li:last-child { border-bottom: 0; }
+.crroutine li::marker { font-family: var(--display); font-weight: 600; color: var(--ball); font-size: 17px; }
+.crroutine b { display: block; font-size: 15.5px; }
+.crroutine span { font-size: 14px; color: var(--muted); }
+
+.crclock { font-family: var(--display); font-size: 76px; font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums; }
+.crlog { display: flex; flex-direction: column; gap: 2px; }
+.crbest { margin: 4px 0 6px; display: flex; align-items: baseline; gap: 10px; font-size: 14px; color: var(--muted); }
+.crbest b { font-family: var(--display); font-size: 26px; color: var(--move); }
+.crlogrow { display: flex; justify-content: space-between; font-size: 14px; padding: 4px 0; border-bottom: 1px solid var(--hair); font-variant-numeric: tabular-nums; }
+
+.crpoints { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+@media (min-width: 700px) { .crpoints { grid-template-columns: 1fr 1fr; } }
+.crpoints li { border-top: 2px solid var(--ink); padding-top: 7px; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.crpoints b { font-size: 15.5px; }
+.crpoints span { font-size: 14.5px; color: var(--muted); }
+
+.crcues { background: var(--ink); color: var(--bg); border-radius: 4px; padding: 14px 14px 16px; display: flex; flex-direction: column; gap: 10px; }
+.crcues .crkicker { color: inherit; opacity: .7; }
+.crcuewords { display: flex; flex-wrap: wrap; gap: 8px; }
+.crcuewords span { font-family: var(--display); font-size: 22px; font-weight: 600; text-transform: uppercase; letter-spacing: .03em; border: 2px solid currentColor; border-radius: 3px; padding: 2px 10px; }
+.crfloor { margin: 0; font-size: 15px; }
+
+.crquiz { display: flex; flex-direction: column; gap: 12px; }
+.crquiz h3 { margin-bottom: 0; }
+.crq { display: flex; flex-direction: column; gap: 7px; }
+.crqt { margin: 0; font-weight: 600; }
+.cropts { display: grid; gap: 5px; }
+.cropt {
+  text-align: left; font: inherit; font-size: 14.5px; color: var(--ink); cursor: pointer;
+  background: var(--sunk); border: 1px solid var(--hair); border-radius: 3px; padding: 9px 11px;
+}
+.cropt:hover:not(:disabled) { border-color: var(--muted); }
+.cropt:focus-visible { outline: 2px solid var(--move); outline-offset: 1px; }
+.cropt:disabled { cursor: default; }
+.cropt.right { border-color: var(--move); box-shadow: inset 4px 0 0 var(--move); }
+.cropt.wrong { border-color: var(--ball); box-shadow: inset 4px 0 0 var(--ball); }
+.crex { margin: 0; font-size: 14px; color: var(--muted); }
+.crex b { color: var(--ink); }
+.crquiz .btn.sm { align-self: flex-start; }
+.crnav { display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-between; }
+.crnav .btn.primary:only-child { margin-left: auto; }
+@media (max-width: 759px) { .crhead h2 { font-size: 32px; } .crclock { font-size: 60px; } }
+
 /* ===================== sign in ===================== */
 dialog#signin {
   border: 1px solid var(--hair); border-radius: 12px; padding: 22px; width: min(380px, 92vw);
@@ -406,7 +518,7 @@ dialog#signin .note { margin: 0 0 14px; }
 /* ===================== print: just the sheet ===================== */
 @media print {
   @page { size: letter; margin: 0.5in; }
-  .sidenav, .pagehead, #planEdit, .pubbar, .pubwrap > aside, #page-create, #page-library, .toast { display: none !important; }
+  .sidenav, .pagehead, #planEdit, .pubbar, .pubwrap > aside, #page-create, #page-library, #page-learn, .toast { display: none !important; }
   .shell { display: block; }
   main { padding: 0; }
   body { background: #fff; }

@@ -15,7 +15,7 @@ window.CC = (function () {
   }
 
   /* ---------- pages ---------- */
-  var PAGES = ["plan", "create", "library"];
+  var PAGES = ["plan", "create", "library", "learn"];
   var OLD = { clip: "create", lib: "library" };   /* links from before the redesign */
 
   function go(name) {
@@ -29,6 +29,7 @@ window.CC = (function () {
     });
     if (name !== "create") window.Creator.stop();
     if (name !== "library") window.Library.stop();
+    if (name !== "learn") window.Course.stop();
     try { localStorage.setItem("cc.tab", name); } catch (e) {}
     if (location.hash.slice(1) !== name) history.replaceState(null, "", "#" + name);
     window.scrollTo(0, 0);
@@ -96,6 +97,7 @@ window.CC = (function () {
     window.Creator.init();
     window.Library.init();
     window.Practice.init(Store.loadPlans() || []);
+    window.Course.init();
     wireNav();
     wireTeam();
     teamChanged();
