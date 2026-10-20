@@ -23,6 +23,9 @@ on what you are doing. Every practice you save goes into History.
 
 **Publish** turns the same practice into a clean one-page sheet.
 
+- **Coach OS / Mustangs** picks the look of the sheet and its PDF. Mustangs puts
+  the Midland Mustangs logo on top and uses the team red for the highlights.
+  Each device remembers its choice.
 - **Download PDF** saves it as a single letter page. Long practices shrink to
   fit, so it is always one page.
 - **Publish to team** (signed in) puts it online for your staff and players.

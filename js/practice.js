@@ -15,6 +15,25 @@ window.Practice = (function () {
   var teamError = "";
   var shown = null;    // in Publish mode: null = this practice, else a published id
 
+  /* Look of the sheet and its PDF. Saved per device under cc.sheettheme. */
+  var THEMES = {
+    coachos: { brand: "Coach OS", sheetLogo: "icons/icon.svg", pdfLogo: "icons/icon-180.png", size: 22 },
+    mustang: { brand: "Midland Mustangs", sheetLogo: "icons/mustang.png", pdfLogo: "icons/mustang.png", size: 40 }
+  };
+  var theme = "coachos";
+  try { if (THEMES[localStorage.getItem("cc.sheettheme")]) theme = localStorage.getItem("cc.sheettheme"); } catch (e) {}
+  function setTheme(t) {
+    theme = THEMES[t] ? t : "coachos";
+    try { localStorage.setItem("cc.sheettheme", theme); } catch (e) {}
+    document.getElementById("planPublish").classList.toggle("th-mustang", theme === "mustang");
+    [].slice.call(document.querySelectorAll("#sheetTheme button")).forEach(function (b) {
+      var on = b.getAttribute("data-theme") === theme;
+      b.classList.toggle("on", on);
+      b.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+    renderPublish();
+  }
+
   var BLOCKS = [
     { mins: 5,  title: "Circle Up",        note: "Question of the day, set the focus, split teams." },
     { mins: 10, title: "Game Warmup",      note: "Dynamic warmup into partner passing and full speed layups." },
@@ -197,7 +216,7 @@ window.Practice = (function () {
     try { localStorage.setItem("cc.planmode", mode); } catch (e) {}
     document.getElementById("planEdit").hidden = mode !== "edit";
     document.getElementById("planPublish").hidden = mode !== "publish";
-    [].slice.call(document.querySelectorAll("#page-plan .seg button")).forEach(function (b) {
+    [].slice.call(document.querySelectorAll("#page-plan .pagehead .seg button")).forEach(function (b) {
       var on = b.getAttribute("data-mode") === mode;
       b.classList.toggle("on", on);
       b.setAttribute("aria-pressed", on ? "true" : "false");
@@ -226,12 +245,13 @@ window.Practice = (function () {
 
   /* The one-page sheet, as it appears on screen. The PDF follows the same layout. */
   function renderSheet(p) {
-    var sh = document.getElementById("sheet");
+    var sh = document.getElementById("sheet"), th = THEMES[theme];
     sh.textContent = "";
+    sh.className = "sheet th-" + theme;
     var head = el("header", "sh-head");
-    var logo = el("img"); logo.src = "icons/icon.svg"; logo.alt = ""; logo.width = 22; logo.height = 22;
+    var logo = el("img"); logo.src = th.sheetLogo; logo.alt = ""; logo.width = th.size; logo.height = th.size;
     head.appendChild(logo);
-    head.appendChild(el("span", "sh-brand", "Coach OS"));
+    head.appendChild(el("span", "sh-brand", th.brand));
     head.appendChild(el("span", "sh-kind", "Practice plan"));
     sh.appendChild(head);
 
@@ -385,19 +405,38 @@ window.Practice = (function () {
     });
     return pdfLib;
   }
-  function loadLogo() {
-    return fetch("icons/icon-180.png").then(function (r) { return r.blob(); }).then(function (b) {
+  /* A logo as { data, ratio } for jsPDF, or null if it will not load. */
+  function loadLogo(src) {
+    return fetch(src).then(function (r) { return r.blob(); }).then(function (b) {
       return new Promise(function (ok) { var fr = new FileReader(); fr.onload = function () { ok(fr.result); }; fr.readAsDataURL(b); });
+    }).then(function (data) {
+      return new Promise(function (ok) {
+        var im = new Image();
+        im.onload = function () { ok({ data: data, ratio: im.naturalWidth / im.naturalHeight || 1 }); };
+        im.onerror = function () { ok({ data: data, ratio: 1 }); };
+        im.src = data;
+      });
     }).catch(function () { return null; });
+  }
+  /* "#EA090A" from a CSS token, as [r, g, b]. */
+  function tokenRGB(name, fallback) {
+    var v = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    var m = /^#([0-9a-f]{6})$/i.exec(v);
+    if (!m) return fallback;
+    var n = parseInt(m[1], 16);
+    return [n >> 16 & 255, n >> 8 & 255, n & 255];
   }
 
   /* One letter page. Lay the sheet out, and if it runs long, shrink everything
      a little and try again until it fits. */
-  function buildPdf(JsPDF, p, logo) {
+  function buildPdf(JsPDF, p, logos) {
+    var mustang = theme === "mustang", logo = logos[theme];
     var doc = new JsPDF({ unit: "pt", format: "letter" });
     var W = 612, H = 792, M = 50, inner = W - 2 * M;
     var colM = M + 66, colD = M + 108, wD = W - M - colD;
     var ink = [21, 24, 29], muted = [91, 99, 112], orange = [201, 82, 26], hair = [217, 221, 227];
+    var accent = mustang ? tokenRGB("--mustang", [234, 9, 10]) : orange;
+    var lead = mustang ? accent : ink;   /* the heavy rule and the times */
     var start = parseHM(p.start), total = totalMins(p);
 
     function lay(s, draw) {
@@ -405,10 +444,11 @@ window.Practice = (function () {
       var txt = function (str, x, yy, opt) { if (draw) doc.text(str, x, yy, opt); };
       var font = function (style, size, color) { doc.setFont("helvetica", style); doc.setFontSize(size); doc.setTextColor(color[0], color[1], color[2]); };
 
-      if (draw && logo) doc.addImage(logo, "PNG", M, y, 22, 22);
-      font("bold", 11, orange); txt("COACH OS", M + (logo ? 30 : 0), y + 15);
-      font("normal", 10, muted); txt("Practice plan", W - M, y + 15, { align: "right" });
-      y += 44;
+      var lh = mustang ? 40 : 22, lw = logo ? lh * logo.ratio : 0, mid = y + lh / 2 + 4;
+      if (draw && logo) doc.addImage(logo.data, "PNG", M, y, lw, lh);
+      font("bold", mustang ? 13 : 11, accent); txt(THEMES[theme].brand.toUpperCase(), M + (logo ? lw + 8 : 0), mid);
+      font("normal", 10, muted); txt("Practice plan", W - M, mid, { align: "right" });
+      y += lh + 22;
 
       fs = 24 * s; font("bold", fs, ink); txt(fmtDateLong(p.date), M, y + fs * 0.78); y += fs * 1.2;
       if (p.focus) {
@@ -420,7 +460,7 @@ window.Practice = (function () {
       txt(fmtClockFull(start) + " to " + fmtClockFull(start + total) + "   ·   " + total + " minutes   ·   " + p.items.length + " items", M, y + fs * 0.8);
       y += fs * 1.5 + 6 * s;
 
-      if (draw) { doc.setDrawColor(ink[0], ink[1], ink[2]); doc.setLineWidth(1.4); doc.line(M, y, W - M, y); }
+      if (draw) { doc.setDrawColor(lead[0], lead[1], lead[2]); doc.setLineWidth(mustang ? 2 : 1.4); doc.line(M, y, W - M, y); }
       y += 16 * s;
 
       fs = 8.5 * s; font("bold", fs, muted);
@@ -437,7 +477,7 @@ window.Practice = (function () {
         var h = pad + tl.length * tf * 1.2 + (nl.length ? 2 * s + nl.length * nf * 1.3 : 0) + pad;
         if (draw) {
           var base = y + pad + tf * 0.8;
-          font("bold", tf, ink); doc.text(fmtClock(t), M, base);
+          font("bold", tf, lead); doc.text(fmtClock(t), M, base);
           font("normal", tf, muted); doc.text(String(+it.mins || 0), colM, base);
           font("bold", tf, ink); doc.text(tl, colD, base, { lineHeightFactor: 1.2 });
           if (nl.length) { font("normal", nf, muted); doc.text(nl, colD, base - tf * 0.8 + tl.length * tf * 1.2 + 2 * s + nf * 0.8, { lineHeightFactor: 1.3 }); }
@@ -458,11 +498,11 @@ window.Practice = (function () {
   /* The PDF is built and handed over inside the tap itself. iPhone and iPad
      Safari drop a download that starts after anything asynchronous, so the
      PDF maker and logo are fetched as soon as Publish mode opens. */
-  var pdfReady = null;   /* { lib, logo } once loaded */
+  var pdfReady = null;   /* { lib, logos: { coachos, mustang } } once loaded */
   function preparePdf() {
     if (pdfReady) return Promise.resolve(pdfReady);
-    return Promise.all([loadPdf(), loadLogo()]).then(function (r) {
-      pdfReady = { lib: r[0], logo: r[1] };
+    return Promise.all([loadPdf(), loadLogo(THEMES.coachos.pdfLogo), loadLogo(THEMES.mustang.pdfLogo)]).then(function (r) {
+      pdfReady = { lib: r[0], logos: { coachos: r[1], mustang: r[2] } };
       return pdfReady;
     });
   }
@@ -497,7 +537,7 @@ window.Practice = (function () {
     if (!p.items.length) { window.CC.toast("Nothing to put on the sheet yet."); return; }
     var name = "Practice " + p.date + ".pdf";
     if (pdfReady) {
-      try { deliverPdf(buildPdf(pdfReady.lib, p, pdfReady.logo), name); }
+      try { deliverPdf(buildPdf(pdfReady.lib, p, pdfReady.logos), name); }
       catch (err) { window.CC.toast("Could not make the PDF."); }
       return;
     }
@@ -532,10 +572,13 @@ window.Practice = (function () {
       window.CC.toast("Copied " + fmtDate(last.date) + " into today.");
     };
 
-    [].slice.call(document.querySelectorAll("#page-plan .seg button")).forEach(function (b) {
+    [].slice.call(document.querySelectorAll("#page-plan .pagehead .seg button")).forEach(function (b) {
       b.onclick = function () { setMode(b.getAttribute("data-mode")); };
     });
     document.getElementById("btnPdf").onclick = downloadPdf;
+    [].slice.call(document.querySelectorAll("#sheetTheme button")).forEach(function (b) {
+      b.onclick = function () { setTheme(b.getAttribute("data-theme")); };
+    });
     document.getElementById("btnPublish").onclick = publish;
   }
 
@@ -546,6 +589,7 @@ window.Practice = (function () {
     for (var i = 0; i < plans.length; i++) if (plans[i].date === today) found = plans[i];
     cur = found ? JSON.parse(JSON.stringify(found)) : (plans[0] ? JSON.parse(JSON.stringify(plans[0])) : blank(today));
     wire(); renderBlocks(); renderHistory(); render();
+    setTheme(theme);
     var saved = "edit";
     try { saved = localStorage.getItem("cc.planmode") || "edit"; } catch (e) {}
     setMode(saved);
