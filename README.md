@@ -6,8 +6,8 @@ Personal high school basketball coaching program.
 
 **Live:** https://datakyle.github.io/Coach-OS/
 
-Three pages in a sidebar: Practice Plan, Play Creator, Play Library. No build
-step and no server of its own.
+Four pages in a sidebar: Practice Plan, Play Creator, Play Library, Player
+Course. No build step and no server of its own.
 
 ## Practice Plan
 
@@ -62,6 +62,25 @@ Creator.
 - **Backup** copies My plays out as text, or pastes them back in on another
   device.
 
+## Player Course
+
+Weekly lessons for the players, written in plain English. Send them
+https://datakyle.github.io/Coach-OS/#learn and they can work through it on
+their phones.
+
+Week 1 (Foundation) has five lessons: Know the Floor, Warm Up Every Day, Pack
+Line: Ball, Gap, Help, Box Out: Find, Hit, Get, and Sideline 17s. Each lesson
+has the big idea, interactive courts, the cue words Coach will yell, what we do
+at practice that week, and a short quiz.
+
+- **Floor map**: tap a spot to learn it, or switch to **Spot call** and get quizzed.
+- **Shell lab**: tap a player to pass and watch the pack line move. **Your turn**
+  passes the ball and asks you to tap where your defender belongs.
+- **Partner timer**: time Sideline 17s and keep a log of your times.
+
+Progress, quiz answers and 17s times live in each player's browser. To add a
+week, add an entry to `js/course-data.js`; no other code changes needed.
+
 Team sign-in sits at the bottom of the sidebar. It stays hidden until
 `js/firebase-config.js` has a real project in it. Setup is in [SETUP.md](SETUP.md).
 
@@ -80,13 +99,15 @@ shows up on the iPad without a database.
 ## Layout
 
 ```
-index.html          sidebar and the three pages
+index.html          sidebar and the four pages
 css/app.css         everything visual
 js/store.js         localStorage, the play library, and the repo merge
 js/court.js         formations, replay, and drawing a court (used twice)
 js/creator.js       Play Creator
 js/library.js       Play Library and its viewer
 js/practice.js      Practice Plan: edit, publish, PDF
+js/course-data.js   Player Course lessons (edit this to add weeks)
+js/course.js        Player Course page
 js/app.js           sidebar, team sign-in, boot
 js/cloud.js         team sign-in and shared records over the Firebase REST APIs
 js/firebase-config.js
