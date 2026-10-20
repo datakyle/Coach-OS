@@ -179,41 +179,73 @@ function visSpots() {
   return b.wrap;
 }
 
-/* ---------------- visual: shell lab (pack line) ---------------- */
-var CORNER_L = { x: 56, y: 66 }, CORNER_R = { x: 504, y: 66 };
-var SHELL = { 1: { x: 98, y: 241 }, 2: { x: 190, y: 343 }, 3: { x: 370, y: 343 }, 4: { x: 462, y: 241 } };
+/* ---------------- visual: shell lab (pack line, 5 players) ----------------
+   Spots run left to right in passing order: corner, wing, top, wing, corner.
+   One spot from the ball is GAP, two or more is HELP. The ball defender
+   shades to the baseline side so the drive goes middle, into the pack. */
+var SHELL = { 1: { x: 62, y: 66 }, 2: { x: 92, y: 231 }, 3: { x: 280, y: 353 }, 4: { x: 468, y: 231 }, 5: { x: 498, y: 66 } };
+var SHELL_N = 5;
+var SPOT_NAME = { 1: "left corner", 2: "left wing", 3: "top", 4: "right wing", 5: "right corner" };
 var ROLE_TXT = {
-  BALL: "Your man has the ball. Arm's length off, shaded to his baseline side. Never give up baseline; force him middle into the pack.",
-  GAP: "One pass away. On the line between your man and the ball, inside the pack line. Don't deny.",
-  HELP: "Two passes away. Feet in the lane, one hand on the ball, one on your man."
+  BALL: "Your man has the ball. Arm's length off, shaded to his baseline side. Never give up baseline. Force him middle, into the pack.",
+  GAP: "One pass away. On the line between your man and the ball, inside the pack line. Don't deny. Be the first wall on a drive.",
+  HELP: "Two passes away. Feet in the lane, one hand on the ball, one on your man. You're the wall at the rim."
 };
+function ballSpot(k) {
+  var P = SHELL[k];
+  if (k === 3) return lerp(P, RIM, 0.16);
+  if (k === 1 || k === 5) return lerp(P, RIM, 0.17);
+  return lerp(lerp(P, RIM, 0.15), SHELL[k === 2 ? 1 : 5], 0.12);
+}
 function shellSpots(ball) {
   var bp = SHELL[ball], out = {};
-  for (var k = 1; k <= 4; k++) {
+  for (var k = 1; k <= SHELL_N; k++) {
     var P = SHELL[k], d = Math.abs(k - ball), pos, role;
-    if (d === 0) { pos = lerp(lerp(P, RIM, 0.12), P.x < 280 ? CORNER_L : CORNER_R, 0.12); role = "BALL"; }
+    if (d === 0) { pos = ballSpot(k); role = "BALL"; }
     else if (d === 1) { pos = lerp(lerp(P, bp, 0.3), RIM, 0.36); role = "GAP"; }
     else { pos = lerp(lerp(P, bp, 0.35), RIM, 0.6); role = "HELP"; }
     out[k] = { x: Math.round(pos.x), y: Math.round(pos.y), role: role };
   }
   return out;
 }
-function visShell() {
-  var b = courtBlock("Shell lab");
-  var seg = make("div", "seg sm"); seg.setAttribute("role", "group"); seg.setAttribute("aria-label", "Mode");
+var LINES = [
+  ["pack", "Pack line"],
+  ["side", "Ball side · help side"],
+  ["tri", "Ball, you, man"],
+  ["force", "Force middle"]
+];
+function visShell(vis) {
+  vis = vis || {};
+  var modes = vis.modes || ["watch", "turn"];
+  var b = courtBlock(vis.title || "Shell lab", vis.sub || "");
   var bWatch = make("button", "on", "Watch"), bTurn = make("button", null, "Your turn");
-  seg.appendChild(bWatch); seg.appendChild(bTurn); b.head.appendChild(seg);
+  if (modes.length > 1) {
+    var seg = make("div", "seg sm"); seg.setAttribute("role", "group"); seg.setAttribute("aria-label", "Mode");
+    seg.appendChild(bWatch); seg.appendChild(bTurn); b.head.appendChild(seg);
+  }
   var view = Court.mount(b.card, "Shell drill: pack line positions");
   live.push(view);
   view.speed = 900;
-  var svg = view.svg;
-  var pack = svgEl("g", { "class": "crpack" });
-  pack.appendChild(svgEl("path", { d: "M 129 40 A 160 160 0 1 0 431 40" }));
-  var pt = svgEl("text", { x: 40, y: 178 }); pt.textContent = "PACK LINE";
-  pack.appendChild(pt);
-  svg.insertBefore(pack, svg.querySelector(".lg"));
+  var svg = view.svg, NS_LG = svg.querySelector(".lg");
+  var under = svgEl("g", { "class": "crlines" }), over = svgEl("g", { "class": "crlines" });
+  svg.insertBefore(under, NS_LG);
   var marks = svgEl("g", { "class": "crmarks" });
-  svg.appendChild(marks);
+  svg.appendChild(over); svg.appendChild(marks);
+  var defs = svg.querySelector("defs");
+  defs.insertAdjacentHTML("beforeend", '<marker id="' + svg.querySelector("marker").id + '-force" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--ball)"/></marker>');
+  var forceId = svg.querySelector("marker").id + "-force";
+
+  /* invisible-line toggles */
+  var on = {}; (vis.lines || ["pack"]).forEach(function (k) { on[k] = true; });
+  var chips = make("div", "crchips");
+  chips.appendChild(make("span", "crkicker", "Invisible lines"));
+  LINES.forEach(function (l) {
+    var c = make("button", "crchip" + (on[l[0]] ? " on" : ""), l[1]);
+    c.setAttribute("aria-pressed", on[l[0]] ? "true" : "false");
+    c.onclick = function () { on[l[0]] = !on[l[0]]; c.classList.toggle("on", on[l[0]]); c.setAttribute("aria-pressed", on[l[0]] ? "true" : "false"); drawLines(); };
+    chips.appendChild(c);
+  });
+  b.wrap.appendChild(chips);
 
   var panel = make("div", "crpanel"); panel.setAttribute("aria-live", "polite");
   b.wrap.appendChild(panel);
@@ -225,34 +257,87 @@ function visShell() {
   });
   b.wrap.appendChild(key);
 
-  var ball = 4, pos = shellSpots(4), mode = "watch", me = 0, newBall = 0, waiting = false, streak = 0;
-  function labels(spots, youIdx) {
+  var ball = vis.ball || 4, pos = shellSpots(ball), mode = "watch", me = 0, newBall = 0, waiting = false, streak = 0;
+
+  function drawLines() {
+    under.textContent = ""; over.textContent = "";
+    if (view.running) return;
+    if (on.pack) {
+      under.appendChild(svgEl("path", { "class": "pack", d: "M 129 40 A 160 160 0 1 0 431 40" }));
+      var lft = SHELL[ball].x >= 280;
+      var t = svgEl("text", { "class": "packlbl", x: lft ? 40 : 520, y: 186, "text-anchor": lft ? "start" : "end" }); t.textContent = "PACK LINE";
+      under.appendChild(t);
+    }
+    var bp = SHELL[ball];
+    if (on.side) {
+      under.appendChild(svgEl("line", { "class": "split", x1: 280, y1: 40, x2: 280, y2: 400 }));
+      if (ball === 3) {
+        var tm = svgEl("text", { "class": "sidelbl", x: 290, y: 392 }); tm.textContent = "BALL IN THE MIDDLE";
+        under.appendChild(tm);
+      } else {
+        var right = bp.x > 280;
+        var ts = svgEl("text", { "class": "sidelbl", x: right ? 520 : 40, y: 392, "text-anchor": right ? "end" : "start" }); ts.textContent = "BALL SIDE";
+        var th = svgEl("text", { "class": "sidelbl help", x: right ? 40 : 520, y: 392, "text-anchor": right ? "start" : "end" }); th.textContent = "HELP SIDE";
+        under.appendChild(ts); under.appendChild(th);
+      }
+    }
+    if (on.tri) {
+      for (var k = 1; k <= SHELL_N; k++) {
+        if (k === ball) continue;
+        var d = pos[k];
+        under.appendChild(svgEl("line", { "class": "tri", x1: d.x, y1: d.y, x2: SHELL[k].x, y2: SHELL[k].y }));
+        under.appendChild(svgEl("line", { "class": "tri", x1: d.x, y1: d.y, x2: bp.x, y2: bp.y }));
+      }
+    }
+    if (on.force) {
+      if (ball === 3) {
+        var tf = svgEl("text", { "class": "forcelbl", x: 280, y: 296, "text-anchor": "middle" }); tf.textContent = "KEEP HIM IN FRONT";
+        over.appendChild(tf);
+      } else {
+        var sgn = bp.x > 280 ? -1 : 1;
+        var a = { x: bp.x + sgn * 26, y: bp.y + (bp.y < 100 ? 22 : 8) };
+        var c = { x: 280 + -sgn * 52, y: bp.y < 100 ? 150 : 190 };
+        var m = { x: (a.x + c.x) / 2, y: Math.max(a.y, c.y) + 34 };
+        over.appendChild(svgEl("path", { "class": "force", d: "M " + a.x + " " + a.y + " Q " + m.x + " " + m.y + " " + c.x + " " + c.y, "marker-end": "url(#" + forceId + ")" }));
+        var tl = svgEl("text", { "class": "forcelbl", x: m.x, y: m.y + 6, "text-anchor": "middle" }); tl.textContent = "FORCE MIDDLE";
+        over.appendChild(tl);
+        var bx = bp.x - sgn * 4, by = bp.y < 100 ? 48 : bp.y - 70;
+        over.appendChild(svgEl("line", { "class": "nobase", x1: bx - 16, y1: by, x2: bx + 16, y2: by }));
+        var tn = svgEl("text", { "class": "forcelbl no", x: bx, y: by + (bp.y < 100 ? 20 : -10), "text-anchor": "middle" }); tn.textContent = "NO BASELINE";
+        over.appendChild(tn);
+      }
+    }
+  }
+
+  function labels(roles, youIdx) {
     var pl = {};
-    for (var k = 1; k <= 4; k++) {
+    for (var k = 1; k <= SHELL_N; k++) {
       pl["o" + k] = { id: "o" + k, team: "o", label: String(k), x: SHELL[k].x, y: SHELL[k].y };
-      pl["d" + k] = { id: "d" + k, team: "d", label: k === youIdx ? "YOU" : spots[k].role, x: pos[k].x, y: pos[k].y };
+      pl["d" + k] = { id: "d" + k, team: "d", label: k === youIdx ? "YOU" : roles[k], x: pos[k].x, y: pos[k].y };
     }
     return pl;
   }
+  function roleMap(spots) { var r = {}; for (var k = 1; k <= SHELL_N; k++) r[k] = spots[k].role; return r; }
   function render(youIdx) {
-    view.show({ name: "Shell", players: labels(pos, youIdx), ball: "o" + ball, defOn: true, steps: [] });
+    view.show({ name: "Shell", players: labels(roleMap(pos), youIdx), ball: "o" + ball, defOn: true, steps: [] });
     if (youIdx) { view.selected = "d" + youIdx; view.draw(); }
+    drawLines();
   }
   function move(newB, moves, youIdx, after) {
     var spots = shellSpots(newB), acts = [];
     if (newB !== ball) acts.push({ type: "pass", player: "o" + ball, target: "o" + newB });
     moves.forEach(function (k) { acts.push({ type: "dmove", player: "d" + k, to: { x: spots[k].x, y: spots[k].y } }); });
-    var roleSrc = {};
-    for (var k = 1; k <= 4; k++) roleSrc[k] = { role: moves.indexOf(k) >= 0 || !youIdx ? spots[k].role : "" };
-    var play = { name: "Shell", players: labels(roleSrc, youIdx), ball: "o" + ball, defOn: true, steps: [{ actions: acts }] };
-    view.show(play);
+    var roles = {};
+    for (var k = 1; k <= SHELL_N; k++) roles[k] = moves.indexOf(k) >= 0 ? spots[k].role : "";
+    view.show({ name: "Shell", players: labels(roles, youIdx), ball: "o" + ball, defOn: true, steps: [{ actions: acts }] });
     if (youIdx) view.selected = "d" + youIdx;
     view.onChange = function () {
-      if (view.running) return;
+      if (view.running) { under.textContent = ""; over.textContent = ""; return; }
       view.onChange = function () {};
       moves.forEach(function (k) { pos[k] = spots[k]; });
       ball = newB;
       if (after) after();
+      drawLines();
     };
     view.stepForward();
   }
@@ -261,14 +346,14 @@ function visShell() {
   }
   function watchPrompt() {
     panel.textContent = "";
-    panel.appendChild(make("p", null, "Tap a numbered player to pass him the ball. Watch every defender move while the ball is in the air, and read the job under each one."));
+    panel.appendChild(make("p", null, "Tap a numbered player to pass him the ball. Every defender moves while the ball is in the air. Read the job under each X, and turn the invisible lines on and off."));
   }
   function turn() {
     marks.textContent = "";
-    do { newBall = 1 + Math.floor(Math.random() * 4); } while (newBall === ball);
-    me = 1 + Math.floor(Math.random() * 4);
+    do { newBall = 1 + Math.floor(Math.random() * SHELL_N); } while (newBall === ball);
+    do { me = 1 + Math.floor(Math.random() * SHELL_N); } while (me === newBall && Math.random() < 0.6);
     hilite(null);
-    var others = [1, 2, 3, 4].filter(function (k) { return k !== me; });
+    var others = []; for (var k = 1; k <= SHELL_N; k++) if (k !== me) others.push(k);
     panel.textContent = "";
     panel.appendChild(make("p", "crkicker", "Watch the pass"));
     move(newBall, others, me, function () {
@@ -276,15 +361,16 @@ function visShell() {
       render(me);
       panel.textContent = "";
       panel.appendChild(make("p", "crkicker", "Your turn"));
-      panel.appendChild(make("p", "crbig", "Ball is with " + newBall + ". You're guarding " + me + "."));
+      panel.appendChild(make("p", "crbig", "Ball is in the " + SPOT_NAME[newBall] + ". You're guarding " + me + "."));
       panel.appendChild(make("p", "crscore", "You're the orange X. Tap where you should be standing. Streak " + streak));
     });
   }
   function setMode(m) {
     mode = m; waiting = false; marks.textContent = "";
     bWatch.classList.toggle("on", m === "watch"); bTurn.classList.toggle("on", m === "turn");
-    if (m === "watch") { pos = shellSpots(ball); render(0); watchPrompt(); hilite(null); }
-    else { streak = 0; pos = shellSpots(ball); render(0); turn(); }
+    pos = shellSpots(ball);
+    if (m === "watch") { render(0); watchPrompt(); hilite(null); }
+    else { streak = 0; render(0); turn(); }
   }
   bWatch.onclick = function () { setMode("watch"); };
   bTurn.onclick = function () { setMode("turn"); };
@@ -296,7 +382,7 @@ function visShell() {
       if (!g) return;
       var k = +g.getAttribute("data-id").slice(1);
       if (k === ball) return;
-      move(k, [1, 2, 3, 4], 0, function () { render(0); });
+      move(k, [1, 2, 3, 4, 5], 0, function () { render(0); });
       return;
     }
     if (!waiting) return;
@@ -390,34 +476,102 @@ function visTimer() {
   return w;
 }
 
-/* ---------------- quiz ---------------- */
+/* ---------------- quiz ----------------
+   A lesson is finished only when every answer is right. Answer order is
+   shuffled on every attempt so guessing the same letter doesn't work. */
+function perfect(l) {
+  var a = st.quiz[l.id] || {};
+  for (var i = 0; i < l.quiz.length; i++) if (a[i] !== l.quiz[i].a) return false;
+  return true;
+}
+
+/* The week's secret word. It is not stored as text: it decodes from the
+   answers a player actually picked, so it only reads right when every one of
+   them is correct. To change the word (or after editing any quiz), run
+   Course.encode("NEWWORD") in the browser console and paste the result here. */
+var SECRET = [124, 119, 3, 14, 9, 27, 11, 44];
+function answerKey(useCorrect) {
+  return lessons.map(function (l) {
+    var a = st.quiz[l.id] || {};
+    return l.quiz.map(function (q, i) { return useCorrect ? q.a : a[i]; }).join("");
+  }).join("");
+}
+function xor(codes, key) {
+  return codes.map(function (c, i) { return c ^ ((key.charCodeAt(i % key.length) + i * 7) & 255); });
+}
+function secret() {
+  if (!lessons.every(perfect)) return null;
+  return String.fromCharCode.apply(null, xor(SECRET, answerKey(false)));
+}
+function encode(word) {
+  return JSON.stringify(xor(word.split("").map(function (c) { return c.charCodeAt(0); }), answerKey(true)));
+}
+
+function shuffled(n) {
+  var o = []; for (var i = 0; i < n; i++) o.push(i);
+  for (var j = n - 1; j > 0; j--) { var k = Math.floor(Math.random() * (j + 1)), t = o[j]; o[j] = o[k]; o[k] = t; }
+  return o;
+}
+
+function reveal(word) {
+  var w = make("section", "crsecret");
+  w.appendChild(make("p", "crkicker", "Week " + week.n + " complete · every answer right"));
+  w.appendChild(make("p", "crsecret-lbl", "The secret word is"));
+  w.appendChild(make("p", "crsecret-word", word));
+  w.appendChild(make("p", null, "Don't share it. Tell Coach at practice."));
+  return w;
+}
+
 function quiz(lesson) {
   var w = make("section", "panel crquiz");
   var h = make("h3", null, "Check yourself"); w.appendChild(h);
   var score = make("p", "crscore"); w.appendChild(score);
   var ans = st.quiz[lesson.id] || {};
+  var retry = make("button", "btn sm", "Retake quiz");
   function update() {
-    var n = Object.keys(ans).length, right = 0;
+    var n = Object.keys(ans).length, right = 0, total = lesson.quiz.length;
     Object.keys(ans).forEach(function (i) { if (ans[i] === lesson.quiz[i].a) right++; });
-    score.textContent = n ? right + " of " + lesson.quiz.length + " right" : lesson.quiz.length + " questions";
-    if (n === lesson.quiz.length && !st.done[lesson.id]) { st.done[lesson.id] = true; save(); renderList(); window.CC.toast("Lesson complete."); }
+    retry.className = "btn sm";
+    score.className = "crscore";
+    if (!n) { score.textContent = total + " questions. Get every one right to finish this lesson."; return; }
+    if (n < total) { score.textContent = right + " of " + n + " right so far"; return; }
+    if (right === total) {
+      score.textContent = "All " + total + " right. Lesson complete.";
+      score.className = "crscore crok";
+      if (!st.done[lesson.id]) {
+        st.done[lesson.id] = true; save(); renderList();
+        var word = secret();
+        if (word) {
+          window.CC.toast("Week " + week.n + " complete!");
+          var r = reveal(word);
+          $("crLesson").appendChild(r);
+          r.scrollIntoView({ block: "center" });
+        } else window.CC.toast("Lesson complete.");
+      }
+    } else {
+      score.textContent = right + " of " + total + " right. You need every answer right to finish. Read the explanations, then retake it.";
+      score.className = "crscore crno";
+      retry.className = "btn primary sm";
+    }
   }
   lesson.quiz.forEach(function (q, qi) {
     var box = make("div", "crq");
     box.appendChild(make("p", "crqt", (qi + 1) + ". " + q.q));
-    var opts = make("div", "cropts"), ex = make("p", "crex"); ex.hidden = true;
-    q.o.forEach(function (o, oi) {
-      var b = make("button", "cropt", o);
+    var opts = make("div", "cropts"), ex = make("p", "crex"), btns = {}; ex.hidden = true;
+    shuffled(q.o.length).forEach(function (oi) {
+      var b = make("button", "cropt", q.o[oi]);
       b.onclick = function () {
         if (ans[qi] != null) return;
         ans[qi] = oi; st.quiz[lesson.id] = ans; save(); show(); update();
       };
+      btns[oi] = b;
       opts.appendChild(b);
     });
     function show() {
       var picked = ans[qi];
       if (picked == null) return;
-      [].slice.call(opts.children).forEach(function (b, i) {
+      Object.keys(btns).forEach(function (k) {
+        var i = +k, b = btns[k];
         b.disabled = true;
         if (i === q.a) b.classList.add("right"); else if (i === picked) b.classList.add("wrong");
       });
@@ -430,8 +584,7 @@ function quiz(lesson) {
     w.appendChild(box);
     show();
   });
-  var retry = make("button", "btn sm", "Retake quiz");
-  retry.onclick = function () { delete st.quiz[lesson.id]; save(); renderLesson(); };
+  retry.onclick = function () { delete st.quiz[lesson.id]; delete st.done[lesson.id]; save(); renderList(); renderLesson(); };
   w.appendChild(retry);
   update();
   return w;
@@ -446,8 +599,9 @@ function renderList() {
   var list = $("crLessons"); list.textContent = "";
   var cur = current(), done = 0;
   lessons.forEach(function (l, i) {
-    if (st.done[l.id]) done++;
-    var b = make("button", "crrow" + (i === cur ? " on" : "") + (st.done[l.id] ? " done" : ""));
+    var ok = perfect(l);
+    if (ok) done++;
+    var b = make("button", "crrow" + (i === cur ? " on" : "") + (ok ? " done" : ""));
     b.appendChild(make("span", "crn", String(i + 1)));
     b.appendChild(make("span", "crt", l.title));
     b.appendChild(make("span", "crck"));
@@ -457,7 +611,9 @@ function renderList() {
   });
   $("crProgTxt").textContent = done + " of " + lessons.length + " lessons done";
   $("crBar").style.width = (done / lessons.length * 100) + "%";
-  $("crDone").hidden = done < lessons.length;
+  var word = secret();
+  $("crDone").hidden = !word;
+  $("crDone").textContent = word ? "Week " + week.n + " complete. Secret word: " + word : "";
 }
 
 /* ---------------- one lesson ---------------- */
@@ -477,7 +633,7 @@ function renderLesson() {
   l.visuals.forEach(function (v) {
     if (v.type === "play") host.appendChild(visPlay(v));
     else if (v.type === "spots") host.appendChild(visSpots());
-    else if (v.type === "shell") host.appendChild(visShell());
+    else if (v.type === "shell") host.appendChild(visShell(v));
     else if (v.type === "routine") host.appendChild(visRoutine(v));
     else if (v.type === "timer") host.appendChild(visTimer());
   });
@@ -488,6 +644,23 @@ function renderLesson() {
   l.points.forEach(function (p) { var li = make("li"); li.appendChild(make("b", null, p[0])); li.appendChild(make("span", null, p[1])); ul.appendChild(li); });
   know.appendChild(ul);
   host.appendChild(know);
+
+  if (l.why) {
+    var why = make("section", "panel");
+    why.appendChild(make("h3", null, "Why we play it"));
+    var wl = make("ul", "crpoints");
+    l.why.forEach(function (p) { var li = make("li"); li.appendChild(make("b", null, p[0])); li.appendChild(make("span", null, p[1])); wl.appendChild(li); });
+    why.appendChild(wl);
+    host.appendChild(why);
+  }
+  if (l.checks) {
+    var ck = make("section", "panel");
+    ck.appendChild(make("h3", null, "What Coach is watching for"));
+    var cl = make("ul", "crchecks");
+    l.checks.forEach(function (c) { cl.appendChild(make("li", null, c)); });
+    ck.appendChild(cl);
+    host.appendChild(ck);
+  }
 
   var cues = make("section", "crcues");
   cues.appendChild(make("p", "crkicker", "What Coach will yell"));
@@ -502,6 +675,8 @@ function renderLesson() {
   host.appendChild(fl);
 
   host.appendChild(quiz(l));
+  var sw = secret();
+  if (sw && !host.querySelector(".crsecret")) host.appendChild(reveal(sw));
 
   var nav = make("div", "crnav");
   if (i > 0) { var p = make("button", "btn", "← " + lessons[i - 1].title); p.onclick = function () { go(i - 1); }; nav.appendChild(p); }
@@ -511,11 +686,12 @@ function renderLesson() {
 function go(i) { st.lesson = lessons[i].id; save(); renderList(); renderLesson(); window.scrollTo(0, 0); }
 
 function init() {
+  lessons.forEach(function (l) { if (!perfect(l)) delete st.done[l.id]; });
   $("crWeekTitle").textContent = "Week " + week.n + " · " + week.title;
   $("crGoal").textContent = week.goal;
   renderList();
   renderLesson();
 }
 
-return { init: init, stop: function () { live.forEach(function (v) { v.stop(); }); } };
+return { init: init, encode: encode, stop: function () { live.forEach(function (v) { v.stop(); }); } };
 })();

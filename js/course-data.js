@@ -9,9 +9,12 @@
      idea      the big idea, two or three sentences
      points    [title, text] pairs: what you need to know
      cues      the words Coach will yell at practice
-     visuals   any of: { type: "spots" }, { type: "shell" }, { type: "timer" },
+     visuals   any of: { type: "spots" }, { type: "timer" },
+               { type: "shell", title, sub, modes: ["watch","turn"], lines: ["pack","side","tri","force"] },
                { type: "routine", items: [[move, reps]] },
                { type: "play", name, play }  (play format below)
+     why       optional [title, text] pairs shown as "Why we play it"
+     checks    optional list shown as "What Coach is watching for"
      floor     what we do with it at practice this week
      quiz      [{ q, o: [options], a: index of right answer, e: explanation }]
 
@@ -29,8 +32,8 @@ window.CourseData = {
   weeks: [
     {
       n: 1,
-      title: "Foundation",
-      goal: "Learn the language of the floor, guard as a team, finish every stop with a rebound, and find out where your conditioning starts.",
+      title: "Pack Line Defense",
+      goal: "Learn the floor, then learn our defense. By Friday you should know your job, Ball, Gap or Help, on every pass. Get every quiz question right to unlock the secret word.",
       lessons: [
         {
           id: "w1-floor",
@@ -77,123 +80,108 @@ window.CourseData = {
           ]
         },
         {
-          id: "w1-warmup",
-          title: "Warm Up Every Day",
-          mins: 3,
-          idea: "Warm muscles move faster and get hurt less. Our warm-up is the same 8 minutes every practice, in the same order, so it runs itself. Captains start it the minute practice starts. Nobody waits for Coach.",
+          id: "w1-pl-why",
+          title: "Pack Line: The Why",
+          mins: 6,
+          idea: "Our defense is the pack line. It's man-to-man with one big rule: if you're not guarding the ball, you're inside the pack line. We aren't the tallest team and we don't have a shot blocker, so we protect the rim with numbers instead of height. The ball defender forces every drive middle, straight into four of us waiting in the lane.",
           points: [
-            ["Same order, every day", "When the routine is automatic, nobody wastes time asking what's next."],
-            ["Move, don't hold", "We warm up by moving (dynamic). Long stretches where you hold still come after practice, not before."],
-            ["Build to full speed", "Start easy, finish fast. The last two sprints get you to game speed before the first drill."],
-            ["Talk while you move", "Call out the next move, encourage each other. A loud warm-up means a sharp practice."]
+            ["The pack line", "An invisible arc about 16 feet from the rim, a couple of steps inside the 3-point line. If you're not on the ball, at least one foot stays inside it."],
+            ["Ball side and help side", "An invisible line splits the floor down the middle. The half with the ball is ball side. The other half is help side. Helpers live on the help side, in the lane."],
+            ["Ball, you, man", "Every defender off the ball makes a flat triangle with the ball and his man. Stand where you can see both without turning your head."],
+            ["Force middle", "The ball defender takes away the baseline. The driver has to go middle, and the middle is where the pack is waiting."]
           ],
-          cues: ["Warm, not tired", "Talk while you move", "Captains, go"],
-          visuals: [
-            {
-              type: "routine",
-              items: [
-                ["Jog", "Baseline to half court and back"],
-                ["High knees", "Half court and back"],
-                ["Butt kicks", "Half court and back"],
-                ["Carioca", "Down facing left, back facing right"],
-                ["Walking lunge with a twist", "Half court and back"],
-                ["Leg swings", "10 front-to-back, 10 side-to-side, each leg"],
-                ["Defensive slides", "Low stance, half court and back"],
-                ["Build-up sprints", "One at 75% speed, one at 90%"]
-              ]
-            }
+          why: [
+            ["Help is already there", "We don't have to race to the rim to help. We're standing in front of it before the drive starts."],
+            ["Fewer fouls", "Helpers are in position early, so nobody has to reach or lunge late. We need our best players on the floor, not on the bench with fouls."],
+            ["Better rebounding", "All five of us are near the rim when the shot goes up. That's how a small team wins the boards."],
+            ["Easy to learn", "Three jobs and one line. Every possession you only answer one question: where's the ball?"]
           ],
-          floor: "Captains lead warm-up at the start of every practice. Coach times it: 8 minutes, done right, no stopping.",
+          cues: ["The paint is ours", "Force middle", "Inside the line"],
+          visuals: [{ type: "shell", title: "The invisible lines", sub: "Turn each line on and off", modes: ["watch"], lines: ["pack", "side", "tri", "force"] }],
+          floor: "Coach will walk the shell drill and freeze it. When he yells \"Freeze!\", point to the pack line and tell him which side of the floor you're on.",
           quiz: [
-            { q: "Who starts warm-up?", o: ["Coach, once everyone is quiet", "The captains, as soon as practice starts", "Whoever gets there first", "Nobody, we start with shooting"], a: 1, e: "Captains start it right away so we don't lose minutes waiting around." },
-            { q: "Which kind of stretching do we do before practice?", o: ["Holding long stretches on the floor", "Moving stretches like lunges and leg swings", "None at all", "Only arm circles"], a: 1, e: "Moving (dynamic) warm-ups get your body ready to run and jump. Long holds are for after practice." },
-            { q: "How does warm-up end?", o: ["A water break", "Two build-up sprints, 75% then 90%", "Free throws", "Sitting down to listen"], a: 1, e: "The build-up sprints get you to game speed so the first drill isn't the first time you run hard." }
+            { q: "What is the pack line?", o: ["The 3-point line", "An invisible arc about 16 feet from the rim", "The free-throw line", "The half-court line"], a: 1, e: "It's a couple of steps inside the 3-point line. If you're not guarding the ball, at least one foot stays inside it." },
+            { q: "Which way does the ball defender force the driver?", o: ["Baseline", "Middle, into the pack", "Back to half court", "Whichever way he wants"], a: 1, e: "We take away the baseline and force him middle, where four teammates are waiting in the lane." },
+            { q: "Why does the pack line fit our team?", o: ["We're taller than everyone", "It lets us gamble for steals", "Help is already near the rim, so we don't need a shot blocker", "It means less running"], a: 2, e: "We protect the rim with bodies that are already there, not with height." },
+            { q: "The ball is on the left wing. Where is the help side?", o: ["The left corner", "The right half of the floor", "The top of the key", "Behind the half-court line"], a: 1, e: "Help side is the half of the floor away from the ball. With the ball on the left, it's the right half." },
+            { q: "\"Ball, you, man\" means:", o: ["Always face your man", "Stand where you can see the ball and your man at the same time", "Guard the ball, then your man", "Follow the ball everywhere"], a: 1, e: "Make a flat triangle with the ball and your man so you can see both without turning your head." }
           ]
         },
         {
-          id: "w1-packline",
-          title: "Pack Line: Ball, Gap, Help",
+          id: "w1-pl-bgh",
+          title: "Ball, Gap, Help",
           mins: 8,
-          idea: "Our defense is man-to-man with one big rule: if you're not guarding the ball, you're inside the pack line, an imaginary line about 16 feet from the rim. The on-ball defender forces every drive to the middle, straight into the pack, where four of us are waiting. We're not the tallest team, so we protect the paint with bodies that are already there.",
+          idea: "Every time the ball moves, every defender has one of three jobs: Ball, Gap or Help. Your job depends on how many passes your man is from the ball. Learn the three spots, and you'll always know where to stand.",
           points: [
-            ["Ball: force middle", "Arm's length off, shaded to his baseline side with your top foot high. Never give up the baseline. Push him middle, into the pack. Yell \"Ball!\""],
-            ["Gap: one pass away", "Stand on the line between your man and the ball, inside the pack line. Don't try to steal the pass. When the ball is forced middle, you're the first wall he sees."],
-            ["Help: two passes away", "Feet in the lane. Point one hand at the ball and one at your man. You're the wall at the rim."],
-            ["Move on the pass", "Your job changes every time the ball moves. Get to your new spot while the ball is in the air, not after it's caught."],
-            ["Talk", "\"Ball!\" from the on-ball defender. \"Help left!\" or \"Help right!\" from the helpers. \"Shot!\" when it goes up."]
+            ["Ball: your man has it", "Arm's length off, shaded to his baseline side with your top foot high. Hands active, high hand on a shot. Never give up baseline. Force him middle. Yell \"Ball!\""],
+            ["Gap: one pass away", "On the line between your man and the ball, inside the pack line. Don't deny the pass. When the ball comes middle, you're the first wall he sees. Stop him, then get back to your man."],
+            ["Help: two passes away", "Feet in the lane. One hand pointed at the ball, one at your man. You're the wall at the rim. Yell \"Help left!\" or \"Help right!\""],
+            ["Your job changes on every pass", "One pass can turn you from Help to Gap, or from Gap to Ball. Move while the ball is in the air so you're in your new spot before the catch."]
           ],
-          cues: ["Force middle", "Ball, gap, help", "Move on the pass", "See ball, see man"],
-          visuals: [{ type: "shell" }],
-          floor: "Shell drill, Stage 1: 4 on 4, no dribbling. Offense passes slowly, and the defense jumps to Ball, Gap and Help while the ball is in the air. Coach checks every spot.",
+          cues: ["Ball, gap, help", "Move on the pass", "See ball, see man"],
+          visuals: [{ type: "shell", title: "Shell lab", sub: "5 on 5", modes: ["watch", "turn"], lines: ["pack"] }],
+          floor: "Shell drill, Stage 1: 5 on 5, no dribbling. The offense passes slowly, and the defense jumps to Ball, Gap and Help while the ball is in the air. Coach checks every spot.",
           quiz: [
-            { q: "The ball is on the right wing. Your man is on the left wing. Where are you?", o: ["Right next to him, denying the pass", "In the lane, where you can see the ball and your man", "Running to double the ball", "At half court"], a: 1, e: "Your man is two passes away, so you're in help: feet in the lane, one hand on the ball, one on your man." },
-            { q: "Your man is one pass away from the ball. What's your job?", o: ["Deny the pass with your hand in the lane", "Stand in the gap, ready to stop a drive", "Guard the rim under the basket", "Guard the ball too"], a: 1, e: "In pack line we don't deny. You sit in the gap between your man and the ball, inside the pack line, so you can stop a drive." },
-            { q: "When do you move to your new spot?", o: ["After your man catches it", "While the pass is in the air", "When Coach yells", "Only if your man moves"], a: 1, e: "Move on the pass. If you wait for the catch, you're already late." },
-            { q: "On the ball, which way do you never let him go?", o: ["To the baseline", "To the middle", "Backwards", "To half court"], a: 0, e: "Never give up baseline. Baseline drives get behind our help. We force him middle, where the whole pack is waiting for him." }
+            { q: "The ball is on the right wing. Your man is on the left wing. What's your job?", o: ["Ball", "Gap", "Help", "Deny"], a: 2, e: "Your man is two passes away, so you're in Help: feet in the lane, one hand on the ball, one on your man." },
+            { q: "The ball is at the top. Your man is on the right wing. What's your job?", o: ["Ball", "Gap", "Help", "Double the ball"], a: 1, e: "One pass away is Gap. Get on the line between your man and the ball, inside the pack line." },
+            { q: "You're in Gap. Should you try to steal the pass to your man?", o: ["Yes, always deny", "No, stay in the gap and be ready to stop a drive", "Only if he's a good shooter", "Only in the fourth quarter"], a: 1, e: "Pack line doesn't deny. We give up the pass to stay in position to stop the drive." },
+            { q: "Where do a Help defender's feet go?", o: ["Behind the 3-point line", "In the lane", "On the baseline out of bounds", "Next to his man"], a: 1, e: "Feet in the lane. That's what makes the wall at the rim." },
+            { q: "Your man has the ball on the wing. Where do you stand?", o: ["Between him and the middle of the floor", "Arm's length off, shaded to his baseline side", "Right behind him", "In the lane"], a: 1, e: "Shade baseline with your top foot high. He can't go baseline, so he has to drive middle into the pack." }
           ]
         },
         {
-          id: "w1-boxout",
-          title: "Box Out: Find, Hit, Get",
-          mins: 5,
-          idea: "A stop isn't a stop until we get the rebound. Bigger teams win rebounds when everyone just jumps for the ball. We win by hitting first: find your man, put your body into him, then go get it. All five of us, guards too.",
+          id: "w1-pl-rules",
+          title: "The Pack Line Rules",
+          mins: 7,
+          idea: "Six rules make the pack line work. Learn them here, then we'll drill them all week. If all five of us follow these rules on every possession, the driver sees a wall every time he looks at the rim.",
           points: [
-            ["Find", "When the shot goes up, yell \"Shot!\" and find your man right away. Don't watch the ball."],
-            ["Hit", "Step to him and make contact first, low, with your backside and arms wide. Keep him behind you."],
-            ["Get", "Then go get the ball. Two hands, chin it, elbows out."],
-            ["Five on the glass", "Everyone boxes out. A rebound by a guard starts the fastest break we've got."],
-            ["Long shot, long rebound", "Threes bounce far. Misses from the side usually come off on the opposite side, so help-side players own that area."]
+            ["1. Pack line", "If you're not guarding the ball, at least one foot stays inside the 16-foot line. The paint is ours."],
+            ["2. Move on the pass", "All five move while the ball is in the air. Be in your new spot before the catch."],
+            ["3. Ball, gap, help", "Every trip, know which one you are. Your job changes every time the ball moves."],
+            ["4. Closeouts", "Sprint the first two-thirds, then chop your feet. High hand, weight back. Push him middle, into help."],
+            ["5. Talk", "\"Ball!\" from the on-ball defender. \"Help!\" from the helpers. \"Shot!\" when it goes up."],
+            ["6. Finish with the board", "A stop isn't a stop until we get the rebound. Find your man, hit him, get the ball."]
           ],
-          cues: ["Shot!", "Find, hit, get", "Five on the glass"],
+          checks: [
+            "Ball defender never gives up baseline",
+            "Gap defenders are on the line, not denying",
+            "Help defenders have their feet in the lane",
+            "Everyone moves while the pass is in the air",
+            "Closeouts end in short, choppy steps",
+            "You can hear \"Ball\" and \"Help\" on every pass",
+            "Defense boxes out on every shot",
+            "No reaching fouls on drives"
+          ],
+          cues: ["Move on the pass", "Force middle", "Chop your feet", "Talk every trip"],
           visuals: [
             {
               type: "play",
-              name: "Find, hit, get",
+              name: "The rules in action",
               play: {
-                o: { 1: [280, 318], 2: [470, 230], 3: [90, 230], 4: [392, 168], 5: [168, 168] },
-                d: { 1: [280, 285], 2: [443, 213], 3: [117, 213], 4: [368, 150], 5: [192, 150] },
-                ball: 2,
+                o: { 1: [62, 66], 2: [92, 231], 3: [280, 353], 4: [468, 231], 5: [498, 66] },
+                d: { 1: [223, 122], 2: [196, 205], 3: [280, 311], 4: [364, 205], 5: [337, 122] },
+                ball: 3,
                 steps: [
-                  [["shot", "o2"]],
-                  [["move", "o1", 280, 270], ["move", "o2", 430, 195], ["move", "o3", 135, 190], ["move", "o4", 345, 140], ["move", "o5", 213, 140],
-                   ["dmove", "d1", 280, 240], ["dmove", "d2", 405, 178], ["dmove", "d3", 160, 172], ["dmove", "d4", 325, 120], ["dmove", "d5", 232, 120]],
-                  [["dmove", "d5", 258, 105]]
+                  [["pass", "o3", "o4"], ["dmove", "d1", 250, 105], ["dmove", "d2", 257, 148], ["dmove", "d3", 316, 236], ["dmove", "d4", 447, 193], ["dmove", "d5", 414, 107]],
+                  [["dribble", "o4", 392, 212], ["dmove", "d4", 372, 190], ["dmove", "d3", 342, 202]],
+                  [["pass", "o4", "o5"], ["dmove", "d5", 461, 71], ["dmove", "d4", 372, 141], ["dmove", "d3", 311, 157], ["dmove", "d2", 262, 125], ["dmove", "d1", 254, 82]]
                 ],
                 captions: [
-                  "2 has the ball on the wing. Every defender is in position. Watch what happens when he shoots.",
-                  "Shot! The ball goes up. Everyone yells \"Shot!\" and finds their man. Eyes on your man, not the ball.",
-                  "Hit: all five offensive players crash, and all five of us step into them first. Low, wide, backside into his body. Nobody gets between us and the rim.",
-                  "Get: once your man is sealed, go get the ball. Two hands, chin it. Here x5 grabs it because the miss came off the help side."
+                  "Ball at the top. Both wings are one pass away, so x2 and x4 are in Gap. The corners are two passes away, so x1 and x5 are in Help.",
+                  "Move on the pass: the ball goes to the right wing and all five defenders move while it's in the air. x4 is now on the ball, shaded baseline.",
+                  "Force middle: x4 takes away the baseline, so 4 drives middle. He runs right into x3 stepping in from the gap, with x2 and x1 waiting in the lane.",
+                  "4 kicks to the corner. Everyone moves again. x5 closes out: sprint, chop your feet, high hand, and push 5 middle. Nobody gets baseline."
                 ]
               }
             }
           ],
-          floor: "Hit and Get Box-Out drill in pairs. Defense has to win 3 in a row to rotate out. Every shell drill rep ends with a box-out too.",
+          floor: "All week: shell drill every practice. Coach will use the checklist on this page to grade each rep.",
           quiz: [
-            { q: "What's the right order?", o: ["Jump, grab, land", "Find, hit, get", "Watch, react, chase", "Hit, find, get"], a: 1, e: "Find your man, hit him first, then get the ball. Most of our rebounds come after the box-out, not instead of it." },
-            { q: "When the shot goes up, where are your eyes first?", o: ["On the ball", "On your man", "On the ref", "On the coach"], a: 1, e: "Find your man first. If you watch the ball, he walks right past you." },
-            { q: "Who boxes out?", o: ["Only the big men", "Only the player guarding the shooter", "All five players", "Nobody, we leak out"], a: 2, e: "Five on the glass. We aren't bigger, so we win with more bodies doing it right." },
-            { q: "A three is missed from the left wing. Where should you expect it?", o: ["Right back to the shooter", "On the right side of the rim", "Straight down under the rim", "Out of bounds"], a: 1, e: "A common rule of thumb: misses from the side tend to come off on the opposite side, and long shots bounce long." }
-          ]
-        },
-        {
-          id: "w1-17s",
-          title: "Sideline 17s",
-          mins: 3,
-          idea: "Sideline 17s are our conditioning test. Sprint from one sideline to the other and touch the line, 17 touches in all. With only 8 of us, the five on the floor have to be the freshest five in the fourth quarter. This week we find out where you start.",
-          points: [
-            ["17 touches", "Touch each sideline with your foot. Every touch counts as one. 17 touches and you finish on the far sideline."],
-            ["Count out loud", "Run in pairs. Your partner counts your touches and runs the clock."],
-            ["Two rounds", "Rest 2 minutes between rounds. Shoot 2 free throws during the rest, because games are decided by tired legs at the line."],
-            ["Retest every two weeks", "Log your time here. Beating your own number is the goal."]
-          ],
-          cues: ["Touch every line", "Run to compete", "Win the fourth"],
-          visuals: [{ type: "timer" }],
-          floor: "End of practice on Day 1: everyone runs 17s and logs the time. We'll retest in Week 3 and Week 5.",
-          quiz: [
-            { q: "How many line touches in one round of 17s?", o: ["10", "15", "17", "20"], a: 2, e: "17 touches, sideline to sideline." },
-            { q: "Why do we shoot free throws during the rest?", o: ["To fill time", "Because close games are decided by free throws on tired legs", "It's a punishment", "To cool down"], a: 1, e: "In the fourth quarter you'll be shooting tired. Practice it now." },
-            { q: "What's the real goal of the retest?", o: ["Beat the fastest player on the team", "Beat your own time", "Finish without stopping", "Run faster than last season's team"], a: 1, e: "Everyone starts somewhere different. Getting faster than your own number is what wins fourth quarters." }
+            { q: "When do you move to your new spot?", o: ["After your man catches it", "While the pass is in the air", "When Coach yells", "Only if your man moves"], a: 1, e: "Move on the pass. If you wait for the catch, you're already late." },
+            { q: "How should a closeout end?", o: ["Full sprint, jump at the shooter", "Short, choppy steps, high hand, weight back", "Stop at the free-throw line", "Backpedaling"], a: 1, e: "Chop your feet so you can contest the shot and still slide when he drives. Then push him middle." },
+            { q: "What does the on-ball defender yell?", o: ["\"Help!\"", "\"Ball!\"", "\"Shot!\"", "Nothing"], a: 1, e: "\"Ball!\" tells everyone you've got the ball. Helpers yell \"Help!\" and everyone yells \"Shot!\" when it goes up." },
+            { q: "When is a defensive stop finished?", o: ["When they miss", "When we get the rebound", "When the shot clock runs out", "When they pass it out"], a: 1, e: "A stop isn't a stop until we rebound. Find, hit, get." },
+            { q: "If you're not guarding the ball, where is at least one of your feet?", o: ["On the 3-point line", "Inside the pack line", "Touching your man", "On the baseline"], a: 1, e: "Inside the pack line, about 16 feet from the rim. The paint is ours." }
           ]
         }
       ]
