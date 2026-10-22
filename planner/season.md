@@ -6,8 +6,8 @@
 
 - Days: Sunday, Tuesday, Thursday
 - Length: 90 minutes
-- Start time: ?
-- Location notes (one hoop or two, gym shared?): ?
+- Start time: Sunday 4:00 PM. Tuesday and Thursday 6:00 PM.
+- Gym: full court, two hoops (split stations can run at both ends)
 
 ## Games
 

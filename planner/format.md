@@ -4,7 +4,7 @@ Learned from the practices already saved in `data/plans.json` (Sept 27, Oct 11,
 Oct 13). Every draft follows these rules unless Coach says otherwise.
 
 - **Length:** 90 minutes. Items add up to 90 exactly.
-- **Start time:** 4:00 PM (`"start": "16:00"`). <!-- Coach: confirm -->
+- **Start time:** Sunday 4:00 PM (`"16:00"`). Tuesday and Thursday 6:00 PM (`"18:00"`).
 - **Focus line:** one short line, what today is about. Example: "Zone offense
   install vs the 2-3".
 - **Every item:** minutes, a drill name, and one or two sentences in Coach's
