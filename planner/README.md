@@ -15,6 +15,23 @@ plan shows up in Coach OS under **Practice Plan**, ready to publish and print.
 4. **After practice**, Coach answers two questions in one line each: what
    worked, what didn't. That goes into `log.md` and shapes the next draft.
 
+## Every night before practice (automatic)
+
+A scheduled task runs at 6:57 PM the night before each practice (Saturday,
+Monday, Wednesday):
+
+1. Checks `season.md`: no practice tomorrow (game or day off)? It says so and
+   stops.
+2. Uses tomorrow's plan if one is already in `data/plans.json`; otherwise drafts
+   it from `curriculum.md` and `format.md`, every drill with a visual.
+3. Merges it to `main`, so it's on the Practice Plan page.
+4. Runs `python3 planner/export.py <date> <folder>` and sends Coach both PDFs.
+5. Adds a TickTick task in **🏀Practice Plans**, due 8:30 PM: review, reply with
+   changes, send to the coaches' group chat (message ready to paste).
+
+Coach replies with changes in that same run's chat; Claude revises, re-merges
+and re-sends the PDFs.
+
 ## Setup, one step at a time
 
 | Step | What happens | Who | Time |
