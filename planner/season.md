@@ -22,7 +22,7 @@ varsity boys tip-off. Middle school and JV-only dates are left out.
 | Nov 24 | Tue | Hyman Brand | Home | 6:00 | Practice day |
 | Dec 10 | Thu | Christ Prep | ?? | ?? | Location and time not set |
 | Jan 5 | Tue | Legacy | Away | 5:30 | Practice day |
-| Jan 12 | Tue | Christ Prep | Home | 6:00? | Confirm varsity boys |
+| Jan 12 | Tue | Christ Prep | Home | 6:00 | Practice day |
 | Jan 16 | Sat | Hyman Brand | Away (Overland Park) | 8:30 | |
 | Jan 19 | Tue | Chesterton | Home | 7:00 | Practice day |
 | Jan 21 | Thu | Guadalupe | Away | 5:30 | Practice day |
@@ -30,7 +30,7 @@ varsity boys tip-off. Middle school and JV-only dates are left out.
 | Jan 28 | Thu | Daniel Academy | Away (Center Middle School, KC) | 7:30 | Practice day |
 | Jan 31 | Sun | Sunnydale | Home | 3:30 | Practice day |
 | Feb 1 | Mon | Cristo Rey (Senior Night) | Home | 7:00 | |
-| Feb 2 | Tue | Frontier SOE | Away | 4:30? | Confirm varsity boys; minimum day at school |
+| Feb 2 | Tue | Frontier SOE | Away | 4:30 | Practice day; minimum day at school |
 | Feb 3 to 7 | | Union Tournament | Lincoln, NE | TBD | Dates not final |
 | Feb 8 | Mon | Frontier STEM | Home | 6:00 | |
 | Feb 9 and 11 | Tue, Thu | GPAC Tournament | Away (KSD Gym, Olathe) | TBD | |
@@ -46,7 +46,9 @@ Planning rules from this schedule:
 
 ## Big tournament
 
-- GPAC Tournament: Feb 9 and 11, championship Feb 16 <!-- confirm -->
+- **Peak for: Union Tournament, Feb 3 to 7, Lincoln, NE** (dates not final)
+- Then GPAC Tournament: Feb 9 and 11, championship Feb 16
+- Stop installing new things by mid-January so the team is sharp, not learning, in February.
 
 ## No practice
 
