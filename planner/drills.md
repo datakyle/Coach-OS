@@ -26,7 +26,7 @@ basket, horn at the end.
 | Closeout and Recover | 12 | 6 min 1v1 closeouts from help (2 dribbles, games to 3). 6 min 2v2 help and recover: open kick-out is 3 and the defense runs. |
 | Closeout Drives | 7 to 8 | Defender passes and closes out, offense gets 2 dribbles. Games to 3. |
 | Wing Closeout and Shuffles | 7 to 15 | Choppy steps, early hand. Shooter: close and hands up. Driver: hands to the side, watch the drive. |
-| Vegas Closeouts | ? | Coach to describe. |
+| Vegas Closeouts | 7 to 10 | Sprint the first two-thirds, then short chop steps. Get low, two hands up. Push him middle, into help. |
 | 2v2 Screen Defense | 7 | Live ball screen and down screen. Screener's man calls it early. Over, under, switch. Talk first or the rep doesn't count. Games to 5. |
 | Stance and Slide into Closeout Shooting | 7 | 30 sec slides, then 5 catch-and-shoots from the elbow, partner closes out on the last two. |
 | Gap Theory Review | 7 | Make 2 guard 1, make the mismatch, drive bad closeouts, 2v1 half court. |

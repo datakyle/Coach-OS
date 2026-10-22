@@ -86,6 +86,7 @@ window.Practice = (function () {
     cur.id = cur.date;
     cur.start = document.getElementById("planStart").value || "16:00";
     cur.focus = document.getElementById("planFocus").value.trim();
+    readExtra();
     cur.updated = Date.now();
     var at = -1;
     for (var i = 0; i < plans.length; i++) if (plans[i].id === cur.id) at = i;
@@ -116,6 +117,26 @@ window.Practice = (function () {
   }
   var planSync = null;
 
+  /* Optional fields, added Oct 2026: num, tagline, extras [{title, note}],
+     announce. Older plans simply don't have them. */
+  function extrasText(p) {
+    return (p.extras || []).map(function (x) { return x.note ? x.title + ": " + x.note : x.title; }).join("\n");
+  }
+  function parseExtras(txt) {
+    return (txt || "").split("\n").map(function (l) { return l.trim(); }).filter(Boolean).map(function (l) {
+      var i = l.indexOf(":");
+      return i > 0 ? { title: l.slice(0, i).trim(), note: l.slice(i + 1).trim() } : { title: l, note: "" };
+    });
+  }
+  function readExtra() {
+    var v = function (id) { return document.getElementById(id).value.trim(); };
+    var set = function (k, val) { if (val) cur[k] = val; else delete cur[k]; };
+    set("num", v("planNum")); set("tagline", v("planTag")); set("announce", v("planAnnounce"));
+    var ex = parseExtras(document.getElementById("planExtras").value);
+    if (ex.length) cur.extras = ex; else delete cur.extras;
+  }
+  function grow(t) { t.style.height = "auto"; t.style.height = (t.scrollHeight + 2) + "px"; }
+
   function openPlan(p) { cur = JSON.parse(JSON.stringify(p)); dirty = false; render(); }
 
   /* ---------- render ---------- */
@@ -123,6 +144,10 @@ window.Practice = (function () {
     document.getElementById("planDate").value = cur.date;
     document.getElementById("planStart").value = cur.start;
     document.getElementById("planFocus").value = cur.focus || "";
+    document.getElementById("planNum").value = cur.num || "";
+    document.getElementById("planTag").value = cur.tagline || "";
+    document.getElementById("planExtras").value = extrasText(cur);
+    document.getElementById("planAnnounce").value = cur.announce || "";
 
     var start = parseHM(cur.start), total = totalMins(cur);
     document.getElementById("planWindow").innerHTML = cur.items.length
@@ -176,14 +201,15 @@ window.Practice = (function () {
       kill.onclick = function () { cur.items.splice(i, 1); dirty = true; render(); };
       ctl.appendChild(up); ctl.appendChild(dn); ctl.appendChild(kill);
 
-      var note = document.createElement("input");
-      note.className = "note2"; note.type = "text"; note.value = it.note || "";
-      note.placeholder = "One sentence on what we are doing";
+      var note = document.createElement("textarea");
+      note.className = "note2"; note.rows = 1; note.value = it.note || "";
+      note.placeholder = "Setup, the rule, how it's scored, who runs the Victory Lap";
       note.setAttribute("aria-label", "Note");
-      note.oninput = function () { it.note = note.value; dirty = true; };
+      note.oninput = function () { it.note = note.value; dirty = true; grow(note); };
 
       row.appendChild(clock); row.appendChild(mins); row.appendChild(ttl); row.appendChild(ctl); row.appendChild(note);
       box.appendChild(row);
+      grow(note);
     });
   }
 
@@ -248,7 +274,7 @@ window.Practice = (function () {
     return t ? t.data : cur;
   }
   function sameAs(a, b) {
-    var pick = function (p) { return JSON.stringify([p.date, p.start, p.focus || "", p.items]); };
+    var pick = function (p) { return JSON.stringify([p.date, p.start, p.focus || "", p.items, p.num || "", p.tagline || "", p.extras || [], p.announce || ""]); };
     return pick(a) === pick(b);
   }
   function el(tag, cls, text) {
@@ -267,7 +293,7 @@ window.Practice = (function () {
     var logo = el("img"); logo.src = th.sheetLogo; logo.alt = ""; logo.width = th.size; logo.height = th.size;
     head.appendChild(logo);
     head.appendChild(el("span", "sh-brand", th.brand));
-    head.appendChild(el("span", "sh-kind", "Practice plan"));
+    head.appendChild(el("span", "sh-kind", p.num ? "Practice plan #" + p.num : "Practice plan"));
     sh.appendChild(head);
 
     sh.appendChild(el("h2", "sh-date", fmtDateLong(p.date)));
@@ -277,6 +303,7 @@ window.Practice = (function () {
       f.appendChild(document.createTextNode(p.focus));
       sh.appendChild(f);
     }
+    if (p.tagline) sh.appendChild(el("p", "sh-tag", p.tagline));
     var start = parseHM(p.start), total = totalMins(p);
     sh.appendChild(el("p", "sh-window", p.items.length
       ? fmtClockFull(start) + " to " + fmtClockFull(start + total) + "  ·  " + total + " minutes  ·  " + p.items.length + " items"
@@ -301,6 +328,27 @@ window.Practice = (function () {
     });
     tb.appendChild(body);
     sh.appendChild(tb);
+
+    var tally = el("p", "sh-tally");
+    tally.appendChild(el("span", null, "Team 1 ______"));
+    tally.appendChild(el("span", null, "Team 2 ______"));
+    sh.appendChild(tally);
+
+    if (p.extras && p.extras.length) {
+      sh.appendChild(el("h3", "sh-sub", "Extras if we finish early"));
+      var ul = el("div", "sh-extras");
+      p.extras.forEach(function (x) {
+        var r = el("div", "sh-x");
+        r.appendChild(el("b", null, x.title));
+        if (x.note) r.appendChild(el("span", null, x.note));
+        ul.appendChild(r);
+      });
+      sh.appendChild(ul);
+    }
+    if (p.announce) {
+      sh.appendChild(el("h3", "sh-sub", "Announcements"));
+      sh.appendChild(el("p", "sh-ann", p.announce));
+    }
   }
 
   function renderPublish() {
@@ -462,7 +510,7 @@ window.Practice = (function () {
       var lh = mustang ? 40 : 22, lw = logo ? lh * logo.ratio : 0, mid = y + lh / 2 + 4;
       if (draw && logo) doc.addImage(logo.data, "PNG", M, y, lw, lh);
       font("bold", mustang ? 13 : 11, accent); txt(THEMES[theme].brand.toUpperCase(), M + (logo ? lw + 8 : 0), mid);
-      font("normal", 10, muted); txt("Practice plan", W - M, mid, { align: "right" });
+      font("normal", 10, muted); txt(p.num ? "Practice plan #" + p.num : "Practice plan", W - M, mid, { align: "right" });
       y += lh + 22;
 
       fs = 24 * s; font("bold", fs, ink); txt(fmtDateLong(p.date), M, y + fs * 0.78); y += fs * 1.2;
@@ -470,6 +518,11 @@ window.Practice = (function () {
         fs = 13.5 * s; font("normal", fs, ink);
         var fl = doc.splitTextToSize("Working on: " + p.focus, inner);
         txt(fl, M, y + fs * 0.8, { lineHeightFactor: 1.25 }); y += fl.length * fs * 1.25 + 2 * s;
+      }
+      if (p.tagline) {
+        fs = 12 * s; font("bolditalic", fs, ink);
+        var tg = doc.splitTextToSize(p.tagline, inner);
+        txt(tg, M, y + fs * 0.8, { lineHeightFactor: 1.25 }); y += tg.length * fs * 1.25 + 2 * s;
       }
       fs = 11 * s; font("normal", fs, muted);
       txt(fmtClockFull(start) + " to " + fmtClockFull(start + total) + "   ·   " + total + " minutes   ·   " + p.items.length + " items", M, y + fs * 0.8);
@@ -501,6 +554,32 @@ window.Practice = (function () {
         y += h;
         t += (+it.mins || 0);
       });
+
+      y += 14 * s; fs = 11 * s; font("bold", fs, ink);
+      txt("Team 1  ________", M, y); txt("Team 2  ________", M + 180, y);
+      y += 6 * s;
+
+      if (p.extras && p.extras.length) {
+        y += 16 * s; fs = 8.5 * s; font("bold", fs, muted); txt("EXTRAS IF WE FINISH EARLY", M, y); y += 4 * s;
+        p.extras.forEach(function (x) {
+          var xf = 10.5 * s;
+          font("normal", xf, muted);
+          var xl = doc.splitTextToSize(x.note || "", wD);
+          var xh = 6 * s + Math.max(1, xl.length) * xf * 1.3;
+          if (draw) {
+            var bl = y + 6 * s + xf * 0.8;
+            font("bold", xf, ink); doc.text(doc.splitTextToSize(x.title, colD - M - 8), M, bl);
+            if (x.note) { font("normal", xf, muted); doc.text(xl, colD, bl, { lineHeightFactor: 1.3 }); }
+          }
+          y += xh;
+        });
+      }
+      if (p.announce) {
+        y += 16 * s; fs = 8.5 * s; font("bold", fs, muted); txt("ANNOUNCEMENTS", M, y);
+        var af = 10.5 * s; font("normal", af, ink);
+        var al = doc.splitTextToSize(p.announce, inner);
+        txt(al, M, y + 6 * s + af * 0.8, { lineHeightFactor: 1.3 }); y += 6 * s + al.length * af * 1.3;
+      }
       return y;
     }
 
@@ -570,6 +649,9 @@ window.Practice = (function () {
     document.getElementById("planDate").onchange = function () { cur.date = this.value; cur.id = this.value; dirty = true; render(); };
     document.getElementById("planStart").onchange = function () { cur.start = this.value; dirty = true; render(); };
     document.getElementById("planFocus").oninput = function () { cur.focus = this.value; dirty = true; };
+    ["planNum", "planTag", "planExtras", "planAnnounce"].forEach(function (id) {
+      document.getElementById(id).oninput = function () { readExtra(); dirty = true; };
+    });
 
     document.getElementById("btnAddItem").onclick = function () {
       cur.items.push({ mins: 10, title: "", note: "" }); dirty = true; render();

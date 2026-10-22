@@ -13,7 +13,7 @@
 <link rel="manifest" href="manifest.webmanifest">
 <!-- ?v= makes phones fetch fresh files after an update. Bump it (today's
      date) on every change to css/ or js/, or devices can mix old and new files. -->
-<link rel="stylesheet" href="css/app.css?v=20261020-2">
+<link rel="stylesheet" href="css/app.css?v=20261021">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
 </head>
 <body>
@@ -81,6 +81,16 @@
           <label for="planFocus">Working on</label>
           <input type="text" id="planFocus" placeholder="What today is about" spellcheck="false">
         </div>
+        <div class="ahrow" style="margin-top:10px">
+          <div class="field" style="flex:0 0 110px">
+            <label for="planNum">Plan #</label>
+            <input type="text" id="planNum" placeholder="9" inputmode="numeric" spellcheck="false">
+          </div>
+          <div class="field grow">
+            <label for="planTag">Tagline</label>
+            <input type="text" id="planTag" placeholder="Three short punches. Like this. Every day." spellcheck="false">
+          </div>
+        </div>
         <p class="window" id="planWindow"></p>
       </div>
 
@@ -93,6 +103,17 @@
       <div class="row" style="margin-top:6px">
         <button class="btn sm" id="btnNewPlan">New practice</button>
         <button class="btn sm" id="btnCopyPlan">Copy last practice</button>
+      </div>
+
+      <div class="planextra">
+        <div class="field">
+          <label for="planExtras">Extras if we finish early</label>
+          <textarea id="planExtras" rows="3" placeholder="One per line. Knockout: 2 balls, free throw line, elbow, top of the key." spellcheck="false"></textarea>
+        </div>
+        <div class="field">
+          <label for="planAnnounce">Announcements</label>
+          <textarea id="planAnnounce" rows="2" placeholder="Month theme, live tallies, reminders" spellcheck="false"></textarea>
+        </div>
       </div>
     </div>
 
@@ -307,16 +328,16 @@
 
 <div class="toast" id="toast" role="status"></div>
 
-<script src="js/firebase-config.js?v=20261020-2"></script>
-<script src="js/store.js?v=20261020-2"></script>
-<script src="js/cloud.js?v=20261020-2"></script>
-<script src="js/sync.js?v=20261020-2"></script>
-<script src="js/court.js?v=20261020-2"></script>
-<script src="js/creator.js?v=20261020-2"></script>
-<script src="js/library.js?v=20261020-2"></script>
-<script src="js/practice.js?v=20261020-2"></script>
-<script src="js/course-data.js?v=20261020-2"></script>
-<script src="js/course.js?v=20261020-2"></script>
-<script src="js/app.js?v=20261020-2"></script>
+<script src="js/firebase-config.js?v=20261021"></script>
+<script src="js/store.js?v=20261021"></script>
+<script src="js/cloud.js?v=20261021"></script>
+<script src="js/sync.js?v=20261021"></script>
+<script src="js/court.js?v=20261021"></script>
+<script src="js/creator.js?v=20261021"></script>
+<script src="js/library.js?v=20261021"></script>
+<script src="js/practice.js?v=20261021"></script>
+<script src="js/course-data.js?v=20261021"></script>
+<script src="js/course.js?v=20261021"></script>
+<script src="js/app.js?v=20261021"></script>
 </body>
 </html>

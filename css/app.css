@@ -177,6 +177,16 @@ details[open] > summary { margin-bottom: 9px; }
 .itm .ctl button:hover { color: var(--ink); }
 .itm .ctl .kill:hover { color: var(--ball); }
 .itm .note2 { grid-column: 3 / -1; }
+.itm textarea.note2 {
+  font-family: var(--body); font-size: 14.5px; line-height: 1.4; color: var(--ink); resize: none; overflow: hidden;
+  background: var(--sunk); border: 1px solid var(--hair); border-radius: 3px; padding: 7px 9px; min-height: 38px; min-width: 0; width: 100%;
+}
+.itm textarea.note2:focus-visible, .field textarea:focus-visible { outline: 2px solid var(--move); outline-offset: 1px; }
+.planextra { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--hair); }
+.field textarea {
+  font-family: var(--body); font-size: 15px; line-height: 1.4; color: var(--ink); resize: vertical; width: 100%;
+  background: var(--sunk); border: 1px solid var(--hair); border-radius: 3px; padding: 8px 10px;
+}
 .itm.head { border-bottom: 1px solid var(--ink); padding-bottom: 5px; }
 .itm.head span {
   font-family: var(--display); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
@@ -307,6 +317,14 @@ main {
 .sh-date { font-family: var(--display); font-size: 34px; font-weight: 600; line-height: 1.1; margin: 22px 0 6px; }
 .sh-focus { font-size: 17px; margin: 0 0 4px; }
 .sh-focus .k { color: #5B6370; }
+.sh-tag { font-size: 15px; font-weight: 600; font-style: italic; margin: 0 0 4px; }
+.sh-tally { display: flex; gap: 40px; margin: 16px 0 0; font-weight: 600; }
+.sh-sub { font-family: var(--display); font-size: 14px; letter-spacing: .12em; text-transform: uppercase; color: #5B6370; margin: 20px 0 6px; }
+.sh-extras { display: flex; flex-direction: column; gap: 6px; }
+.sh-x { display: grid; grid-template-columns: 170px minmax(0,1fr); gap: 10px; font-size: 14px; }
+.sh-x span { color: #5B6370; }
+.sh-ann { font-size: 14px; margin: 0; white-space: pre-line; }
+@media (max-width: 759px) { .sh-x { grid-template-columns: minmax(0,1fr); gap: 0; } }
 .sh-window {
   font-family: var(--display); font-size: 18px; letter-spacing: .03em; color: #5B6370;
   margin: 0 0 6px; padding-bottom: 12px; border-bottom: 2px solid #15181D;

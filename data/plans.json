@@ -5,14 +5,46 @@
     "start": "16:00",
     "focus": "Man to man install: ball, deny, help",
     "items": [
-      { "mins": 5,  "title": "Circle Up", "note": "Thursday's champion asks his question. Two non-negotiables: talk every possession, never get beat standing still." },
-      { "mins": 10, "title": "Game Warmup", "note": "Dynamic warmup into partner passing and full speed layups. Silent pass is a redo." },
-      { "mins": 15, "title": "Syracuse", "note": "Set 1 and Set 2. Team vs team for points, partner rule in effect." },
-      { "mins": 12, "title": "Man defense teach", "note": "Board then floor. On the ball, one pass away, two passes away. Nobody moves silent." },
-      { "mins": 12, "title": "Closeout and recover", "note": "1v1 closeouts, then 2v2 help and recover. Wide open kick out costs the defense a down and back." },
-      { "mins": 14, "title": "Split stations", "note": "Returners on 2v2 screen defense, new guys on stance and slide into closeout shooting." },
-      { "mins": 17, "title": "Game 4v3, man only", "note": "Spacing rule: two offensive players inside 10 feet and the possession is dead." },
-      { "mins": 5,  "title": "Pressure free throws", "note": "Say the shooter's name. Round two, make both and earn the Victory Lap." }
+      {
+        "mins": 5,
+        "title": "Circle Up",
+        "note": "Thursday's champion asks his question. Two non-negotiables: talk every possession, never get beat standing still."
+      },
+      {
+        "mins": 10,
+        "title": "Game Warmup",
+        "note": "Dynamic warmup into partner passing and full speed layups. Silent pass is a redo."
+      },
+      {
+        "mins": 15,
+        "title": "Syracuse",
+        "note": "Set 1 and Set 2. Team vs team for points, partner rule in effect."
+      },
+      {
+        "mins": 12,
+        "title": "Man defense teach",
+        "note": "Board then floor. On the ball, one pass away, two passes away. Nobody moves silent."
+      },
+      {
+        "mins": 12,
+        "title": "Closeout and recover",
+        "note": "1v1 closeouts, then 2v2 help and recover. Wide open kick out costs the defense a down and back."
+      },
+      {
+        "mins": 14,
+        "title": "Split stations",
+        "note": "Returners on 2v2 screen defense, new guys on stance and slide into closeout shooting."
+      },
+      {
+        "mins": 17,
+        "title": "Game 4v3, man only",
+        "note": "Spacing rule: two offensive players inside 10 feet and the possession is dead."
+      },
+      {
+        "mins": 5,
+        "title": "Pressure free throws",
+        "note": "Say the shooter's name. Round two, make both and earn the Victory Lap."
+      }
     ]
   },
   {
@@ -21,14 +53,46 @@
     "start": "16:00",
     "focus": "Zone offense install vs the 2-3",
     "items": [
-      { "mins": 5,  "title": "Circle Up", "note": "Ball does not stop in anybody's hands. We do not shoot until the zone has moved." },
-      { "mins": 10, "title": "Game Warmup", "note": "Partner passing into full speed layups, 10 straight makes each side." },
-      { "mins": 15, "title": "Syracuse", "note": "Set 1 and Set 2, team vs team." },
-      { "mins": 10, "title": "Where the holes are", "note": "Board then walk it. Free throw line, short corners, across the top. Make them name all three back." },
-      { "mins": 14, "title": "Split stations: shooting", "note": "Zone spots only. Free throw line, both short corners, both wings." },
-      { "mins": 16, "title": "Install", "note": "Dummy reps first, then live against coaches playing an honest 2-3." },
-      { "mins": 10, "title": "Live vs the 2-3", "note": "Defense in the zone every possession. Shoot before the zone moves and it is a turnover." },
-      { "mins": 10, "title": "Pressure free throws", "note": "Three rounds, last one is five in a row as a team or start over." }
+      {
+        "mins": 5,
+        "title": "Circle Up",
+        "note": "Ball does not stop in anybody's hands. We do not shoot until the zone has moved."
+      },
+      {
+        "mins": 10,
+        "title": "Game Warmup",
+        "note": "Partner passing into full speed layups, 10 straight makes each side."
+      },
+      {
+        "mins": 15,
+        "title": "Syracuse",
+        "note": "Set 1 and Set 2, team vs team."
+      },
+      {
+        "mins": 10,
+        "title": "Where the holes are",
+        "note": "Board then walk it. Free throw line, short corners, across the top. Make them name all three back."
+      },
+      {
+        "mins": 14,
+        "title": "Split stations: shooting",
+        "note": "Zone spots only. Free throw line, both short corners, both wings."
+      },
+      {
+        "mins": 16,
+        "title": "Install",
+        "note": "Dummy reps first, then live against coaches playing an honest 2-3."
+      },
+      {
+        "mins": 10,
+        "title": "Live vs the 2-3",
+        "note": "Defense in the zone every possession. Shoot before the zone moves and it is a turnover."
+      },
+      {
+        "mins": 10,
+        "title": "Pressure free throws",
+        "note": "Three rounds, last one is five in a row as a team or start over."
+      }
     ]
   },
   {
@@ -37,14 +101,112 @@
     "start": "16:00",
     "focus": "Overloading a side, plus Iowa and Walker off the 1-2-2",
     "items": [
-      { "mins": 5,  "title": "Circle Up", "note": "Today is spacing. Four on one side, one away. Corner first." },
-      { "mins": 10, "title": "Game Warmup", "note": "Dynamic warmup into partner passing and full speed layups." },
-      { "mins": 15, "title": "Syracuse", "note": "Set 3 and Set 4, team vs team for points." },
-      { "mins": 10, "title": "Overload walkthrough", "note": "Nobody moves. Ball goes wing, corner, short corner, high post, skip. Watch the zone slide." },
-      { "mins": 14, "title": "Split stations: shooting", "note": "Overload spots only: wing, corner, short corner, high post." },
-      { "mins": 16, "title": "Install Iowa", "note": "1-2-2, middle ball screen, 1 and 3 relocate, drive the paint, two on one on the weak side." },
-      { "mins": 12, "title": "Install Walker", "note": "Same look. 1 cuts to the corner, 5 screens then pops, two on one behind the screen." },
-      { "mins": 8,  "title": "Live vs the 2-3", "note": "Coaches in the zone. I call Iowa or Walker from the sideline." }
+      {
+        "mins": 5,
+        "title": "Circle Up",
+        "note": "Today is spacing. Four on one side, one away. Corner first."
+      },
+      {
+        "mins": 10,
+        "title": "Game Warmup",
+        "note": "Dynamic warmup into partner passing and full speed layups."
+      },
+      {
+        "mins": 15,
+        "title": "Syracuse",
+        "note": "Set 3 and Set 4, team vs team for points."
+      },
+      {
+        "mins": 10,
+        "title": "Overload walkthrough",
+        "note": "Nobody moves. Ball goes wing, corner, short corner, high post, skip. Watch the zone slide."
+      },
+      {
+        "mins": 14,
+        "title": "Split stations: shooting",
+        "note": "Overload spots only: wing, corner, short corner, high post."
+      },
+      {
+        "mins": 16,
+        "title": "Install Iowa",
+        "note": "1-2-2, middle ball screen, 1 and 3 relocate, drive the paint, two on one on the weak side."
+      },
+      {
+        "mins": 12,
+        "title": "Install Walker",
+        "note": "Same look. 1 cuts to the corner, 5 screens then pops, two on one behind the screen."
+      },
+      {
+        "mins": 8,
+        "title": "Live vs the 2-3",
+        "note": "Coaches in the zone. I call Iowa or Walker from the sideline."
+      }
     ]
+  },
+  {
+    "id": "2026-10-22",
+    "date": "2026-10-22",
+    "start": "18:00",
+    "focus": "Pack Line Install: Ball, Gap, Help",
+    "tagline": "Force middle. Move on the pass. The paint is ours.",
+    "items": [
+      {
+        "mins": 5,
+        "title": "Circle Up",
+        "note": "Tuesday's champion asks his Circle Up question. Tonight we put in our new defense: the pack line. Two things changed from September, say them out loud: one pass away we do NOT deny anymore, we sit in the gap. On the ball we force him MIDDLE, never baseline. Two non-negotiables: you move on the flight of the pass, and you talk every possession. Secret word check: anyone who finished Week 1 of the Player Course whispers me the word, every correct one is a Victory Lap point for his team. Split Team 1 / Team 2 and the station groups: Returners and New guys."
+      },
+      {
+        "mins": 10,
+        "title": "Game Warmup",
+        "note": "Dynamic warmup into partner passing and full speed layups, one team per basket. Say the receiver's name on every pass, silent pass is a redo. Last 3 minutes: first team to 10 straight makes from each side runs the Victory Lap. Losers clap them in, then water."
+      },
+      {
+        "mins": 15,
+        "title": "Syracuse",
+        "note": "FL, HC, BL sequences with SH (shuffle) and BP (back peddle) variations. Run Set 1 and Set 2. Team vs team for points. Partner rule: not done until your partner is done, faster guy runs the last line beside him. Group calls the variation out loud. Winning team runs the Victory Lap."
+      },
+      {
+        "mins": 8,
+        "title": "Pack Line Teach",
+        "note": "3 minutes on the board, 5 on the floor. Draw the pack line, 16 feet from the rim, then lay cones on it so they can see it. Three jobs: BALL (shade baseline, force middle), GAP (on the line between your man and the ball, no deny), HELP (feet in the lane, point to ball and man). Walk 5 defenders through it while a coach carries the ball spot to spot. Every defender points at the ball, points at his man, and yells his job. Freeze and ask one guy: what are you and why?"
+      },
+      {
+        "mins": 12,
+        "title": "Shell Drill: Stage 1 to 2",
+        "note": "5 on 5, coaches fill in on offense. Stage 1, 6 minutes: no dribble, offense holds every catch for a two count, defense jumps to its new spot while the ball is in the air. Coach yells freeze after any pass: every defender on his spot is 1 point for his team, anyone late and the group runs a down and back. Stage 2, 6 minutes: game-speed passing, defense calls Ball and Help on every pass or the rep does not count. Rotate groups every 3 stops."
+      },
+      {
+        "mins": 8,
+        "title": "Vegas Closeouts",
+        "note": "Defender starts in help with the ball, passes to the wing and closes out: sprint the first two-thirds, short chop steps, get low, two hands up. Then shade him baseline and take one slide so he has to go middle. A coach stands in the gap as the help. Offense gets 2 dribbles. Drive goes baseline and the defense loses the rep. Games to 3, winner runs the Victory Lap."
+      },
+      {
+        "mins": 12,
+        "title": "Split Stations: Gap and Help / Force Middle",
+        "note": "SPLIT STATIONS. Returners at the main basket: 2v2 Gap and Help. Ball on the wing, one defender on the ball, one in the gap. Wing drives middle, gap man steps in and stops him, then recovers on the kick. Open kick out is 3 for the offense and the defense runs. Games to 5, winners stay on and run the Victory Lap. New guys at the far basket: Force Middle Slides. Zig zag the length of the floor, defender's top foot high so the dribbler turns middle every time, then 5 Vegas closeouts each with a partner shooting. Count clean reps, top score runs the Victory Lap. Horn at 12."
+      },
+      {
+        "mins": 14,
+        "title": "Game 4v4: Pack Line Rules",
+        "note": "Everyone together, same teams, man only, no zone. Scoring for the defense: a stop is 1, a stop where every defender was heard talking is 2. Scoring for the offense: a basket is 1, any drive that gets baseline is 2 and the defense owes a down and back. Offensive rebound resets the count. I get two freezes per game: everybody stops, one guy tells me his job. Games to 7. Winner of every game runs the Victory Lap, losers clap them in, then check it right back up."
+      },
+      {
+        "mins": 6,
+        "title": "Pressure Free Throws",
+        "note": "Everyone shoots 2, team says the shooter's name before every attempt. Round 1 any miss and the whole team runs a down and back together. Round 2 Earn Your Lap: make both and run the Victory Lap. Count the tally, the day's champion picks Sunday's Circle Up question. Break the huddle at 7:30."
+      }
+    ],
+    "extras": [
+      {
+        "title": "Rim War",
+        "note": "1v1 finishing from the block, winner stays on, first to 3 runs the Victory Lap."
+      },
+      {
+        "title": "Full Court Layup Competition",
+        "note": "2 minutes if we finish early. Drive layups then a 3 pointer, team score. Beat the team record and everyone runs the Victory Lap together."
+      }
+    ],
+    "announce": "Month 3: pack line defense. Ball, Gap, Help, force middle. Player Course Week 1 is live at datakyle.github.io/Coach-OS/#learn: finish all four lessons with every answer right and tell Coach the secret word. Tally for Syracuse and Pressure Shooting is still live.",
+    "updated": 1792628352326
   }
 ]
