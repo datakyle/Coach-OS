@@ -115,13 +115,20 @@ window.CC = (function () {
     wireTeam();
     teamChanged();
 
-    /* Practices and plays pushed to the repo show up here without overwriting
-       anything saved on this device. */
+    /* Practices pushed to the repo show up here. A repo copy only replaces the
+       one on this device when it carries a newer `updated` stamp, so a draft
+       Claude revises reaches the iPad but edits made here are never lost. */
     Store.fetchJSON("data/plans.json").then(function (remote) {
       if (!remote || !remote.length) return;
-      var merged = Store.merge(Store.loadPlans() || [], remote, "id");
-      Store.savePlans(merged);
-      window.Practice.init(merged);
+      var local = Store.loadPlans() || [], at = {}, changed = false;
+      local.forEach(function (p, i) { at[p.id] = i; });
+      remote.forEach(function (r) {
+        if (!(r.id in at)) { local.push(r); changed = true; }
+        else if ((+r.updated || 0) > (+local[at[r.id]].updated || 0)) { local[at[r.id]] = r; changed = true; }
+      });
+      if (!changed) return;
+      Store.savePlans(local);
+      window.Practice.init(local);
     });
     Store.fetchJSON("data/plays.json").then(function (remote) {
       if (remote && remote.length) Store.plays.mergeIn(remote);

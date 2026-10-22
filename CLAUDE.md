@@ -46,7 +46,8 @@ process), `format.md` (rules every plan follows), `season.md`, `install.md`,
 `team-needs.md`, `drills.md`, `log.md`. To draft a practice: read all of them
 plus the last three plans in `data/plans.json`, follow `format.md` exactly, use
 only drills from `drills.md` unless asked, and add the plan to
-`data/plans.json`. Team level only; never write player names into the repo.
+`data/plans.json` with `updated` set to now (ms) so it replaces older copies on
+Coach's devices. Field list is in `planner/format.md`. Team level only; never write player names into the repo.
 
 ## Player Course
 

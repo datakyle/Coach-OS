@@ -51,8 +51,16 @@ downloads the PDF.
 - Defense is pack line: Ball, Gap, Help, force middle. Never "deny" or "no middle".
 - No player names in the repo.
 
-## What Coach OS can't hold yet
+## Fields
 
-The Practice Plan page stores date, start, focus and drills with notes. Plan
-number, tagline, extras and announcements are Step 2: add them as new optional
-fields so old plans keep working.
+```json
+{ "id": "YYYY-MM-DD", "date": "YYYY-MM-DD", "start": "18:00", "num": "9",
+  "focus": "…", "tagline": "…",
+  "items": [ { "mins": 5, "title": "Circle Up", "note": "…" } ],
+  "extras": [ { "title": "Rim War", "note": "…" } ],
+  "announce": "…", "updated": 1761091200000 }
+```
+
+`num`, `tagline`, `extras` and `announce` are optional. Always set `updated` to
+the current time in milliseconds: a repo copy only replaces the one on Coach's
+devices when its `updated` is newer, so a revised draft needs a fresh stamp.
