@@ -47,7 +47,7 @@ process), `format.md` (rules every plan follows), `season.md`, `install.md`,
 plus the last three plans in `data/plans.json`, follow `format.md` exactly, use
 only drills from `drills.md` unless asked, and add the plan to
 `data/plans.json` with `updated` set to now (ms) so it replaces older copies on
-Coach's devices. Field list is in `planner/format.md`. Team level only; never write player names into the repo.
+Coach's devices. Field list is in `planner/format.md`. When Coach says "next practice", draft the plan AND give every drill a `visual`, then render the drill visuals PDF with `planner/visuals.py`. Team level only; never write player names into the repo.
 
 ## Player Course
 

@@ -14,8 +14,8 @@ basket, horn at the end.
 | Drill | Mins | How we run it |
 |---|---|---|
 | Circle Up | 5 | Champion asks his question. Name the focus and two non-negotiables. Winners run is on. Split Team 1 / Team 2 and station groups. |
-| Game Warmup | 10 | Dynamic warmup into partner passing and full-speed layups, one team per basket. Say the receiver's name; silent pass is a redo. Last 3 min: first team to 10 straight makes each side runs the Victory Lap (or a Mikan race). |
-| Syracuse | 15 | FL, HC, BL sequences with SH (shuffle) and BP (backpedal). Sets 1 and 2 one day, Sets 3 and 4 the next. Team vs team. Partner rule: not done until your partner is done. Group calls the variation out loud. |
+| Game Warmup | 10 | Dynamic warmup only, captains lead: jog, high knees, butt kicks, carioca, walking lunge with a twist, leg swings, defensive slides, build-up sprints. No shooting. |
+| Syracuse (conditioning days only) | 15 | FL, HC, BL sequences with SH (shuffle) and BP (backpedal). Sets 1 and 2 one day, Sets 3 and 4 the next. Team vs team. Partner rule: not done until your partner is done. Group calls the variation out loud. |
 | Pressure Free Throws / Earn Your Lap | 5 to 10 | Everyone shoots 2, team says the shooter's name. Round 1: any miss, whole team runs. Round 2: make both and run the Victory Lap. Count the tally; champion picks next Circle Up question. |
 
 ## Defense
@@ -24,6 +24,7 @@ basket, horn at the end.
 |---|---|---|
 | Shell drill (pack line) | 12 | 5 on 5, coaches fill in. Stages 1 to 4 from the Pack Line handout. Ball, Gap, Help called out loud on every pass. Force middle. |
 | Closeout and Recover | 12 | 6 min 1v1 closeouts from help (2 dribbles, games to 3). 6 min 2v2 help and recover: open kick-out is 3 and the defense runs. |
+| Closeout Shooting | 8 | Pairs. Partner passes and Vegas closes out. Short closeout: shoot. Hard closeout: one dribble middle, pull up. 3 counts 2, pull up 1. |
 | Closeout Drives | 7 to 8 | Defender passes and closes out, offense gets 2 dribbles. Games to 3. |
 | Wing Closeout and Shuffles | 7 to 15 | Choppy steps, early hand. Shooter: close and hands up. Driver: hands to the side, watch the drive. |
 | Vegas Closeouts | 7 to 10 | Sprint the first two-thirds, then short chop steps. Get low, two hands up. Push him middle, into help. |
