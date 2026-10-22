@@ -147,6 +147,14 @@
     "id": "2026-10-22",
     "date": "2026-10-22",
     "start": "18:00",
+    "focus": "Cancelled. Moved to Sunday Oct 25.",
+    "items": [],
+    "updated": 1792629083749
+  },
+  {
+    "id": "2026-10-25",
+    "date": "2026-10-25",
+    "start": "16:00",
     "focus": "Pack Line Install: Ball, Gap, Help",
     "tagline": "Force middle. Move on the pass. The paint is ours.",
     "items": [
@@ -649,7 +657,7 @@
       {
         "mins": 14,
         "title": "Game 4v4 or Scrimmage",
-        "note": "Pick one. OPTION A, Game 4v4 Pack Line Rules: man only, no zone. A stop is 1, a stop where every defender was heard talking is 2. A basket is 1, any drive that gets baseline is 2 and the defense owes a down and back. Offensive rebound resets the count. OPTION B, Scrimmage: play it straight, I only grade three things from tonight: force middle, move on the pass, talk. I get two freezes per game either way: everybody stops, one guy tells me his job. Games to 7. Winner runs the Victory Lap, losers clap them in.",
+        "note": "Pick one. OPTION A, Game 4v4 Pack Line Rules: man only, no zone. A stop is 1, a stop where every defender was heard talking is 2, a turnover we force is 2. A basket is 1, any drive that gets baseline is 2 and the defense owes a down and back. Offense throws it away and that team runs. Offensive rebound resets the count. OPTION B, Scrimmage: play it straight, I only grade three things from tonight: force middle, move on the pass, talk. I get two freezes per game either way: everybody stops, one guy tells me his job. Games to 7. Winner runs the Victory Lap, losers clap them in.",
         "visual": {
           "pack": true,
           "o": {
@@ -702,13 +710,13 @@
               330
             ]
           },
-          "coach": "Sideline at the free throw line extended. Two freezes per game. Grade only the three things: force middle, move on the pass, talk."
+          "coach": "Sideline at the free throw line extended. Two freezes per game. Grade only the three things: force middle, move on the pass, talk. Count turnovers out loud."
         }
       },
       {
         "mins": 6,
         "title": "Pressure Free Throws",
-        "note": "Everyone shoots 2, team says the shooter's name before every attempt. Round 1 any miss and the whole team runs a down and back together. Round 2 Earn Your Lap: make both and run the Victory Lap. Count the tally, the day's champion picks Sunday's Circle Up question. Break the huddle at 7:30.",
+        "note": "Everyone shoots 2, team says the shooter's name before every attempt. Round 1 any miss and the whole team runs a down and back together. Round 2 Earn Your Lap: make both and run the Victory Lap. Count the tally and name the day's champion. Break the huddle at 5:30.",
         "visual": {
           "o": {
             "1": [
@@ -723,7 +731,7 @@
               330
             ]
           },
-          "coach": "Off the lane with the tally. Count it out loud, name the day's champion, break the huddle at 7:30."
+          "coach": "Off the lane with the tally. Count it out loud, name the day's champion, break the huddle at 5:30."
         }
       }
     ],
@@ -737,7 +745,7 @@
         "note": "2 minutes if we finish early. Drive layups then a 3 pointer, team score. Beat the team record and everyone runs the Victory Lap together."
       }
     ],
-    "announce": "Month 3: pack line defense. Ball, Gap, Help, force middle. Player Course Week 1 is live at datakyle.github.io/Coach-OS/#learn: finish all four lessons with every answer right and tell Coach the secret word. Tally for Syracuse and Pressure Shooting is still live.",
-    "updated": 1792628767735
+    "announce": "Pack line week. Ball, Gap, Help, force middle. Player Course Week 1 is live at datakyle.github.io/Coach-OS/#learn: finish all four lessons with every answer right and tell Coach the secret word. First game is Thursday Nov 12 at KSD. Tally for Pressure Shooting is still live.",
+    "updated": 1792629083749
   }
 ]
