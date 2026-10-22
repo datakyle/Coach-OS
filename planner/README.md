@@ -32,7 +32,8 @@ Don't skip ahead. Each step only works if the one before it is done.
 | File | What's in it | Changes how often |
 |---|---|---|
 | `season.md` | Practice days and times, games, the tournament, days off | When the schedule changes |
-| `install.md` | What we install each week, in order | Every Sunday check-in |
+| `curriculum.md` | The season plan: phases, weekly installs, can-do checks, the four numbers | Every Sunday check-in |
+| `install.md` | What the team already knows | After each install |
 | `team-needs.md` | What we need to work on as a team, ranked | Every Sunday check-in |
 | `drills.md` | Every drill we run, what it's for, how long, notes in Coach's words | When we add a drill |
 | `format.md` | The rules every plan follows | Rarely |

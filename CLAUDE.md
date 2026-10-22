@@ -42,7 +42,8 @@ button and a `<section class="page" id="page-NAME">` in `index.html`, an entry i
 ## Practice Planner
 
 `planner/` holds what Claude needs to draft practice plans: `README.md` (the
-process), `format.md` (rules every plan follows), `season.md`, `install.md`,
+process), `curriculum.md` (the season plan: start here), `format.md` (rules
+every plan follows), `season.md`, `install.md`,
 `team-needs.md`, `drills.md`, `log.md`. To draft a practice: read all of them
 plus the last three plans in `data/plans.json`, follow `format.md` exactly, use
 only drills from `drills.md` unless asked, and add the plan to
