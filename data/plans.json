@@ -153,47 +153,578 @@
       {
         "mins": 5,
         "title": "Circle Up",
-        "note": "Tuesday's champion asks his Circle Up question. Tonight we put in our new defense: the pack line. Two things changed from September, say them out loud: one pass away we do NOT deny anymore, we sit in the gap. On the ball we force him MIDDLE, never baseline. Two non-negotiables: you move on the flight of the pass, and you talk every possession. Secret word check: anyone who finished Week 1 of the Player Course whispers me the word, every correct one is a Victory Lap point for his team. Split Team 1 / Team 2 and the station groups: Returners and New guys."
+        "note": "Tonight we put in our new defense: the pack line. Two things changed from September, say them out loud: one pass away we do NOT deny anymore, we sit in the gap. On the ball we force him MIDDLE, never baseline. Two non-negotiables: you move on the flight of the pass, and you talk every possession. Secret word check: anyone who finished Week 1 of the Player Course whispers me the word, every correct one is a Victory Lap point for his team. Split Team 1 / Team 2 and the station groups: Returners and New guys.",
+        "visual": {
+          "circle": [
+            280,
+            300,
+            70,
+            8
+          ],
+          "c": {
+            "Head": [
+              280,
+              300
+            ]
+          },
+          "coach": "Center of the circle. Say the two changes out loud, then collect secret words one at a time, out of earshot."
+        }
       },
       {
         "mins": 10,
         "title": "Game Warmup",
-        "note": "Dynamic warmup into partner passing and full speed layups, one team per basket. Say the receiver's name on every pass, silent pass is a redo. Last 3 minutes: first team to 10 straight makes from each side runs the Victory Lap. Losers clap them in, then water."
+        "note": "Dynamic warmup only, baseline to half court and back: jog, high knees, butt kicks, carioca both ways, walking lunge with a twist, leg swings, defensive slides, then two build-up sprints. Captains lead it and call each move.",
+        "visual": {
+          "o": {
+            "1": [
+              110,
+              60
+            ],
+            "2": [
+              220,
+              60
+            ],
+            "3": [
+              340,
+              60
+            ],
+            "4": [
+              450,
+              60
+            ]
+          },
+          "lines": [
+            {
+              "t": "cut",
+              "a": [
+                110,
+                80
+              ],
+              "b": [
+                110,
+                385
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                220,
+                80
+              ],
+              "b": [
+                220,
+                385
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                340,
+                80
+              ],
+              "b": [
+                340,
+                385
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                450,
+                80
+              ],
+              "b": [
+                450,
+                385
+              ]
+            }
+          ],
+          "c": {
+            "Head": [
+              515,
+              220
+            ]
+          },
+          "coach": "Sideline at half court. Captains run it; you watch for effort and get the cones out for the pack line."
+        }
+      },
+      {
+        "mins": 10,
+        "title": "Pack Line Teach",
+        "note": "3 minutes on the board, 7 on the floor. Draw the pack line, 16 feet from the rim, then lay cones on it so they can see it. Three jobs: BALL (shade baseline, force middle), GAP (on the line between your man and the ball, no deny), HELP (feet in the lane, point to ball and man). Walk 5 defenders through it while a coach carries the ball spot to spot. Every defender points at the ball, points at his man, and yells his job. Freeze and ask one guy: what are you and why?",
+        "visual": {
+          "pack": true,
+          "cones": [
+            [
+              430,
+              148
+            ],
+            [
+              393,
+              206
+            ],
+            [
+              335,
+              243
+            ],
+            [
+              280,
+              253
+            ],
+            [
+              225,
+              243
+            ],
+            [
+              167,
+              206
+            ],
+            [
+              130,
+              148
+            ]
+          ],
+          "d": {
+            "1": [
+              250,
+              105,
+              "HELP"
+            ],
+            "2": [
+              257,
+              148,
+              "HELP"
+            ],
+            "3": [
+              316,
+              236,
+              "GAP"
+            ],
+            "4": [
+              447,
+              193,
+              "BALL"
+            ],
+            "5": [
+              414,
+              107,
+              "GAP"
+            ]
+          },
+          "c": {
+            "A": [
+              468,
+              231
+            ]
+          },
+          "ball": [
+            480,
+            215
+          ],
+          "coach": "Assistant carries the ball spot to spot (A). Head coach stands at the top of the key facing the defense, freezes the walk-through and asks one player his job."
+        }
       },
       {
         "mins": 15,
-        "title": "Syracuse",
-        "note": "FL, HC, BL sequences with SH (shuffle) and BP (back peddle) variations. Run Set 1 and Set 2. Team vs team for points. Partner rule: not done until your partner is done, faster guy runs the last line beside him. Group calls the variation out loud. Winning team runs the Victory Lap."
-      },
-      {
-        "mins": 8,
-        "title": "Pack Line Teach",
-        "note": "3 minutes on the board, 5 on the floor. Draw the pack line, 16 feet from the rim, then lay cones on it so they can see it. Three jobs: BALL (shade baseline, force middle), GAP (on the line between your man and the ball, no deny), HELP (feet in the lane, point to ball and man). Walk 5 defenders through it while a coach carries the ball spot to spot. Every defender points at the ball, points at his man, and yells his job. Freeze and ask one guy: what are you and why?"
-      },
-      {
-        "mins": 12,
         "title": "Shell Drill: Stage 1 to 2",
-        "note": "5 on 5, coaches fill in on offense. Stage 1, 6 minutes: no dribble, offense holds every catch for a two count, defense jumps to its new spot while the ball is in the air. Coach yells freeze after any pass: every defender on his spot is 1 point for his team, anyone late and the group runs a down and back. Stage 2, 6 minutes: game-speed passing, defense calls Ball and Help on every pass or the rep does not count. Rotate groups every 3 stops."
+        "note": "5 on 5, coaches fill in on offense. Stage 1, 7 minutes: no dribble, offense holds every catch for a two count, defense jumps to its new spot while the ball is in the air. Coach yells freeze after any pass: every defender on his spot is 1 point for his team, anyone late and the group runs a down and back. Stage 2, 8 minutes: game-speed passing, defense calls Ball and Help on every pass or the rep does not count. Rotate groups every 3 stops.",
+        "visual": {
+          "pack": true,
+          "o": {
+            "1": [
+              62,
+              66
+            ],
+            "3": [
+              280,
+              353
+            ],
+            "4": [
+              468,
+              231
+            ]
+          },
+          "c": {
+            "A": [
+              92,
+              231
+            ],
+            "B": [
+              498,
+              66
+            ],
+            "Head": [
+              160,
+              375
+            ]
+          },
+          "d": {
+            "1": [
+              250,
+              105,
+              "HELP"
+            ],
+            "2": [
+              257,
+              148,
+              "HELP"
+            ],
+            "3": [
+              316,
+              236,
+              "GAP"
+            ],
+            "4": [
+              447,
+              193,
+              "BALL"
+            ],
+            "5": [
+              414,
+              107,
+              "GAP"
+            ]
+          },
+          "ball": [
+            483,
+            216
+          ],
+          "lines": [
+            {
+              "t": "pass",
+              "a": [
+                280,
+                353
+              ],
+              "b": [
+                468,
+                231
+              ]
+            }
+          ],
+          "coach": "Two assistants play offense in the left wing and right corner (A, B). Head coach stands above the left slot where he can see all five defenders: yell freeze after a pass, count who's on his spot, award the points."
+        }
+      },
+      {
+        "mins": 10,
+        "title": "Vegas Closeouts",
+        "note": "Defender starts in help with the ball, passes to the wing and closes out: sprint the first two-thirds, short chop steps, get low, two hands up. Then shade him baseline and take one slide so he has to go middle. A coach stands in the gap as the help. Offense gets 2 dribbles. Drive goes baseline and the defense loses the rep. Games to 3, winner runs the Victory Lap.",
+        "visual": {
+          "o": {
+            "1": [
+              468,
+              231
+            ]
+          },
+          "d": {
+            "1": [
+              262,
+              140,
+              ""
+            ]
+          },
+          "c": {
+            "Gap": [
+              345,
+              215
+            ]
+          },
+          "lines": [
+            {
+              "t": "pass",
+              "a": [
+                262,
+                140
+              ],
+              "b": [
+                468,
+                231
+              ]
+            },
+            {
+              "t": "closeout",
+              "a": [
+                275,
+                150
+              ],
+              "b": [
+                446,
+                203
+              ]
+            },
+            {
+              "t": "dribble",
+              "a": [
+                455,
+                245
+              ],
+              "b": [
+                370,
+                250
+              ]
+            }
+          ],
+          "nobase": [
+            [
+              458,
+              150
+            ],
+            [
+              492,
+              160
+            ]
+          ],
+          "ball": [
+            483,
+            216
+          ],
+          "coach": "Stand in the gap (Gap) as the help, so the drive middle runs into you. Watch the last three steps: chop, low, two hands up, top foot high."
+        }
       },
       {
         "mins": 8,
-        "title": "Vegas Closeouts",
-        "note": "Defender starts in help with the ball, passes to the wing and closes out: sprint the first two-thirds, short chop steps, get low, two hands up. Then shade him baseline and take one slide so he has to go middle. A coach stands in the gap as the help. Offense gets 2 dribbles. Drive goes baseline and the defense loses the rep. Games to 3, winner runs the Victory Lap."
+        "title": "Closeout Shooting",
+        "note": "Pairs, one per basket side. Partner passes from under the rim and Vegas closes out. Shooter reads it: short closeout, shoot it. Hard closeout, one dribble middle into a pull up. 5 shots, then switch. A 3 counts 2, a pull up counts 1. Top pair runs the Victory Lap. Our warmup has no shooting, so this is the shooting for tonight.",
+        "visual": {
+          "o": {
+            "1": [
+              468,
+              231
+            ],
+            "2": [
+              92,
+              231
+            ]
+          },
+          "d": {
+            "1": [
+              300,
+              105,
+              ""
+            ],
+            "2": [
+              260,
+              105,
+              ""
+            ]
+          },
+          "lines": [
+            {
+              "t": "pass",
+              "a": [
+                300,
+                105
+              ],
+              "b": [
+                468,
+                231
+              ]
+            },
+            {
+              "t": "closeout",
+              "a": [
+                312,
+                118
+              ],
+              "b": [
+                446,
+                206
+              ]
+            },
+            {
+              "t": "pass",
+              "a": [
+                260,
+                105
+              ],
+              "b": [
+                92,
+                231
+              ]
+            },
+            {
+              "t": "closeout",
+              "a": [
+                248,
+                118
+              ],
+              "b": [
+                114,
+                206
+              ]
+            }
+          ],
+          "c": {
+            "Head": [
+              280,
+              330
+            ]
+          },
+          "coach": "Top of the key between both pairs. Call out bad closeouts (flying by, hands down) and keep the pair scores."
+        }
       },
       {
         "mins": 12,
         "title": "Split Stations: Gap and Help / Force Middle",
-        "note": "SPLIT STATIONS. Returners at the main basket: 2v2 Gap and Help. Ball on the wing, one defender on the ball, one in the gap. Wing drives middle, gap man steps in and stops him, then recovers on the kick. Open kick out is 3 for the offense and the defense runs. Games to 5, winners stay on and run the Victory Lap. New guys at the far basket: Force Middle Slides. Zig zag the length of the floor, defender's top foot high so the dribbler turns middle every time, then 5 Vegas closeouts each with a partner shooting. Count clean reps, top score runs the Victory Lap. Horn at 12."
+        "note": "SPLIT STATIONS. Returners at the main basket: 2v2 Gap and Help. Ball on the wing, one defender on the ball, one in the gap. Wing drives middle, gap man steps in and stops him, then recovers on the kick. Open kick out is 3 for the offense and the defense runs. Games to 5, winners stay on and run the Victory Lap. New guys at the far basket: Force Middle Slides. Zig zag the length of the floor, defender's top foot high so the dribbler turns middle every time, then 5 Vegas closeouts each with a partner shooting. Count clean reps, top score runs the Victory Lap. Horn at 12.",
+        "visual": {
+          "o": {
+            "1": [
+              468,
+              231
+            ],
+            "2": [
+              280,
+              353
+            ]
+          },
+          "d": {
+            "1": [
+              447,
+              193,
+              "BALL"
+            ],
+            "2": [
+              316,
+              236,
+              "GAP"
+            ]
+          },
+          "lines": [
+            {
+              "t": "dribble",
+              "a": [
+                450,
+                250
+              ],
+              "b": [
+                370,
+                262
+              ]
+            },
+            {
+              "t": "slide",
+              "a": [
+                316,
+                236
+              ],
+              "b": [
+                350,
+                252
+              ]
+            },
+            {
+              "t": "pass",
+              "a": [
+                370,
+                262
+              ],
+              "b": [
+                280,
+                353
+              ]
+            },
+            {
+              "t": "slide",
+              "a": [
+                350,
+                252
+              ],
+              "b": [
+                300,
+                322
+              ]
+            }
+          ],
+          "c": {
+            "Head": [
+              150,
+              330
+            ]
+          },
+          "label": "Main basket: Returners. Far basket: New guys zig zag with an assistant.",
+          "coach": "Head coach on the Returners (main basket): reward the gap man who stops the ball AND gets back. Assistant runs the New guys at the far basket."
+        }
       },
       {
         "mins": 14,
-        "title": "Game 4v4: Pack Line Rules",
-        "note": "Everyone together, same teams, man only, no zone. Scoring for the defense: a stop is 1, a stop where every defender was heard talking is 2. Scoring for the offense: a basket is 1, any drive that gets baseline is 2 and the defense owes a down and back. Offensive rebound resets the count. I get two freezes per game: everybody stops, one guy tells me his job. Games to 7. Winner of every game runs the Victory Lap, losers clap them in, then check it right back up."
+        "title": "Game 4v4 or Scrimmage",
+        "note": "Pick one. OPTION A, Game 4v4 Pack Line Rules: man only, no zone. A stop is 1, a stop where every defender was heard talking is 2. A basket is 1, any drive that gets baseline is 2 and the defense owes a down and back. Offensive rebound resets the count. OPTION B, Scrimmage: play it straight, I only grade three things from tonight: force middle, move on the pass, talk. I get two freezes per game either way: everybody stops, one guy tells me his job. Games to 7. Winner runs the Victory Lap, losers clap them in.",
+        "visual": {
+          "pack": true,
+          "o": {
+            "1": [
+              92,
+              231
+            ],
+            "2": [
+              280,
+              353
+            ],
+            "3": [
+              468,
+              231
+            ],
+            "4": [
+              498,
+              66
+            ]
+          },
+          "d": {
+            "1": [
+              257,
+              148,
+              "HELP"
+            ],
+            "2": [
+              316,
+              236,
+              "GAP"
+            ],
+            "3": [
+              447,
+              193,
+              "BALL"
+            ],
+            "4": [
+              414,
+              107,
+              "GAP"
+            ]
+          },
+          "ball": [
+            483,
+            216
+          ],
+          "c": {
+            "Head": [
+              515,
+              330
+            ]
+          },
+          "coach": "Sideline at the free throw line extended. Two freezes per game. Grade only the three things: force middle, move on the pass, talk."
+        }
       },
       {
         "mins": 6,
         "title": "Pressure Free Throws",
-        "note": "Everyone shoots 2, team says the shooter's name before every attempt. Round 1 any miss and the whole team runs a down and back together. Round 2 Earn Your Lap: make both and run the Victory Lap. Count the tally, the day's champion picks Sunday's Circle Up question. Break the huddle at 7:30."
+        "note": "Everyone shoots 2, team says the shooter's name before every attempt. Round 1 any miss and the whole team runs a down and back together. Round 2 Earn Your Lap: make both and run the Victory Lap. Count the tally, the day's champion picks Sunday's Circle Up question. Break the huddle at 7:30.",
+        "visual": {
+          "o": {
+            "1": [
+              280,
+              232
+            ]
+          },
+          "lane": true,
+          "c": {
+            "Head": [
+              400,
+              330
+            ]
+          },
+          "coach": "Off the lane with the tally. Count it out loud, name the day's champion, break the huddle at 7:30."
+        }
       }
     ],
     "extras": [
@@ -207,6 +738,6 @@
       }
     ],
     "announce": "Month 3: pack line defense. Ball, Gap, Help, force middle. Player Course Week 1 is live at datakyle.github.io/Coach-OS/#learn: finish all four lessons with every answer right and tell Coach the secret word. Tally for Syracuse and Pressure Shooting is still live.",
-    "updated": 1792628352326
+    "updated": 1792628767735
   }
 ]
