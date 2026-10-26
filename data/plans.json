@@ -623,5 +623,622 @@
     ],
     "announce": "Scrimmage tonight at 5:00. Pack line week: Ball, Gap, Help, force middle. Player Course Week 1 is live at datakyle.github.io/Coach-OS/#learn: finish all four lessons with every answer right and tell Coach the secret word. First game is Thursday Nov 12 at KSD. Tally for Pressure Shooting is still live.",
     "updated": 1792951929008
+  },
+  {
+    "id": "2026-10-27",
+    "date": "2026-10-27",
+    "start": "18:00",
+    "focus": "Pack Line Shell: Help and Recover",
+    "tagline": "Help stops the drive. Recover on the kick. Cut after you pass.",
+    "items": [
+      {
+        "mins": 5,
+        "title": "Circle Up",
+        "note": "Sunday we learned Ball, Gap, Help. Today the ball moves and we help and recover. Help stops the drive, then gets back to his man on the kick. Two non-negotiables: move on the flight of the pass, and talk every possession. Winners run is on. Split Team 1 / Team 2 and the station groups.",
+        "visual": {
+          "circle": [
+            280,
+            300,
+            70,
+            8
+          ],
+          "c": {
+            "Head": [
+              280,
+              300
+            ]
+          },
+          "coach": "Head coach in the middle: name the focus and the two non-negotiables, split the teams. Assistants set four cones on the pack line at the main basket."
+        }
+      },
+      {
+        "mins": 10,
+        "title": "Game Warmup",
+        "note": "Dynamic warmup only, baseline to half court and back. Jog, high knees, butt kicks, carioca both ways, walking lunge with a twist, leg swings, defensive slides, two build-up sprints. Captains lead and call each move.",
+        "visual": {
+          "o": {
+            "1": [
+              110,
+              60
+            ],
+            "2": [
+              220,
+              60
+            ],
+            "3": [
+              340,
+              60
+            ],
+            "4": [
+              450,
+              60
+            ]
+          },
+          "lines": [
+            {
+              "t": "cut",
+              "a": [
+                110,
+                80
+              ],
+              "b": [
+                110,
+                385
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                220,
+                80
+              ],
+              "b": [
+                220,
+                385
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                340,
+                80
+              ],
+              "b": [
+                340,
+                385
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                450,
+                80
+              ],
+              "b": [
+                450,
+                385
+              ]
+            }
+          ],
+          "c": {
+            "Head": [
+              515,
+              220
+            ]
+          },
+          "coach": "Captains run it. Head coach on the sideline watching effort. Assistants finish the cones and grab the pads for stations."
+        }
+      },
+      {
+        "mins": 12,
+        "title": "Teach: Pack Line Shell Stages 2 and 3",
+        "note": "2 minutes on the board, 10 on the floor. Stage 2: ball moves, defense jumps to Ball, Gap, Help on the flight of every pass. Stage 3: offense drives middle. Help steps up and stops him, everyone sinks one spot. On the kick out, help sprints back and closes out short. Walk it first, then speed. I yell freeze and ask one guy his job. Late rotation, group runs a down and back.",
+        "visual": {
+          "pack": true,
+          "o": {
+            "1": [
+              280,
+              353
+            ],
+            "2": [
+              468,
+              231
+            ],
+            "3": [
+              92,
+              231
+            ],
+            "4": [
+              62,
+              66
+            ]
+          },
+          "d": {
+            "1": [
+              262,
+              300,
+              "GAP"
+            ],
+            "2": [
+              400,
+              215,
+              "BALL"
+            ],
+            "3": [
+              180,
+              180,
+              "HELP"
+            ],
+            "4": [
+              225,
+              110,
+              "HELP"
+            ]
+          },
+          "c": {
+            "B": [
+              498,
+              66
+            ]
+          },
+          "ball": [
+            455,
+            240
+          ],
+          "lines": [
+            {
+              "t": "dribble",
+              "a": [
+                455,
+                240
+              ],
+              "b": [
+                355,
+                200
+              ]
+            },
+            {
+              "t": "slide",
+              "a": [
+                262,
+                300
+              ],
+              "b": [
+                320,
+                240
+              ]
+            },
+            {
+              "t": "pass",
+              "a": [
+                355,
+                200
+              ],
+              "b": [
+                280,
+                353
+              ]
+            }
+          ],
+          "label": "Drive middle, gap helps, kick out, gap recovers.",
+          "coach": "Assistant B fills the right corner on offense. Assistant A at the board for the first 2 minutes, then sits a wing when we need a fifth. Head coach above the top of the key: freeze, ask, grade the rotation."
+        }
+      },
+      {
+        "mins": 12,
+        "title": "Split Stations",
+        "note": "Returners at the main basket: Closeout Drives. Defender passes and closes out, offense gets 2 dribbles, games to 3. Shade him so he has to go middle. New guys at the far basket: Footwork Shooting and USA Pivots. Jump stop, pivot, rip through, shoot. Last 5 minutes add a closeout. Both groups run themselves. Horn at the end.",
+        "visual": {
+          "o": {
+            "1": [
+              468,
+              231
+            ]
+          },
+          "d": {
+            "1": [
+              280,
+              140,
+              ""
+            ]
+          },
+          "lines": [
+            {
+              "t": "pass",
+              "a": [
+                280,
+                140
+              ],
+              "b": [
+                468,
+                231
+              ]
+            },
+            {
+              "t": "closeout",
+              "a": [
+                292,
+                152
+              ],
+              "b": [
+                446,
+                206
+              ]
+            },
+            {
+              "t": "dribble",
+              "a": [
+                455,
+                245
+              ],
+              "b": [
+                370,
+                250
+              ]
+            }
+          ],
+          "nobase": [
+            [
+              458,
+              150
+            ],
+            [
+              492,
+              160
+            ]
+          ],
+          "c": {
+            "Head": [
+              350,
+              330
+            ],
+            "A": [
+              120,
+              330
+            ]
+          },
+          "label": "Main basket: Returners. New guys mirror it at the far basket.",
+          "coach": "Head coach with the Returners: watch the last three steps of the closeout and that the drive goes middle. Assistant A runs the New guys at the far basket and counts makes."
+        }
+      },
+      {
+        "mins": 8,
+        "title": "Oregon Passing",
+        "note": "Ball security. Good passes and talk. Call the name before you pass. 2-minute rounds, as many as we can, beat the last round. Bad pass or silent pass is a redo.",
+        "visual": {
+          "o": {
+            "1": [
+              110,
+              385
+            ],
+            "2": [
+              280,
+              385
+            ],
+            "3": [
+              450,
+              385
+            ]
+          },
+          "lines": [
+            {
+              "t": "pass",
+              "a": [
+                110,
+                385
+              ],
+              "b": [
+                280,
+                300
+              ]
+            },
+            {
+              "t": "pass",
+              "a": [
+                280,
+                300
+              ],
+              "b": [
+                450,
+                220
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                280,
+                370
+              ],
+              "b": [
+                280,
+                160
+              ]
+            }
+          ],
+          "c": {
+            "Head": [
+              515,
+              300
+            ]
+          },
+          "ball": [
+            125,
+            380
+          ],
+          "label": "Full court passing lines, finish at the rim.",
+          "coach": "Head coach on the sideline counting rounds out loud. Assistants call out any pass that is late or lands at the feet."
+        }
+      },
+      {
+        "mins": 12,
+        "title": "Closeout and Recover",
+        "note": "6 minutes 1v1 closeouts from help, 2 dribbles, games to 3. Then 6 minutes 2v2 help and recover: the helper stops the drive, then gets back to his man. Open kick-out 3 counts and the defense runs. Talk first or the stop does not count.",
+        "visual": {
+          "pack": true,
+          "o": {
+            "1": [
+              400,
+              330
+            ],
+            "2": [
+              468,
+              231
+            ]
+          },
+          "d": {
+            "1": [
+              375,
+              300,
+              "BALL"
+            ],
+            "2": [
+              360,
+              190,
+              "HELP"
+            ]
+          },
+          "ball": [
+            400,
+            330
+          ],
+          "lines": [
+            {
+              "t": "dribble",
+              "a": [
+                400,
+                330
+              ],
+              "b": [
+                330,
+                240
+              ]
+            },
+            {
+              "t": "slide",
+              "a": [
+                360,
+                190
+              ],
+              "b": [
+                335,
+                225
+              ]
+            },
+            {
+              "t": "pass",
+              "a": [
+                330,
+                240
+              ],
+              "b": [
+                468,
+                231
+              ]
+            },
+            {
+              "t": "closeout",
+              "a": [
+                345,
+                205
+              ],
+              "b": [
+                448,
+                222
+              ]
+            }
+          ],
+          "c": {
+            "Head": [
+              160,
+              330
+            ],
+            "A": [
+              200,
+              110
+            ]
+          },
+          "label": "2v2: help stops the drive, recovers on the kick.",
+          "coach": "Head coach watches the helper: feet in the lane, then a short closeout. Assistant A under the rim rebounds and keeps the score."
+        }
+      },
+      {
+        "mins": 13,
+        "title": "Offense Reps: 5v0 to 3v3",
+        "note": "5 Out Pass and Cut. Three rules: pass and cut, fill the open spot, drive if nobody is open. 5 minutes 5v0: 10 passes with a cut and fill, no dribble. Then 8 minutes 3v3 at both baskets. Layup off a cut is 2. A pass with no cut is a turnover. Defense plays pack line.",
+        "visual": {
+          "o": {
+            "1": [
+              280,
+              353
+            ],
+            "2": [
+              468,
+              231
+            ],
+            "3": [
+              92,
+              231
+            ],
+            "4": [
+              498,
+              66
+            ],
+            "5": [
+              62,
+              66
+            ]
+          },
+          "ball": [
+            280,
+            353
+          ],
+          "lines": [
+            {
+              "t": "pass",
+              "a": [
+                280,
+                353
+              ],
+              "b": [
+                468,
+                231
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                280,
+                340
+              ],
+              "b": [
+                290,
+                120
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                92,
+                231
+              ],
+              "b": [
+                260,
+                340
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                62,
+                66
+              ],
+              "b": [
+                92,
+                215
+              ]
+            }
+          ],
+          "label": "Pass, cut to the rim, everyone fills.",
+          "coach": "Head coach at half court: yell stop, whoever is standing still says where he should be. Assistant A runs the far basket 3v3 and keeps the score."
+        }
+      },
+      {
+        "mins": 12,
+        "title": "Game 4v4",
+        "note": "Team 1 vs Team 2, games to 7. Option A, Man Only: a talked stop is 2, a paint touch before the shot is worth 1 extra, a pass with no cut is a turnover. Winners run the Victory Lap. Option B, scrimmage graded on three things: help stops the drive, help recovers on the kick, and we cut after we pass.",
+        "visual": {
+          "pack": true,
+          "o": {
+            "1": [
+              280,
+              353
+            ],
+            "2": [
+              468,
+              231
+            ],
+            "3": [
+              92,
+              231
+            ],
+            "4": [
+              62,
+              66
+            ]
+          },
+          "d": {
+            "1": [
+              275,
+              305,
+              "BALL"
+            ],
+            "2": [
+              390,
+              180,
+              "GAP"
+            ],
+            "3": [
+              175,
+              170,
+              "HELP"
+            ],
+            "4": [
+              235,
+              110,
+              "HELP"
+            ]
+          },
+          "ball": [
+            280,
+            353
+          ],
+          "c": {
+            "Head": [
+              515,
+              330
+            ],
+            "A": [
+              45,
+              330
+            ]
+          },
+          "label": "4v4 with 8. Pack line on defense.",
+          "coach": "Head coach on the sideline keeping score and calling the grades out loud. Assistant A on the other sideline counts turnovers and baseline drives."
+        }
+      },
+      {
+        "mins": 6,
+        "title": "Pressure Free Throws",
+        "note": "Everyone shoots 2, team says the shooter's name. Round 1: any miss, the whole team runs. Round 2, Earn Your Lap: make both and run the Victory Lap. Count the tally, champion picks the next Circle Up question. Break the huddle.",
+        "visual": {
+          "o": {
+            "1": [
+              280,
+              232
+            ]
+          },
+          "lane": true,
+          "c": {
+            "Head": [
+              400,
+              330
+            ]
+          },
+          "coach": "Head coach off the lane with the tally. Count it out loud and break the huddle. Assistants collect balls and cones."
+        }
+      }
+    ],
+    "extras": [
+      {
+        "title": "Rim War",
+        "note": "1v1 from the block, winner stays, first to 3 runs the Victory Lap."
+      },
+      {
+        "title": "Knockout",
+        "note": "2 balls. Free throw line, then elbow, then top of the key 3."
+      }
+    ],
+    "announce": "Pack line week: Ball, Gap, Help, force middle. Player Course Week 1 is live at datakyle.github.io/Coach-OS/#learn. Finish every lesson with every answer right and tell Coach the secret word. Pressure Shooting tally is still live. First game is Thursday Nov 12 at KSD.",
+    "updated": 1793059166443
   }
 ]
