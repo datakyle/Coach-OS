@@ -634,7 +634,7 @@
       {
         "mins": 8,
         "title": "Circle Up",
-        "note": "Three things before we start. Captains: I am picking captains this week. I am looking for who talks, who works when nobody is watching, and who shows up every day. Write down two names, not yourself, and hand them to me after practice. I make the final call and announce them Thursday. Union: the Union college teams are here next week. Who is interested? Raise your hand and I will get you the details. Practice: we have 8. One guy missing means nobody gets 4v4, and every practice builds on the last one. Today builds on Sunday. If you cannot be here, tell me before, not after. Then today: Sunday was Ball, Gap, Help. Today the ball moves and we help and recover. Two non-negotiables: move on the flight of the pass, and talk every possession. Winners run is on. Split Team 1 / Team 2 and the station groups.",
+        "note": "Three things before we start. Captains: I am picking captains this week. I am looking for who talks, who works when nobody is watching, and who shows up every day. Write down two names, not yourself, and hand them to me after practice. I make the final call and announce them Thursday. Union: the Union college teams are here next week. Who is interested? Raise your hand and I will get you the details. Practice: we have 8. One guy missing means nobody gets 4v4, and every practice builds on the last one. Today builds on Sunday. If you cannot be here, tell me before, not after. Then today: Sunday was Ball, Gap, Help. Today the ball moves and we help and recover. Two non-negotiables: move on the flight of the pass, and talk every possession. Winners run is on. Split Team 1 / Team 2. Station groups today: Shooters and Fundamentals.",
         "visual": {
           "circle": [
             280,
@@ -825,20 +825,102 @@
         }
       },
       {
-        "mins": 12,
-        "title": "Split Stations",
-        "note": "Returners at the main basket: Closeout Drives. Defender passes and closes out, offense gets 2 dribbles, games to 3. Shade him so he has to go middle. New guys at the far basket: Footwork Shooting and USA Pivots. Jump stop, pivot, rip through, shoot. Last 5 minutes add a closeout. Both groups run themselves. Horn at the end.",
+        "mins": 8,
+        "title": "Skill Stations, Round 1",
+        "note": "Two groups today: Shooters at the main basket, Fundamentals at the far basket. Shooters: Read the Screen Shooting. The chair is the screen. Passer calls POP, CURL or FADE and the shooter reads it. 3s count 2. Fundamentals: Ball handling series and Alford Layups. Two-ball pounds, crossover, in and out, then finish with both hands. Eyes up, no looking at the ball. Horn at the end, stay at your basket.",
+        "visual": {
+          "cones": [
+            [
+              420,
+              190
+            ]
+          ],
+          "o": {
+            "1": [
+              360,
+              110
+            ],
+            "2": [
+              300,
+              340
+            ],
+            "3": [
+              120,
+              340
+            ]
+          },
+          "lines": [
+            {
+              "t": "cut",
+              "a": [
+                360,
+                110
+              ],
+              "b": [
+                455,
+                235
+              ]
+            },
+            {
+              "t": "pass",
+              "a": [
+                300,
+                340
+              ],
+              "b": [
+                455,
+                235
+              ]
+            },
+            {
+              "t": "dribble",
+              "a": [
+                120,
+                340
+              ],
+              "b": [
+                235,
+                150
+              ]
+            }
+          ],
+          "ball": [
+            310,
+            330
+          ],
+          "c": {
+            "B": [
+              230,
+              330
+            ],
+            "A": [
+              60,
+              250
+            ]
+          },
+          "label": "Right: Shooters, chair screen. Left: Fundamentals, ball handling into Alford layups.",
+          "coach": "Assistant B with the Shooters: feed the passer and keep the shot count. Assistant A with Fundamentals: call out eyes down and weak-hand finishes. Head coach floats, more time with Fundamentals."
+        }
+      },
+      {
+        "mins": 8,
+        "title": "Skill Stations, Round 2",
+        "note": "Same groups, new drill. Shooters: Closeout Shooting. Partner passes from under the rim and closes out. Short closeout, shoot it. Hard closeout, one dribble middle into a pull up. A 3 counts 2, a pull up counts 1. Top pair runs the Victory Lap. Fundamentals: Footwork Shooting and USA Pivots. Jump stop, pivot, rip through, shoot. Last 3 minutes add a closeout. Strong pivots keep the ball safe.",
         "visual": {
           "o": {
             "1": [
               468,
               231
+            ],
+            "2": [
+              92,
+              231
             ]
           },
           "d": {
             "1": [
-              280,
-              140,
+              300,
+              105,
               ""
             ]
           },
@@ -846,8 +928,8 @@
             {
               "t": "pass",
               "a": [
-                280,
-                140
+                300,
+                105
               ],
               "b": [
                 468,
@@ -857,8 +939,8 @@
             {
               "t": "closeout",
               "a": [
-                292,
-                152
+                312,
+                118
               ],
               "b": [
                 446,
@@ -866,39 +948,29 @@
               ]
             },
             {
-              "t": "dribble",
+              "t": "pass",
               "a": [
-                455,
-                245
+                200,
+                330
               ],
               "b": [
-                370,
-                250
+                100,
+                245
               ]
             }
           ],
-          "nobase": [
-            [
-              458,
-              150
-            ],
-            [
-              492,
-              160
-            ]
-          ],
           "c": {
-            "Head": [
-              350,
+            "A": [
+              200,
               330
             ],
-            "A": [
-              120,
+            "B": [
+              515,
               330
             ]
           },
-          "label": "Main basket: Returners. New guys mirror it at the far basket.",
-          "coach": "Head coach with the Returners: watch the last three steps of the closeout and that the drive goes middle. Assistant A runs the New guys at the far basket and counts makes."
+          "label": "Right: Shooters, closeout shooting. Left: Fundamentals, jump stop and pivot.",
+          "coach": "Assistant B keeps the pair scores and calls bad closeouts. Assistant A passes to the Fundamentals group and checks the jump stop and pivot foot. Head coach floats."
         }
       },
       {
@@ -970,9 +1042,9 @@
         }
       },
       {
-        "mins": 12,
+        "mins": 10,
         "title": "Closeout and Recover",
-        "note": "6 minutes 1v1 closeouts from help, 2 dribbles, games to 3. Then 6 minutes 2v2 help and recover: the helper stops the drive, then gets back to his man. Open kick-out 3 counts and the defense runs. Talk first or the stop does not count.",
+        "note": "5 minutes 1v1 closeouts from help, 2 dribbles, games to 3. Then 5 minutes 2v2 help and recover: the helper stops the drive, then gets back to his man. Open kick-out 3 counts and the defense runs. Talk first or the stop does not count.",
         "visual": {
           "pack": true,
           "o": {
@@ -1062,9 +1134,9 @@
         }
       },
       {
-        "mins": 13,
+        "mins": 11,
         "title": "Offense Reps: 5v0 to 3v3",
-        "note": "5 Out Pass and Cut. Three rules: pass and cut, fill the open spot, drive if nobody is open. 5 minutes 5v0: 10 passes with a cut and fill, no dribble. Then 8 minutes 3v3 at both baskets. Layup off a cut is 2. A pass with no cut is a turnover. Defense plays pack line.",
+        "note": "5 Out Pass and Cut. Three rules: pass and cut, fill the open spot, drive if nobody is open. 4 minutes 5v0: 10 passes with a cut and fill, no dribble. Then 7 minutes 3v3 at both baskets: layup off a cut is 2, a pass with no cut is a turnover. Defense plays pack line.",
         "visual": {
           "o": {
             "1": [
@@ -1239,6 +1311,6 @@
       }
     ],
     "announce": "Pack line week: Ball, Gap, Help, force middle. Player Course Week 1 is live at datakyle.github.io/Coach-OS/#learn. Finish every lesson with every answer right and tell Coach the secret word. Pressure Shooting tally is still live. First game is Thursday Nov 12 at KSD.",
-    "updated": 1793068743181
+    "updated": 1793068823799
   }
 ]
