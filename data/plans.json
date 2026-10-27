@@ -632,9 +632,9 @@
     "tagline": "Help stops the drive. Recover on the kick. Cut after you pass.",
     "items": [
       {
-        "mins": 5,
+        "mins": 8,
         "title": "Circle Up",
-        "note": "Sunday we learned Ball, Gap, Help. Today the ball moves and we help and recover. Help stops the drive, then gets back to his man on the kick. Two non-negotiables: move on the flight of the pass, and talk every possession. Winners run is on. Split Team 1 / Team 2 and the station groups.",
+        "note": "Three things before we start. Captains: I am picking captains this week. I am looking for who talks, who works when nobody is watching, and who shows up every day. Write down two names, not yourself, and hand them to me after practice. I make the final call and announce them Thursday. Union: the Union college teams are here next week. Who is interested? Raise your hand and I will get you the details. Practice: we have 8. One guy missing means nobody gets 4v4, and every practice builds on the last one. Today builds on Sunday. If you cannot be here, tell me before, not after. Then today: Sunday was Ball, Gap, Help. Today the ball moves and we help and recover. Two non-negotiables: move on the flight of the pass, and talk every possession. Winners run is on. Split Team 1 / Team 2 and the station groups.",
         "visual": {
           "circle": [
             280,
@@ -648,13 +648,13 @@
               300
             ]
           },
-          "coach": "Head coach in the middle: name the focus and the two non-negotiables, split the teams. Assistants set four cones on the pack line at the main basket."
+          "coach": "Head coach in the middle: captains, Union next week (count the hands), why practice matters, then the focus. Assistants hand out scrap paper and pencils for the captain votes and set the cones."
         }
       },
       {
         "mins": 10,
         "title": "Game Warmup",
-        "note": "Dynamic warmup only, baseline to half court and back. Jog, high knees, butt kicks, carioca both ways, walking lunge with a twist, leg swings, defensive slides, two build-up sprints. Captains lead and call each move.",
+        "note": "Dynamic warmup only, baseline to half court and back. Jog, high knees, butt kicks, carioca both ways, walking lunge with a twist, leg swings, defensive slides, two build-up sprints. Two guys I pick lead it and call each move. Captains take it over once we name them.",
         "visual": {
           "o": {
             "1": [
@@ -726,7 +726,7 @@
               220
             ]
           },
-          "coach": "Captains run it. Head coach on the sideline watching effort. Assistants finish the cones and grab the pads for stations."
+          "coach": "Two players I pick run it. Head coach on the sideline watching effort. Assistants finish the cones and grab the pads for stations."
         }
       },
       {
@@ -902,7 +902,7 @@
         }
       },
       {
-        "mins": 8,
+        "mins": 6,
         "title": "Oregon Passing",
         "note": "Ball security. Good passes and talk. Call the name before you pass. 2-minute rounds, as many as we can, beat the last round. Bad pass or silent pass is a redo.",
         "visual": {
@@ -1207,9 +1207,9 @@
         }
       },
       {
-        "mins": 6,
+        "mins": 5,
         "title": "Pressure Free Throws",
-        "note": "Everyone shoots 2, team says the shooter's name. Round 1: any miss, the whole team runs. Round 2, Earn Your Lap: make both and run the Victory Lap. Count the tally, champion picks the next Circle Up question. Break the huddle.",
+        "note": "Everyone shoots 2, team says the shooter's name. Round 1: any miss, the whole team runs. Round 2, Earn Your Lap: make both and run the Victory Lap. Count the tally, champion picks the next Circle Up question. Reminder: captain votes to me before you leave. Break the huddle.",
         "visual": {
           "o": {
             "1": [
@@ -1239,6 +1239,6 @@
       }
     ],
     "announce": "Pack line week: Ball, Gap, Help, force middle. Player Course Week 1 is live at datakyle.github.io/Coach-OS/#learn. Finish every lesson with every answer right and tell Coach the secret word. Pressure Shooting tally is still live. First game is Thursday Nov 12 at KSD.",
-    "updated": 1793059166443
+    "updated": 1793068743181
   }
 ]
