@@ -1317,8 +1317,8 @@
     "id": "2026-10-29",
     "date": "2026-10-29",
     "start": "18:00",
-    "focus": "Shell Stage 4: Closeouts Live",
-    "tagline": "Close out short. Force middle. Box out every shot.",
+    "focus": "Shell Stage 4, Closeouts Live, and the 1-3-1",
+    "tagline": "Close out short. Force middle. Talk in the zone.",
     "items": [
       {
         "mins": 5,
@@ -1419,9 +1419,9 @@
         }
       },
       {
-        "mins": 15,
-        "title": "Syracuse: Sets 1 and 2",
-        "note": "Conditioning day. First Syracuse of the season. FL, HC, BL with SH for shuffle and BP for backpedal. Team 1 vs Team 2. Partner rule: you are not done until your partner is done. The group calls the variation out loud before every rep. Silent group runs it again. Losing team claps the winners in.",
+        "mins": 7,
+        "title": "Syracuse: Set 1",
+        "note": "One set today. FL, HC, BL with SH for shuffle and BP for backpedal. Team 1 vs Team 2. Partner rule: you are not done until your partner is done. The group calls the variation out loud before every rep. Losing team claps the winners in.",
         "visual": {
           "o": {
             "1": [
@@ -1512,9 +1512,85 @@
         }
       },
       {
-        "mins": 12,
+        "mins": 7,
+        "title": "Vegas Closeouts",
+        "note": "One set. Defender starts in help, passes to the wing and closes out: sprint the first two-thirds, short chop steps, get low, two hands up. Shade him baseline so he has to go middle into the help. Offense gets 2 dribbles. Drive goes baseline and the defense loses the rep. Games to 3, winner runs the Victory Lap.",
+        "visual": {
+          "o": {
+            "1": [
+              468,
+              231
+            ]
+          },
+          "d": {
+            "1": [
+              262,
+              140,
+              ""
+            ]
+          },
+          "c": {
+            "Gap": [
+              345,
+              215
+            ]
+          },
+          "lines": [
+            {
+              "t": "pass",
+              "a": [
+                262,
+                140
+              ],
+              "b": [
+                468,
+                231
+              ]
+            },
+            {
+              "t": "closeout",
+              "a": [
+                275,
+                150
+              ],
+              "b": [
+                446,
+                203
+              ]
+            },
+            {
+              "t": "dribble",
+              "a": [
+                455,
+                245
+              ],
+              "b": [
+                370,
+                250
+              ]
+            }
+          ],
+          "nobase": [
+            [
+              458,
+              150
+            ],
+            [
+              492,
+              160
+            ]
+          ],
+          "ball": [
+            483,
+            216
+          ],
+          "coach": "Assistant stands in the gap (Gap) as the help, so the drive middle runs into him. Head coach watches the last three steps: chop, low, two hands up, top foot high."
+        }
+      },
+      {
+        "mins": 10,
         "title": "Teach: Shell Stage 4, Closeouts Live",
-        "note": "2 minutes on the board, 10 on the floor. Stage 4 is live. Drive middle, help stops it, kick out, and the helper closes out short: sprint, chop, two hands up, shade baseline so he goes middle. Offense can now shoot or drive. Walk it once, then live. I yell freeze and ask one guy his job. Late rotation or a baseline drive, group runs a down and back. Stop plus a box out is a point for the defense.",
+        "note": "Pack line. 2 minutes on the board, 8 on the floor. Stage 4 is live. Drive middle, help stops it, kick out, and the helper closes out short: sprint, chop, two hands up, shade baseline so he goes middle. Offense can shoot or drive. I yell freeze and ask one guy his job. Late rotation or a baseline drive, group runs a down and back. Stop plus a box out is a point for the defense.",
         "visual": {
           "pack": true,
           "o": {
@@ -1618,8 +1694,115 @@
       },
       {
         "mins": 12,
-        "title": "Skill Stations",
-        "note": "Two groups, horn at the end. Shooters at the main basket: Closeout Drives. Defender passes and closes out, offense gets 2 dribbles. Short closeout, shoot. Hard closeout, drive middle. Games to 3. Fundamentals at the far basket: Catch, Rip and Go. Jump stop, rip low, one hard dribble to a layup. Last 5 minutes add a closeout: runs at you, drive. Sits, shoot.",
+        "title": "1-3-1 Zone Defense",
+        "note": "New look. Same bottom man the whole block; I rotate guys through the middle and the wings. TOP pushes the ball to a side. WINGS trap with the top when it hits the wing, hands up in the passing lanes. MIDDLE fronts the high post and takes away the pass to the free throw line. BOTTOM runs baseline to baseline and takes every corner pass, then the far wing drops to the block. Walk it 5v0 first, then live against the other group. Every pass, everyone moves and talks.",
+        "visual": {
+          "o": {
+            "1": [
+              280,
+              385
+            ],
+            "2": [
+              468,
+              231
+            ],
+            "3": [
+              92,
+              231
+            ],
+            "4": [
+              498,
+              66
+            ],
+            "5": [
+              300,
+              245
+            ]
+          },
+          "d": {
+            "1": [
+              290,
+              330,
+              "TOP"
+            ],
+            "2": [
+              430,
+              245,
+              "WING"
+            ],
+            "3": [
+              150,
+              230,
+              "WING"
+            ],
+            "4": [
+              275,
+              160,
+              "MIDDLE"
+            ],
+            "5": [
+              465,
+              95,
+              "BOTTOM"
+            ]
+          },
+          "ball": [
+            498,
+            66
+          ],
+          "lines": [
+            {
+              "t": "pass",
+              "a": [
+                468,
+                231
+              ],
+              "b": [
+                498,
+                66
+              ]
+            },
+            {
+              "t": "slide",
+              "a": [
+                280,
+                110
+              ],
+              "b": [
+                465,
+                95
+              ]
+            },
+            {
+              "t": "slide",
+              "a": [
+                150,
+                230
+              ],
+              "b": [
+                235,
+                130
+              ]
+            }
+          ],
+          "label": "Corner pass: bottom takes the corner, far wing drops to the block.",
+          "c": {
+            "Head": [
+              45,
+              330
+            ],
+            "A": [
+              515,
+              330
+            ]
+          },
+          "coach": "Head coach on the left sideline: rotate the middle and the wings every 3 possessions, freeze and ask who has the corner. Assistant A on the right sideline counts trap turnovers and baseline catches."
+        }
+      },
+      {
+        "mins": 16,
+        "title": "Skill Stations + Pressure Free Throws",
+        "note": "Two groups, horn at the end. Shooters at the main basket: 4 minutes Closeout Drives (games to 3), then jump stop catch and shoot, then one dribble pull ups. Feet set before the catch. Fundamentals at the far basket: Catch and Shoot, Feet First. Jump stop on two feet, elbow and short corner. Then spacing: stay about 15 feet apart, on a drive the two closest slide one spot away, catch ready to shoot. Pressure free throws rotate the whole block: coach calls a name, that player steps to the line, group freezes and says his name. Make both, 1 point on the tally. Any miss, his group runs a down and back.",
         "visual": {
           "o": {
             "1": [
@@ -1629,6 +1812,14 @@
             "2": [
               92,
               231
+            ],
+            "3": [
+              180,
+              330
+            ],
+            "4": [
+              280,
+              232
             ]
           },
           "d": {
@@ -1666,14 +1857,14 @@
               ]
             },
             {
-              "t": "dribble",
+              "t": "pass",
               "a": [
-                92,
-                231
+                180,
+                330
               ],
               "b": [
-                220,
-                140
+                92,
+                231
               ]
             }
           ],
@@ -1685,10 +1876,14 @@
             "A": [
               45,
               330
+            ],
+            "Head": [
+              360,
+              280
             ]
           },
-          "label": "Right: Shooters, closeout drives. Left: Fundamentals, catch, rip and go.",
-          "coach": "Assistant B with the Shooters: keep the game score and call any closeout that flies by. Assistant A with Fundamentals: check the jump stop and the rip low. Head coach floats, more time with Fundamentals."
+          "label": "Right: Shooters, closeout drives and pull ups. Left: Fundamentals, catch and shoot and spacing. Free throw line: one shooter at a time.",
+          "coach": "Assistant B runs the Shooters and keeps the closeout scores. Assistant A runs Fundamentals and checks feet set and spacing. Head coach calls one name at a time to the line and keeps the free throw tally."
         }
       },
       {
@@ -1760,90 +1955,9 @@
         }
       },
       {
-        "mins": 7,
-        "title": "2v2 Drive and Kick",
-        "note": "Offense decisions. Touch the paint before any shot. Helper comes, kick it. Helper stays, finish. Defense plays pack line and forces middle. Kick-out 3 counts 2. First to 7, winners run the Victory Lap.",
-        "visual": {
-          "pack": true,
-          "o": {
-            "1": [
-              400,
-              330
-            ],
-            "2": [
-              92,
-              231
-            ]
-          },
-          "d": {
-            "1": [
-              380,
-              300,
-              "BALL"
-            ],
-            "2": [
-              190,
-              190,
-              "HELP"
-            ]
-          },
-          "ball": [
-            400,
-            330
-          ],
-          "lines": [
-            {
-              "t": "dribble",
-              "a": [
-                400,
-                330
-              ],
-              "b": [
-                300,
-                220
-              ]
-            },
-            {
-              "t": "slide",
-              "a": [
-                190,
-                190
-              ],
-              "b": [
-                255,
-                205
-              ]
-            },
-            {
-              "t": "pass",
-              "a": [
-                300,
-                220
-              ],
-              "b": [
-                92,
-                231
-              ]
-            }
-          ],
-          "c": {
-            "Head": [
-              515,
-              330
-            ],
-            "A": [
-              200,
-              110
-            ]
-          },
-          "label": "Touch the paint. Helper comes, kick it.",
-          "coach": "Head coach calls the read out loud after each rep: right or wrong. Assistant A under the rim rebounds and runs the far basket game."
-        }
-      },
-      {
-        "mins": 15,
-        "title": "Game 4v4",
-        "note": "Team 1 vs Team 2, games to 7. Option A, Every Miss Is Ours: a stop with a box out is 2, a putback is 3, a baseline drive costs the defense 2, a pass with no cut is a turnover. Winners run the Victory Lap. Option B, scrimmage graded on three things: closeout short and force middle, box out on every shot, and touch the paint before we shoot.",
+        "mins": 17,
+        "title": "Game Scrimmage 4v4",
+        "note": "Team 1 vs Team 2, games to 7. Pack line on defense, Stage 4 rules. Every foul is two pressure free throws: the team says the shooter's name, make both and it counts plus 1 on the tally. Option A, Every Miss Is Ours: a stop with a box out is 2, a putback is 3, a baseline drive costs the defense 2. Option B, scrimmage graded on three things: closeout short and force middle, box out on every shot, touch the paint before we shoot. Last possession of each game, defense can call 1-3-1. Winners run the Victory Lap. Count the tally and break the huddle.",
         "visual": {
           "pack": true,
           "o": {
@@ -1913,27 +2027,6 @@
           "label": "4v4 with 8. Pack line on defense, no baseline.",
           "coach": "Head coach on the sideline keeping score and calling the grades out loud. Assistant A on the other sideline counts turnovers, baseline drives and offensive rebounds."
         }
-      },
-      {
-        "mins": 8,
-        "title": "Pressure Free Throws",
-        "note": "Tired legs, game shots. Everyone shoots 2, team says the shooter's name. Round 1: any miss, the whole team runs. Round 2, Earn Your Lap: make both and run the Victory Lap. Count the tally, champion picks the next Circle Up question. Break the huddle.",
-        "visual": {
-          "o": {
-            "1": [
-              280,
-              232
-            ]
-          },
-          "lane": true,
-          "c": {
-            "Head": [
-              400,
-              330
-            ]
-          },
-          "coach": "Head coach off the lane with the tally. Count it out loud, captains break the huddle. Assistants collect balls and cones."
-        }
       }
     ],
     "extras": [
@@ -1947,6 +2040,6 @@
       }
     ],
     "announce": "Pack line week: Ball, Gap, Help, force middle. Captains named today. Player Course Week 1 is live at datakyle.github.io/Coach-OS/#learn. Finish every lesson with every answer right and tell Coach the secret word. Pressure Shooting tally is still live. First game is Thursday Nov 12 at KSD.",
-    "updated": 1793231948210
+    "updated": 1793240375062
   }
 ]
