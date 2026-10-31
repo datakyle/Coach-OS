@@ -2041,5 +2041,624 @@
     ],
     "announce": "Pack line week: Ball, Gap, Help, force middle. Captains named today. Player Course Week 1 is live at datakyle.github.io/Coach-OS/#learn. Finish every lesson with every answer right and tell Coach the secret word. Pressure Shooting tally is still live. First game is Thursday Nov 12 at KSD.",
     "updated": 1793240375062
+  },
+  {
+    "id": "2026-11-01",
+    "date": "2026-11-01",
+    "start": "16:00",
+    "focus": "Ball Security vs Pressure: Beat the Trap",
+    "tagline": "Chin it. Pivot away. Pass, don't panic.",
+    "items": [
+      {
+        "mins": 5,
+        "title": "Circle Up",
+        "note": "New week. Last week was the pack line. This week we beat pressure, because teams will trap us and turnovers lose games. Goal is under 12 a game. Today is the trap: chin it, pivot, pass. Two non-negotiables: never get beat standing still, and talk every possession. Union: the college teams are here this week, see me if you raised your hand. Winners run is on. Split Team 1 / Team 2. Station groups: Shooters and Fundamentals.",
+        "visual": {
+          "circle": [
+            280,
+            300,
+            70,
+            8
+          ],
+          "c": {
+            "Head": [
+              280,
+              300
+            ]
+          },
+          "coach": "Head coach in the middle: new week, why turnovers matter, the two non-negotiables. Assistants grab the pads and set two cones at each wing for the trap teach."
+        }
+      },
+      {
+        "mins": 10,
+        "title": "Game Warmup",
+        "note": "Dynamic warmup only, baseline to half court and back. Jog, high knees, butt kicks, carioca both ways, walking lunge with a twist, leg swings, defensive slides, two build-up sprints. Captains lead it and call each move. Loud and on time.",
+        "visual": {
+          "o": {
+            "1": [
+              110,
+              60
+            ],
+            "2": [
+              220,
+              60
+            ],
+            "3": [
+              340,
+              60
+            ],
+            "4": [
+              450,
+              60
+            ]
+          },
+          "lines": [
+            {
+              "t": "cut",
+              "a": [
+                110,
+                80
+              ],
+              "b": [
+                110,
+                385
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                220,
+                80
+              ],
+              "b": [
+                220,
+                385
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                340,
+                80
+              ],
+              "b": [
+                340,
+                385
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                450,
+                80
+              ],
+              "b": [
+                450,
+                385
+              ]
+            }
+          ],
+          "c": {
+            "Head": [
+              515,
+              220
+            ]
+          },
+          "coach": "Captains run it. Head coach on the sideline watching effort and how the captains lead. Assistants finish the cones."
+        }
+      },
+      {
+        "mins": 12,
+        "title": "Teach: Beat the Trap",
+        "note": "New install. 2 minutes on the board, 10 on the floor. When two guys trap you: stop, chin the ball with two elbows out, and pivot away from the pressure. Never dribble backward into the corner. Fake high, pass low, or fake low, pass high. Teammates: the closest guy flashes to the middle, one comes back to meet it, one goes long. Walk it, then two coaches trap at game speed. Each player gets 5 reps. Goal is 4 of 5 clean. A pass out of the trap is a point, a turnover and your group runs a down and back.",
+        "visual": {
+          "o": {
+            "1": [
+              440,
+              260
+            ],
+            "2": [
+              280,
+              250
+            ],
+            "3": [
+              440,
+              380
+            ],
+            "4": [
+              130,
+              200
+            ]
+          },
+          "c": {
+            "A": [
+              470,
+              230
+            ],
+            "B": [
+              410,
+              290
+            ]
+          },
+          "ball": [
+            440,
+            260
+          ],
+          "cones": [
+            [
+              400,
+              330
+            ],
+            [
+              480,
+              330
+            ]
+          ],
+          "lines": [
+            {
+              "t": "cut",
+              "a": [
+                280,
+                330
+              ],
+              "b": [
+                290,
+                250
+              ]
+            },
+            {
+              "t": "pass",
+              "a": [
+                440,
+                260
+              ],
+              "b": [
+                290,
+                250
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                440,
+                340
+              ],
+              "b": [
+                440,
+                380
+              ]
+            }
+          ],
+          "label": "Two coaches trap the wing. Chin, pivot, the middle man flashes, pass out.",
+          "coach": "Assistants A and B are the trappers: hands high, active, no fouls. Head coach at the board for 2 minutes, then at the top of the key counting clean reps out of 5 and asking the flasher where he should be."
+        }
+      },
+      {
+        "mins": 12,
+        "title": "Skill Stations",
+        "note": "Two groups, horn at the end. Shooters at the main basket: 6 minutes Tip Drill into Chin and Outlet. 5 tips, grab it with two hands and finish. Then chin it and pivot away from the swiper, outlet to the wing. Then 6 minutes 2v2 Rebound and Score: putback is 2, defensive board plus outlet is 1, games to 5. Fundamentals at the far basket: 6 minutes Footwork Shooting and USA Pivots. Jump stop, pivot, rip through, shoot. Then 6 minutes Catch and Shoot, Feet First at the elbow and short corner. Strong pivots keep the ball safe.",
+        "visual": {
+          "o": {
+            "1": [
+              330,
+              120
+            ],
+            "2": [
+              440,
+              230
+            ],
+            "3": [
+              150,
+              300
+            ],
+            "4": [
+              230,
+              360
+            ]
+          },
+          "d": {
+            "1": [
+              300,
+              140
+            ]
+          },
+          "lines": [
+            {
+              "t": "pass",
+              "a": [
+                330,
+                120
+              ],
+              "b": [
+                440,
+                230
+              ]
+            },
+            {
+              "t": "pass",
+              "a": [
+                230,
+                360
+              ],
+              "b": [
+                150,
+                300
+              ]
+            }
+          ],
+          "ball": [
+            330,
+            120
+          ],
+          "c": {
+            "B": [
+              300,
+              90
+            ],
+            "A": [
+              90,
+              360
+            ]
+          },
+          "label": "Right: Shooters, chin and outlet, then 2v2 boards. Left: Fundamentals, pivots and catch and shoot.",
+          "coach": "Assistant B with the Shooters: be the swiper on the chin, then shoot for the 2v2 and keep score. Assistant A with Fundamentals: pass to them and check the jump stop and pivot foot. Head coach floats, more time with Fundamentals."
+        }
+      },
+      {
+        "mins": 8,
+        "title": "Passing Drill: 4v3 in the paint",
+        "note": "Ball security under pressure. 4 on offense around the paint, 3 on defense trying to deflect. 10 passes in a row and the offense wins. Fake before you pass. A deflection or a pass at the feet and we start over at zero. Defense stays on until it gets a deflection. Odd man rotates in every round.",
+        "visual": {
+          "o": {
+            "1": [
+              200,
+              110
+            ],
+            "2": [
+              360,
+              110
+            ],
+            "3": [
+              200,
+              220
+            ],
+            "4": [
+              360,
+              220
+            ]
+          },
+          "d": {
+            "1": [
+              280,
+              110
+            ],
+            "2": [
+              280,
+              170
+            ],
+            "3": [
+              280,
+              225
+            ]
+          },
+          "ball": [
+            200,
+            110
+          ],
+          "lines": [
+            {
+              "t": "pass",
+              "a": [
+                200,
+                110
+              ],
+              "b": [
+                200,
+                220
+              ]
+            },
+            {
+              "t": "slide",
+              "a": [
+                280,
+                225
+              ],
+              "b": [
+                225,
+                225
+              ]
+            }
+          ],
+          "c": {
+            "Head": [
+              480,
+              170
+            ]
+          },
+          "label": "Four around the paint, three in the middle. Fake, then pass.",
+          "coach": "Head coach counts passes out loud and resets on any deflection. Assistants stand at the elbows and call out any pass with no fake."
+        }
+      },
+      {
+        "mins": 6,
+        "title": "Oregon Passing",
+        "note": "Ball security. Call the name before you pass. 2-minute rounds, beat the last round. Bad pass or silent pass is a redo.",
+        "visual": {
+          "o": {
+            "1": [
+              110,
+              385
+            ],
+            "2": [
+              280,
+              385
+            ],
+            "3": [
+              450,
+              385
+            ]
+          },
+          "lines": [
+            {
+              "t": "pass",
+              "a": [
+                110,
+                385
+              ],
+              "b": [
+                280,
+                300
+              ]
+            },
+            {
+              "t": "pass",
+              "a": [
+                280,
+                300
+              ],
+              "b": [
+                450,
+                220
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                280,
+                370
+              ],
+              "b": [
+                280,
+                160
+              ]
+            }
+          ],
+          "ball": [
+            125,
+            380
+          ],
+          "c": {
+            "Head": [
+              515,
+              300
+            ]
+          },
+          "label": "Full court passing lines, finish at the rim.",
+          "coach": "Head coach on the sideline counting rounds out loud. Assistants call out any pass that is late or lands at the feet."
+        }
+      },
+      {
+        "mins": 12,
+        "title": "Shell Drill: Stage 4",
+        "note": "Pack line every day. Stage 4 is live. Ball, Gap, Help called out loud on every pass. Drive middle, help stops it, kick out, helper closes out short and forces middle. Every shot, all five box out. Late rotation or a baseline drive, group runs a down and back. Stop plus a box out is a point for the defense.",
+        "visual": {
+          "pack": true,
+          "o": {
+            "1": [
+              280,
+              353
+            ],
+            "2": [
+              468,
+              231
+            ],
+            "3": [
+              92,
+              231
+            ],
+            "4": [
+              62,
+              66
+            ]
+          },
+          "d": {
+            "1": [
+              262,
+              300,
+              "BALL"
+            ],
+            "2": [
+              360,
+              175,
+              "HELP"
+            ],
+            "3": [
+              185,
+              190,
+              "HELP"
+            ],
+            "4": [
+              230,
+              110,
+              "HELP"
+            ]
+          },
+          "c": {
+            "B": [
+              498,
+              66
+            ]
+          },
+          "ball": [
+            280,
+            353
+          ],
+          "lines": [
+            {
+              "t": "dribble",
+              "a": [
+                280,
+                353
+              ],
+              "b": [
+                290,
+                265
+              ]
+            },
+            {
+              "t": "pass",
+              "a": [
+                290,
+                265
+              ],
+              "b": [
+                468,
+                231
+              ]
+            },
+            {
+              "t": "closeout",
+              "a": [
+                360,
+                175
+              ],
+              "b": [
+                448,
+                215
+              ]
+            }
+          ],
+          "nobase": [
+            [
+              470,
+              150
+            ],
+            [
+              505,
+              160
+            ]
+          ],
+          "label": "Drive, kick, the helper closes out short and forces middle.",
+          "coach": "Assistant B fills the right corner on offense. Assistant A plays a wing. Head coach above the top of the key: freeze, ask one guy his job, grade the closeout and the box out."
+        }
+      },
+      {
+        "mins": 17,
+        "title": "Game 4v4",
+        "note": "Team 1 vs Team 2, games to 7. Pack line on defense. On my whistle, the two closest defenders trap the ball. Option A, Beat the Trap: a pass out of a trap is 1, a talked stop is 2, a turnover costs 2, a baseline drive costs the defense 2. Option B, scrimmage graded on three things: chin and pivot in the trap, the middle man flashes, talk every possession. Winners run the Victory Lap.",
+        "visual": {
+          "pack": true,
+          "o": {
+            "1": [
+              280,
+              353
+            ],
+            "2": [
+              468,
+              231
+            ],
+            "3": [
+              92,
+              231
+            ],
+            "4": [
+              62,
+              66
+            ]
+          },
+          "d": {
+            "1": [
+              275,
+              305,
+              "BALL"
+            ],
+            "2": [
+              390,
+              180,
+              "GAP"
+            ],
+            "3": [
+              175,
+              170,
+              "HELP"
+            ],
+            "4": [
+              235,
+              110,
+              "HELP"
+            ]
+          },
+          "ball": [
+            280,
+            353
+          ],
+          "nobase": [
+            [
+              470,
+              150
+            ],
+            [
+              505,
+              160
+            ]
+          ],
+          "c": {
+            "Head": [
+              515,
+              330
+            ],
+            "A": [
+              45,
+              330
+            ]
+          },
+          "label": "4v4 with 8. Pack line on defense, coach whistles a trap.",
+          "coach": "Head coach on the sideline keeping score, blowing the trap whistle and calling the grades out loud. Assistant A on the other sideline counts turnovers, baseline drives and offensive rebounds."
+        }
+      },
+      {
+        "mins": 8,
+        "title": "Pressure Free Throws",
+        "note": "Everyone shoots 2, team says the shooter's name. Round 1: any miss, the whole team runs. Round 2, Earn Your Lap: make both and run the Victory Lap. Count the tally, champion picks the next Circle Up question. Break the huddle.",
+        "visual": {
+          "o": {
+            "1": [
+              280,
+              232
+            ]
+          },
+          "lane": true,
+          "c": {
+            "Head": [
+              400,
+              330
+            ]
+          },
+          "coach": "Head coach off the lane with the tally. Count it out loud and break the huddle. Assistants collect balls and cones."
+        }
+      }
+    ],
+    "extras": [
+      {
+        "title": "Rim War",
+        "note": "1v1 from the block, winner stays, first to 3 runs the Victory Lap."
+      },
+      {
+        "title": "Knockout",
+        "note": "2 balls. Free throw line, then elbow, then top of the key 3."
+      }
+    ],
+    "announce": "Ball security week: beat pressure, under 12 turnovers. Player Course Week 1 is live at datakyle.github.io/Coach-OS/#learn. Finish every lesson with every answer right and tell Coach the secret word. Pressure Shooting tally is still live. First game is Thursday Nov 12 at KSD.",
+    "updated": 1793491161675
   }
 ]
