@@ -27,6 +27,15 @@ Draft the next practice on the calendar and deliver two things:
    coach does), rendered with `python3 planner/visuals.py <date> <out.pdf>` and
    sent to Coach.
 
+## The coaches' group chat message
+
+The ready-to-paste message is for the other coaches (the assistants), not the
+players. Write it from Coach to them: open with "Coaches," then 2 to 3 short
+sentences with the date, start time, focus, and what Assistant A and Assistant
+B are doing (from the visuals' coach notes). End with "PDF attached." In the
+TickTick task, label it "Message for the other coaches (paste in the coaches'
+group chat):".
+
 ## Coach's standing rules (from his markup, Oct 21)
 
 - **Circle Up:** no "champion asks his question" line.
