@@ -2542,13 +2542,13 @@
     "id": "2026-11-03",
     "date": "2026-11-03",
     "start": "18:00",
-    "focus": "Press Break: Beat Full Court Pressure",
-    "tagline": "Catch facing up. Ball to the middle. Past half in 8.",
+    "focus": "Press Break, Inbounds and a 5v5 Game",
+    "tagline": "Ball to the middle. Know your spot. Hustle back.",
     "items": [
       {
-        "mins": 5,
+        "mins": 8,
         "title": "Circle Up",
-        "note": "Sunday we got game ready and saw the trap. Today we beat pressure the whole length of the floor. That's the press break, this week's install. First game is Thursday Nov 12 at KSD, so we have 8 days. Two non-negotiables: talk every possession, and never get beat standing still. Winners run is on. Split Team 1 / Team 2. Station groups: Shooters and Fundamentals.",
+        "note": "Captains: you lead warmup and you set the tone. If the energy is low, that's on you first. Starting five: I name it before the game, and it gets earned here at practice. Our first game is Thursday Nov 12 at KSD. That's 9 days. Practice: every practice matters. If you can't make it, tell us before, not after. If you don't, your minutes get limited. That's not fair to your teammates, and it's not fair to us as coaches, to give this time and have you not show up. That is everyone. It doesn't matter who you are. These next few games I'm looking for defense: hustle back on defense, and play hard every minute you're out there. Today is the press break. Two non-negotiables: talk every possession, and never get beat standing still. Winners run is on. Split Team 1 / Team 2. Station groups: Shooters and Fundamentals.",
         "visual": {
           "circle": [
             280,
@@ -2562,13 +2562,13 @@
               300
             ]
           },
-          "coach": "Head coach in the middle: what we saw in Sunday's scrimmage, today's install, 8 days to KSD. Assistants set the cones and grab a ball for every player."
+          "coach": "Head coach in the middle: captains, starting five, KSD in 9 days, the attendance rule (tell us before or minutes get limited, everyone), and defense: hustle back. Assistants set the cones and grab a ball for every player."
         }
       },
       {
         "mins": 10,
         "title": "Game Warmup",
-        "note": "Dynamic warmup only, baseline to half court and back. Jog, high knees, butt kicks, carioca both ways, walking lunge with a twist, leg swings, defensive slides, two build-up sprints. Captains lead it and call each move. Loud and on time.",
+        "note": "New warmup drills today. Coach leads them. Dynamic only, no shooting. Learn them today, because this becomes our game warmup. Loud and on time.",
         "visual": {
           "o": {
             "1": [
@@ -2640,7 +2640,7 @@
               220
             ]
           },
-          "coach": "Captains run it. Head coach on the sideline watching energy. Assistants set out balls and cones for Oregon Passing."
+          "coach": "Head coach teaches the new warmup drills. Captains help keep the lines moving. Assistants set out balls and cones for Oregon Passing."
         }
       },
       {
@@ -2716,178 +2716,9 @@
         }
       },
       {
-        "mins": 12,
-        "title": "Teach: Press Break",
-        "note": "This week's install. 3 minutes on the board, 9 on the floor. Inbounder takes it out fast, before the press sets. Two guards get open at the free throw line extended. One man flashes to the middle, one goes long past half court. Catch facing up the floor. Ball to the middle, then up. Same as the trap: never dribble into the corner, chin it, pivot, fake high and pass low. Inbounder steps in after the pass and is the safety. Walk it 5v0, then coaches press at half speed. I freeze and ask one guy where he should be.",
-        "visual": {
-          "o": {
-            "1": [
-              330,
-              45
-            ],
-            "2": [
-              430,
-              230
-            ],
-            "3": [
-              130,
-              230
-            ],
-            "4": [
-              280,
-              300
-            ],
-            "5": [
-              280,
-              385
-            ]
-          },
-          "ball": [
-            330,
-            45
-          ],
-          "lines": [
-            {
-              "t": "pass",
-              "a": [
-                330,
-                45
-              ],
-              "b": [
-                430,
-                230
-              ]
-            },
-            {
-              "t": "cut",
-              "a": [
-                280,
-                340
-              ],
-              "b": [
-                280,
-                300
-              ]
-            },
-            {
-              "t": "pass",
-              "a": [
-                430,
-                230
-              ],
-              "b": [
-                280,
-                300
-              ]
-            },
-            {
-              "t": "cut",
-              "a": [
-                330,
-                60
-              ],
-              "b": [
-                330,
-                160
-              ]
-            }
-          ],
-          "c": {
-            "A": [
-              450,
-              200
-            ],
-            "B": [
-              150,
-              200
-            ],
-            "Head": [
-              515,
-              330
-            ]
-          },
-          "label": "Our baseline is at the top. Inbound to the guard, hit the middle flash, 5 goes long.",
-          "coach": "Assistants A and B press the guards at half speed: hands up, no fouls. Head coach on the sideline walks it, then freezes and asks one guy where he should be."
-        }
-      },
-      {
-        "mins": 12,
-        "title": "Skill Stations",
-        "note": "Two groups, horn at the end. Shooters at the main basket: Catch, Rip and Go. Jump stop, rip low, one hard dribble to a layup. Add a closeout: if he runs at you, drive. If he sits, shoot. Fundamentals at the far basket: Ball handling series and Alford Layups. Two-ball pounds, crossover, in and out, finish with both hands. Eyes up. We need everyone able to handle pressure.",
-        "visual": {
-          "o": {
-            "1": [
-              440,
-              230
-            ],
-            "2": [
-              150,
-              300
-            ]
-          },
-          "d": {
-            "1": [
-              400,
-              190
-            ]
-          },
-          "ball": [
-            440,
-            230
-          ],
-          "lines": [
-            {
-              "t": "closeout",
-              "a": [
-                360,
-                140
-              ],
-              "b": [
-                420,
-                210
-              ]
-            },
-            {
-              "t": "dribble",
-              "a": [
-                440,
-                230
-              ],
-              "b": [
-                330,
-                120
-              ]
-            },
-            {
-              "t": "dribble",
-              "a": [
-                150,
-                300
-              ],
-              "b": [
-                230,
-                160
-              ]
-            }
-          ],
-          "c": {
-            "B": [
-              500,
-              110
-            ],
-            "A": [
-              90,
-              360
-            ]
-          },
-          "label": "Right: Shooters, catch, rip and go. Left: Fundamentals, ball handling and Alford layups.",
-          "coach": "Assistant B with the Shooters: feeds the pass and makes the closeout, mix running at them and sitting back. Assistant A with Fundamentals: calls the ball handling moves and checks eyes up. Head coach floats, more time with Fundamentals."
-        }
-      },
-      {
-        "mins": 12,
-        "title": "Press Break Live",
-        "note": "Full court, game speed. 5 on offense against 3 players plus two coaches in the press. Start on a made basket or a dead ball. Get it past half court in under 8 seconds and it's 1 point. Score after it and it's 2. Turnover or a 5-second call is a point for the defense, and the offense runs a down and back. Rotate every 3 trips so everyone gets the ball. Goal: past half in 8, 4 out of 5.",
+        "mins": 20,
+        "title": "Press Break: Teach and Live",
+        "note": "This week's install. 3 minutes on the board, then walk it. Inbounder takes it out fast, before the press sets. Two guards get open at the free throw line extended. One man flashes to the middle, one goes long past half court. Catch facing up the floor. Ball to the middle, then up. Never dribble into the corner: chin it, pivot, fake high and pass low. Inbounder steps in after the pass and is the safety. Walk it 5v0, then coaches press at half speed. Then live: 5 on offense against 3 players plus two coaches. Past half court in under 8 seconds is 1 point. Score after it is 2. Turnover or a 5-second call, the offense runs a down and back. Rotate every 3 trips. Goal: past half in 8, 4 out of 5.",
         "visual": {
           "o": {
             "1": [
@@ -2970,123 +2801,137 @@
               ]
             }
           ],
-          "label": "Live: 3 players and 2 coaches press. Middle, then long. Past half in 8 seconds.",
-          "coach": "Assistants A and B trap the first pass, full speed, no fouls. Head coach on the sideline counts the 8 seconds out loud and keeps the score. Rotate every 3 trips."
+          "label": "Our baseline is at the top. Walk it, then live: middle, then long. Past half in 8 seconds.",
+          "coach": "Assistants A and B press: half speed during the walk-through, then trap the first pass live, hands up, no fouls. Head coach on the sideline: walk it, freeze and ask where he should be, then count the 8 seconds out loud and keep score."
         }
       },
       {
-        "mins": 10,
-        "title": "Shell Drill: Stage 4",
-        "note": "Every day. Pack line, Stage 4, live. Ball, Gap, Help called out loud on every pass. Drive middle, help stops it, kick out, helper closes out short and forces middle. Never give up baseline. All five box out. Late rotation or a baseline drive, the group runs a down and back. Stop plus a box out is a point for the defense.",
+        "mins": 12,
+        "title": "Skill Stations",
+        "note": "Two groups, horn at the end. Shooters at the main basket: Catch, Rip and Go. Jump stop, rip low, one hard dribble to a layup. Add a closeout: if he runs at you, drive. If he sits, shoot. Fundamentals at the far basket: Ball handling series and Alford Layups. Two-ball pounds, crossover, in and out, finish with both hands. Eyes up. We need everyone able to handle pressure.",
         "visual": {
-          "pack": true,
           "o": {
             "1": [
-              280,
-              353
+              440,
+              230
             ],
             "2": [
-              468,
-              231
-            ],
-            "3": [
-              92,
-              231
-            ],
-            "4": [
-              62,
-              66
+              150,
+              300
             ]
           },
           "d": {
             "1": [
-              262,
-              300,
-              "BALL"
-            ],
-            "2": [
-              360,
-              175,
-              "HELP"
-            ],
-            "3": [
-              185,
-              190,
-              "HELP"
-            ],
-            "4": [
-              230,
-              110,
-              "HELP"
-            ]
-          },
-          "c": {
-            "B": [
-              498,
-              66
-            ],
-            "Head": [
-              280,
-              395
+              400,
+              190
             ]
           },
           "ball": [
-            280,
-            353
+            440,
+            230
           ],
           "lines": [
-            {
-              "t": "dribble",
-              "a": [
-                280,
-                353
-              ],
-              "b": [
-                290,
-                265
-              ]
-            },
-            {
-              "t": "pass",
-              "a": [
-                290,
-                265
-              ],
-              "b": [
-                468,
-                231
-              ]
-            },
             {
               "t": "closeout",
               "a": [
                 360,
-                175
+                140
               ],
               "b": [
-                448,
-                215
+                420,
+                210
+              ]
+            },
+            {
+              "t": "dribble",
+              "a": [
+                440,
+                230
+              ],
+              "b": [
+                330,
+                120
+              ]
+            },
+            {
+              "t": "dribble",
+              "a": [
+                150,
+                300
+              ],
+              "b": [
+                230,
+                160
               ]
             }
           ],
-          "nobase": [
-            [
-              470,
-              150
+          "c": {
+            "B": [
+              500,
+              110
             ],
-            [
-              505,
-              160
+            "A": [
+              90,
+              360
             ]
-          ],
-          "label": "Drive, kick, the helper closes out short and forces middle.",
-          "coach": "Assistant B fills the right corner on offense. Assistant A plays a wing. Head coach above the top of the key: freeze, ask one guy his job, grade the closeout and the box out."
+          },
+          "label": "Right: Shooters, catch, rip and go. Left: Fundamentals, ball handling and Alford layups.",
+          "coach": "Assistant B with the Shooters: feeds the pass and makes the closeout, mix running at them and sitting back. Assistant A with Fundamentals: calls the ball handling moves and checks eyes up. Head coach floats, more time with Fundamentals."
         }
       },
       {
-        "mins": 15,
-        "title": "Game 4v4: Press On Every Make",
-        "note": "Team 1 vs Team 2, full court, games to 7. After every make, the scoring team presses. Pack line in the half court. Option A, scored for today: get it past half in under 8 seconds and it's a bonus point. A turnover against the press is 2 for the defense. A baseline drive costs the defense 2. Option B, scrimmage graded on three things: past half in 8, chin it and pivot in the trap, and box out on every shot. Winners run the Victory Lap.",
+        "mins": 10,
+        "title": "Inbounds: Duke and Line",
+        "note": "Under our basket. Walk Duke, then Line, 5v0. Everyone says his spot before the ball is handed in. Then run each one live against coaches. Inbounder slaps the ball to start it. 5 seconds, so get there fast. A clean catch and a score is 2. A turnover, the group runs a down and back.",
+        "visual": {
+          "o": {
+            "1": [
+              280,
+              36
+            ],
+            "2": [
+              210,
+              120
+            ],
+            "3": [
+              350,
+              120
+            ],
+            "4": [
+              210,
+              230
+            ],
+            "5": [
+              350,
+              230
+            ]
+          },
+          "ball": [
+            280,
+            36
+          ],
+          "c": {
+            "Head": [
+              515,
+              260
+            ],
+            "A": [
+              250,
+              170
+            ],
+            "B": [
+              320,
+              170
+            ]
+          },
+          "label": "Ball under our basket. Set up, say your spot, then run Duke or Line.",
+          "coach": "Assistants A and B defend in the lane during the live reps. Head coach on the sideline calls Duke or Line and checks that everyone knows his spot."
+        }
+      },
+      {
+        "mins": 23,
+        "title": "Game 5v5 (or 4v4)",
+        "note": "Team 1 vs Team 2, full court, games to 7. 5v5 with coaches filling in, 4v4 if we're short. Pack line on defense. After every make, the scoring team presses. Every dead ball under our basket, run Duke or Line. Every foul is two pressure free throws: the team says the shooter's name, make both and it's 1 on the tally. Option A, scored for today: past half in under 8 seconds is a bonus point, a turnover against the press is 2 for the defense, a baseline drive costs the defense 2. Option B, scrimmage graded on three things: hustle back on defense, past half in 8, and box out on every shot. Winners run the Victory Lap. Count the tally and break the huddle.",
         "visual": {
           "o": {
             "1": [
@@ -3104,6 +2949,10 @@
             "4": [
               280,
               330
+            ],
+            "5": [
+              280,
+              390
             ]
           },
           "d": {
@@ -3122,6 +2971,10 @@
             "4": [
               280,
               280
+            ],
+            "5": [
+              280,
+              350
             ]
           },
           "ball": [
@@ -3166,29 +3019,8 @@
               ]
             }
           ],
-          "label": "4v4 full court. Every make, the scoring team presses.",
-          "coach": "Head coach on the sideline calls Option A or B and grades the three things. Assistant A counts the 8 seconds. Assistant B keeps score and tracks turnovers."
-        }
-      },
-      {
-        "mins": 7,
-        "title": "Pressure Free Throws",
-        "note": "Everyone shoots 2, team says the shooter's name. Round 1: any miss, the whole team runs. Round 2, Earn Your Lap: make both and run the Victory Lap. Count the tally. Champion picks the next Circle Up question. Break the huddle.",
-        "visual": {
-          "o": {
-            "1": [
-              280,
-              232
-            ]
-          },
-          "lane": true,
-          "c": {
-            "Head": [
-              400,
-              330
-            ]
-          },
-          "coach": "Head coach off the lane with the tally. Count it out loud and break the huddle. Assistants collect the balls and the cones."
+          "label": "Full court. Every make, the scoring team presses.",
+          "coach": "Assistants A and B fill in to make it 5v5. Head coach on the sideline calls Option A or B, grades hustle back, and keeps the tally. If we're short, coaches step out and it's 4v4."
         }
       }
     ],
@@ -3202,7 +3034,7 @@
         "note": "2 minutes: drive layups then a 3, team score. Beat the record."
       }
     ],
-    "announce": "Ball security week: beat pressure, under 12 turnovers. Press break installed today. First game is Thursday Nov 12 at KSD. Player Course Week 1 is live at datakyle.github.io/Coach-OS/#learn. Pressure Shooting tally is still live.",
-    "updated": 1793667544392
+    "announce": "First game is Thursday Nov 12 at KSD. Can't make practice? Tell us before, or your minutes get limited. Ball security week: beat pressure, under 12 turnovers. Player Course Week 1 is live at datakyle.github.io/Coach-OS/#learn. Pressure Shooting tally is still live.",
+    "updated": 1793711918459
   }
 ]
