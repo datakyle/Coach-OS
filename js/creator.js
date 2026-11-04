@@ -8,13 +8,14 @@ var TOOLS = {
   move:    "Tap a player, then tap where he runs. Solid line.",
   dribble: "Tap the ball handler, then tap where he dribbles. Squiggly line.",
   pass:    "Tap the passer, then tap the receiver. Dotted line.",
+  curl:    "Tap a player, then tap the teammate (or spot) he curls around. Hooked line that wraps him.",
   screen:  "Tap the screener, then tap the man he screens (or any spot). Line with a bar on the end.",
   shot:    "Tap the ball handler to put up a shot.",
   ball:    "Tap a player to give him the ball.",
   dmove:   "Tap a defender, then tap where he slides. Dashed grey line."
 };
-var TAGCOLOR = { move: "var(--move)", screen: "var(--move)", dribble: "var(--ball)", pass: "var(--ball)", shot: "var(--ball)", dmove: "var(--def)" };
-var TAGNAME = { move: "cut", screen: "screen", dribble: "dribble", pass: "pass", shot: "shot", dmove: "def" };
+var TAGCOLOR = { move: "var(--move)", curl: "var(--move)", screen: "var(--move)", dribble: "var(--ball)", pass: "var(--ball)", shot: "var(--ball)", dmove: "var(--def)" };
+var TAGNAME = { move: "cut", curl: "curl", screen: "screen", dribble: "dribble", pass: "pass", shot: "shot", dmove: "def" };
 
 var $ = function (id) { return document.getElementById(id); };
 var view = Court.mount($("createCourt"), "Half court for designing plays");
@@ -82,6 +83,7 @@ function renderChips() {
     var label = function (pid) { return st.players[pid] ? st.players[pid].label : "?"; };
     if (a.type === "pass") txt.textContent = label(a.player) + " to " + label(a.target);
     else if (a.type === "shot") txt.textContent = label(a.player) + " shoots";
+    else if (a.type === "curl") txt.textContent = label(a.player) + " curls" + (a.target && st.players[a.target] ? " around " + label(a.target) : "");
     else if (a.type === "screen") txt.textContent = label(a.player) + " screens" + (a.target && st.players[a.target] ? " " + label(a.target) : "");
     else txt.textContent = label(a.player);
     var x = document.createElement("button"); x.className = "x"; x.innerHTML = "&times;";
@@ -152,6 +154,18 @@ svg.addEventListener("click", function (evt) {
   if (tool === "pass") {
     if (!id || id.charAt(0) !== "o" || id === pending.player) { toast("Tap a teammate to receive it."); return; }
     step.actions.push({ type: "pass", player: pending.player, target: id, to: null });
+    pending = null; render(); return;
+  }
+
+  if (tool === "curl") {
+    if (id === pending.player) { toast("Tap a teammate or a spot to curl around."); return; }
+    var cfrom = snap.pos[pending.player];
+    var pivot = id ? { x: snap.pos[id].x, y: snap.pos[id].y } : view.point(evt);
+    var side = Court.curlSide(cfrom, pivot);
+    var end = Court.curlPath(cfrom, pivot, side).pop();
+    step.actions.push({ type: "curl", player: pending.player, target: id || null,
+      around: { x: Math.round(pivot.x), y: Math.round(pivot.y) }, side: side,
+      to: { x: Math.round(end.x), y: Math.round(end.y) } });
     pending = null; render(); return;
   }
 

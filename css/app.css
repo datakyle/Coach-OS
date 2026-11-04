@@ -94,8 +94,9 @@ svg.court.scored .rimflash { opacity: 1; }
 .btn.sm { font-size: 14px; padding: 6px 10px; min-height: 32px; }
 .btn.danger { color: var(--ball); }
 
-.tools { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
-.tools .btn { padding: 9px 4px; font-size: 15px; }
+.tools { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+.tools .btn { padding: 9px 2px; font-size: 15px; }
+@media (max-width: 420px) { .tools .btn { font-size: 13.5px; letter-spacing: .02em; } }
 .hint { margin: 9px 0 0; font-size: 13.5px; color: var(--muted); min-height: 2.6em; }
 
 .stepbar { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
