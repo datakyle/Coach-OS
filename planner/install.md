@@ -17,8 +17,8 @@ The week-by-week plan now lives in [`curriculum.md`](curriculum.md).
 ## Plays the team has run (last season and this)
 
 High, Skip, Iowa, Walker, Play A (drive, collapse, kick), Horns (Basic,
-Elevator), Motion, Jet, State Play, Butter, Split, Mismatch. Inbounds: Duke,
-Line. Confirm which ones are still live before drafting them in.
+Elevator), Motion, Jet, State Play, Butter, Split, Mismatch. Inbounds: Box Man,
+Square, Box Zone (replaced Duke and Line). Confirm which ones are still live before drafting them in.
 
 ## Season timing
 

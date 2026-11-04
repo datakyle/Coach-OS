@@ -52,7 +52,7 @@ basket, horn at the end.
 | Full Court Passes | 7 | 3-man passing full court. |
 | Triangle Pass and Finish | 7 | Wing to top, top hits the cutter with a bounce pass, cutter finishes. Pass must hit the hands. 90-second rounds. |
 | Press Break | 10 to 20 | Coaches press full court; get it across with passes. |
-| Inbounds | 10 | Duke, Line. |
+| Inbounds | 8 to 10 | Box Man, Square, Box Zone. (Replaced Duke and Line, Nov 4.) |
 
 ## Offense and shooting
 

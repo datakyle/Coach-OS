@@ -68,7 +68,7 @@ By the Union Tournament the team can:
 | 4 | Sun Nov 15, Thu Nov 19 (games Thu Nov 12, Tue Nov 17) | Zone offense review: the 3 holes, High and Skip, Play A | Open each practice with the four numbers from the last game |
 | 5 | Sun Nov 22 (light, game Mon Nov 23), Thu Nov 26? (games Mon Nov 23, Tue Nov 24) | Back-to-back games: rest legs, free throws, scouting | Nov 26 is Thanksgiving: confirm practice |
 | 6 | Sun Nov 29, Tue Dec 1, Thu Dec 3 | Full week: fix the worst of the four numbers. Add overload, Iowa and Walker. | Conditioning day on Tuesday |
-| 7 | Sun Dec 6, Tue Dec 8 (game Thu Dec 10) | Inbounds (Duke, Line) and end-of-quarter plays | Tuesday light |
+| 7 | Sun Dec 6, Tue Dec 8 (game Thu Dec 10) | Inbounds (Box Man, Square, Box Zone) and end-of-quarter plays | Tuesday light |
 
 ## Phase 3 · Winter block (Dec 13 to Jan 3) · no games for three weeks
 
