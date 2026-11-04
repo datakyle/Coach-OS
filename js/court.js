@@ -97,6 +97,54 @@ function trim(a, b, padA, padB) {
   var ux = dx / L, uy = dy / L;
   return [{ x: a.x + ux * padA, y: a.y + uy * padA }, { x: b.x - ux * padB, y: b.y - uy * padB }];
 }
+/* A curl: run past the pivot (a teammate or a spot), hook around it, and
+   come out the far side. Returns the path as points, first point = from.
+   side is +1 or -1: which way around the pivot. */
+var CURL_R = 34, CURL_TAIL = 46;
+function curlPath(from, pivot, side) {
+  var dx = pivot.x - from.x, dy = pivot.y - from.y, L = Math.hypot(dx, dy) || 1;
+  var ux = dx / L, uy = dy / L, nx = -uy * side, ny = ux * side;
+  var a0 = Math.atan2(ny, nx);
+  /* sweep through the far side of the pivot (the +u side) */
+  var dir = (Math.cos(a0 + Math.PI / 2) * ux + Math.sin(a0 + Math.PI / 2) * uy) > 0 ? 1 : -1;
+  var pts = [{ x: from.x, y: from.y }];
+  for (var k = 0; k <= 12; k++) {
+    var a = a0 + dir * Math.PI * k / 12;
+    pts.push({ x: pivot.x + Math.cos(a) * CURL_R, y: pivot.y + Math.sin(a) * CURL_R });
+  }
+  var c = pts[pts.length - 1];
+  pts.push({
+    x: Math.max(BOUNDS.x0 + 6, Math.min(BOUNDS.x1 - 6, c.x - ux * CURL_TAIL)),
+    y: Math.max(BOUNDS.y0 + 6, Math.min(BOUNDS.y1 - 6, c.y - uy * CURL_TAIL))
+  });
+  return pts;
+}
+/* Curl toward the basket: pick the side whose finish is closer to the rim. */
+function curlSide(from, pivot) {
+  var e1 = curlPath(from, pivot, 1).pop(), e2 = curlPath(from, pivot, -1).pop();
+  return Math.hypot(e1.x - RIM.x, e1.y - RIM.y) <= Math.hypot(e2.x - RIM.x, e2.y - RIM.y) ? 1 : -1;
+}
+/* The pivot as it stands at the start of this step: the teammate if there is
+   one, otherwise the spot that was tapped. */
+function curlPivot(play, stepIdx, a) {
+  var p = a.target && stateAt(play, stepIdx).pos[a.target];
+  return p ? { x: p.x, y: p.y } : a.around;
+}
+/* Point at fraction t (0..1) along a polyline, by distance. */
+function along(pts, t) {
+  var lens = [], total = 0;
+  for (var i = 1; i < pts.length; i++) { var l = Math.hypot(pts[i].x - pts[i - 1].x, pts[i].y - pts[i - 1].y); lens.push(l); total += l; }
+  var want = t * total;
+  for (var j = 0; j < lens.length; j++) {
+    if (want <= lens[j] || j === lens.length - 1) {
+      var f = lens[j] ? Math.min(1, want / lens[j]) : 1;
+      return { x: pts[j].x + (pts[j + 1].x - pts[j].x) * f, y: pts[j].y + (pts[j + 1].y - pts[j].y) * f };
+    }
+    want -= lens[j];
+  }
+  return pts[pts.length - 1];
+}
+
 function el(tag, attrs) {
   var e = document.createElementNS(NS, tag);
   for (var k in attrs) if (attrs.hasOwnProperty(k)) e.setAttribute(k, attrs[k]);
@@ -161,6 +209,13 @@ function mount(host, label) {
     } else if (a.type === "shot") {
       var s = trim(from, RIM, pad, 14);
       g.appendChild(el("path", { d: "M " + s[0].x + " " + s[0].y + " L " + s[1].x + " " + s[1].y, "class": "pth shot " + klass, "marker-end": "url(#" + id + "-ball)" }));
+    } else if (a.type === "curl") {
+      var cp = curlPath(from, curlPivot(play, stepIdx, a) || to, a.side || 1);
+      cp[cp.length - 1] = to;
+      cp[0] = trim(from, cp[1], pad, 0)[0];
+      var last = cp.length - 1;
+      cp[last] = trim(cp[last - 1], to, 0, 4)[1];
+      g.appendChild(el("path", { d: "M " + cp.map(function (q) { return q.x.toFixed(1) + " " + q.y.toFixed(1); }).join(" L "), "class": "pth move curl " + klass, "marker-end": "url(#" + id + "-move)" }));
     } else if (a.type === "screen") {
       var r = trim(from, to, pad, 0);
       g.appendChild(el("path", { d: "M " + r[0].x + " " + r[0].y + " L " + r[1].x + " " + r[1].y, "class": "pth screen " + klass }));
@@ -240,11 +295,19 @@ function mount(host, label) {
 
     var nodes = {};
     [].slice.call(LT.querySelectorAll(".tok")).forEach(function (n) { nodes[n.getAttribute("data-id")] = n; });
+    /* A curl runs its hooked path instead of a straight line. */
+    var paths = {};
+    play.steps[idx].actions.forEach(function (ac) {
+      if (ac.type !== "curl" || !before.pos[ac.player]) return;
+      var cp = curlPath(before.pos[ac.player], curlPivot(play, idx, ac) || ac.to, ac.side || 1);
+      cp[cp.length - 1] = ac.to;
+      paths[ac.player] = cp;
+    });
     var tweens = [];
     for (var pid in before.pos) {
       if (!before.pos.hasOwnProperty(pid) || !after.pos[pid]) continue;
       var a = before.pos[pid], b = after.pos[pid];
-      if (Math.abs(a.x - b.x) > 0.5 || Math.abs(a.y - b.y) > 0.5) tweens.push({ id: pid, a: a, b: b });
+      if (Math.abs(a.x - b.x) > 0.5 || Math.abs(a.y - b.y) > 0.5) tweens.push({ id: pid, a: a, b: b, pts: paths[pid] });
     }
     var b0 = ballXY(before.pos, before.ball, before.shot), b1 = ballXY(after.pos, after.ball, after.shot);
     placeBall(b0);
@@ -255,7 +318,8 @@ function mount(host, label) {
       var p = Math.min(1, (now - t0) / v.speed), e = ease(p);
       for (var i = 0; i < tweens.length; i++) {
         var tw = tweens[i], n = nodes[tw.id];
-        if (n) n.setAttribute("transform", "translate(" + (tw.a.x + (tw.b.x - tw.a.x) * e).toFixed(1) + "," + (tw.a.y + (tw.b.y - tw.a.y) * e).toFixed(1) + ")");
+        var at = tw.pts ? along(tw.pts, e) : { x: tw.a.x + (tw.b.x - tw.a.x) * e, y: tw.a.y + (tw.b.y - tw.a.y) * e };
+        if (n) n.setAttribute("transform", "translate(" + at.x.toFixed(1) + "," + at.y.toFixed(1) + ")");
       }
       placeBall({ x: (b0.x + (b1.x - b0.x) * e).toFixed(1), y: (b0.y + (b1.y - b0.y) * e).toFixed(1) });
       if (p < 1) { anim.raf = requestAnimationFrame(frame); return; }
@@ -314,6 +378,7 @@ function mount(host, label) {
 return {
   OFF: OFF, DEF: DEF,
   blankPlay: blankPlay, applyOff: applyOff, applyDef: applyDef,
-  stateAt: stateAt, mount: mount
+  stateAt: stateAt, mount: mount,
+  curlPath: curlPath, curlSide: curlSide
 };
 })();

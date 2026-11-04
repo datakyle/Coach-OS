@@ -42,6 +42,7 @@ Build a play, one step at a time. Pick a tool, tap the floor.
 | Cut | Off ball movement | solid line |
 | Drib | Dribble with the ball | squiggly line |
 | Pass | Pass to a teammate | dotted line |
+| Curl | Hook around a teammate or a spot, like coming off a screen | solid line that wraps around him |
 | Screen | Set a screen on a man or a spot | line with a bar on the end |
 | Shot | Put it up | line to the rim |
 | Ball | Give a player the ball | — |
