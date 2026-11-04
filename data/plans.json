@@ -3036,5 +3036,619 @@
     ],
     "announce": "First game is Thursday Nov 12 at KSD. Can't make practice? Tell us before, or your minutes get limited. Ball security week: beat pressure, under 12 turnovers. Player Course Week 1 is live at datakyle.github.io/Coach-OS/#learn. Pressure Shooting tally is still live.",
     "updated": 1793711918459
+  },
+  {
+    "id": "2026-11-05",
+    "date": "2026-11-05",
+    "start": "18:00",
+    "focus": "Transition Defense: Sprint to the Paint",
+    "tagline": "Sprint to the paint. Stop the ball. Find your man.",
+    "items": [
+      {
+        "mins": 5,
+        "title": "Circle Up",
+        "note": "Today is our hardest day of the week. Sunday we beat the trap. Tuesday we beat the press. Today we get back on defense: transition D. Tuesday I said I want to see you hustle back. Today we learn exactly how. First game is Thursday Nov 12 at KSD. That's one week. Two non-negotiables: talk every possession, and never get beat standing still. Winners run is on. Split Team 1 / Team 2. Station groups: Shooters and Fundamentals.",
+        "visual": {
+          "circle": [
+            280,
+            300,
+            70,
+            8
+          ],
+          "c": {
+            "Head": [
+              280,
+              300
+            ]
+          },
+          "coach": "Head coach in the middle: KSD in one week, today is transition D, the two non-negotiables. Assistants grab balls and set cones at half court for the weave."
+        }
+      },
+      {
+        "mins": 10,
+        "title": "Game Warmup",
+        "note": "The new warmup from Tuesday. Captains lead it today and call each move. Dynamic only, no shooting. This is the warmup we run at KSD, so learn it cold. Loud and on time.",
+        "visual": {
+          "o": {
+            "1": [
+              110,
+              60
+            ],
+            "2": [
+              220,
+              60
+            ],
+            "3": [
+              340,
+              60
+            ],
+            "4": [
+              450,
+              60
+            ]
+          },
+          "lines": [
+            {
+              "t": "cut",
+              "a": [
+                110,
+                80
+              ],
+              "b": [
+                110,
+                385
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                220,
+                80
+              ],
+              "b": [
+                220,
+                385
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                340,
+                80
+              ],
+              "b": [
+                340,
+                385
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                450,
+                80
+              ],
+              "b": [
+                450,
+                385
+              ]
+            }
+          ],
+          "label": "Baseline to half court and back. Captains call every move.",
+          "coach": "Captains run the new warmup. Head coach on the sideline: fix anything they got wrong from Tuesday. Assistants finish the cones and balls."
+        }
+      },
+      {
+        "mins": 12,
+        "title": "Teach: Transition D, Sprint to the Paint",
+        "note": "This week's last install. 2 minutes on the board, 10 on the floor. Shot goes up: three crash, two get back. Our top guard is always back. Turnover or a long rebound: everybody sprints. Turn and run, don't backpedal. Sprint to the paint first, not to your man. First man back stops the ball early and yells BALL. Turn him middle, never let him go baseline. Everyone else fills the paint, then finds his man from the paint out. Build the pack, then match up. No layups, make them pass. Walk it 5v0, then live: coach shoots, the other group pushes it back 4 on 4. Stop before a layup is a point for the defense. Give up a layup, the group runs a down and back.",
+        "visual": {
+          "o": {
+            "1": [
+              280,
+              385
+            ],
+            "2": [
+              120,
+              360
+            ],
+            "3": [
+              440,
+              360
+            ]
+          },
+          "d": {
+            "1": [
+              300,
+              320,
+              "BALL"
+            ],
+            "2": [
+              180,
+              330
+            ],
+            "3": [
+              380,
+              330
+            ],
+            "4": [
+              240,
+              260
+            ],
+            "5": [
+              330,
+              250
+            ]
+          },
+          "ball": [
+            280,
+            385
+          ],
+          "pack": true,
+          "lines": [
+            {
+              "t": "cut",
+              "a": [
+                180,
+                330
+              ],
+              "b": [
+                235,
+                175
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                380,
+                330
+              ],
+              "b": [
+                325,
+                175
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                240,
+                260
+              ],
+              "b": [
+                260,
+                120
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                330,
+                250
+              ],
+              "b": [
+                300,
+                120
+              ]
+            },
+            {
+              "t": "slide",
+              "a": [
+                300,
+                320
+              ],
+              "b": [
+                290,
+                290
+              ]
+            }
+          ],
+          "label": "Ball coming at us from half court. First man back stops the ball. Everyone else sprints to the paint.",
+          "coach": "Assistant A at the board for 2 minutes, then pushes the ball up the floor during the walk-through. Assistant B fills in on offense in the live reps. Head coach at half court: count the guys in the paint out loud, freeze and ask who has the ball."
+        }
+      },
+      {
+        "mins": 10,
+        "title": "3 Man Weave",
+        "note": "Full speed. Weave down, finish the layup, then the shooter and the first passer sprint back on defense. The third man brings it back 2v1 with a coach. Two back: first man stops the ball, second man sprints to the paint. Bad pass is a redo. Defense gets a stop, 1 point for their team.",
+        "visual": {
+          "o": {
+            "1": [
+              280,
+              385
+            ],
+            "2": [
+              140,
+              385
+            ],
+            "3": [
+              420,
+              385
+            ]
+          },
+          "lines": [
+            {
+              "t": "pass",
+              "a": [
+                280,
+                385
+              ],
+              "b": [
+                150,
+                300
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                280,
+                385
+              ],
+              "b": [
+                400,
+                250
+              ]
+            },
+            {
+              "t": "pass",
+              "a": [
+                150,
+                300
+              ],
+              "b": [
+                390,
+                240
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                140,
+                385
+              ],
+              "b": [
+                200,
+                160
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                420,
+                385
+              ],
+              "b": [
+                300,
+                110
+              ]
+            }
+          ],
+          "label": "Down full speed with passes. Back 2v1: stop the ball, sprint to the paint.",
+          "coach": "Assistant A at the far end joins the 2v1 coming back as the second offensive player. Assistant B feeds the next group at half court. Head coach on the sideline: call bad passes and count stops."
+        }
+      },
+      {
+        "mins": 10,
+        "title": "Shell Drill: Stage 4",
+        "note": "Pack line, Stage 4, game speed. Ball, Gap, Help called out loud on every pass. Drive middle, help stops it, kick out, helper closes out short and forces middle. All five box out. New today: on the rebound, the defense outlets and the offense sprints back to the paint before the coach counts 3. Late rotation or a baseline drive, the group runs a down and back. Stop plus a box out is a point.",
+        "visual": {
+          "o": {
+            "1": [
+              280,
+              330
+            ],
+            "2": [
+              140,
+              260
+            ],
+            "3": [
+              420,
+              260
+            ],
+            "4": [
+              75,
+              80
+            ],
+            "5": [
+              485,
+              80
+            ]
+          },
+          "d": {
+            "1": [
+              280,
+              290
+            ],
+            "2": [
+              170,
+              215,
+              "GAP"
+            ],
+            "3": [
+              380,
+              215,
+              "GAP"
+            ],
+            "4": [
+              215,
+              120,
+              "HELP"
+            ],
+            "5": [
+              345,
+              120,
+              "HELP"
+            ]
+          },
+          "ball": [
+            280,
+            330
+          ],
+          "pack": true,
+          "nobase": [
+            [
+              470,
+              150
+            ],
+            [
+              505,
+              160
+            ]
+          ],
+          "label": "Stage 4 live. Box out, then sprint back after the rebound.",
+          "coach": "Assistant B fills the right corner on offense. Assistant A plays a wing. Head coach above the top of the key: freeze and ask one guy his job, grade the closeout and the box out, count 3 on the sprint back."
+        }
+      },
+      {
+        "mins": 12,
+        "title": "Skill Stations",
+        "note": "Two groups, horn at the end. Shooters at the main basket: 2v2 Rebound and Score. Coach shoots. Putback is 2, defensive board plus outlet is 1. Games to 5. Box out first, then go get it. Fundamentals at the far basket: Tip Drill into Chin and Outlet. 5 tips, grab it with two hands and finish. Then chin it, pivot away from the swiper, outlet to the wing. Every outlet is the start of our break.",
+        "visual": {
+          "o": {
+            "1": [
+              230,
+              200
+            ],
+            "2": [
+              330,
+              200
+            ]
+          },
+          "d": {
+            "1": [
+              245,
+              160
+            ],
+            "2": [
+              315,
+              160
+            ]
+          },
+          "c": {
+            "B": [
+              280,
+              260
+            ]
+          },
+          "ball": [
+            280,
+            260
+          ],
+          "lines": [
+            {
+              "t": "pass",
+              "a": [
+                280,
+                260
+              ],
+              "b": [
+                280,
+                105
+              ]
+            },
+            {
+              "t": "slide",
+              "a": [
+                245,
+                160
+              ],
+              "b": [
+                235,
+                175
+              ]
+            },
+            {
+              "t": "slide",
+              "a": [
+                315,
+                160
+              ],
+              "b": [
+                325,
+                175
+              ]
+            }
+          ],
+          "label": "Main basket: 2v2 Rebound and Score. Far basket: Tip Drill into Chin and Outlet.",
+          "coach": "Assistant B with the Shooters: shoots every rep and keeps the game scores. Assistant A with Fundamentals: plays the swiper on the chin and outlet and checks two hands. Head coach floats, more time with Fundamentals."
+        }
+      },
+      {
+        "mins": 12,
+        "title": "3v3 Get Back",
+        "note": "Full court, make or miss, go now. Score and stay on. The team that just shot sprints to the paint. First man back stops the ball and yells BALL. A layup in transition is 2 for the offense. A stop before the 3-point line is 1 for the defense. Two groups of 3 play, the rest wait at half court and jump in on the next trip. This is our conditioning today.",
+        "visual": {
+          "o": {
+            "1": [
+              280,
+              385
+            ],
+            "2": [
+              140,
+              350
+            ],
+            "3": [
+              420,
+              350
+            ]
+          },
+          "d": {
+            "1": [
+              285,
+              300,
+              "BALL"
+            ],
+            "2": [
+              200,
+              180
+            ],
+            "3": [
+              360,
+              180
+            ]
+          },
+          "ball": [
+            280,
+            385
+          ],
+          "lines": [
+            {
+              "t": "dribble",
+              "a": [
+                280,
+                385
+              ],
+              "b": [
+                280,
+                320
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                200,
+                300
+              ],
+              "b": [
+                200,
+                185
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                360,
+                300
+              ],
+              "b": [
+                360,
+                185
+              ]
+            }
+          ],
+          "label": "Make or miss, go now. Stop the ball, fill the paint.",
+          "coach": "Head coach on the sideline: keeps score and sends the next group in. Assistant A at the near end and Assistant B at the far end: call BALL if nobody does and count layups given up."
+        }
+      },
+      {
+        "mins": 14,
+        "title": "Game 4v4 (or 5v5)",
+        "note": "Team 1 vs Team 2, full court, games to 7. 4v4 with eight, coaches fill in for 5v5. Pack line on defense. After every make, the scoring team presses. Every miss, the defense sprints back to the paint. Every foul is two pressure free throws: the team says the shooter's name, make both and it's 1 on the tally. Option A, scored for today: a stop in transition is 2 for the defense, a layup given up in transition costs the defense 2, a baseline drive costs the defense 2. Option B, scrimmage graded on three things: sprint to the paint, stop the ball, and box out on every shot. Winners run the Victory Lap.",
+        "visual": {
+          "o": {
+            "1": [
+              280,
+              300
+            ],
+            "2": [
+              140,
+              230
+            ],
+            "3": [
+              420,
+              230
+            ],
+            "4": [
+              470,
+              90
+            ]
+          },
+          "d": {
+            "1": [
+              280,
+              265,
+              "BALL"
+            ],
+            "2": [
+              180,
+              200,
+              "GAP"
+            ],
+            "3": [
+              380,
+              200,
+              "GAP"
+            ],
+            "4": [
+              330,
+              120,
+              "HELP"
+            ]
+          },
+          "ball": [
+            280,
+            300
+          ],
+          "pack": true,
+          "nobase": [
+            [
+              470,
+              150
+            ],
+            [
+              505,
+              160
+            ]
+          ],
+          "label": "Live game. Every miss, sprint back to the paint.",
+          "coach": "Head coach on the sideline: calls Option A or B, keeps score and the tally. Assistant A counts transition layups given up and turnovers. Assistant B counts offensive rebounds. If we're 5v5, both assistants step in."
+        }
+      },
+      {
+        "mins": 5,
+        "title": "Pressure Free Throws",
+        "note": "Everyone shoots 2, team says the shooter's name. Round 1: any miss, the whole team runs. Round 2, Earn Your Lap: make both and run the Victory Lap. Count the tally. Champion picks the next Circle Up question. Break the huddle.",
+        "visual": {
+          "lane": true,
+          "o": {
+            "1": [
+              280,
+              230
+            ]
+          },
+          "ball": [
+            280,
+            230
+          ],
+          "c": {
+            "Head": [
+              400,
+              260
+            ]
+          },
+          "coach": "Head coach off the lane with the tally: count it out loud and break the huddle. Assistants collect balls and the stat counts."
+        }
+      }
+    ],
+    "extras": [
+      {
+        "title": "Rim War",
+        "note": "1v1 from the block, winner stays, first to 3 runs the Victory Lap."
+      },
+      {
+        "title": "Knockout",
+        "note": "2 balls. Free throw line, then elbow, then top of the key 3."
+      }
+    ],
+    "announce": "First game is Thursday Nov 12 at KSD. Can't make practice? Tell us before, or your minutes get limited. Transition D: sprint to the paint, stop the ball. Player Course Week 1 is live at datakyle.github.io/Coach-OS/#learn. Pressure Shooting tally is still live.",
+    "updated": 1793821054972
   }
 ]
