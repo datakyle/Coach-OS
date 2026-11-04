@@ -3036,5 +3036,658 @@
     ],
     "announce": "First game is Thursday Nov 12 at KSD. Can't make practice? Tell us before, or your minutes get limited. Ball security week: beat pressure, under 12 turnovers. Player Course Week 1 is live at datakyle.github.io/Coach-OS/#learn. Pressure Shooting tally is still live.",
     "updated": 1793711918459
+  },
+  {
+    "id": "2026-11-05",
+    "date": "2026-11-05",
+    "start": "18:00",
+    "focus": "Transition D and Pack Line Day",
+    "tagline": "Sprint to the paint. Talk on everything. Pack line all day.",
+    "items": [
+      {
+        "mins": 5,
+        "title": "Circle Up",
+        "note": "Today is our hardest day of the week. Two things. First: starting Sunday, practice focuses on defensive efficiency. That's what we track and what I'm watching: baseline drives, layups we give up in transition, offensive rebounds we give up, and talk. I want to see it today. Talk on everything: every screen, every pass, every shot. Second: today we sprint back to the paint, then we get a lot of pack line. First game is Thursday Nov 12 at KSD. That's one week. Two non-negotiables: talk every possession, and never get beat standing still. Split Team 1 / Team 2.",
+        "visual": {
+          "circle": [
+            280,
+            300,
+            70,
+            8
+          ],
+          "c": {
+            "Head": [
+              280,
+              300
+            ]
+          },
+          "coach": "Head coach in the middle: Sunday's focus is defensive efficiency and what we track, talk on everything today, KSD in one week. Assistants grab balls and set up for Oregon Passing."
+        }
+      },
+      {
+        "mins": 12,
+        "title": "Game Warmup (timed, 12 minutes)",
+        "note": "Our full game warmup, start to finish, on the clock. 12 minutes, the same as game night at KSD. Captains lead it and call each move. Dynamic only. Loud and on time. If we run over, we fix it today, not on game night. Coach: when it ends, ask them: to finish the game warmup, do you want shooting or 3v3? See which one gets us more ready.",
+        "visual": {
+          "o": {
+            "1": [
+              110,
+              60
+            ],
+            "2": [
+              220,
+              60
+            ],
+            "3": [
+              340,
+              60
+            ],
+            "4": [
+              450,
+              60
+            ]
+          },
+          "lines": [
+            {
+              "t": "cut",
+              "a": [
+                110,
+                80
+              ],
+              "b": [
+                110,
+                385
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                220,
+                80
+              ],
+              "b": [
+                220,
+                385
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                340,
+                80
+              ],
+              "b": [
+                340,
+                385
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                450,
+                80
+              ],
+              "b": [
+                450,
+                385
+              ]
+            }
+          ],
+          "label": "Full game warmup on a 12-minute clock. Captains call every move.",
+          "coach": "Head coach runs the 12-minute clock and calls the time out loud at 6 and 10. When it ends, ask the team: shooting or 3v3 to finish the game warmup? Assistants watch for lines that drag."
+        }
+      },
+      {
+        "mins": 6,
+        "title": "Oregon Passing",
+        "note": "Ball security. Call the name before you pass. Pass must hit the hands. 2-minute rounds, beat the last round. Bad pass or silent pass is a redo. Talking starts here.",
+        "visual": {
+          "o": {
+            "1": [
+              130,
+              330
+            ],
+            "2": [
+              280,
+              200
+            ],
+            "3": [
+              430,
+              330
+            ]
+          },
+          "ball": [
+            130,
+            330
+          ],
+          "lines": [
+            {
+              "t": "pass",
+              "a": [
+                130,
+                330
+              ],
+              "b": [
+                280,
+                200
+              ]
+            },
+            {
+              "t": "pass",
+              "a": [
+                280,
+                200
+              ],
+              "b": [
+                430,
+                330
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                130,
+                330
+              ],
+              "b": [
+                250,
+                380
+              ]
+            }
+          ],
+          "c": {
+            "Head": [
+              515,
+              260
+            ],
+            "A": [
+              280,
+              70
+            ]
+          },
+          "label": "Call the name, pass to the hands, follow your pass.",
+          "coach": "Head coach counts passes out loud and calls redos on a silent or bad pass. Assistant A runs the clock on 2-minute rounds and calls the best round."
+        }
+      },
+      {
+        "mins": 12,
+        "title": "Teach: Transition D, Sprint to the Paint",
+        "note": "This week's last install. 2 minutes on the board, 10 on the floor. Pack line teams get back to the paint first. That's the rule. Shot goes up: three crash, two get back. Our top guard is always back. Turnover or a long rebound: everybody sprints. Turn and run, don't backpedal. Sprint to the paint first, not to your man. Protect the rim, then build the pack. First man back stops the ball early and yells BALL. Turn him middle, never let him go baseline. Everyone else fills the paint, then finds his man from the paint out. No layups, make them pass. What I want to see: all five sprinting, every time, and talking the whole way back. A lot of hustle. Walk it 5v0, then live: coach shoots, the other group pushes it back 4 on 4. Stop before a layup is a point for the defense. Give up a layup, the group runs a down and back.",
+        "visual": {
+          "o": {
+            "1": [
+              280,
+              385
+            ],
+            "2": [
+              120,
+              360
+            ],
+            "3": [
+              440,
+              360
+            ]
+          },
+          "d": {
+            "1": [
+              300,
+              320,
+              "BALL"
+            ],
+            "2": [
+              180,
+              330
+            ],
+            "3": [
+              380,
+              330
+            ],
+            "4": [
+              240,
+              260
+            ],
+            "5": [
+              330,
+              250
+            ]
+          },
+          "ball": [
+            280,
+            385
+          ],
+          "pack": true,
+          "lines": [
+            {
+              "t": "cut",
+              "a": [
+                180,
+                330
+              ],
+              "b": [
+                235,
+                175
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                380,
+                330
+              ],
+              "b": [
+                325,
+                175
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                240,
+                260
+              ],
+              "b": [
+                260,
+                120
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                330,
+                250
+              ],
+              "b": [
+                300,
+                120
+              ]
+            },
+            {
+              "t": "slide",
+              "a": [
+                300,
+                320
+              ],
+              "b": [
+                290,
+                290
+              ]
+            }
+          ],
+          "label": "Ball coming at us from half court. First man back stops the ball. Everyone else sprints to the paint.",
+          "coach": "Assistant A at the board for 2 minutes, then pushes the ball up the floor during the walk-through. Assistant B fills in on offense in the live reps. Head coach at half court: count the guys in the paint out loud, freeze and ask who has the ball."
+        }
+      },
+      {
+        "mins": 10,
+        "title": "Shell Drill: Stage 4",
+        "note": "Pack line, Stage 4, game speed. Ball, Gap, Help called out loud on every pass. Drive middle, help stops it, kick out, helper closes out short and forces middle. All five box out. New today: on the rebound, the defense outlets and the offense sprints back to the paint before the coach counts 3. Late rotation or a baseline drive, the group runs a down and back. Stop plus a box out is a point.",
+        "visual": {
+          "o": {
+            "1": [
+              280,
+              330
+            ],
+            "2": [
+              140,
+              260
+            ],
+            "3": [
+              420,
+              260
+            ],
+            "4": [
+              75,
+              80
+            ],
+            "5": [
+              485,
+              80
+            ]
+          },
+          "d": {
+            "1": [
+              280,
+              290
+            ],
+            "2": [
+              170,
+              215,
+              "GAP"
+            ],
+            "3": [
+              380,
+              215,
+              "GAP"
+            ],
+            "4": [
+              215,
+              120,
+              "HELP"
+            ],
+            "5": [
+              345,
+              120,
+              "HELP"
+            ]
+          },
+          "ball": [
+            280,
+            330
+          ],
+          "pack": true,
+          "nobase": [
+            [
+              470,
+              150
+            ],
+            [
+              505,
+              160
+            ]
+          ],
+          "label": "Stage 4 live. Box out, then sprint back after the rebound.",
+          "coach": "Assistant B fills the right corner on offense. Assistant A plays a wing. Head coach above the top of the key: freeze and ask one guy his job, grade the closeout and the box out, count 3 on the sprint back."
+        }
+      },
+      {
+        "mins": 10,
+        "title": "Pack Line vs the Pick and Roll",
+        "note": "New for the pack line. 2 minutes on the board, 8 on the floor. The screener's man calls it early and loud: SCREEN LEFT or SCREEN RIGHT. He jumps out, shows his body, and slows the ball for two dribbles. Ball defender goes over the top of the screen and stays attached. The show man gets back to his man as soon as the ball defender is back. Everyone else stays in the pack. The low helper tags the roller. Force middle into help. Never let the ball turn the corner to the baseline. Start 2v2 Screen Defense: talk first or the rep doesn't count. Games to 5. Then 4v4 in the half court with a ball screen on every possession.",
+        "visual": {
+          "o": {
+            "1": [
+              280,
+              340
+            ],
+            "5": [
+              235,
+              300
+            ],
+            "2": [
+              100,
+              230
+            ],
+            "3": [
+              460,
+              230
+            ]
+          },
+          "d": {
+            "1": [
+              285,
+              315,
+              "BALL"
+            ],
+            "5": [
+              225,
+              275,
+              "SHOW"
+            ],
+            "2": [
+              175,
+              200,
+              "GAP"
+            ],
+            "3": [
+              380,
+              170,
+              "HELP"
+            ]
+          },
+          "ball": [
+            280,
+            340
+          ],
+          "pack": true,
+          "lines": [
+            {
+              "t": "dribble",
+              "a": [
+                280,
+                340
+              ],
+              "b": [
+                215,
+                320
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                235,
+                300
+              ],
+              "b": [
+                290,
+                175
+              ]
+            },
+            {
+              "t": "slide",
+              "a": [
+                225,
+                275
+              ],
+              "b": [
+                205,
+                300
+              ]
+            },
+            {
+              "t": "slide",
+              "a": [
+                380,
+                170
+              ],
+              "b": [
+                320,
+                165
+              ]
+            }
+          ],
+          "label": "Screener's man shows. Ball defender over the top. Low helper tags the roller.",
+          "coach": "Assistant A sets the ball screens in the 2v2 and the 4v4. Assistant B plays the ball handler when we need a body. Head coach above the top of the key: no call, no rep. Freeze and ask who tags the roller."
+        }
+      },
+      {
+        "mins": 8,
+        "title": "Closeout Shooting",
+        "note": "Defense and shots up at the same time. Pairs. Partner passes and closes out: sprint, chop, two hands up, push him middle. Short closeout, shoot it. Hard closeout, one dribble middle into a pull up. A 3 counts 2, a pull up counts 1. Switch every 5 shots. Top pair at the horn wins.",
+        "visual": {
+          "o": {
+            "1": [
+              440,
+              230
+            ]
+          },
+          "d": {
+            "1": [
+              330,
+              160
+            ]
+          },
+          "ball": [
+            440,
+            230
+          ],
+          "lines": [
+            {
+              "t": "closeout",
+              "a": [
+                330,
+                160
+              ],
+              "b": [
+                420,
+                215
+              ]
+            },
+            {
+              "t": "dribble",
+              "a": [
+                440,
+                230
+              ],
+              "b": [
+                380,
+                260
+              ]
+            }
+          ],
+          "label": "Close out short, push him middle. Short closeout: shoot. Hard closeout: one dribble middle.",
+          "coach": "Assistant A at the main basket and Assistant B at the far basket: rebound, keep the pair scores, call bad closeouts. Head coach floats and watches the last three steps of every closeout."
+        }
+      },
+      {
+        "mins": 8,
+        "title": "Inbounds: Duke and Line",
+        "note": "Under our basket. Walk Duke, then Line, 5v0. Everyone says his spot before the ball is handed in. Then live against coaches. Inbounder slaps the ball to start it. 5 seconds, so get there fast. A clean catch and a score is 2. A turnover, the group runs a down and back.",
+        "visual": {
+          "o": {
+            "1": [
+              280,
+              36
+            ],
+            "2": [
+              210,
+              120
+            ],
+            "3": [
+              350,
+              120
+            ],
+            "4": [
+              210,
+              230
+            ],
+            "5": [
+              350,
+              230
+            ]
+          },
+          "ball": [
+            280,
+            36
+          ],
+          "c": {
+            "Head": [
+              515,
+              260
+            ],
+            "A": [
+              250,
+              170
+            ],
+            "B": [
+              320,
+              170
+            ]
+          },
+          "label": "Ball under our basket. Set up, say your spot, then run Duke or Line.",
+          "coach": "Assistants A and B defend in the lane during the live reps. Head coach on the sideline calls Duke or Line and checks that everyone knows his spot."
+        }
+      },
+      {
+        "mins": 14,
+        "title": "Game 4v4 (or 5v5)",
+        "note": "Team 1 vs Team 2, full court, games to 7. 4v4 with eight, coaches fill in for 5v5. Pack line on defense. Every miss, the defense sprints back to the paint. Every dead ball under our basket, run Duke or Line. Every foul is two pressure free throws: the team says the shooter's name, make both and it's 1 on the tally. Option A, scored for today: a stop in transition is 2 for the defense, a layup given up in transition costs the defense 2, a baseline drive costs the defense 2. Option B, scrimmage graded on three things: sprint to the paint, talk on every screen, and box out on every shot. Count the tally.",
+        "visual": {
+          "o": {
+            "1": [
+              280,
+              300
+            ],
+            "2": [
+              140,
+              230
+            ],
+            "3": [
+              420,
+              230
+            ],
+            "4": [
+              470,
+              90
+            ]
+          },
+          "d": {
+            "1": [
+              280,
+              265,
+              "BALL"
+            ],
+            "2": [
+              180,
+              200,
+              "GAP"
+            ],
+            "3": [
+              380,
+              200,
+              "GAP"
+            ],
+            "4": [
+              330,
+              120,
+              "HELP"
+            ]
+          },
+          "ball": [
+            280,
+            300
+          ],
+          "pack": true,
+          "nobase": [
+            [
+              470,
+              150
+            ],
+            [
+              505,
+              160
+            ]
+          ],
+          "label": "Live game. Every miss, sprint back to the paint.",
+          "coach": "Head coach on the sideline: calls Option A or B, keeps score and the tally. Assistant A counts transition layups given up and baseline drives. Assistant B counts offensive rebounds and screens with no call. If we're 5v5, both assistants step in."
+        }
+      },
+      {
+        "mins": 5,
+        "title": "Pressure Free Throws",
+        "note": "Everyone shoots 2, team says the shooter's name. Round 1: any miss, the whole team runs. Round 2, Earn Your Lap: make both and run the Victory Lap. Count the tally. Champion picks the next Circle Up question. Break the huddle.",
+        "visual": {
+          "lane": true,
+          "o": {
+            "1": [
+              280,
+              230
+            ]
+          },
+          "ball": [
+            280,
+            230
+          ],
+          "c": {
+            "Head": [
+              400,
+              260
+            ]
+          },
+          "coach": "Head coach off the lane with the tally: count it out loud and break the huddle. Assistants collect balls and the stat counts."
+        }
+      }
+    ],
+    "extras": [
+      {
+        "title": "Rim War",
+        "note": "1v1 from the block, winner stays, first to 3 runs the Victory Lap."
+      },
+      {
+        "title": "Knockout",
+        "note": "2 balls. Free throw line, then elbow, then top of the key 3."
+      }
+    ],
+    "announce": "Sunday's focus: defensive efficiency. Baseline drives, transition layups, offensive rebounds, and talk. First game is Thursday Nov 12 at KSD. Can't make practice? Tell us before, or your minutes get limited. Player Course Week 1 is live at datakyle.github.io/Coach-OS/#learn. Pressure Shooting tally is still live.",
+    "updated": 1793821421851
   }
 ]
