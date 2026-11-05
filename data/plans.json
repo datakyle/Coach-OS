@@ -3540,8 +3540,8 @@
       },
       {
         "mins": 8,
-        "title": "Inbounds: Duke and Line",
-        "note": "Under our basket. Walk Duke, then Line, 5v0. Everyone says his spot before the ball is handed in. Then live against coaches. Inbounder slaps the ball to start it. 5 seconds, so get there fast. A clean catch and a score is 2. A turnover, the group runs a down and back.",
+        "title": "Inbounds: Box Man, Square, Box Zone",
+        "note": "Under our basket. Walk Box Man, then Square, then Box Zone, 5v0. Everyone says his spot before the ball is handed in. Box Man is against man. Box Zone is against a zone. Then live against coaches. Inbounder slaps the ball to start it. 5 seconds, so get there fast. A clean catch and a score is 2. A turnover, the group runs a down and back.",
         "visual": {
           "o": {
             "1": [
@@ -3583,14 +3583,14 @@
               170
             ]
           },
-          "label": "Ball under our basket. Set up, say your spot, then run Duke or Line.",
-          "coach": "Assistants A and B defend in the lane during the live reps. Head coach on the sideline calls Duke or Line and checks that everyone knows his spot."
+          "label": "Ball under our basket. Set up, say your spot, then run Box Man, Square or Box Zone.",
+          "coach": "Assistants A and B defend in the lane during the live reps, in man for Box Man and Square, in a zone for Box Zone. Head coach on the sideline calls the play and checks that everyone knows his spot."
         }
       },
       {
         "mins": 14,
         "title": "Game 4v4 (or 5v5)",
-        "note": "Team 1 vs Team 2, full court, games to 7. 4v4 with eight, coaches fill in for 5v5. Pack line on defense. Every miss, the defense sprints back to the paint. Every dead ball under our basket, run Duke or Line. Every foul is two pressure free throws: the team says the shooter's name, make both and it's 1 on the tally. Option A, scored for today: a stop in transition is 2 for the defense, a layup given up in transition costs the defense 2, a baseline drive costs the defense 2. Option B, scrimmage graded on three things: sprint to the paint, talk on every screen, and box out on every shot. Count the tally.",
+        "note": "Team 1 vs Team 2, full court, games to 7. 4v4 with eight, coaches fill in for 5v5. Pack line on defense. Every miss, the defense sprints back to the paint. Every dead ball under our basket, run Box Man, Square or Box Zone. Every foul is two pressure free throws: the team says the shooter's name, make both and it's 1 on the tally. Option A, scored for today: a stop in transition is 2 for the defense, a layup given up in transition costs the defense 2, a baseline drive costs the defense 2. Option B, scrimmage graded on three things: sprint to the paint, talk on every screen, and box out on every shot. Count the tally.",
         "visual": {
           "o": {
             "1": [
@@ -3688,6 +3688,6 @@
       }
     ],
     "announce": "Sunday's focus: defensive efficiency. Baseline drives, transition layups, offensive rebounds, and talk. First game is Thursday Nov 12 at KSD. Can't make practice? Tell us before, or your minutes get limited. Player Course Week 1 is live at datakyle.github.io/Coach-OS/#learn. Pressure Shooting tally is still live.",
-    "updated": 1793821421851
+    "updated": 1793821752492
   }
 ]
