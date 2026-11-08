@@ -3689,5 +3689,632 @@
     ],
     "announce": "Sunday's focus: defensive efficiency. Baseline drives, transition layups, offensive rebounds, and talk. First game is Thursday Nov 12 at KSD. Can't make practice? Tell us before, or your minutes get limited. Player Course Week 1 is live at datakyle.github.io/Coach-OS/#learn. Pressure Shooting tally is still live.",
     "updated": 1793821752492
+  },
+  {
+    "id": "2026-11-08",
+    "date": "2026-11-08",
+    "start": "16:00",
+    "focus": "Defensive Efficiency, plus Drive and Kick Decisions",
+    "tagline": "No baseline. Box out. Drive it, kick it.",
+    "items": [
+      {
+        "mins": 5,
+        "title": "Circle Up",
+        "note": "Starting today, practice focuses on defensive efficiency. Four things we track: baseline drives, layups we give up in transition, offensive rebounds we give up, and talk. I count them today. Our new install is drive and kick: when to drive, when to kick, when to shoot. First game is Thursday at KSD. Two non-negotiables: talk every possession, and never get beat standing still. Winners run is on. Split Team 1 / Team 2. Station groups: Shooters and Fundamentals.",
+        "visual": {
+          "circle": [
+            280,
+            300,
+            70,
+            8
+          ],
+          "c": {
+            "Head": [
+              280,
+              300
+            ]
+          },
+          "coach": "Head coach in the middle: defensive efficiency and the four things we count, today's install, KSD on Thursday. Assistants grab balls and set up for Oregon Passing."
+        }
+      },
+      {
+        "mins": 10,
+        "title": "Game Warmup",
+        "note": "Our game warmup, dynamic only. Captains lead it and call each move. Loud and on time. Same warmup we walk out with on Thursday.",
+        "visual": {
+          "o": {
+            "1": [
+              110,
+              60
+            ],
+            "2": [
+              220,
+              60
+            ],
+            "3": [
+              340,
+              60
+            ],
+            "4": [
+              450,
+              60
+            ]
+          },
+          "lines": [
+            {
+              "t": "cut",
+              "a": [
+                110,
+                80
+              ],
+              "b": [
+                110,
+                385
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                220,
+                80
+              ],
+              "b": [
+                220,
+                385
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                340,
+                80
+              ],
+              "b": [
+                340,
+                385
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                450,
+                80
+              ],
+              "b": [
+                450,
+                385
+              ]
+            }
+          ],
+          "c": {
+            "Head": [
+              515,
+              220
+            ]
+          },
+          "label": "Dynamic warmup, baseline to half court and back. Captains call every move.",
+          "coach": "Captains run it. Head coach on the sideline watching energy and the clock. Assistants set out balls for Oregon Passing."
+        }
+      },
+      {
+        "mins": 6,
+        "title": "Oregon Passing",
+        "note": "Ball security. Call the name before you pass. Pass must hit the hands. 2-minute rounds, beat the last round. Bad pass or silent pass is a redo.",
+        "visual": {
+          "o": {
+            "1": [
+              130,
+              330
+            ],
+            "2": [
+              280,
+              200
+            ],
+            "3": [
+              430,
+              330
+            ]
+          },
+          "ball": [
+            130,
+            330
+          ],
+          "lines": [
+            {
+              "t": "pass",
+              "a": [
+                130,
+                330
+              ],
+              "b": [
+                280,
+                200
+              ]
+            },
+            {
+              "t": "pass",
+              "a": [
+                280,
+                200
+              ],
+              "b": [
+                430,
+                330
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                130,
+                330
+              ],
+              "b": [
+                250,
+                380
+              ]
+            }
+          ],
+          "c": {
+            "Head": [
+              515,
+              260
+            ],
+            "A": [
+              280,
+              70
+            ]
+          },
+          "label": "Call the name, pass to the hands, follow your pass.",
+          "coach": "Head coach counts passes out loud and calls redos on a silent or bad pass. Assistant A runs the clock on 2-minute rounds and calls the best round."
+        }
+      },
+      {
+        "mins": 12,
+        "title": "Teach: Drive and Kick, Attack the Closeout",
+        "note": "Today's install. 2 minutes on the board, 10 on the floor. Stay about 15 feet apart. Drive the gap. On a drive, the two closest slide one spot away. Helper comes: kick it. Nobody comes: finish. Catching the kick: if he runs at you, drive. If he sits, shoot. Touch the paint before any shot. Walk it 4 on 0, then speed, then live 4v4. Freeze and ask: who helped, where does the ball go?",
+        "visual": {
+          "o": {
+            "1": [
+              280,
+              330
+            ],
+            "2": [
+              430,
+              250
+            ],
+            "3": [
+              130,
+              250
+            ],
+            "4": [
+              62,
+              66
+            ]
+          },
+          "d": {
+            "1": [
+              280,
+              295,
+              "BALL"
+            ],
+            "2": [
+              370,
+              200,
+              "GAP"
+            ],
+            "3": [
+              190,
+              200,
+              "GAP"
+            ],
+            "4": [
+              200,
+              110,
+              "HELP"
+            ]
+          },
+          "ball": [
+            280,
+            330
+          ],
+          "pack": true,
+          "lines": [
+            {
+              "t": "dribble",
+              "a": [
+                280,
+                330
+              ],
+              "b": [
+                240,
+                190
+              ]
+            },
+            {
+              "t": "slide",
+              "a": [
+                190,
+                200
+              ],
+              "b": [
+                225,
+                175
+              ]
+            },
+            {
+              "t": "pass",
+              "a": [
+                240,
+                190
+              ],
+              "b": [
+                130,
+                250
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                62,
+                66
+              ],
+              "b": [
+                62,
+                140
+              ]
+            }
+          ],
+          "label": "Drive the gap. The helper comes, kick it. The two closest slide one spot away.",
+          "coach": "Assistant A at the board for 2 minutes, then plays defense in the live 4v4. Assistant B plays defense and closes out hard or sits back so the shooter has to read it. Head coach above the top of the key: freeze and ask who helped and where the ball goes."
+        }
+      },
+      {
+        "mins": 12,
+        "title": "Skill Stations",
+        "note": "Two groups, horn at the end. Shooters at the main basket: Closeout Drives. Defender passes and closes out, offense gets 2 dribbles. Games to 3. Drive him middle into help, never baseline. Fundamentals at the far basket: Catch, Rip and Go. Jump stop, rip low, one hard dribble to a layup. Add a closeout: if he runs at you, drive. If he sits, shoot.",
+        "visual": {
+          "o": {
+            "1": [
+              440,
+              230
+            ],
+            "2": [
+              150,
+              300
+            ]
+          },
+          "d": {
+            "1": [
+              400,
+              190
+            ]
+          },
+          "ball": [
+            440,
+            230
+          ],
+          "lines": [
+            {
+              "t": "closeout",
+              "a": [
+                360,
+                140
+              ],
+              "b": [
+                420,
+                210
+              ]
+            },
+            {
+              "t": "dribble",
+              "a": [
+                440,
+                230
+              ],
+              "b": [
+                340,
+                160
+              ]
+            },
+            {
+              "t": "dribble",
+              "a": [
+                150,
+                300
+              ],
+              "b": [
+                230,
+                160
+              ]
+            }
+          ],
+          "c": {
+            "B": [
+              500,
+              110
+            ],
+            "A": [
+              90,
+              360
+            ]
+          },
+          "label": "Right: Shooters, closeout drives. Left: Fundamentals, catch, rip and go.",
+          "coach": "Assistant B with the Shooters: keep the games to 3 and call any closeout that gives up baseline. Assistant A with Fundamentals: feed the pass and make the closeout, mix running at them and sitting back. Head coach floats."
+        }
+      },
+      {
+        "mins": 12,
+        "title": "Rebounding Toughness",
+        "note": "Offensive rebounds we give up are one of our four numbers. 3v3, coach shoots, offense crashes. Find your man, hit first, two hands, chin it, outlet. Defense needs 3 straight boards to get off. An offensive board resets you to zero. Five boxing out every time.",
+        "visual": {
+          "o": {
+            "1": [
+              280,
+              250
+            ],
+            "2": [
+              170,
+              190
+            ],
+            "3": [
+              400,
+              170
+            ]
+          },
+          "d": {
+            "1": [
+              280,
+              215
+            ],
+            "2": [
+              205,
+              160
+            ],
+            "3": [
+              365,
+              145
+            ]
+          },
+          "c": {
+            "Head": [
+              280,
+              300
+            ]
+          },
+          "lines": [
+            {
+              "t": "cut",
+              "a": [
+                170,
+                190
+              ],
+              "b": [
+                225,
+                120
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                400,
+                170
+              ],
+              "b": [
+                340,
+                115
+              ]
+            }
+          ],
+          "label": "Coach shoots. Hit first, hold him, two hands on the ball.",
+          "coach": "Head coach shoots from the top. Assistant A counts straight boards for the defense and resets on an offensive board. Assistant B runs the second group at the far basket if we split."
+        }
+      },
+      {
+        "mins": 12,
+        "title": "Shell Drill: Stage 4",
+        "note": "Pack line, Stage 4, game speed, right after rebounding so we're tired. Ball, Gap, Help called out loud on every pass. Drive middle, help stops it, kick out, helper closes out short and forces middle. All five box out. A baseline drive or a late rotation, the group runs a down and back. Stop plus a box out is a point for the defense.",
+        "visual": {
+          "pack": true,
+          "o": {
+            "1": [
+              280,
+              353
+            ],
+            "2": [
+              468,
+              231
+            ],
+            "3": [
+              92,
+              231
+            ],
+            "4": [
+              62,
+              66
+            ]
+          },
+          "d": {
+            "1": [
+              262,
+              300,
+              "BALL"
+            ],
+            "2": [
+              360,
+              175,
+              "HELP"
+            ],
+            "3": [
+              185,
+              190,
+              "HELP"
+            ],
+            "4": [
+              230,
+              110,
+              "HELP"
+            ]
+          },
+          "c": {
+            "B": [
+              498,
+              66
+            ]
+          },
+          "ball": [
+            280,
+            353
+          ],
+          "lines": [
+            {
+              "t": "dribble",
+              "a": [
+                280,
+                353
+              ],
+              "b": [
+                290,
+                265
+              ]
+            },
+            {
+              "t": "pass",
+              "a": [
+                290,
+                265
+              ],
+              "b": [
+                468,
+                231
+              ]
+            },
+            {
+              "t": "closeout",
+              "a": [
+                360,
+                175
+              ],
+              "b": [
+                448,
+                215
+              ]
+            }
+          ],
+          "nobase": [
+            [
+              470,
+              150
+            ],
+            [
+              505,
+              160
+            ]
+          ],
+          "label": "Drive, kick, the helper closes out short and forces middle.",
+          "coach": "Assistant B fills the right corner on offense. Assistant A plays a wing. Head coach above the top of the key: freeze and ask one guy his job, count baseline drives and late rotations."
+        }
+      },
+      {
+        "mins": 16,
+        "title": "Game 4v4 (or 5v5)",
+        "note": "Team 1 vs Team 2, full court, games to 7. 4v4 with eight, coaches fill in for 5v5. Pack line on defense. Every miss, sprint back to the paint. Every foul is two pressure free throws: the team says the shooter's name. Can-do check: one full 4-minute half with zero baseline drives. Option A, scored for today: a layup off a kick or a drive is 2, a baseline drive costs the defense 2, an offensive board given up costs the defense 1. Option B, scrimmage graded on three things: no baseline drives, box out every shot, touch the paint before we shoot. Winners run the Victory Lap.",
+        "visual": {
+          "o": {
+            "1": [
+              280,
+              300
+            ],
+            "2": [
+              140,
+              230
+            ],
+            "3": [
+              420,
+              230
+            ],
+            "4": [
+              470,
+              90
+            ]
+          },
+          "d": {
+            "1": [
+              280,
+              265,
+              "BALL"
+            ],
+            "2": [
+              180,
+              200,
+              "GAP"
+            ],
+            "3": [
+              380,
+              200,
+              "GAP"
+            ],
+            "4": [
+              330,
+              120,
+              "HELP"
+            ]
+          },
+          "ball": [
+            280,
+            300
+          ],
+          "pack": true,
+          "nobase": [
+            [
+              470,
+              150
+            ],
+            [
+              505,
+              160
+            ]
+          ],
+          "label": "Live game. Force middle, box out, sprint back on a miss.",
+          "coach": "Head coach on the sideline: calls Option A or B, runs the 4-minute clock for the can-do check, keeps score. Assistant A counts baseline drives and transition layups given up. Assistant B counts offensive rebounds given up. If we're 5v5, both assistants step in."
+        }
+      },
+      {
+        "mins": 5,
+        "title": "Pressure Free Throws",
+        "note": "Everyone shoots 2, team says the shooter's name. Round 1: any miss, the whole team runs. Round 2, Earn Your Lap: make both and run the Victory Lap. Count the tally. Give them today's four numbers. Champion picks the next Circle Up question. Break the huddle.",
+        "visual": {
+          "lane": true,
+          "o": {
+            "1": [
+              280,
+              230
+            ]
+          },
+          "ball": [
+            280,
+            230
+          ],
+          "c": {
+            "Head": [
+              400,
+              260
+            ]
+          },
+          "coach": "Head coach off the lane with the tally and today's four numbers from the assistants. Break the huddle. Assistants collect balls."
+        }
+      }
+    ],
+    "extras": [
+      {
+        "title": "Rim War",
+        "note": "1v1 from the block, winner stays, first to 3 runs the Victory Lap."
+      },
+      {
+        "title": "Hot Shot",
+        "note": "60 seconds, 5 spots worth 1 to 5."
+      }
+    ],
+    "announce": "Starting today, practice focuses on defensive efficiency: baseline drives, transition layups, offensive rebounds, and talk. First game is Thursday Nov 12 at KSD, 6:00. Tuesday is a light day. Can't make practice? Tell us before, or your minutes get limited. Player Course Week 1 is live at datakyle.github.io/Coach-OS/#learn. Pressure Shooting tally is still live.",
+    "updated": 1794099554743
   }
 ]
