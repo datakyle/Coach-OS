@@ -4321,13 +4321,13 @@
     "id": "2026-11-10",
     "date": "2026-11-10",
     "start": "18:00",
-    "focus": "Light Day: Walk the Game Plan for KSD, plus Free Throws",
-    "tagline": "Know your job. Value the ball. Make your free throws.",
+    "focus": "Defensive Intensity: Walk the Game Plan for KSD",
+    "tagline": "Hustle back. Know your spot. Make your free throws.",
     "items": [
       {
-        "mins": 5,
+        "mins": 7,
         "title": "Circle Up",
-        "note": "First game is Thursday at KSD, 6:00. Today is a light day. We walk everything we run on Thursday, so nobody is guessing on game night. Light on the legs, sharp on the mind. When I freeze it, I'm asking you your job. Have the answer. Two non-negotiables: talk every possession, and never get beat standing still. Winners run is on. Split Team 1 / Team 2. Station groups: Shooters and Fundamentals.",
+        "note": "Our focus today: Defensive Intensity. My expectation: if you are not hustling back on defense, that is a substitution. Starters: I name our first starting five now. It is a long season. I'm looking for guys who are here for practice and the effort they put in at practice. You want time? Listen to what the coaches tell you in practice. You want to stay in the game longer? Defensive intensity. That is what matters most. Captain: I announce our captain. We start Thursday's game at KSD in a 1-3-1 defense. I name who plays Top, Middle, Left, Right and Bottom. Each starter says his spot back to me, out loud, before we move. Two non-negotiables: talk every possession, and never get beat standing still. Winners run is on. Split Team 1 / Team 2. Station groups: Shooters and Fundamentals.",
         "visual": {
           "circle": [
             280,
@@ -4341,7 +4341,7 @@
               300
             ]
           },
-          "coach": "Head coach in the middle: KSD Thursday at 6:00, light day, today we walk the game plan and every freeze is a question. Assistants grab balls and set up for Oregon Passing."
+          "coach": "Head coach in the middle: focus is Defensive Intensity, no hustle back is a sub, announce the starters and the captain, name the 1-3-1 spots, and have each starter recite his spot out loud. Assistants grab balls and set up for Oregon Passing."
         }
       },
       {
@@ -4497,94 +4497,131 @@
       },
       {
         "mins": 10,
-        "title": "Walk the Game Plan: Pack Line Shell",
-        "note": "Shell drill, walk then half speed. No live reps today. Ball, Gap, Help called out loud on every pass. On ball, force middle into the pack. Never give up baseline. Drive middle, help stops it, kick out, helper closes out short. All five box out. I freeze it and ask one guy his job. Right answer, we keep going. Wrong answer, we walk it again. Last 2 minutes: sprint back to the paint on a miss, at half speed.",
+        "title": "Walk the Game Plan: 1-3-1 Defense",
+        "note": "Our opening defense on Thursday. 2 minutes on the board, 8 on the floor. Five spots: Top, Middle, Left, Right, Bottom. Top: pressure the ball and turn him to one side. Never let him split you up the middle. Left and Right: you own the wing on your side. Ball comes to you, close out under control, hands up. Middle: you live at the free throw line. Nobody catches in the middle. Stay between the ball and the rim. Bottom: you own the baseline, block to block and corner to corner. Ball goes to the corner, you take it. Everybody moves on the pass, not after it. Walk it 5 on 0 while a coach moves the ball, then half speed against coaches. Freeze it and every guy says his spot and his job. Not hustling to your spot is a sub. Last 2 minutes: shot goes up, everybody boxes out the closest man.",
         "visual": {
-          "pack": true,
           "o": {
             "1": [
               280,
-              330
+              345
             ],
             "2": [
-              140,
-              260
+              130,
+              275
             ],
             "3": [
-              420,
-              260
+              430,
+              275
             ],
             "4": [
-              75,
-              80
+              62,
+              70
             ],
             "5": [
-              485,
-              80
+              498,
+              70
             ]
           },
           "d": {
             "1": [
               280,
-              290,
-              "BALL"
+              305,
+              "TOP"
             ],
             "2": [
-              170,
+              280,
               215,
-              "GAP"
+              "MIDDLE"
             ],
             "3": [
-              380,
-              215,
-              "GAP"
+              165,
+              240,
+              "LEFT"
             ],
             "4": [
-              215,
-              120,
-              "HELP"
+              395,
+              240,
+              "RIGHT"
             ],
             "5": [
-              345,
-              120,
-              "HELP"
+              280,
+              105,
+              "BOTTOM"
             ]
           },
           "ball": [
             280,
-            330
+            345
           ],
-          "nobase": [
-            [
-              470,
-              150
-            ],
-            [
-              505,
-              160
-            ]
-          ],
-          "c": {
-            "B": [
-              498,
-              66
-            ]
-          },
           "lines": [
             {
               "t": "pass",
               "a": [
                 280,
-                330
+                345
               ],
               "b": [
-                420,
-                260
+                430,
+                275
+              ]
+            },
+            {
+              "t": "closeout",
+              "a": [
+                395,
+                240
+              ],
+              "b": [
+                418,
+                262
+              ]
+            },
+            {
+              "t": "slide",
+              "a": [
+                280,
+                305
+              ],
+              "b": [
+                330,
+                300
+              ]
+            },
+            {
+              "t": "slide",
+              "a": [
+                280,
+                215
+              ],
+              "b": [
+                320,
+                210
+              ]
+            },
+            {
+              "t": "slide",
+              "a": [
+                280,
+                105
+              ],
+              "b": [
+                340,
+                100
               ]
             }
           ],
-          "label": "Walk it, then half speed. Ball, Gap, Help on every pass. Force middle.",
-          "coach": "Assistant A plays a wing and Assistant B fills the right corner on offense, half speed. Head coach above the top of the key: freeze and ask one guy his job on every pass."
+          "c": {
+            "A": [
+              62,
+              110
+            ],
+            "B": [
+              498,
+              110
+            ]
+          },
+          "label": "Five spots: Top, Middle, Left, Right, Bottom. Everybody moves on the pass.",
+          "coach": "Assistant A and Assistant B play offense in the corners and move the ball so every spot has to slide. Head coach above the top of the key at the board for 2 minutes, then freezes on every pass and asks one guy his spot and his job."
         }
       },
       {
@@ -4936,9 +4973,9 @@
         }
       },
       {
-        "mins": 9,
+        "mins": 7,
         "title": "Scenario Scrimmage (controlled)",
-        "note": "Team 1 vs Team 2, half court, controlled speed. Not a war today, legs fresh for Thursday. Game situations: start of a half, a dead ball under our basket, a make and we press, last possession of the quarter. 4v4 with eight, coaches fill in for 5v5. Option A, scored for today: a stop with no baseline drive is 1, a clean inbounds is 1, a turnover costs 1. Option B, scrimmage graded on three things: talk on every pass, no baseline drives, box out every shot. Winners run the Victory Lap.",
+        "note": "Team 1 vs Team 2, half court, controlled speed. Not a war today, legs fresh for Thursday. Game situations: start of a half in our 1-3-1, like Thursday, a dead ball under our basket, a make and we press, last possession of the quarter. 4v4 with eight, coaches fill in for 5v5. Option A, scored for today: a stop with no baseline drive is 1, a clean inbounds is 1, a turnover costs 1. Option B, scrimmage graded on three things: talk on every pass, no baseline drives, box out every shot. Winners run the Victory Lap.",
         "visual": {
           "o": {
             "1": [
@@ -5036,6 +5073,6 @@
       }
     ],
     "announce": "First game is Thursday Nov 12 at KSD (KSD Gym, Olathe), 6:00 tip. Light day today: legs fresh, minds sharp. Can't make it? Tell us before, or your minutes get limited. Player Course Week 1 is live at datakyle.github.io/Coach-OS/#learn. Pressure Shooting tally is still live.",
-    "updated": 1794272659794
+    "updated": 1794324047590
   }
 ]
