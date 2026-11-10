@@ -4316,5 +4316,726 @@
     ],
     "announce": "Starting today, practice focuses on defensive efficiency: baseline drives, transition layups, offensive rebounds, and talk. First game is Thursday Nov 12 at KSD, 6:00. Tuesday is a light day. Can't make practice? Tell us before, or your minutes get limited. Player Course Week 1 is live at datakyle.github.io/Coach-OS/#learn. Pressure Shooting tally is still live.",
     "updated": 1794099554743
+  },
+  {
+    "id": "2026-11-10",
+    "date": "2026-11-10",
+    "start": "18:00",
+    "focus": "Light Day: Walk the Game Plan for KSD, plus Free Throws",
+    "tagline": "Know your job. Value the ball. Make your free throws.",
+    "items": [
+      {
+        "mins": 5,
+        "title": "Circle Up",
+        "note": "First game is Thursday at KSD, 6:00. Today is a light day. We walk everything we run on Thursday, so nobody is guessing on game night. Light on the legs, sharp on the mind. When I freeze it, I'm asking you your job. Have the answer. Two non-negotiables: talk every possession, and never get beat standing still. Winners run is on. Split Team 1 / Team 2. Station groups: Shooters and Fundamentals.",
+        "visual": {
+          "circle": [
+            280,
+            300,
+            70,
+            8
+          ],
+          "c": {
+            "Head": [
+              280,
+              300
+            ]
+          },
+          "coach": "Head coach in the middle: KSD Thursday at 6:00, light day, today we walk the game plan and every freeze is a question. Assistants grab balls and set up for Oregon Passing."
+        }
+      },
+      {
+        "mins": 12,
+        "title": "Game Warmup (timed, 12 minutes)",
+        "note": "Our game warmup, start to finish, on a 12-minute clock. Same as Thursday at KSD. Captains lead it and call each move. Dynamic only. Loud and on time. Last run before game night, so finish on time.",
+        "visual": {
+          "o": {
+            "1": [
+              110,
+              60
+            ],
+            "2": [
+              220,
+              60
+            ],
+            "3": [
+              340,
+              60
+            ],
+            "4": [
+              450,
+              60
+            ]
+          },
+          "lines": [
+            {
+              "t": "cut",
+              "a": [
+                110,
+                80
+              ],
+              "b": [
+                110,
+                385
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                220,
+                80
+              ],
+              "b": [
+                220,
+                385
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                340,
+                80
+              ],
+              "b": [
+                340,
+                385
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                450,
+                80
+              ],
+              "b": [
+                450,
+                385
+              ]
+            }
+          ],
+          "c": {
+            "Head": [
+              515,
+              220
+            ]
+          },
+          "label": "Full game warmup on a 12-minute clock. Captains call every move.",
+          "coach": "Captains run it. Head coach runs the 12-minute clock and calls the time at 6 and 10. Assistants set out balls for Oregon Passing and watch for lines that drag."
+        }
+      },
+      {
+        "mins": 6,
+        "title": "Oregon Passing",
+        "note": "Ball security. Under 12 turnovers on Thursday starts here. Call the name before you pass. Pass must hit the hands. 2-minute rounds, beat the last round. Bad pass or silent pass is a redo.",
+        "visual": {
+          "o": {
+            "1": [
+              130,
+              330
+            ],
+            "2": [
+              280,
+              200
+            ],
+            "3": [
+              430,
+              330
+            ]
+          },
+          "ball": [
+            130,
+            330
+          ],
+          "lines": [
+            {
+              "t": "pass",
+              "a": [
+                130,
+                330
+              ],
+              "b": [
+                280,
+                200
+              ]
+            },
+            {
+              "t": "pass",
+              "a": [
+                280,
+                200
+              ],
+              "b": [
+                430,
+                330
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                130,
+                330
+              ],
+              "b": [
+                250,
+                380
+              ]
+            }
+          ],
+          "c": {
+            "Head": [
+              515,
+              260
+            ],
+            "A": [
+              280,
+              70
+            ]
+          },
+          "label": "Call the name, pass to the hands, follow your pass.",
+          "coach": "Head coach counts passes out loud and calls redos on a silent or bad pass. Assistant A runs the clock on 2-minute rounds and calls the best round."
+        }
+      },
+      {
+        "mins": 10,
+        "title": "Walk the Game Plan: Pack Line Shell",
+        "note": "Shell drill, walk then half speed. No live reps today. Ball, Gap, Help called out loud on every pass. On ball, force middle into the pack. Never give up baseline. Drive middle, help stops it, kick out, helper closes out short. All five box out. I freeze it and ask one guy his job. Right answer, we keep going. Wrong answer, we walk it again. Last 2 minutes: sprint back to the paint on a miss, at half speed.",
+        "visual": {
+          "pack": true,
+          "o": {
+            "1": [
+              280,
+              330
+            ],
+            "2": [
+              140,
+              260
+            ],
+            "3": [
+              420,
+              260
+            ],
+            "4": [
+              75,
+              80
+            ],
+            "5": [
+              485,
+              80
+            ]
+          },
+          "d": {
+            "1": [
+              280,
+              290,
+              "BALL"
+            ],
+            "2": [
+              170,
+              215,
+              "GAP"
+            ],
+            "3": [
+              380,
+              215,
+              "GAP"
+            ],
+            "4": [
+              215,
+              120,
+              "HELP"
+            ],
+            "5": [
+              345,
+              120,
+              "HELP"
+            ]
+          },
+          "ball": [
+            280,
+            330
+          ],
+          "nobase": [
+            [
+              470,
+              150
+            ],
+            [
+              505,
+              160
+            ]
+          ],
+          "c": {
+            "B": [
+              498,
+              66
+            ]
+          },
+          "lines": [
+            {
+              "t": "pass",
+              "a": [
+                280,
+                330
+              ],
+              "b": [
+                420,
+                260
+              ]
+            }
+          ],
+          "label": "Walk it, then half speed. Ball, Gap, Help on every pass. Force middle.",
+          "coach": "Assistant A plays a wing and Assistant B fills the right corner on offense, half speed. Head coach above the top of the key: freeze and ask one guy his job on every pass."
+        }
+      },
+      {
+        "mins": 7,
+        "title": "Walk the Game Plan: 5 Out Drive and Kick",
+        "note": "Our offense against man. Stay about 15 feet apart. Drive the gap. On a drive, the two closest slide one spot away. Helper comes: kick it. Nobody comes: finish. Catching the kick: if he runs at you, drive. If he sits, shoot. Pass and cut, fill the open spot. Touch the paint before any shot. Walk it 5 on 0, then half speed. Freeze and ask: who helped, where does the ball go?",
+        "visual": {
+          "o": {
+            "1": [
+              280,
+              330
+            ],
+            "2": [
+              430,
+              250
+            ],
+            "3": [
+              130,
+              250
+            ],
+            "4": [
+              62,
+              66
+            ],
+            "5": [
+              498,
+              66
+            ]
+          },
+          "ball": [
+            280,
+            330
+          ],
+          "lines": [
+            {
+              "t": "dribble",
+              "a": [
+                280,
+                330
+              ],
+              "b": [
+                240,
+                190
+              ]
+            },
+            {
+              "t": "pass",
+              "a": [
+                240,
+                190
+              ],
+              "b": [
+                130,
+                250
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                62,
+                66
+              ],
+              "b": [
+                62,
+                140
+              ]
+            }
+          ],
+          "c": {
+            "A": [
+              200,
+              200
+            ],
+            "B": [
+              380,
+              200
+            ]
+          },
+          "label": "Drive the gap. The two closest slide one spot away. Kick to the open man.",
+          "coach": "Assistants A and B stand in the gaps and step in to help on the drive so the kick has a read. Head coach above the top of the key: freeze and ask who helped and where the ball goes."
+        }
+      },
+      {
+        "mins": 7,
+        "title": "Walk the Game Plan: 2-3 Zone Offense",
+        "note": "In case they play zone. Name the three holes back to me: free throw line, short corners, across the top. Walk High and Skip and Play A against coaches in a 2-3. Ball to the free throw line, then look short corner or skip. Don't shoot before the zone moves. Walk it, then half speed.",
+        "visual": {
+          "o": {
+            "1": [
+              280,
+              330
+            ],
+            "2": [
+              130,
+              260
+            ],
+            "3": [
+              430,
+              260
+            ],
+            "4": [
+              280,
+              215
+            ],
+            "5": [
+              175,
+              75
+            ]
+          },
+          "d": {
+            "1": [
+              225,
+              270
+            ],
+            "2": [
+              335,
+              270
+            ],
+            "3": [
+              170,
+              155
+            ],
+            "4": [
+              280,
+              130
+            ],
+            "5": [
+              390,
+              155
+            ]
+          },
+          "ball": [
+            280,
+            330
+          ],
+          "lines": [
+            {
+              "t": "pass",
+              "a": [
+                280,
+                330
+              ],
+              "b": [
+                280,
+                215
+              ]
+            },
+            {
+              "t": "pass",
+              "a": [
+                280,
+                215
+              ],
+              "b": [
+                175,
+                75
+              ]
+            }
+          ],
+          "label": "The three holes: free throw line, short corners, across the top.",
+          "coach": "Assistants A and B play the back of the 2-3 and move with the ball so players see the holes open. Head coach at the top: have players name the three holes, call High, Skip or Play A, freeze when someone shoots before the zone moves."
+        }
+      },
+      {
+        "mins": 7,
+        "title": "Press Break",
+        "note": "Walk it once, then half speed against coaches. Inbounder takes it out fast. Two guards get open at the free throw line extended. One flashes to the middle, one goes long. Ball to the middle, then up. Never dribble into the corner: chin it, pivot, fake high and pass low. Past half in under 8 seconds.",
+        "visual": {
+          "o": {
+            "1": [
+              280,
+              36
+            ],
+            "2": [
+              160,
+              230
+            ],
+            "3": [
+              400,
+              230
+            ],
+            "4": [
+              280,
+              320
+            ],
+            "5": [
+              470,
+              330
+            ]
+          },
+          "ball": [
+            280,
+            36
+          ],
+          "lines": [
+            {
+              "t": "pass",
+              "a": [
+                280,
+                36
+              ],
+              "b": [
+                160,
+                230
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                280,
+                320
+              ],
+              "b": [
+                280,
+                260
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                470,
+                330
+              ],
+              "b": [
+                470,
+                395
+              ]
+            }
+          ],
+          "c": {
+            "A": [
+              200,
+              200
+            ],
+            "B": [
+              345,
+              200
+            ],
+            "Head": [
+              515,
+              260
+            ]
+          },
+          "label": "Our baseline is at the top. Middle, then long. Past half in 8 seconds.",
+          "coach": "Assistants A and B press at half speed and show the trap on the first pass, hands up, no fouls. Head coach on the sideline counts the 8 seconds out loud and freezes if anyone dribbles into the corner."
+        }
+      },
+      {
+        "mins": 7,
+        "title": "Inbounds: Box Man, Square, Box Zone",
+        "note": "Under our basket. Walk Box Man, then Square, then Box Zone, 5v0. Everyone says his spot before the ball is handed in. Box Man is against man. Box Zone is against a zone. Then once each against coaches. Inbounder slaps the ball to start it. 5 seconds, so get there fast.",
+        "visual": {
+          "o": {
+            "1": [
+              280,
+              36
+            ],
+            "2": [
+              210,
+              120
+            ],
+            "3": [
+              350,
+              120
+            ],
+            "4": [
+              210,
+              230
+            ],
+            "5": [
+              350,
+              230
+            ]
+          },
+          "ball": [
+            280,
+            36
+          ],
+          "c": {
+            "Head": [
+              515,
+              260
+            ],
+            "A": [
+              250,
+              170
+            ],
+            "B": [
+              320,
+              170
+            ]
+          },
+          "label": "Ball under our basket. Say your spot, then run Box Man, Square or Box Zone.",
+          "coach": "Assistants A and B defend in the lane, in man for Box Man and Square, in a zone for Box Zone. Head coach on the sideline calls the play and checks that everyone knows his spot."
+        }
+      },
+      {
+        "mins": 10,
+        "title": "Skill Stations: Zone Spot Shooting",
+        "note": "Two groups, horn at the end. Game shots at game spots. Shooters at the main basket: free throw line, short corners, wings. Partner rebounds and passes. Fundamentals at the far basket: Catch and Shoot, Feet First. Jump stop on two feet, elbow and short corner, 10 makes each. Shots we get on Thursday. Catch it ready.",
+        "visual": {
+          "o": {
+            "1": [
+              430,
+              250
+            ],
+            "2": [
+              280,
+              225
+            ],
+            "3": [
+              170,
+              80
+            ],
+            "4": [
+              390,
+              80
+            ]
+          },
+          "ball": [
+            280,
+            225
+          ],
+          "lines": [
+            {
+              "t": "pass",
+              "a": [
+                430,
+                250
+              ],
+              "b": [
+                280,
+                225
+              ]
+            }
+          ],
+          "c": {
+            "B": [
+              500,
+              120
+            ],
+            "A": [
+              60,
+              360
+            ]
+          },
+          "label": "Free throw line, short corners, wings. Catch it ready.",
+          "coach": "Assistant B with the Shooters at the main basket: rebound, rotate spots, count makes. Assistant A with Fundamentals at the far basket: check two-foot jump stops and count to 10 makes. Head coach floats."
+        }
+      },
+      {
+        "mins": 9,
+        "title": "Scenario Scrimmage (controlled)",
+        "note": "Team 1 vs Team 2, half court, controlled speed. Not a war today, legs fresh for Thursday. Game situations: start of a half, a dead ball under our basket, a make and we press, last possession of the quarter. 4v4 with eight, coaches fill in for 5v5. Option A, scored for today: a stop with no baseline drive is 1, a clean inbounds is 1, a turnover costs 1. Option B, scrimmage graded on three things: talk on every pass, no baseline drives, box out every shot. Winners run the Victory Lap.",
+        "visual": {
+          "o": {
+            "1": [
+              280,
+              300
+            ],
+            "2": [
+              140,
+              230
+            ],
+            "3": [
+              420,
+              230
+            ],
+            "4": [
+              470,
+              90
+            ]
+          },
+          "d": {
+            "1": [
+              280,
+              265,
+              "BALL"
+            ],
+            "2": [
+              180,
+              200,
+              "GAP"
+            ],
+            "3": [
+              380,
+              200,
+              "GAP"
+            ],
+            "4": [
+              330,
+              120,
+              "HELP"
+            ]
+          },
+          "ball": [
+            280,
+            300
+          ],
+          "pack": true,
+          "nobase": [
+            [
+              470,
+              150
+            ],
+            [
+              505,
+              160
+            ]
+          ],
+          "label": "Game situations at controlled speed. Force middle, box out, talk.",
+          "coach": "Head coach on the sideline calls each situation, picks Option A or B, keeps score. Assistant A counts baseline drives. Assistant B counts turnovers. If we're 5v5, both assistants step in."
+        }
+      },
+      {
+        "mins": 10,
+        "title": "Pressure Free Throws",
+        "note": "Extra time today because free throws win close games. Everyone shoots 2, team says the shooter's name. Round 1: any miss, the whole team runs. Round 2, Earn Your Lap: make both and run the Victory Lap. Round 3: one and one, like the bonus on Thursday. Count the tally. Champion picks the next Circle Up question. Break the huddle.",
+        "visual": {
+          "lane": true,
+          "o": {
+            "1": [
+              280,
+              230
+            ]
+          },
+          "ball": [
+            280,
+            230
+          ],
+          "c": {
+            "Head": [
+              400,
+              260
+            ]
+          },
+          "coach": "Head coach off the lane with the tally: count it out loud and break the huddle. Assistants rebound and collect balls."
+        }
+      }
+    ],
+    "extras": [
+      {
+        "title": "Knockout",
+        "note": "2 balls. Free throw line, then elbow, then top of the key 3."
+      },
+      {
+        "title": "Hot Shot",
+        "note": "60 seconds, 5 spots worth 1 to 5."
+      }
+    ],
+    "announce": "First game is Thursday Nov 12 at KSD (KSD Gym, Olathe), 6:00 tip. Light day today: legs fresh, minds sharp. Can't make it? Tell us before, or your minutes get limited. Player Course Week 1 is live at datakyle.github.io/Coach-OS/#learn. Pressure Shooting tally is still live.",
+    "updated": 1794272659794
   }
 ]
