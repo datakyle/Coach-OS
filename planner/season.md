@@ -17,7 +17,7 @@ varsity boys tip-off. Middle school and JV-only dates are left out.
 | Date | Day | Opponent | Home/Away | Tip | Check |
 |---|---|---|---|---|---|
 | Nov 12 | Thu | KSD | Away (KSD Gym, Olathe) | 6:00 | Practice day |
-| Nov 17 | Tue | Daniel Academy | Home | 7:45 | Practice day |
+| Nov 17 | Tue | Daniel Academy | Home | 6:30 | Practice day |
 | Nov 23 | Mon | St. Vincent de Paul | Away (Christ the King Gym) | 6:00 | |
 | Nov 24 | Tue | Hyman Brand | Home | 6:00 | Practice day |
 | Dec 10 | Thu | Christ Prep | ?? | ?? | Location and time not set |
