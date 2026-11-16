@@ -5681,5 +5681,623 @@
     ],
     "announce": "Next game is Tuesday Nov 17 vs Daniel Academy, home, 7:45 tip. Can't make practice? Tell us before, or your minutes get limited. Player Course Week 1 is live at datakyle.github.io/Coach-OS/#learn. Pressure Shooting tally is still live.",
     "updated": 1794704338438
+  },
+  {
+    "id": "2026-11-16",
+    "date": "2026-11-16",
+    "start": "18:00",
+    "focus": "Box Out, Move Without the Ball, Plays That Get Shots",
+    "tagline": "Hit first. Never stand still. Know the play.",
+    "items": [
+      {
+        "mins": 5,
+        "title": "Circle Up",
+        "note": "Two games in. Three things to fix: boxing out, moving without the ball, and running plays that get us good shots. I name the starters, 1 to 5. Each starter says his number and his spot back to me. Tomorrow we start in a 2-3 zone. On offense, 1 and 4 bring it up, 2 is at the high post, 3 and 5 are in the corners. They press in a diamond, so we break it the same way every time. Two non-negotiables: talk every possession, and never get beat standing still. Split Team 1 / Team 2.",
+        "visual": {
+          "circle": [
+            280,
+            300,
+            70,
+            8
+          ],
+          "c": {
+            "Head": [
+              280,
+              300
+            ]
+          },
+          "coach": "Head coach in the middle: the three things to fix, announce the starters 1 to 5, each starter says his spot back. Assistants grab balls and set up for Box Out Fundamentals."
+        }
+      },
+      {
+        "mins": 10,
+        "title": "Game Warmup",
+        "note": "Our game warmup, dynamic only. Captains lead it and call each move. Loud and on time. Same warmup we walk out with tomorrow.",
+        "visual": {
+          "o": {
+            "1": [
+              110,
+              60
+            ],
+            "2": [
+              220,
+              60
+            ],
+            "3": [
+              340,
+              60
+            ],
+            "4": [
+              450,
+              60
+            ]
+          },
+          "lines": [
+            {
+              "t": "cut",
+              "a": [
+                110,
+                80
+              ],
+              "b": [
+                110,
+                385
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                220,
+                80
+              ],
+              "b": [
+                220,
+                385
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                340,
+                80
+              ],
+              "b": [
+                340,
+                385
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                450,
+                80
+              ],
+              "b": [
+                450,
+                385
+              ]
+            }
+          ],
+          "c": {
+            "Head": [
+              515,
+              220
+            ]
+          },
+          "label": "Dynamic warmup, baseline to half court and back. Captains call every move.",
+          "coach": "Captains run it. Head coach on the sideline watching energy and the clock. Assistants set up two lines at each basket for box outs."
+        }
+      },
+      {
+        "mins": 10,
+        "title": "Box Out Fundamentals",
+        "note": "Fix number one. Teach it slow: find your man, hit first, reverse pivot, hold 2 seconds, two hands, chin it, outlet. Pairs on the whistle. Then Circle Box Out: keep him off the ball for 3 seconds. Then coach shoots, 1v1. Win 3 straight and you run the Victory Lap. Rule for tomorrow: in the zone, shot goes up, hit the closest body. Nobody watches the ball.",
+        "visual": {
+          "o": {
+            "1": [
+              280,
+              250
+            ],
+            "2": [
+              170,
+              190
+            ],
+            "3": [
+              400,
+              170
+            ]
+          },
+          "d": {
+            "1": [
+              280,
+              215
+            ],
+            "2": [
+              205,
+              160
+            ],
+            "3": [
+              365,
+              145
+            ]
+          },
+          "c": {
+            "Head": [
+              280,
+              300
+            ]
+          },
+          "lines": [
+            {
+              "t": "cut",
+              "a": [
+                170,
+                190
+              ],
+              "b": [
+                225,
+                120
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                400,
+                170
+              ],
+              "b": [
+                340,
+                115
+              ]
+            }
+          ],
+          "label": "Find, hit first, hold him 2 seconds, two hands on the ball.",
+          "coach": "Head coach shoots from the top and calls the whistle. Assistant A runs the second group at the far basket. Assistant B counts straight wins and calls anyone who watches the ball."
+        }
+      },
+      {
+        "mins": 12,
+        "title": "Press Break vs the Diamond",
+        "note": "They press in a diamond after every make. Same answer every time. 3 takes it out fast, then fills his corner. 1 and 4 get open at the free throw line extended, one each side. 2 flashes to the middle at half court. 5 runs long up the sideline. Ball to a guard, then to 2 in the middle, then up the sideline. Never dribble into the corner. Trapped? Chin it, pivot, fake high, pass low. Past half in under 8 seconds, then straight into our half court set. Walk it once, then half speed against coaches.",
+        "visual": {
+          "o": {
+            "3": [
+              280,
+              46
+            ],
+            "1": [
+              160,
+              230
+            ],
+            "4": [
+              400,
+              230
+            ],
+            "2": [
+              280,
+              320
+            ],
+            "5": [
+              470,
+              330
+            ]
+          },
+          "ball": [
+            296,
+            36
+          ],
+          "lines": [
+            {
+              "t": "pass",
+              "a": [
+                280,
+                36
+              ],
+              "b": [
+                160,
+                230
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                280,
+                320
+              ],
+              "b": [
+                280,
+                260
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                470,
+                330
+              ],
+              "b": [
+                470,
+                395
+              ]
+            }
+          ],
+          "c": {
+            "A": [
+              200,
+              200
+            ],
+            "B": [
+              345,
+              200
+            ],
+            "Head": [
+              515,
+              260
+            ]
+          },
+          "label": "Our baseline is at the top. Guard, then the middle, then up. Past half in 8 seconds.",
+          "coach": "Assistants A and B press in the diamond spots at half speed and show the trap on the first pass, hands up, no fouls. Head coach on the sideline counts the 8 seconds out loud and freezes if anyone dribbles into the corner."
+        }
+      },
+      {
+        "mins": 12,
+        "title": "Half Court Offense: High Post and Corners",
+        "note": "Fix number two: move without the ball. Our set: 1 and 4 up top, 2 at the high post, 3 and 5 in the corners. Pass and cut. Ball goes to the high post, the guard who passed cuts hard to the rim. Corner rule: you catch it in the corner, you drive, you shoot, or you hit a cutter. Off the ball, never stand. Your man turns his head, cut. Somebody cuts, fill his spot. Walk it 5 on 0, then 5 on 5. A pass with no cut is a turnover.",
+        "visual": {
+          "o": {
+            "1": [
+              200,
+              320
+            ],
+            "4": [
+              360,
+              320
+            ],
+            "2": [
+              280,
+              215
+            ],
+            "3": [
+              62,
+              66
+            ],
+            "5": [
+              498,
+              66
+            ]
+          },
+          "ball": [
+            215,
+            307
+          ],
+          "lines": [
+            {
+              "t": "pass",
+              "a": [
+                200,
+                320
+              ],
+              "b": [
+                280,
+                215
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                200,
+                320
+              ],
+              "b": [
+                255,
+                110
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                360,
+                320
+              ],
+              "b": [
+                280,
+                330
+              ]
+            }
+          ],
+          "label": "Pass to the high post and cut. The other guard fills the top. Corners: drive, shoot, or hit the cutter.",
+          "coach": "Assistants A and B play defense in the gaps so the cuts have to be real. Head coach above the top of the key: yell freeze, whoever is standing still says where he should be."
+        }
+      },
+      {
+        "mins": 8,
+        "title": "Walk the Game Plan: 2-3 Zone Defense",
+        "note": "Our opening defense tomorrow. Top two: 1 and 4, take the ball and the wings. Middle of the back: 2, you own the paint and talk. Back corners: 3 and 5, you own the corners and the short corners. Everybody moves on the pass, not after it. Hands up. Shot goes up: hit the closest body, then go get it. Walk it 5 on 0 while a coach moves the ball, then half speed against coaches.",
+        "visual": {
+          "d": {
+            "1": [
+              225,
+              270,
+              "1"
+            ],
+            "4": [
+              335,
+              270,
+              "4"
+            ],
+            "3": [
+              170,
+              155,
+              "3"
+            ],
+            "2": [
+              280,
+              130,
+              "2"
+            ],
+            "5": [
+              390,
+              155,
+              "5"
+            ]
+          },
+          "o": {
+            "1": [
+              280,
+              345
+            ],
+            "2": [
+              130,
+              275
+            ],
+            "3": [
+              430,
+              275
+            ]
+          },
+          "ball": [
+            295,
+            332
+          ],
+          "lines": [
+            {
+              "t": "pass",
+              "a": [
+                280,
+                345
+              ],
+              "b": [
+                430,
+                275
+              ]
+            },
+            {
+              "t": "slide",
+              "a": [
+                335,
+                270
+              ],
+              "b": [
+                400,
+                250
+              ]
+            },
+            {
+              "t": "slide",
+              "a": [
+                390,
+                155
+              ],
+              "b": [
+                440,
+                170
+              ]
+            }
+          ],
+          "c": {
+            "A": [
+              62,
+              110
+            ],
+            "B": [
+              498,
+              110
+            ]
+          },
+          "label": "Move on the pass. Shot goes up, hit the closest body.",
+          "coach": "Assistants A and B play offense in the corners and move the ball so every spot has to slide. Head coach above the top of the key: freeze on a pass and ask one guy his spot and his job."
+        }
+      },
+      {
+        "mins": 4,
+        "title": "New Inbounds Play 1: Under Our Basket",
+        "note": "Fix number three. Coach's new play, drawn on the visuals sheet. Walk it 5 on 0. Everyone says his spot before the ball is handed in. Then once against coaches. 5 seconds, so get there fast.",
+        "visual": {
+          "ball": [
+            280,
+            36
+          ],
+          "label": "Play name: ____________   Call: ____________",
+          "coach": "Head coach: ____________. Assistant A: ____________. Assistant B: ____________."
+        }
+      },
+      {
+        "mins": 4,
+        "title": "New Inbounds Play 2: Sideline",
+        "note": "Coach's new play, drawn on the visuals sheet. Walk it 5 on 0, say your spot, then once against coaches. Inbounder slaps the ball to start it.",
+        "visual": {
+          "ball": [
+            522,
+            250
+          ],
+          "label": "Play name: ____________   Call: ____________",
+          "coach": "Head coach: ____________. Assistant A: ____________. Assistant B: ____________."
+        }
+      },
+      {
+        "mins": 4,
+        "title": "New Set Play 1: Shot for a Corner",
+        "note": "Coach's new play from our set: 1 and 4 up top, 2 high post, 3 and 5 in the corners. Walk it, then half speed. Everyone knows where the shot comes from.",
+        "visual": {
+          "o": {
+            "1": [
+              200,
+              320
+            ],
+            "4": [
+              360,
+              320
+            ],
+            "2": [
+              280,
+              215
+            ],
+            "3": [
+              62,
+              66
+            ],
+            "5": [
+              498,
+              66
+            ]
+          },
+          "ball": [
+            215,
+            307
+          ],
+          "label": "Play name: ____________   Call: ____________",
+          "coach": "Head coach: ____________. Assistant A: ____________. Assistant B: ____________."
+        }
+      },
+      {
+        "mins": 4,
+        "title": "New Set Play 2: Motion",
+        "note": "Coach's new motion from our set. Walk it, then half speed. Never stand still. Every pass has a cut.",
+        "visual": {
+          "o": {
+            "1": [
+              200,
+              320
+            ],
+            "4": [
+              360,
+              320
+            ],
+            "2": [
+              280,
+              215
+            ],
+            "3": [
+              62,
+              66
+            ],
+            "5": [
+              498,
+              66
+            ]
+          },
+          "ball": [
+            215,
+            307
+          ],
+          "label": "Play name: ____________   Call: ____________",
+          "coach": "Head coach: ____________. Assistant A: ____________. Assistant B: ____________."
+        }
+      },
+      {
+        "mins": 12,
+        "title": "Scenario Scrimmage (controlled)",
+        "note": "Starters vs the rest, half court and full court, controlled speed. Legs fresh for tomorrow. Situations: start in our 2-3 zone. A make, and they press in the diamond: break it. A dead ball under our basket: run a new inbounds play. A dead ball on the side: run the other one. Coaches fill in for 5 on 5. Option A, scored for today: a box out on every shot is 1, a layup off a cut is 2, a turnover costs 1. Option B, scrimmage graded on three things: box out every shot, every pass has a cut, everybody knows the play. Winners run the Victory Lap.",
+        "visual": {
+          "o": {
+            "1": [
+              200,
+              320
+            ],
+            "4": [
+              360,
+              320
+            ],
+            "2": [
+              280,
+              215
+            ],
+            "3": [
+              62,
+              66
+            ],
+            "5": [
+              498,
+              66
+            ]
+          },
+          "ball": [
+            215,
+            307
+          ],
+          "d": {
+            "1": [
+              225,
+              270
+            ],
+            "4": [
+              335,
+              270
+            ],
+            "3": [
+              170,
+              155
+            ],
+            "2": [
+              280,
+              130
+            ],
+            "5": [
+              390,
+              155
+            ]
+          },
+          "label": "Our set against a 2-3. Box out every shot, every pass has a cut.",
+          "coach": "Head coach on the sideline calls each situation, picks Option A or B, keeps score. Assistant A counts missed box outs. Assistant B counts turnovers and passes with no cut. Both assistants step in for 5 on 5."
+        }
+      },
+      {
+        "mins": 5,
+        "title": "Pressure Free Throws",
+        "note": "Everyone shoots 2, team says the shooter's name. Round 1: any miss, the whole team runs. Round 2, Earn Your Lap: make both and run the Victory Lap. Count the tally. Champion picks the next Circle Up question. Break the huddle.",
+        "visual": {
+          "lane": true,
+          "o": {
+            "1": [
+              280,
+              230
+            ]
+          },
+          "ball": [
+            280,
+            230
+          ],
+          "c": {
+            "Head": [
+              400,
+              260
+            ]
+          },
+          "coach": "Head coach off the lane with the tally: count it out loud and break the huddle. Assistants rebound and collect balls."
+        }
+      }
+    ],
+    "extras": [
+      {
+        "title": "Knockout",
+        "note": "2 balls. Free throw line, then elbow, then top of the key 3."
+      },
+      {
+        "title": "Hot Shot",
+        "note": "60 seconds, 5 spots worth 1 to 5."
+      }
+    ],
+    "announce": "Game tomorrow: Tuesday Nov 17 vs Daniel Academy, home, 7:45 tip. Can't make it? Tell us before, or your minutes get limited. Player Course Week 1 is live at datakyle.github.io/Coach-OS/#learn. Pressure Shooting tally is still live.",
+    "updated": 1794833717379
   }
 ]
