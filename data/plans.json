@@ -6299,5 +6299,734 @@
     ],
     "announce": "Game tomorrow: Tuesday Nov 17 vs Daniel Academy, home, 6:30 tip. Can't make it? Tell us before, or your minutes get limited. Player Course Week 1 is live at datakyle.github.io/Coach-OS/#learn. Pressure Shooting tally is still live.",
     "updated": 1794833894248
+  },
+  {
+    "id": "2026-11-19",
+    "date": "2026-11-19",
+    "start": "18:00",
+    "focus": "Zone Offense at Game Speed, Pack Line and the Glass",
+    "tagline": "Find the holes. Hit first. Talk on defense.",
+    "items": [
+      {
+        "mins": 5,
+        "title": "Circle Up",
+        "note": "First, the four numbers from Daniel Academy: turnovers, baseline drives, offensive rebounds we gave up, and paint touches. The worst one gets the most time today. Our focus: attack the zone at game speed, and own the glass. Today is our hardest day of the week. Two non-negotiables: talk every possession, and never get beat standing still. Winners run is on. Split Team 1 / Team 2. Station groups: Shooters and Fundamentals.",
+        "visual": {
+          "circle": [
+            280,
+            300,
+            70,
+            8
+          ],
+          "c": {
+            "Head": [
+              280,
+              300
+            ]
+          },
+          "coach": "Head coach in the middle: read the four numbers from Daniel Academy, name the worst one, today's focus is the zone at game speed and the glass. Assistants grab balls and set up for Oregon Passing."
+        }
+      },
+      {
+        "mins": 10,
+        "title": "Game Warmup",
+        "note": "Our game warmup, dynamic only. Captains lead it and call each move. Loud and on time. Same warmup we walk out with on Monday.",
+        "visual": {
+          "o": {
+            "1": [
+              110,
+              60
+            ],
+            "2": [
+              220,
+              60
+            ],
+            "3": [
+              340,
+              60
+            ],
+            "4": [
+              450,
+              60
+            ]
+          },
+          "lines": [
+            {
+              "t": "cut",
+              "a": [
+                110,
+                80
+              ],
+              "b": [
+                110,
+                385
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                220,
+                80
+              ],
+              "b": [
+                220,
+                385
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                340,
+                80
+              ],
+              "b": [
+                340,
+                385
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                450,
+                80
+              ],
+              "b": [
+                450,
+                385
+              ]
+            }
+          ],
+          "c": {
+            "Head": [
+              515,
+              220
+            ]
+          },
+          "label": "Dynamic warmup, baseline to half court and back. Captains call every move.",
+          "coach": "Captains run it. Head coach on the sideline watching energy and the clock. Assistants set out balls for Oregon Passing."
+        }
+      },
+      {
+        "mins": 6,
+        "title": "Oregon Passing",
+        "note": "Ball security. Under 12 turnovers on Monday starts here. Call the name before you pass. Pass must hit the hands. 2-minute rounds, beat the last round. Bad pass or silent pass is a redo.",
+        "visual": {
+          "o": {
+            "1": [
+              130,
+              330
+            ],
+            "2": [
+              280,
+              200
+            ],
+            "3": [
+              430,
+              330
+            ]
+          },
+          "ball": [
+            130,
+            330
+          ],
+          "lines": [
+            {
+              "t": "pass",
+              "a": [
+                130,
+                330
+              ],
+              "b": [
+                280,
+                200
+              ]
+            },
+            {
+              "t": "pass",
+              "a": [
+                280,
+                200
+              ],
+              "b": [
+                430,
+                330
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                130,
+                330
+              ],
+              "b": [
+                250,
+                380
+              ]
+            }
+          ],
+          "c": {
+            "Head": [
+              515,
+              260
+            ],
+            "A": [
+              280,
+              70
+            ]
+          },
+          "label": "Call the name, pass to the hands, follow your pass.",
+          "coach": "Head coach counts passes out loud and calls redos on a silent or bad pass. Assistant A runs the clock on 2-minute rounds and calls the best round."
+        }
+      },
+      {
+        "mins": 10,
+        "title": "Teach: 2-3 Zone, Quick Review",
+        "note": "Review, not new. 2 minutes on the board, 8 on the floor. You tell me today. Name the three holes: free throw line, short corners, the gap across the top. Walk it 5 on 0 against coaches in a 2-3, then speed it up. High: ball to the free throw line, he turns and faces. Short corner open, hit him. Back side open, skip it. Freeze and ask: where is the open hole right now? Don't shoot before the zone moves.",
+        "visual": {
+          "o": {
+            "1": [
+              280,
+              330
+            ],
+            "2": [
+              130,
+              260
+            ],
+            "3": [
+              430,
+              260
+            ],
+            "4": [
+              280,
+              215
+            ],
+            "5": [
+              175,
+              75
+            ]
+          },
+          "d": {
+            "1": [
+              225,
+              270
+            ],
+            "2": [
+              335,
+              270
+            ],
+            "3": [
+              170,
+              155
+            ],
+            "4": [
+              280,
+              130
+            ],
+            "5": [
+              390,
+              155
+            ]
+          },
+          "cones": [
+            [
+              280,
+              300
+            ],
+            [
+              280,
+              190
+            ],
+            [
+              175,
+              100
+            ],
+            [
+              385,
+              100
+            ]
+          ],
+          "ball": [
+            280,
+            330
+          ],
+          "lines": [
+            {
+              "t": "pass",
+              "a": [
+                280,
+                330
+              ],
+              "b": [
+                280,
+                215
+              ]
+            },
+            {
+              "t": "pass",
+              "a": [
+                280,
+                215
+              ],
+              "b": [
+                175,
+                75
+              ]
+            }
+          ],
+          "label": "Players name the three holes. Ball to the free throw line, then short corner or skip.",
+          "coach": "Assistant A at the board for 2 minutes, then plays the back middle of the 2-3. Assistant B plays a back corner of the zone and slides with every pass. Head coach at the top: players name the three holes, freeze on a pass and ask where the open hole is."
+        }
+      },
+      {
+        "mins": 10,
+        "title": "Live vs the 2-3",
+        "note": "Now it's live. Coaches play an honest 2-3, then a player steps in when we have the bodies. Run High, Skip or Play A. Play A: drive the gap between the top two. Two come, kick it. Nobody comes, finish. On every shot, three crash and two get back. Called play basket is 2. Short corner or skip basket is 3. Shooting before the zone moves is a turnover. Offensive rebound is a bonus point.",
+        "visual": {
+          "o": {
+            "1": [
+              280,
+              330
+            ],
+            "2": [
+              130,
+              260
+            ],
+            "3": [
+              430,
+              260
+            ],
+            "4": [
+              280,
+              215
+            ],
+            "5": [
+              175,
+              75
+            ]
+          },
+          "d": {
+            "1": [
+              225,
+              270
+            ],
+            "2": [
+              335,
+              270
+            ],
+            "3": [
+              170,
+              155
+            ],
+            "4": [
+              280,
+              130
+            ],
+            "5": [
+              390,
+              155
+            ]
+          },
+          "ball": [
+            280,
+            330
+          ],
+          "lines": [
+            {
+              "t": "dribble",
+              "a": [
+                280,
+                330
+              ],
+              "b": [
+                280,
+                285
+              ]
+            },
+            {
+              "t": "pass",
+              "a": [
+                280,
+                285
+              ],
+              "b": [
+                130,
+                260
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                175,
+                75
+              ],
+              "b": [
+                230,
+                120
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                280,
+                215
+              ],
+              "b": [
+                290,
+                140
+              ]
+            }
+          ],
+          "label": "Play A: drive the gap, kick it. On the shot, three crash and two get back.",
+          "coach": "Assistants A and B play the back of the 2-3 and play it honest. Head coach at the top: call High, Skip or Play A, keep score, freeze when someone shoots before the zone moves or nobody crashes."
+        }
+      },
+      {
+        "mins": 10,
+        "title": "Skill Stations: Attack the Closeout",
+        "note": "Two groups, horn at the end. Shooters at the main basket: Catch, Rip and Go. Jump stop, rip low, one hard dribble to a layup. Add a closeout: if he runs at you, drive. If he sits, shoot. Fundamentals at the far basket: Footwork Shooting and USA Pivots. Jump stop, pivot, rip through, shoot. Last 3 minutes add a closeout. Strong pivots keep the ball safe.",
+        "visual": {
+          "o": {
+            "1": [
+              430,
+              250
+            ],
+            "2": [
+              280,
+              330
+            ]
+          },
+          "d": {
+            "1": [
+              330,
+              180
+            ]
+          },
+          "ball": [
+            280,
+            330
+          ],
+          "lines": [
+            {
+              "t": "pass",
+              "a": [
+                280,
+                330
+              ],
+              "b": [
+                430,
+                250
+              ]
+            },
+            {
+              "t": "closeout",
+              "a": [
+                330,
+                180
+              ],
+              "b": [
+                410,
+                235
+              ]
+            },
+            {
+              "t": "dribble",
+              "a": [
+                430,
+                250
+              ],
+              "b": [
+                330,
+                150
+              ]
+            }
+          ],
+          "c": {
+            "B": [
+              500,
+              120
+            ],
+            "A": [
+              60,
+              360
+            ]
+          },
+          "label": "Runs at you, drive. Sits, shoot. Rip low, one hard dribble.",
+          "coach": "Assistant B with the Shooters at the main basket: closes out and calls drive or shoot on each rep. Assistant A with Fundamentals at the far basket: checks two-foot jump stops and strong pivots, closes out the last 3 minutes. Head coach floats."
+        }
+      },
+      {
+        "mins": 10,
+        "title": "Shell Drill: Stage 4",
+        "note": "Pack line, Stage 4, game speed. Ball, Gap, Help called out loud on every pass. Force middle. Drive middle, help stops it, kick out, helper closes out short and forces middle. All five box out. A baseline drive or a late rotation, the group runs a down and back. Stop plus a box out is a point for the defense.",
+        "visual": {
+          "pack": true,
+          "o": {
+            "1": [
+              280,
+              353
+            ],
+            "2": [
+              468,
+              231
+            ],
+            "3": [
+              92,
+              231
+            ],
+            "4": [
+              62,
+              66
+            ]
+          },
+          "d": {
+            "1": [
+              262,
+              300,
+              "BALL"
+            ],
+            "2": [
+              360,
+              175,
+              "HELP"
+            ],
+            "3": [
+              185,
+              190,
+              "HELP"
+            ],
+            "4": [
+              230,
+              110,
+              "HELP"
+            ]
+          },
+          "c": {
+            "B": [
+              498,
+              66
+            ]
+          },
+          "ball": [
+            280,
+            353
+          ],
+          "lines": [
+            {
+              "t": "dribble",
+              "a": [
+                280,
+                353
+              ],
+              "b": [
+                290,
+                265
+              ]
+            },
+            {
+              "t": "pass",
+              "a": [
+                290,
+                265
+              ],
+              "b": [
+                468,
+                231
+              ]
+            },
+            {
+              "t": "closeout",
+              "a": [
+                360,
+                175
+              ],
+              "b": [
+                448,
+                215
+              ]
+            }
+          ],
+          "nobase": [
+            [
+              470,
+              150
+            ],
+            [
+              505,
+              160
+            ]
+          ],
+          "label": "Drive, kick, the helper closes out short and forces middle.",
+          "coach": "Assistant B fills the right corner on offense. Assistant A plays a wing. Head coach above the top of the key: freeze and ask one guy his job, count baseline drives and late rotations."
+        }
+      },
+      {
+        "mins": 8,
+        "title": "Rebounding Toughness",
+        "note": "Spiral of Monday's box out. 3v3, coach shoots, offense crashes. Hit first, hold him, two hands, chin it. Defense needs 3 straight boards to get off. An offensive board resets you to zero. Nobody watches the ball.",
+        "visual": {
+          "o": {
+            "1": [
+              280,
+              250
+            ],
+            "2": [
+              170,
+              190
+            ],
+            "3": [
+              400,
+              170
+            ]
+          },
+          "d": {
+            "1": [
+              280,
+              215
+            ],
+            "2": [
+              205,
+              160
+            ],
+            "3": [
+              365,
+              145
+            ]
+          },
+          "c": {
+            "Head": [
+              280,
+              300
+            ]
+          },
+          "lines": [
+            {
+              "t": "cut",
+              "a": [
+                170,
+                190
+              ],
+              "b": [
+                225,
+                120
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                400,
+                170
+              ],
+              "b": [
+                340,
+                115
+              ]
+            }
+          ],
+          "label": "3 straight boards to get off. An offensive board resets to zero.",
+          "coach": "Head coach shoots from the top. Assistant A runs the second group at the far basket. Assistant B counts straight boards and calls anyone who watches the ball."
+        }
+      },
+      {
+        "mins": 14,
+        "title": "Game 4v4 (or 5v5): Man and Zone",
+        "note": "Team 1 vs Team 2, full court, games to 7. 4v4 with eight, coaches fill in for 5v5. On defense, coach calls MAN or ZONE before each trip. Man is pack line. Zone is our 2-3. Every miss, sprint back to the paint. Option A, scored for today: a short corner or skip basket against the zone is 3, an offensive board is 1, a baseline drive costs the defense 2. Option B, scrimmage graded on three things: ball to the free throw line before a shot against the zone, box out every shot, no baseline drives. Winners run the Victory Lap.",
+        "visual": {
+          "o": {
+            "1": [
+              280,
+              300
+            ],
+            "2": [
+              140,
+              230
+            ],
+            "3": [
+              420,
+              230
+            ],
+            "4": [
+              470,
+              90
+            ]
+          },
+          "d": {
+            "1": [
+              280,
+              265,
+              "BALL"
+            ],
+            "2": [
+              180,
+              200,
+              "GAP"
+            ],
+            "3": [
+              380,
+              200,
+              "GAP"
+            ],
+            "4": [
+              330,
+              120,
+              "HELP"
+            ]
+          },
+          "ball": [
+            280,
+            300
+          ],
+          "pack": true,
+          "nobase": [
+            [
+              470,
+              150
+            ],
+            [
+              505,
+              160
+            ]
+          ],
+          "label": "Live game. Coach calls MAN or ZONE. Find the holes, force middle, box out.",
+          "coach": "Head coach on the sideline: calls MAN or ZONE each trip, picks Option A or B, keeps score. Assistant A counts baseline drives and offensive rebounds given up. Assistant B counts turnovers and shots before the zone moves. If we're 5v5, both assistants step in."
+        }
+      },
+      {
+        "mins": 7,
+        "title": "Pressure Free Throws",
+        "note": "Everyone shoots 2, team says the shooter's name. Round 1: any miss, the whole team runs. Round 2, Earn Your Lap: make both and run the Victory Lap. Round 3: one and one, like the bonus on Monday. Count the tally. Champion picks the next Circle Up question. Break the huddle.",
+        "visual": {
+          "lane": true,
+          "o": {
+            "1": [
+              280,
+              230
+            ]
+          },
+          "ball": [
+            280,
+            230
+          ],
+          "c": {
+            "Head": [
+              400,
+              260
+            ]
+          },
+          "coach": "Head coach off the lane with the tally and today's counts from the assistants. Break the huddle. Assistants rebound and collect balls."
+        }
+      }
+    ],
+    "extras": [
+      {
+        "title": "Rim War",
+        "note": "1v1 from the block, winner stays, first to 3 runs the Victory Lap."
+      },
+      {
+        "title": "Hot Shot",
+        "note": "60 seconds, 5 spots worth 1 to 5."
+      }
+    ],
+    "announce": "Next games: Monday Nov 23 at St. Vincent de Paul (Christ the King Gym), 6:00 tip, then Tuesday Nov 24 vs Hyman Brand at home, 6:00 tip. Sunday is a light practice. Can't make it? Tell us before, or your minutes get limited. Player Course is live at datakyle.github.io/Coach-OS/#learn. Pressure Shooting tally is still live.",
+    "updated": 1795049949959
   }
 ]
