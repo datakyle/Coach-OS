@@ -7028,5 +7028,620 @@
     ],
     "announce": "Next games: Monday Nov 23 at St. Vincent de Paul (Christ the King Gym), 6:00 tip, then Tuesday Nov 24 vs Hyman Brand at home, 6:00 tip. Sunday is a light practice. Can't make it? Tell us before, or your minutes get limited. Player Course is live at datakyle.github.io/Coach-OS/#learn. Pressure Shooting tally is still live.",
     "updated": 1795049949959
+  },
+  {
+    "id": "2026-11-22",
+    "date": "2026-11-22",
+    "start": "16:00",
+    "focus": "Game Week: Install Action, the 2-2-1 Press, and Review Our Plays",
+    "tagline": "Know your spot. Run it to the end. Fresh legs Monday.",
+    "items": [
+      {
+        "mins": 7,
+        "title": "Circle Up",
+        "note": "Today: review our plays, and install a new one called Action. First, how we did. Two games in: name what we did well, then the one number we fix. Monday we're away at St. Vincent de Paul, Christ the King Gym, 6:00 tip. Tuesday is Hyman Brand at home, 6:00 tip. Coach Ken and I are out Tuesday. Coach Mike runs it. Same rules, same effort. Today's work: starters and our 2-3, our 2-2-1 press, inbounds and sideline plays, Action, Motion into KC, and the press break. Two non-negotiables: talk every possession, and never get beat standing still. Split Team 1 / Team 2.",
+        "visual": {
+          "circle": [
+            280,
+            300,
+            70,
+            8
+          ],
+          "c": {
+            "Head": [
+              280,
+              300
+            ]
+          },
+          "coach": "Head coach in the middle: what we did well in two games, the one number to fix, Monday at St. Vincent de Paul and Tuesday vs Hyman Brand, who runs Tuesday, today's list. Assistants set out balls and cones for the press."
+        }
+      },
+      {
+        "mins": 10,
+        "title": "Game Warmup",
+        "note": "Our game warmup, dynamic only. Captains lead it and call each move. Loud and on time. Same warmup we walk out with Monday.",
+        "visual": {
+          "o": {
+            "1": [
+              110,
+              60
+            ],
+            "2": [
+              220,
+              60
+            ],
+            "3": [
+              340,
+              60
+            ],
+            "4": [
+              450,
+              60
+            ]
+          },
+          "lines": [
+            {
+              "t": "cut",
+              "a": [
+                110,
+                80
+              ],
+              "b": [
+                110,
+                385
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                220,
+                80
+              ],
+              "b": [
+                220,
+                385
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                340,
+                80
+              ],
+              "b": [
+                340,
+                385
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                450,
+                80
+              ],
+              "b": [
+                450,
+                385
+              ]
+            }
+          ],
+          "c": {
+            "Head": [
+              515,
+              220
+            ]
+          },
+          "label": "Dynamic warmup, baseline to half court and back. Captains call every move.",
+          "coach": "Captains run it. Head coach on the sideline watching energy and the clock. Assistants set cones at the press spots."
+        }
+      },
+      {
+        "mins": 8,
+        "title": "Starting Lineup and Starting Defense: 2-3 Zone",
+        "note": "I name the starters, 1 to 5. Each starter says his number and his spot back to me. We start both games in our 2-3. Top two: 1 and 4, take the ball and the wings. Middle of the back: 2, you own the paint and talk. Back corners: 3 and 5, own the corners and the short corners. Move on the pass, hands up, hit the closest body on the shot. When we adjust: they hit two 3s in a row, or they keep scoring from the free throw line, coach calls MAN. That is our pack line: Ball, Gap, Help, force middle. Walk it, then half speed against coaches. Freeze and ask: what is the call if they get hot from 3?",
+        "visual": {
+          "d": {
+            "1": [
+              225,
+              270,
+              "1"
+            ],
+            "4": [
+              335,
+              270,
+              "4"
+            ],
+            "3": [
+              170,
+              155,
+              "3"
+            ],
+            "2": [
+              280,
+              130,
+              "2"
+            ],
+            "5": [
+              390,
+              155,
+              "5"
+            ]
+          },
+          "o": {
+            "1": [
+              280,
+              345
+            ],
+            "2": [
+              130,
+              275
+            ],
+            "3": [
+              430,
+              275
+            ]
+          },
+          "ball": [
+            295,
+            332
+          ],
+          "lines": [
+            {
+              "t": "pass",
+              "a": [
+                280,
+                345
+              ],
+              "b": [
+                430,
+                275
+              ]
+            },
+            {
+              "t": "slide",
+              "a": [
+                335,
+                270
+              ],
+              "b": [
+                400,
+                250
+              ]
+            },
+            {
+              "t": "slide",
+              "a": [
+                390,
+                155
+              ],
+              "b": [
+                440,
+                170
+              ]
+            }
+          ],
+          "c": {
+            "A": [
+              62,
+              110
+            ],
+            "B": [
+              498,
+              110
+            ]
+          },
+          "label": "Start in the 2-3 both games. Hot from 3 or scoring at the free throw line: coach calls MAN.",
+          "coach": "Head coach announces the starters and gets each spot said back, then freezes on a pass and asks the adjust question. Assistants A and B play offense in the corners and move the ball so every spot has to slide."
+        }
+      },
+      {
+        "mins": 12,
+        "title": "Teach: 2-2-1 Press (New)",
+        "note": "New. 3 minutes on the board, 9 on the floor. After a made free throw or a made basket, we get into the 2-2-1. Front two, 1 and 4: stand at their free throw line. Let the inbound in, then turn the ball to the sideline. Wings, 3 and 2: stand near half court, one each side. Safety, 5: back in our paint. Nobody gets a layup. The trap: ball goes up the sideline, the front man on that side and the wing on that side trap him at half court. Hands up, no reaching, no fouls. The other front man takes away the middle pass. The other wing drops to cover the far side. Once they cross half court, sprint back to our 2-3. Press only: we push the ball to the sideline to trap. In the half court we still force middle. Walk it 5 on 0, then half speed against coaches.",
+        "visual": {
+          "o": {
+            "1": [
+              280,
+              80
+            ],
+            "2": [
+              160,
+              210
+            ],
+            "3": [
+              465,
+              305
+            ],
+            "4": [
+              285,
+              330
+            ],
+            "5": [
+              120,
+              385
+            ]
+          },
+          "d": {
+            "F1": [
+              300,
+              265,
+              "MIDDLE"
+            ],
+            "F2": [
+              438,
+              282,
+              "TRAP"
+            ],
+            "W1": [
+              180,
+              375,
+              "WING"
+            ],
+            "W2": [
+              484,
+              342,
+              "TRAP"
+            ],
+            "S": [
+              330,
+              372,
+              "SAFETY"
+            ]
+          },
+          "ball": [
+            465,
+            305
+          ],
+          "lines": [
+            {
+              "t": "dribble",
+              "a": [
+                400,
+                170
+              ],
+              "b": [
+                465,
+                295
+              ]
+            },
+            {
+              "t": "slide",
+              "a": [
+                340,
+                230
+              ],
+              "b": [
+                438,
+                282
+              ]
+            },
+            {
+              "t": "slide",
+              "a": [
+                440,
+                370
+              ],
+              "b": [
+                484,
+                342
+              ]
+            },
+            {
+              "t": "slide",
+              "a": [
+                220,
+                230
+              ],
+              "b": [
+                300,
+                265
+              ]
+            },
+            {
+              "t": "slide",
+              "a": [
+                120,
+                370
+              ],
+              "b": [
+                180,
+                375
+              ]
+            }
+          ],
+          "cones": [
+            [
+              220,
+              230
+            ],
+            [
+              340,
+              230
+            ],
+            [
+              120,
+              370
+            ],
+            [
+              440,
+              370
+            ]
+          ],
+          "label": "Their baseline is at the top. Cones are our starting spots. Ball up the sideline: trap at half court, take away the middle.",
+          "coach": "Assistant A at the board for 3 minutes, then both assistants play offense: Assistant A inbounds, Assistant B dribbles up the sideline at half speed so the trap has a target. Head coach at half court: freeze on the trap and ask the front man away from the ball where his man is."
+        }
+      },
+      {
+        "mins": 8,
+        "title": "Inbounds and Sideline Review",
+        "note": "Review, not new. Under our basket: Box Man, Square, Box Zone, plus our new inbounds play. Then our sideline play. Walk each one 5 on 0, then once against coaches. Everyone says his spot before the ball is handed in. Inbounder slaps the ball to start it. 5 seconds, so get there fast.",
+        "visual": {
+          "o": {
+            "1": [
+              280,
+              36
+            ],
+            "2": [
+              210,
+              120
+            ],
+            "3": [
+              350,
+              120
+            ],
+            "4": [
+              210,
+              230
+            ],
+            "5": [
+              350,
+              230
+            ]
+          },
+          "ball": [
+            280,
+            36
+          ],
+          "c": {
+            "Head": [
+              515,
+              260
+            ],
+            "A": [
+              250,
+              170
+            ],
+            "B": [
+              320,
+              170
+            ]
+          },
+          "label": "Under our basket first, then the sideline. Say your spot, then run it.",
+          "coach": "Head coach on the sideline calls the play and checks every spot. Assistants A and B defend in the lane, in man for Box Man and Square, in a zone for Box Zone and the sideline play."
+        }
+      },
+      {
+        "mins": 15,
+        "title": "Install: Action (New)",
+        "note": "Our new play. Board first, then walk it, then half speed. Phase 1: 5 out setup. Phase 2: pass to the right side, then the passer cuts down the middle to the baseline. Phase 3: the cutter screens for the right corner. The corner pops out for 3. If they deny the pass to the right side: the point dribbles at the denied wing. That is his signal to cut backdoor. Open, hit him. Not open, he fills the corner and we run Action from there. Freeze and ask: who screens, who shoots, what if they deny?",
+        "visual": {
+          "label": "Coach draws Action on the board: 5 out setup, pass right and cut, screen for the corner, pop for 3. Denied: dribble at the wing.",
+          "coach": "Head coach at the board, then at the top calling each phase out loud: setup, pass and cut, screen and pop. Assistant A guards the right wing and denies the pass on every third rep so we run the counter. Assistant B guards the right corner and checks the screen is set."
+        }
+      },
+      {
+        "mins": 7,
+        "title": "Motion into KC",
+        "note": "Review. Start in our set: 1 and 4 up top, 2 at the high post, 3 and 5 in the corners. Run Motion, then flow into KC on the call. Never stand still. Every pass has a cut. Walk it, then half speed.",
+        "visual": {
+          "o": {
+            "1": [
+              200,
+              320
+            ],
+            "4": [
+              360,
+              320
+            ],
+            "2": [
+              280,
+              215
+            ],
+            "3": [
+              62,
+              66
+            ],
+            "5": [
+              498,
+              66
+            ]
+          },
+          "ball": [
+            215,
+            307
+          ],
+          "label": "Our set: 1 and 4 up top, 2 high post, 3 and 5 in the corners. Motion, then KC on the call.",
+          "coach": "Head coach above the top of the key calls KC and freezes anyone standing still. Assistants A and B play defense in the gaps so the cuts have to be real."
+        }
+      },
+      {
+        "mins": 8,
+        "title": "Press Break: 1 and 4 Bring It Up",
+        "note": "Same answer every time. 1 and 4 bring the ball up every time. 3 takes it out fast, then fills his corner. 1 and 4 get open at the free throw line extended, one each side. 2 flashes to the middle at half court. 5 runs long up the sideline. Ball to 1 or 4, then to 2 in the middle, then up. Never dribble into the corner. Trapped? Chin it, pivot, fake high, pass low. Past half in under 8 seconds.",
+        "visual": {
+          "o": {
+            "3": [
+              280,
+              46
+            ],
+            "1": [
+              160,
+              230
+            ],
+            "4": [
+              400,
+              230
+            ],
+            "2": [
+              280,
+              320
+            ],
+            "5": [
+              470,
+              330
+            ]
+          },
+          "ball": [
+            296,
+            36
+          ],
+          "lines": [
+            {
+              "t": "pass",
+              "a": [
+                280,
+                36
+              ],
+              "b": [
+                160,
+                230
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                280,
+                320
+              ],
+              "b": [
+                280,
+                260
+              ]
+            },
+            {
+              "t": "cut",
+              "a": [
+                470,
+                330
+              ],
+              "b": [
+                470,
+                395
+              ]
+            }
+          ],
+          "c": {
+            "A": [
+              200,
+              200
+            ],
+            "B": [
+              345,
+              200
+            ],
+            "Head": [
+              515,
+              260
+            ]
+          },
+          "label": "Our baseline is at the top. 1 and 4 bring it up every time. Past half in 8 seconds.",
+          "coach": "Assistants A and B press at half speed and show the trap on the first pass, hands up, no fouls. Head coach on the sideline counts the 8 seconds out loud and freezes if anyone but 1 or 4 brings it up."
+        }
+      },
+      {
+        "mins": 10,
+        "title": "Scenario Scrimmage (controlled)",
+        "note": "Starters vs the rest, controlled speed. Legs fresh for Monday. Situations: start in our 2-3. A make, and we get into the 2-2-1. They press us: 1 and 4 bring it up. A dead ball under our basket or on the side: run a play. Half court: run Action. Coaches fill in for 5 on 5. Option A, scored for today: a trap that forces a pickup is 1, an Action 3 is 3, a turnover costs 1. Option B, scrimmage graded on three things: everybody knows his spot in the 2-3 and the press, 1 and 4 bring it up every time, Action run to the end. Winners run the Victory Lap.",
+        "visual": {
+          "o": {
+            "1": [
+              200,
+              320
+            ],
+            "4": [
+              360,
+              320
+            ],
+            "2": [
+              280,
+              215
+            ],
+            "3": [
+              62,
+              66
+            ],
+            "5": [
+              498,
+              66
+            ]
+          },
+          "ball": [
+            215,
+            307
+          ],
+          "d": {
+            "1": [
+              225,
+              270
+            ],
+            "4": [
+              335,
+              270
+            ],
+            "3": [
+              170,
+              155
+            ],
+            "2": [
+              280,
+              130
+            ],
+            "5": [
+              390,
+              155
+            ]
+          },
+          "label": "Game situations at controlled speed: 2-3, 2-2-1 after a make, press break, inbounds, Action.",
+          "coach": "Head coach on the sideline calls each situation, picks Option A or B, keeps score. Assistant A counts turnovers. Assistant B checks spots in the 2-3 and the press. Both assistants step in for 5 on 5."
+        }
+      },
+      {
+        "mins": 5,
+        "title": "Pressure Free Throws",
+        "note": "Everyone shoots 2, team says the shooter's name. Round 1: any miss, the whole team runs. Round 2, Earn Your Lap: make both and run the Victory Lap. Count the tally. Champion picks the next Circle Up question. Break the huddle.",
+        "visual": {
+          "lane": true,
+          "o": {
+            "1": [
+              280,
+              230
+            ]
+          },
+          "ball": [
+            280,
+            230
+          ],
+          "c": {
+            "Head": [
+              400,
+              260
+            ]
+          },
+          "coach": "Head coach off the lane with the tally: count it out loud and break the huddle. Assistants rebound and collect balls."
+        }
+      }
+    ],
+    "extras": [
+      {
+        "title": "Knockout",
+        "note": "2 balls. Free throw line, then elbow, then top of the key 3."
+      },
+      {
+        "title": "Hot Shot",
+        "note": "60 seconds, 5 spots worth 1 to 5."
+      }
+    ],
+    "announce": "Game Monday Nov 23 at St. Vincent de Paul (Christ the King Gym), 6:00 tip. Then Tuesday Nov 24 vs Hyman Brand at home, 6:00 tip. Coach Mike runs Tuesday. Can't make it? Tell us before, or your minutes get limited. Player Course is live at datakyle.github.io/Coach-OS/#learn. Pressure Shooting tally is still live.",
+    "updated": 1795233535387
   }
 ]
